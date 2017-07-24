@@ -51,7 +51,7 @@ class StockPageController < ApplicationController
     @urlSole24Ore = @urls.url3
     
     begin
-      if @urlSole24Ore
+      if !@urlSole24Ore.blank?
         docSole24Ore = Nokogiri::HTML(open(@urlSole24Ore), nil, 'ISO-8859-1')
         docSole24Ore.encoding = 'UTF-8'
         docSole24Ore.search('script',  'img').each do |src|
@@ -97,7 +97,7 @@ class StockPageController < ApplicationController
     @urlMilanoFinanza2 = @urls.url10
     
     begin
-      if @urlMilanoFinanza and @urlMilanoFinanza2
+      if !@urlMilanoFinanza.blank? and !@urlMilanoFinanza2.blank?
         docMilanoFinanza = Nokogiri::HTML(open(@urlMilanoFinanza), nil, 'ISO-8859-1')
         docMilanoFinanza2 = Nokogiri::HTML(open(@urlMilanoFinanza2), nil, 'ISO-8859-1')
         docMilanoFinanza.encoding = 'UTF-8'

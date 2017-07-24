@@ -1,0 +1,112 @@
+#Non utilizzato
+#rails generate scaffold Stock name:string isin:string cod:string sector:string url1:string url2:string url3:string url4:string url5:string url6:string
+#class Stock < ApplicationRecord
+#				has_many :analysis, dependent: :destroy
+#				validates_associated :analysis
+#				validates :name, :isin, :cod, presence: true
+#				validates :name, :isin, :cod, uniqueness: true
+#end
+#class DynamicDataStock < ApplicationRecord
+#					validates :isin, presence: true
+#					validates :isin, uniqueness: true
+#					validates :lastPrice, numericality: {greater_than: 0.00}
+#					validates :dividendValue, numericality: {greater_than: 0.00}
+#					validates :dividendYeld, numericality: {greater_than: 0.00}
+#end
+#
+#
+#class ExternalAnalysisStock < ApplicationRecord
+#					validates :isin, presence: true
+#					validates :isin, uniqueness: true
+#					validates :XXIVOreSupport, numericality: {greater_than: 0.00}
+#					validates :XXIVOreResistance, numericality: {greater_than: 0.00}
+#					validates :repubblicaSupport, numericality: {greater_than: 0.00}
+#					validates :repubblicaResistance, numericality: {greater_than: 0.00}
+#end
+
+
+
+
+
+rails generate scaffold ExchangeStock name:string isin:string cod:string sector:string url1:string url2:string url3:string url4:string url5:string url6:string lastPrice:decimal variation:decimal marketPhase:string dividendValue:decimal dividendDate:date dividendYeld:decimal xxivOreSupport:decimal xxivOreResistance:decimal xxivOreShortTrend:string xxivOreFTAIndex:string xxivOreRSI:string xxivOreRSIDiv:string  repubblicaSupport:decimal repubblicaResistance:decimal investingDotComRating:boolean
+
+
+rails generate scaffold Analysis resistance:decimal support:decimal direction:string gap:string tradingPosition:string reversalChartPattern:string continuationChartPattern:string reversalCandlestick:string continuationCandlestick:string rsi:string rsiCross:string rsiDivergence:string stoch:string stochCross:string stochDivergence:string macd:string macdCross:string buy:decimal sell:decimal stopLoss:decimal imageUrl:string note:text exchange_stock:references user:references
+
+
+rails generate scaffold Market name:string value:decimal variation:decimal
+
+
+
+class User < ApplicationRecord
+    has_secure_password
+	has_many :analysis, dependent: :destroy
+	validates_associated :analysis
+	validates :email, presence: true
+	validates :email, uniqueness: true
+	validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/, message: "E-mail format not recognized" }
+end
+
+
+class ExchangeStock < ApplicationRecord
+    has_many :analysis, dependent: :destroy
+	validates_associated :analysis
+	validates :name, :isin, :cod, presence: true
+	validates :name, :isin, :cod, uniqueness: true
+	validates :lastPrice, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :dividendValue, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :dividendYeld, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :xxivOreSupport, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :xxivOreResistance, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :repubblicaSupport, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :repubblicaResistance, numericality: {greater_than: 0.00}, allow_blank: true
+end
+
+
+class Analysis < ApplicationRecord
+	belongs_to :stock
+	belongs_to :user
+	validates :direction, inclusion: { in: %w(Uptrend Lateral Downtrend), message: "%{value} is not a valid direction value" }
+	validates :gap, inclusion: { in: %w(Up None Down), message: "%{value} is not a valid gap value" }
+	validates :tradingPosition, inclusion: { in: %w(Long Neutral Short), message: "%{value} is not a valid trading position value" }
+	validates :rsi, inclusion: { in: %w(Overbought Neutral Oversold), message: "%{value} is not a valid RSI value" }
+	validates :rsiCross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid RSI crossover value" }
+	validates :rsiDivergence , inclusion: { in: %w(Bullish Neutral Bearish), message: "%{value} is not a valid RSI divergence value" }
+	validates :stoch, inclusion: { in: %w(Overbought Neutral Oversold), message: "%{value} is not a valid Stochastic value" }
+	validates :stochCross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid Stochastic crossover value" }
+	validates :stochDivergence , inclusion: { in: %w(Bullish Neutral Bearish), message: "%{value} is not a valid Stochastic divergence value" }
+	validates :macd, inclusion: { in: %w(Overbought Neutral Oversold), message: "%{value} is not a valid MACD value" }
+	validates :macdCross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid MACD crossover value" }
+    validates :resistance, numericality: {greater_than: 0.00}, allow_blank: true
+    validates :support, numericality: {greater_than: 0.00}, allow_blank: true
+    validates :buy, numericality: {greater_than: 0.00}, allow_blank: true
+    validates :sell, numericality: {greater_than: 0.00}, allow_blank: true
+    validates :stopLoss, numericality: {greater_than: 0.00}, allow_blank: true
+end
+
+
+class Market < ApplicationRecord
+	validates :name, presence: true
+	validates :name, uniqueness: true
+    validates :value, numericality: {greater_than: 0.00}, allow_blank: true
+end
+
+
+rails generate migration add_link7_to_exchange_stock link7:string
+rails generate migration add_link8_to_exchange_stock link8:string
+rails generate migration add_link9_to_exchange_stock link9:string
+rails generate migration add_link10_to_exchange_stock link10:string
+rails generate migration add_borsaItalianaSupport_to_exchange_stock  borsaItalianaSupport:decimal
+rails generate migration add_borsaItalianaResistance_to_exchange_stock  borsaItalianaResistance:decimal
+
+
+http://www.borsaitaliana.it/borsa/azioni/scheda/IT0001233417.html?lang=it
+http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0001233417&lang=it
+http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!A2A.MI&refresh_ce
+http://finanza-mercati.ilsole24ore.com/azioni/pagine/dettaglio_fta_sommario/dettaglio_fta_sommario.php?FILTER_VALUE=IT0001233417&Lettera=A&QUOTE=!A2A.MI&refresh_ce
+http://bloomberg.finanza.repubblica.it/Company/Overview?symbol=A2A:IM
+http://finanza.repubblica.it/Company/Advanced?symbol=A2A:IM&refresh_ce
+https://it.investing.com/equities/a2a-spa
+https://it.investing.com/equities/a2a-spa-technical
+
+

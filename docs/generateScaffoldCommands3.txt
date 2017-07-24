@@ -1,0 +1,114 @@
+rails generate scaffold Url isin:string url1:string url2:string url3:string url4:string url5:string url6:string url7:string url8:string url9:string url10:string
+
+rails generate scaffold Stock isin:string cod:string name:string sector:string lastPrice:decimal variation:string marketPhase:string
+
+rails generate scaffold Analysis isin:string borsaItalianaSupport:decimal borsaItalianaResistance:decimal borsaItalianaFTA:string xxivOreSupport:decimal xxivOreResistance:decimal xxivOreShortTrend:string xxivOreFTAIndex:string xxivOreRSI:string xxivOreRSIDiv:string repubblicaSupport:decimal repubblicaResistance:decimal investingDotComRating:boolean
+
+rails generate scaffold Study resistance:decimal support:decimal direction:string mmp1:decimal mmp2:decimal gap:string tradingPosition:string reversalChartPattern:string continuationChartPattern:string reversalCandlestick:string continuationCandlestick:string rsi:string rsiCross:string rsiDivergence:string stoch:string stochCross:string stochDivergence:string macd:string macdCross:string buy:decimal sell:decimal stopLoss:decimal imageUrl:string note:text stock:references user:references
+
+rails generate scaffold Market name:string value:decimal variation:decimal
+
+
+
+class User < ApplicationRecord
+self.primary_key = 'email'
+    has_secure_password
+	has_many :studies, dependent: :destroy
+	validates_associated :studies
+	validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/, message: "E-mail format not recognized" }
+end
+
+
+class Url < ApplicationRecord
+self.primary_key = 'isin'
+    validates :url1, presence: true
+    validates :url1, :url2, :url3, :url4, :url5, :url6, :url7, :url8, :url9, :url10, uniqueness: true
+end
+
+
+class Stock < ApplicationRecord
+self.primary_key = 'isin'
+    has_many :studies, dependent: :destroy
+	validates_associated :studies
+	validates :name, :cod, uniqueness: true
+	validates :lastPrice, numericality: {greater_than: 0.00}, allow_blank: true
+end
+
+
+class Analysis < ApplicationRecord
+self.primary_key = 'isin'
+    validates :borsaItalianaSupport, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :borsaItalianaResistance, numericality: {greater_than: 0.00}, allow_blank: true
+    validates :xxivOreSupport, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :xxivOreResistance, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :repubblicaSupport, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :repubblicaResistance, numericality: {greater_than: 0.00}, allow_blank: true
+end
+
+
+class Study < ApplicationRecord
+    belongs_to :stock
+	belongs_to :user
+    validates :resistance, numericality: {greater_than: 0.00}, allow_blank: true
+    validates :support, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :direction, inclusion: { in: %w(Uptrend Lateral Downtrend), message: "%{value} is not a valid direction value" }
+    validates :mmp1, numericality: {greater_than: 0.00}, allow_blank: true
+    validates :mmp2, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :gap, inclusion: { in: %w(Up None Down), message: "%{value} is not a valid gap value" }
+	validates :tradingPosition, inclusion: { in: %w(Long Neutral Short), message: "%{value} is not a valid trading position value" }
+	validates :rsi, inclusion: { in: %w(Overbought Neutral Oversold), message: "%{value} is not a valid RSI value" }
+	validates :rsiCross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid RSI crossover value" }
+	validates :rsiDivergence , inclusion: { in: %w(Bullish Neutral Bearish), message: "%{value} is not a valid RSI divergence value" }
+	validates :stoch, inclusion: { in: %w(Overbought Neutral Oversold), message: "%{value} is not a valid Stochastic value" }
+	validates :stochCross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid Stochastic crossover value" }
+	validates :stochDivergence , inclusion: { in: %w(Bullish Neutral Bearish), message: "%{value} is not a valid Stochastic divergence value" }
+	validates :macd, inclusion: { in: %w(Overbought Neutral Oversold), message: "%{value} is not a valid MACD value" }
+	validates :macdCross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid MACD crossover value" }
+    validates :buy, numericality: {greater_than: 0.00}, allow_blank: true
+    validates :sell, numericality: {greater_than: 0.00}, allow_blank: true
+    validates :stopLoss, numericality: {greater_than: 0.00}, allow_blank: true
+end
+
+
+class Market < ApplicationRecord
+	validates :name, presence: true
+	validates :name, uniqueness: true
+    validates :value, numericality: {greater_than: 0.00}, allow_blank: true
+end
+
+
+
+
+
+
+       
+
+
+
+
+http://www.borsaitaliana.it/borsa/azioni/scheda/IT0001233417.html?lang=it <Stock>
+http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0001233417&lang=it <Analysis>
+***http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!A2A.MI&refresh_ce 
+
+http://finanza-mercati.ilsole24ore.com/azioni/pagine/dettaglio_fta_sommario/dettaglio_fta_sommario.php?FILTER_VALUE=IT0001233417&Lettera=A&QUOTE=!A2A.MI&refresh_ce <Analysis>
+http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&RatPageName=N24:finanza-e-mercati:azioni:pagine:dettaglio_fta_sommario&RatHier1=N24,finanza-e-mercati,azioni,pagine,dettaglio_fta_sommario&RatType=N24:finanza-e-mercati:articolo-fta&RatEvents=event17&FILTER_VALUE=IT0001233417&QUOTE=%21A2A.MI
+
+
+***http://bloomberg.finanza.repubblica.it/Company/Overview?symbol=A2A:IM
+http://finanza.repubblica.it/Company/Advanced?symbol=A2A:IM&refresh_ce <Analysis>
+https://it.investing.com/equities/a2a-spa <Analysis>
+***https://it.investing.com/equities/a2a-spa-technical
+***http://www.milanofinanza.it/quotazioni/dettaglio/a2a-2ae00c0?refresh_cens
+***http://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=00c0&codicestrumento=w2ae&DBCOD=A2A&refresh_cens
+
+
+
+
+records_array = ActiveRecord::Base.connection.execute("SELECT analyses_stocks.* FROM analyses_stocks")
+
+
+records_array = ActiveRecord::Base.connection.execute("SELECT stocks.* FROM stocks INNER JOIN analyses ON analyses.isin = stocks.isin")
+
+
+
+
