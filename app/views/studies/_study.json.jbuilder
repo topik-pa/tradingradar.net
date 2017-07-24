@@ -1,0 +1,2 @@
+json.extract! study, :id, :resistance, :support, :direction, :mmp1, :mmp2, :gap, :tradingPosition, :reversalChartPattern, :continuationChartPattern, :reversalCandlestick, :continuationCandlestick, :rsi, :rsiCross, :rsiDivergence, :stoch, :stochCross, :stochDivergence, :macd, :macdCross, :buy, :sell, :stopLoss, :imageUrl, :note, :stock_id, :user_id, :created_at, :updated_at
+json.url study_url(study, format: :json)

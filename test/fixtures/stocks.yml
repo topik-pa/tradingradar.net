@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  isin: MyString
+  cod: MyString
+  name: MyString
+  sector: MyString
+  lastPrice: 9.99
+  variation: MyString
+  marketPhase: MyString
+
+two:
+  isin: MyString
+  cod: MyString
+  name: MyString
+  sector: MyString
+  lastPrice: 9.99
+  variation: MyString
+  marketPhase: MyString

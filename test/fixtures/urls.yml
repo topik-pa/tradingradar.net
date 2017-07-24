@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  isin: MyString
+  url1: MyString
+  url2: MyString
+  url3: MyString
+  url4: MyString
+  url5: MyString
+  url6: MyString
+  url7: MyString
+  url8: MyString
+  url9: MyString
+  url10: MyString
+
+two:
+  isin: MyString
+  url1: MyString
+  url2: MyString
+  url3: MyString
+  url4: MyString
+  url5: MyString
+  url6: MyString
+  url7: MyString
+  url8: MyString
+  url9: MyString
+  url10: MyString

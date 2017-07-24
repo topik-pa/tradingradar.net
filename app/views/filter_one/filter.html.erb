@@ -1,0 +1,94 @@
+<h2>Channels break out</h2>
+
+
+<table class="tablesorter">
+	<caption>Resistance</caption>
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Last price
+            </th>
+			<th>
+                Borsa Italiana
+            </th>
+			<th>
+                Il Sole 24 Ore
+            </th>
+			<th>
+                Repubblica
+            </th>			
+        </tr>
+    </thead>
+    <tbody>
+        <% @overResistanceStocks.each do |stock| %>
+        <tr class="<%= cycle('even', 'odd') -%>">
+            <td>
+                
+				<%= link_to "#{stock['name']}", stock_page_index_path(isin: "#{stock['isin']}") %>
+            </td>
+            <td>
+                <%= "#{stock['lastPrice']}" %>
+            </td>
+			<td>
+                <%= "#{stock['borsaItalianaResistance']}" %>
+            </td>
+			<td>
+                <%= "#{stock['xxivOreResistance']}" %>
+            </td>
+			<td>
+                <%= "#{stock['repubblicaResistance']}" %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+
+
+<table class="tablesorter">
+	<caption>Support</caption>
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Last price
+            </th>
+			<th>
+                Borsa Italiana
+            </th>
+			<th>
+                Il Sole 24 Ore
+            </th>
+			<th>
+                Repubblica
+            </th>			
+        </tr>
+    </thead>
+    <tbody>
+        <% @belowSupportStocks.each do |stock| %>
+        <tr class="<%= cycle('even', 'odd') -%>">
+            <td>
+                
+				<%= link_to "#{stock['name']}", stock_page_index_path(isin: "#{stock['isin']}") %>
+            </td>
+            <td>
+                <%= "#{stock['lastPrice']}" %>
+            </td>
+			<td>
+                <%= "#{stock['borsaItalianaResistance']}" %>
+            </td>
+			<td>
+                <%= "#{stock['xxivOreResistance']}" %>
+            </td>
+			<td>
+                <%= "#{stock['repubblicaResistance']}" %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

@@ -1,0 +1,82 @@
+<%= form_for(analysis) do |f| %>
+  <% if analysis.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(analysis.errors.count, "error") %> prohibited this analysis from being saved:</h2>
+
+      <ul>
+      <% analysis.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :isin %>
+    <%= f.text_field :isin %>
+  </div>
+
+  <div class="field">
+    <%= f.label :borsaItalianaSupport %>
+    <%= f.text_field :borsaItalianaSupport %>
+  </div>
+
+  <div class="field">
+    <%= f.label :borsaItalianaResistance %>
+    <%= f.text_field :borsaItalianaResistance %>
+  </div>
+
+  <div class="field">
+    <%= f.label :borsaItalianaFTA %>
+    <%= f.text_field :borsaItalianaFTA %>
+  </div>
+
+  <div class="field">
+    <%= f.label :xxivOreSupport %>
+    <%= f.text_field :xxivOreSupport %>
+  </div>
+
+  <div class="field">
+    <%= f.label :xxivOreResistance %>
+    <%= f.text_field :xxivOreResistance %>
+  </div>
+
+  <div class="field">
+    <%= f.label :xxivOreShortTrend %>
+    <%= f.text_field :xxivOreShortTrend %>
+  </div>
+
+  <div class="field">
+    <%= f.label :xxivOreFTAIndex %>
+    <%= f.text_field :xxivOreFTAIndex %>
+  </div>
+
+  <div class="field">
+    <%= f.label :xxivOreRSI %>
+    <%= f.text_field :xxivOreRSI %>
+  </div>
+
+  <div class="field">
+    <%= f.label :xxivOreRSIDiv %>
+    <%= f.text_field :xxivOreRSIDiv %>
+  </div>
+
+  <div class="field">
+    <%= f.label :repubblicaSupport %>
+    <%= f.text_field :repubblicaSupport %>
+  </div>
+
+  <div class="field">
+    <%= f.label :repubblicaResistance %>
+    <%= f.text_field :repubblicaResistance %>
+  </div>
+
+  <div class="field">
+    <%= f.label :investingDotComRating %>
+    <%= f.check_box :investingDotComRating %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

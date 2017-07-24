@@ -1,0 +1,454 @@
+@import "partials/reset";
+@import "partials/variables";
+@import "partials/utilities";
+@import "partials/animations";
+/*Project variables*/
+$maxCentralColumnWidth: 100%;
+$centralColumnWidth: 100%;
+$pageMargin: 12px;
+$paragraphMargin: 10px;
+$titleColor: $highlight;
+$firstBGColor: $white;
+$secondBGColor: $light-gray;
+$textColor: $black;
+$fontFamilyTitle: Arial, Helvetica, sans-serif;
+$fontFamily: Arial, Helvetica, sans-serif;
+$fontSizeDesktop: 16px;
+$fontSizeMobile: 15px;
+ 
+/*Project variables*/
+
+
+body {
+  //font-size: 12px;
+  font-family: sans-serif;
+  color: $black;
+}
+
+#main-wrapper {
+  width: $maxCentralColumnWidth;
+  margin: 0 auto;
+  font-family: $fontFamily;
+  font-size: $fontSizeMobile;
+  color: $textColor;
+  position: relative;
+  overflow: hidden;
+  background-color: $firstBGColor;
+  //padding: $pageMargin 0px;
+
+  p {
+    margin-bottom: $paragraphMargin;
+    font-family: $fontFamily;
+    font-weight: normal;
+    font-size: 100%;
+  }
+
+  .section {
+    padding: 0 $pageMargin;
+  }
+
+  .btn {
+    @extend .btn;
+
+    font-family: $fontFamilyTitle;
+
+    .primary {
+      @extend .primary;
+    }
+
+    .secondary {
+      @extend .secondary;
+    }
+
+    .right_arrow {
+      text-indent: -99999px;
+      background: url("../img/arrow-white.png") no-repeat;
+    }
+  }
+  
+  .not-implemented {
+  	opacity: 0.1;
+  }
+  .implemented {
+  	opacity: 1;
+  }
+
+  .title {
+    //text-transform: uppercase;
+    //color: $titleColor;
+    font-family: $fontFamilyTitle;
+    font-size: $font-huge;
+    //text-align: center;
+    //width: 100%;
+	margin-bottom:20px;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-family: $fontFamilyTitle;
+    font-size: $font-larger;
+  }
+
+  .text {
+    margin: 0 0 $pageMargin 0;
+    line-height: 128%;
+    text-align: justify;
+  }
+  
+  .section {
+  	margin: 30px 0;
+  }
+
+  header {
+    padding-top: 10px;
+  }
+
+  h1 {
+  	@extend .title;
+	font-size: $font-largest;
+  }
+
+  h2 {
+  	@extend .title;
+  }
+
+  h3 {}   
+  
+  /*Overwrite tablesorter rules*/
+  	table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+		font-size: initial;
+		font-weight:bold;
+	}
+	table.tablesorter {
+		font-size: inherit;
+	}
+	/*Overwrite tablesorter rules*/
+	
+	/*Overwrite genterella rules*/
+	.tile_count .tile_stats_count .count {
+	  font-size: 20px;
+	  line-height: 35px;
+	}
+	
+	@media (min-width: 768px) {
+	  .tile_count .tile_stats_count .count {
+	    font-size: 25px;
+	  }
+	}
+	@media (min-width: 992px) and (max-width: 1100px) {
+	  .tile_count .tile_stats_count .count {
+	    font-size: 20px;
+	  }
+	}
+	
+	.tile_count .tile_stats_count span {
+	  font-size: 15px;
+	}
+	
+	@media (min-width: 768px) {
+	  .tile_count .tile_stats_count span {
+	    font-size: 15px;
+	  }
+	}
+	.tile_count .tile_stats_count span i {
+		font-weight:bold;
+		margin-right: 5px;
+	}
+	
+	.tile_count .tile_stats_count span.count_bottom i {
+		display:block;
+	    margin-bottom: 10px;
+	}
+	
+	.tile_count .tile_stats_count span.count_bottom {
+		font-size: 13px;
+	}
+	
+	table.tablesorter tbody td.red , #main-wrapper .pr-section table tbody td.red {
+		color: $red;
+	}
+	table.tablesorter tbody td.green , #main-wrapper .pr-section table tbody td.green {
+		color: $green;
+	}
+	
+	.form-horizontal .control-label {
+	  line-height: 60px;
+    font-weight: bold;
+	}
+	
+	.form-horizontal select {
+	  height: 60px;
+	}
+	
+	/*Overwrite genterella rules*/
+	
+	/*General rules*/
+	.site_title {
+		i {
+	    	vertical-align: middle;
+		}
+		span {
+			margin-left:5px;
+			margin-right:30px;
+		}
+	}
+	
+	.custom-title {
+		    font-size: 28px;
+		h1 {
+			display:inline;
+			margin-right: 10px;
+    font-size: 50px;
+		}
+	}
+	
+	
+	
+	/*General rules*/
+	
+	
+	/*Left column*/
+	.profile_info {
+	    padding: 17px 10px 10px;
+	}
+	/*Left column*/
+	
+	/*Top section*/
+		.top_nav {
+			
+			.navbar-right {
+				width: inherit;
+			}
+			
+		}
+		
+		
+	/*Top section*/
+	
+	/*Index page*/
+	#welcome {
+		
+		/*.stocks_table {
+			max-height: 500px;
+    		overflow-y: auto;
+		    margin: 20px 0;
+		}*/
+	}
+	/*Index page*/
+	
+	
+	/*Analisis page*/
+	.pr-title {
+		font-size: $font-huge;
+		margin: 10px 0;
+	    width: 100%;
+    	border-bottom: 1px solid #000;
+	}	
+	
+	.pr-section {
+		margin: 30px 0;
+		
+		a, .-indice, a[href="/azioni/legenda.htm"], div.m-tabs, .dettaglio_container, .xpie6fix .xpmodule.twocolsleft .titolo-dati-box, .xpie6fix .xpmodule.twocolsleft .group, .xpcorG3,
+		.realtime, a[href="/investimenti-personali/inserisci-alert?StockCodeRt=00c0&codiceStrumento=w2ae"], a[href="/investimenti-personali/aggiungi-titoli-portafoglio?codiceStrumento=w2ae&titolo=A2A"], a[href="/investimenti-personali/aggiungi-titoli-selezione?codiceStrumento=w2ae&titolo=A2A"],
+		.spandata, .prezzo
+		{
+			display:none;
+		}
+		h3 {
+			font-size: 120%;
+			margin: 10px 0;
+		}
+		table {
+			@extend .tablesorter;
+			width: auto;
+		}
+	}
+	
+	.note{
+		padding:20px 10px;
+		font-style:italic;
+	}
+	
+	.borsa-italiana {		
+		.t-text {
+			font-size: 112%;
+		    line-height: 25px;
+		    display: block;
+		}
+	}
+	.sole-24-ore {
+		
+	}
+	.investing {
+		.left {
+			float:none;
+		}
+		.redFont {
+			color: $red;
+		}
+		.greenFont {
+			color: $green;
+		}
+		.noHover {
+		    font-weight: bold;
+		}
+	}
+	.milano-finanza {
+		.fleft {
+			float:left;
+		}
+		.clearfloat {
+			clear:both;
+		}
+		.taright, .tacenter {
+			margin:0 13px;
+		} 
+	}
+	/*Analysis page*/
+	
+	
+	
+	/*Study page*/
+	/*.new-study-form {
+		label {
+			display:block;
+			margin-top: 15px;
+    		font-weight: bold;
+		}
+		form {
+			width: 33%;
+		}
+		input[type=text], input[type=email], input[type=password] {
+    		height: 40px;
+		}
+		textarea, select {
+			width:100%;
+			margin: 6px auto;
+			}
+			
+		input[type="submit"] {
+			@extend .btn;
+			@extend .primary;
+		}
+	}*/
+	/*Study page*/
+	
+	/*Study section*/
+	.study-section {
+		width: 50%;
+    	margin: 0 auto;
+	}
+	.study-name {
+		color: white;
+	    background: #222;
+	    text-align: center;
+	    font-size: 150%;
+	    line-height: 30px;
+		font-weight:bold;
+	}
+	.study-data {
+	    margin: 10px auto;
+    	font-size: 130%;
+		
+		div {
+			display:inline-block;
+		} 
+		.study-data-name {
+			font-weight:bold;
+			width: 50%;
+		}
+	}
+	/*Study section*/
+	
+}
+
+//Advanced features support
+.cssanimations {
+  #main-wrapper {}
+}
+
+.svg {
+  #main-wrapper {}
+}
+
+.video {
+  #main-wrapper {}
+}
+
+.textshadow {
+  #main-wrapper {}
+}
+
+.hsla {
+  #main-wrapper {}
+}
+
+//Advanced features support
+
+//Media queries
+/* Custom */
+@media only screen and (min-width: 320px) {
+  #main-wrapper {}
+}
+
+@media only screen and (min-width: 360px) {
+  #main-wrapper {}
+}
+
+@media only screen and (min-width: 375px) {
+  #main-wrapper {}
+}
+
+@media only screen and (min-width: 412px) {
+  #main-wrapper {}
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 480px) {
+  #main-wrapper {}
+}
+
+@media only screen and (min-width: 568px) {
+  #main-wrapper {}
+}
+
+@media only screen and (min-width: 640px) {
+  #main-wrapper {}
+}
+
+@media only screen and (min-width: 667px) {
+  #main-wrapper {}
+}
+
+@media only screen and (min-width: 732px) {
+  #main-wrapper {}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+  #main-wrapper {}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+  #main-wrapper {}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+  #main-wrapper {}
+}
+
+/* Mobile landscape orientation */
+@media phone and (orientation: landscape) {}
+
+@media tablet and (orientation: landscape) {}
+
+//Media queries
+
+/*Device specific rules*/
+.ipad {
+  #main-wrapper {}
+}
+
+/*Device specific rules*/

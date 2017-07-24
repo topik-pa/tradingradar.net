@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @market.name %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @market.value %>
+</p>
+
+<p>
+  <strong>Variation:</strong>
+  <%= @market.variation %>
+</p>
+
+<%= link_to 'Edit', edit_market_path(@market) %> |
+<%= link_to 'Back', markets_path %>

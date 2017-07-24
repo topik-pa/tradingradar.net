@@ -1,0 +1,70 @@
+<h2>Personal studies filter</h2>
+
+
+<table class="tablesorter">
+	<caption>Resistance breakout</caption>
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Last price
+            </th>
+			<th>
+                Resistance
+            </th>			
+        </tr>
+    </thead>
+    <tbody>
+        <% @overResistanceStocks.each do |stock| %>
+        <tr class="<%= cycle('even', 'odd') -%>">
+            <td>
+                
+				<%= link_to "#{stock['name']}", stock_page_index_path(isin: "#{stock['isin']}") %>
+            </td>
+            <td>
+                <%= "#{stock['lastPrice']}" %>
+            </td>
+			<td>
+                <%= "#{stock['resistance']}" %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+
+
+<table class="tablesorter">
+	<caption>Support breakout</caption>
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Last price
+            </th>
+			<th>
+                Support
+            </th>		
+        </tr>
+    </thead>
+    <tbody>
+        <% @belowSupportStocks.each do |stock| %>
+        <tr class="<%= cycle('even', 'odd') -%>">
+            <td>
+                
+				<%= link_to "#{stock['name']}", stock_page_index_path(isin: "#{stock['isin']}") %>
+            </td>
+            <td>
+                <%= "#{stock['lastPrice']}" %>
+            </td>
+			<td>
+                <%= "#{stock['support']}" %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

@@ -1,0 +1,63 @@
+<div class="container body">
+    <div class="main_container">
+        <%= render("shared/left_col") %>
+        <%= render("shared/top_nav") %>
+        <div class="right_col" role="main" style="min-height: 1657px;">
+		<div class="row  tile_count">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+                	<div class="x_panel">
+                		
+<p id="notice"><%= notice %></p>
+
+<h1>Urls</h1>
+
+<table class="tablesorter">
+  <thead>
+    <tr>
+      <th>Isin</th>
+      <th>Url1</th>
+      <th>Url2</th>
+      <th>Url3</th>
+      <th>Url4</th>
+      <th>Url5</th>
+      <th>Url6</th>
+      <th>Url7</th>
+      <th>Url8</th>
+      <th>Url9</th>
+      <th>Url10</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @urls.each do |url| %>
+      <tr class="<%= cycle('even', 'odd') -%>">
+        <td><%= url.isin %></td>
+        <td><%= url.url1 %></td>
+        <td><%= url.url2 %></td>
+        <td><%= url.url3 %></td>
+        <td><%= url.url4 %></td>
+        <td><%= url.url5 %></td>
+        <td><%= url.url6 %></td>
+        <td><%= url.url7 %></td>
+        <td><%= url.url8 %></td>
+        <td><%= url.url9 %></td>
+        <td><%= url.url10 %></td>
+        <td><%= link_to 'Show', url %></td>
+        <td><%= link_to 'Edit', edit_url_path(url) %></td>
+        <td><%= link_to 'Destroy', url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Url', new_url_path %>
+
+</div>
+</div>
+</div>
+<%= render("shared/footer") %>
+    </div>
+</div>

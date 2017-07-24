@@ -1,0 +1,204 @@
+/*Animations*/
+
+@mixin opacity($value) {
+  $IEValue: $value * 100;
+
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $IEValue + ")";
+  filter: alpha(opacity = $IEValue);
+}
+
+//Usage:
+//.foo {
+//  @include opacity(0);
+//}
+
+//Fade in
+@-webkit-keyframes fadeIn {
+  from {
+    @include opacity(0);
+  }
+
+  to {
+    @include opacity(1);
+  }
+}
+
+@-moz-keyframes fadeIn {
+  from {
+    @include opacity(0);
+  }
+
+  to {
+    @include opacity(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    @include opacity(0);
+  }
+
+  to {
+    @include opacity(1);
+  }
+}
+
+@mixin fade-in($bezier1: null, $bezier2: null, $bezier3: null, $bezier4: null, $duration: 0.8s) {
+  @include opacity(0);
+
+  @if $bezier1 and $bezier2 and $bezier3 and $bezier4 {
+    -webkit-animation: fadeIn cubic-bezier($bezier1, $bezier2, $bezier3, $bezier4) 1;
+    -moz-animation: fadeIn cubic-bezier($bezier1, $bezier2, $bezier3, $bezier4) 1;
+    animation: fadeIn cubic-bezier($bezier1, $bezier2, $bezier3, $bezier4) 1;
+  }
+  @else {
+    -webkit-animation: fadeIn ease-in 1;
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+  }
+
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-duration: $duration;
+  -moz-animation-fill-mode: forwards;
+  -moz-animation-duration: $duration;
+  animation-fill-mode: forwards;
+  animation-duration: $duration;
+}
+
+//@include fade-in(0, 1.89, 0.59, -0.05, 3s);
+//Fade in
+
+//Fade out
+@-webkit-keyframes fadeOut {
+  from {
+    @include opacity(1);
+  }
+
+  to {
+    @include opacity(0);
+  }
+}
+
+@-moz-keyframes fadeOut {
+  from {
+    @include opacity(1);
+  }
+
+  to {
+    @include opacity(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    @include opacity(1);
+  }
+
+  to {
+    @include opacity(0);
+  }
+}
+
+@mixin fade-out($bezier1: null, $bezier2: null, $bezier3: null, $bezier4: null, $duration: 0.8s) {
+  @include opacity(1);
+
+  @if $bezier1 and $bezier2 and $bezier3 and $bezier4 {
+    -webkit-animation: fadeOut cubic-bezier($bezier1, $bezier2, $bezier3, $bezier4) 1;
+    -moz-animation: fadeOut cubic-bezier($bezier1, $bezier2, $bezier3, $bezier4) 1;
+    animation: fadeOut cubic-bezier($bezier1, $bezier2, $bezier3, $bezier4) 1;
+  }
+  @else {
+    -webkit-animation: fadeOut ease-in 1;
+    -moz-animation: fadeOut ease-in 1;
+    animation: fadeOut ease-in 1;
+  }
+
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-duration: $duration;
+  -moz-animation-fill-mode: forwards;
+  -moz-animation-duration: $duration;
+  animation-fill-mode: forwards;
+  animation-duration: $duration;
+}
+
+//@include fade-out(0, 1.89, 0.59, -0.05, 3s);
+//Fade out
+
+@mixin animateScrollDown {
+  animation-name: translateY;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  animation-fill-mode: none;
+  -webkit-animation-name: translateY;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: none;
+  -moz-animation-name: translateY;
+  -moz-animation-duration: 1s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: ease;
+  -moz-animation-fill-mode: none;
+  -o-animation-name: translateY;
+  -o-animation-duration: 1s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: ease;
+  -o-animation-fill-mode: none;
+  -ms-animation-name: translateY;
+  -ms-animation-duration: 1s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: ease;
+  -ms-animation-fill-mode: none;
+}
+
+@-webkit-keyframes translateY {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes translateY {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@-o-keyframes translateY {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes translateY {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/*Animations*/

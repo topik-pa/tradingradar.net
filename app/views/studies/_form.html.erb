@@ -1,0 +1,147 @@
+<%= form_for(study) do |f| %>
+  <% if study.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(study.errors.count, "error") %> prohibited this study from being saved:</h2>
+
+      <ul>
+      <% study.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :resistance %>
+    <%= f.text_field :resistance %>
+  </div>
+
+  <div class="field">
+    <%= f.label :support %>
+    <%= f.text_field :support %>
+  </div>
+
+  <div class="field">
+    <%= f.label :direction %>
+    <%= f.text_field :direction %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mmp1 %>
+    <%= f.text_field :mmp1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mmp2 %>
+    <%= f.text_field :mmp2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gap %>
+    <%= f.text_field :gap %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tradingPosition %>
+    <%= f.text_field :tradingPosition %>
+  </div>
+
+  <div class="field">
+    <%= f.label :reversalChartPattern %>
+    <%= f.text_field :reversalChartPattern %>
+  </div>
+
+  <div class="field">
+    <%= f.label :continuationChartPattern %>
+    <%= f.text_field :continuationChartPattern %>
+  </div>
+
+  <div class="field">
+    <%= f.label :reversalCandlestick %>
+    <%= f.text_field :reversalCandlestick %>
+  </div>
+
+  <div class="field">
+    <%= f.label :continuationCandlestick %>
+    <%= f.text_field :continuationCandlestick %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rsi %>
+    <%= f.text_field :rsi %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rsiCross %>
+    <%= f.text_field :rsiCross %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rsiDivergence %>
+    <%= f.text_field :rsiDivergence %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stoch %>
+    <%= f.text_field :stoch %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stochCross %>
+    <%= f.text_field :stochCross %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stochDivergence %>
+    <%= f.text_field :stochDivergence %>
+  </div>
+
+  <div class="field">
+    <%= f.label :macd %>
+    <%= f.text_field :macd %>
+  </div>
+
+  <div class="field">
+    <%= f.label :macdCross %>
+    <%= f.text_field :macdCross %>
+  </div>
+
+  <div class="field">
+    <%= f.label :buy %>
+    <%= f.text_field :buy %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sell %>
+    <%= f.text_field :sell %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stopLoss %>
+    <%= f.text_field :stopLoss %>
+  </div>
+
+  <div class="field">
+    <%= f.label :imageUrl %>
+    <%= f.text_field :imageUrl %>
+  </div>
+
+  <div class="field">
+    <%= f.label :note %>
+    <%= f.text_area :note %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stock_id %>
+    <%= f.text_field :stock_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,47 @@
+<h2>Suggestions from Il Sole 24 Ore</h2>
+
+
+<table class="tablesorter">
+	<caption>Il Sole 24 Ore</caption>
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Last price
+            </th>
+			<th>
+                Short Trend
+            </th>
+			<th>
+                FTA Index
+            </th>
+			<th>
+                RSI
+            </th>			
+        </tr>
+    </thead>
+    <tbody>
+        <% @suggestionsFromSole24Ore.each do |stock| %>
+        <tr class="<%= cycle('even', 'odd') -%>">
+            <td>
+                
+				<%= link_to "#{stock['name']}", stock_page_index_path(isin: "#{stock['isin']}") %>
+            </td>
+            <td>
+                <%= "#{stock['lastPrice']}" %>
+            </td>
+			<td>
+                <%= "#{stock['xxivOreShortTrend']}" %>
+            </td>
+			<td>
+                <%= "#{stock['xxivOreFTAIndex']}" %>
+            </td>
+			<td>
+                <%= "#{stock['xxivOreRSI']}" %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

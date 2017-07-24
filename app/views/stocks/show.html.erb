@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Isin:</strong>
+  <%= @stock.isin %>
+</p>
+
+<p>
+  <strong>Cod:</strong>
+  <%= @stock.cod %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @stock.name %>
+</p>
+
+<p>
+  <strong>Sector:</strong>
+  <%= @stock.sector %>
+</p>
+
+<p>
+  <strong>Lastprice:</strong>
+  <%= @stock.lastPrice %>
+</p>
+
+<p>
+  <strong>Variation:</strong>
+  <%= @stock.variation %>
+</p>
+
+<p>
+  <strong>Marketphase:</strong>
+  <%= @stock.marketPhase %>
+</p>
+
+<%= link_to 'Edit', edit_stock_path(@stock) %> |
+<%= link_to 'Back', stocks_path %>

@@ -1,0 +1,67 @@
+<div class="container body">
+    <div class="main_container">
+        <%= render("shared/left_col") %>
+        <%= render("shared/top_nav") %>
+        <div class="right_col" role="main" style="min-height: 1657px;">
+		<div class="row  tile_count">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+                	<div class="x_panel">
+
+<p id="notice"><%= notice %></p>
+
+<h1>Analyses</h1>
+
+<table class="tablesorter">
+  <thead>
+    <tr>
+      <th>Isin</th>
+      <th>Borsaitalianasupport</th>
+      <th>Borsaitalianaresistance</th>
+      <th>Borsaitalianafta</th>
+      <th>Xxivoresupport</th>
+      <th>Xxivoreresistance</th>
+      <th>Xxivoreshorttrend</th>
+      <th>Xxivoreftaindex</th>
+      <th>Xxivorersi</th>
+      <th>Xxivorersidiv</th>
+      <th>Repubblicasupport</th>
+      <th>Repubblicaresistance</th>
+      <th>Investingdotcomrating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @analyses.each do |analysis| %>
+      <tr class="<%= cycle('even', 'odd') -%>">
+        <td><%= analysis.isin %></td>
+        <td><%= analysis.borsaItalianaSupport %></td>
+        <td><%= analysis.borsaItalianaResistance %></td>
+        <td><%= analysis.borsaItalianaFTA %></td>
+        <td><%= analysis.xxivOreSupport %></td>
+        <td><%= analysis.xxivOreResistance %></td>
+        <td><%= analysis.xxivOreShortTrend %></td>
+        <td><%= analysis.xxivOreFTAIndex %></td>
+        <td><%= analysis.xxivOreRSI %></td>
+        <td><%= analysis.xxivOreRSIDiv %></td>
+        <td><%= analysis.repubblicaSupport %></td>
+        <td><%= analysis.repubblicaResistance %></td>
+        <td><%= analysis.investingDotComRating %></td>
+        <td><%= link_to 'Show', analysis %></td>
+        <td><%= link_to 'Edit', edit_analysis_path(analysis) %></td>
+        <td><%= link_to 'Destroy', analysis, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Analysis', new_analysis_path %>
+
+</div>
+</div>
+</div>
+<%= render("shared/footer") %>
+    </div>
+</div>

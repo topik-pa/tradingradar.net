@@ -1,0 +1,134 @@
+/*Utilities*/
+
+@mixin opacity($value) {
+  $IEValue: $value * 100;
+
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $IEValue + ")";
+  filter: alpha(opacity = $IEValue);
+}
+
+@mixin clearfix {
+  clear: both;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin noShadows {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+@mixin resetSliderStyle {
+  @include noShadows;
+
+  border: 0;
+  left: 0;
+  margin: 0 auto;
+  background-color: transparent;
+  height: 100% !important;
+}
+
+#main-wrapper {
+  .index-1 {
+    z-index: 9;
+  }
+
+  .index-2 {
+    z-index: 99;
+  }
+
+  .index-3 {
+    z-index: 999;
+  }
+
+  .index-4 {
+    z-index: 9999;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .invisible {
+    @include opacity(0);
+  }
+
+  .clear {
+    @include clearfix;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  // generates generic classes for padding and margin
+  $positions: top bottom left right;
+
+  @for $i from 1 through 10 {
+    @each $p in $positions {
+      .p#{$p}#{10 * $i} {
+        padding-#{$p}: 10px * $i;
+      }
+
+      .m#{$p}#{10 * $i} {
+        margin-#{$p}: 10px * $i;
+      }
+    }
+  }
+
+  //SLIDERS
+  .bxSliderCustom {
+    .bx-viewport {
+      @include resetSliderStyle;
+    }
+
+    .bx-loading {
+      background: url("../icons/rb-preloader_128.gif");
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+
+    .bx-controls {
+      a {
+        background-position: center;
+      }
+
+      .bx-prev {
+        background-image: url("../icons/arrow-64-left.png");
+      }
+
+      .bx-next {
+        background-image: url("../icons/arrow-64-right.png");
+      }
+    }
+
+    .bx-pager {
+      position: inherit;
+
+      .bx-pager-link {
+        width: 15px;
+        height: 15px;
+        margin: 0 10px;
+        border-radius: 15px;
+        background: #FFF;
+        border: 1px solid #666;
+
+        &.active {
+          background: #000;
+        }
+      }
+    }
+  }
+}
+
+/*Utilities*/
