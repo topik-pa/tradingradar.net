@@ -115,6 +115,7 @@ records_array = ActiveRecord::Base.connection.execute("SELECT stocks.* FROM stoc
 Dati minimi
 Stock: isin, name
 Url: isin, url1
+Market: name
 
 
 
