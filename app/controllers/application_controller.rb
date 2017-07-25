@@ -311,6 +311,7 @@ class ApplicationController < ActionController::Base
       borsaItalianaSupport = doc.at_xpath('/descendant::span[contains(@class, "dato_techanalSup")]/strong/text()').to_s.strip
       borsaItalianaResistance = doc.at_xpath('/descendant::span[contains(@class, "dato_techanalRes")]/strong/text()').to_s.strip
       borsaItalianaFTA = ''
+      
       borsaItalianaFTAAttribute = doc.at_xpath('/descendant::img[contains(@src, "rank-fta")]/@src')
       case borsaItalianaFTAAttribute
         when /rank-fta0/
@@ -529,13 +530,13 @@ class ApplicationController < ActionController::Base
       
     end
     
-    scheduler.every '45s' do
+    scheduler.every '25s' do
       
       #updateStockTable
       
     end
     
-    scheduler.every '70s' do
+    scheduler.every '38s' do
 
       #updateAnalysisTable
       

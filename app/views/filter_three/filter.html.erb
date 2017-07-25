@@ -1,6 +1,6 @@
 <h2>Personal studies filter</h2>
 
-
+<%if !@overResistanceStocks.nil? and !@belowSupportStocks.nil? %>
 <table class="tablesorter">
 	<caption>Resistance breakout</caption>
     <thead>
@@ -68,3 +68,14 @@
         <% end %>
     </tbody>
 </table>
+<% else %>
+	<table class="tablesorter">
+		<tbody>
+			<tr>
+				<td span="5">
+					No data
+				</td>
+			</tr>
+		</tbody>
+	</table>
+<% end %>

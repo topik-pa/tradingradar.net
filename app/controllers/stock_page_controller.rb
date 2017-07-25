@@ -5,7 +5,8 @@ class StockPageController < ApplicationController
     
     isin = params[:isin] ? params[:isin] : ''     
     @stock = Stock.find_by isin: isin  
-    @urls = Url.find_by isin: isin 
+    @urls = Url.find_by isin: isin
+    
     @analisis = Analysis.find_by isin: isin  
     @studies_size = @stock.studies.size 
     @lastStudy = @stock.studies.last

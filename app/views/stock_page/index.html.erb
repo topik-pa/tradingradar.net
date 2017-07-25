@@ -241,6 +241,7 @@
 					<% else %>
 						Missing source data, only DB data will be displayed.						
                     <% end %>
+                    <% if @analisis %>
                     <table class="tablesorter">
                         <thead>
                             <tr>
@@ -269,6 +270,9 @@
                             </tr>
                         </tbody>
                     </table>
+					<% else %>
+						Missing analysis data.
+					<% end %>
 					
                     <div class="col-md-12 col-sm-12 col-xs-12 pr-section borsa-italiana">
                         <div class="pr-content">
@@ -300,6 +304,7 @@
                     <% else %>
 						Missing source data, only DB data will be displayed.						
                     <% end %>
+                    <% if @analisis %>
                     <table class="tablesorter">
                         <thead>
                             <tr>
@@ -346,6 +351,9 @@
                             </tr>
                         </tbody>
                     </table>
+					<% else %>
+						Missing analysis data.
+					<% end %>
                     <div class="col-md-12 col-sm-12 col-xs-12 pr-section sole-24-ore">
                         <div class="pr-content">
                             <%= @sole24OreElem1.to_s.html_safe %>
@@ -368,6 +376,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                 	<div class="x_panel">
                     <h2 class="pr-title">Repubblica</h2>
+					<% if @analisis %>
                     <table class="tablesorter">
                         <thead>
                             <tr>
@@ -390,6 +399,9 @@
                             </tr>
                         </tbody>
                     </table>
+					<% else %>
+						Missing analysis data.
+					<% end %>
                 </div>
 				</div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -402,6 +414,7 @@
                     <% else %>
 						Missing source data, only DB data will be displayed.						
                     <% end %>
+                    <% if @analisis %>
                     <table class="tablesorter">
                         <thead>
                             <tr>
@@ -418,6 +431,9 @@
                             </tr>
                         </tbody>
                     </table>
+					<% else %>
+						Missing analysis data.
+					<% end %>
                     <div class="col-md-12 col-sm-12 col-xs-12 pr-section investing">
                         <div class="pr-content">
                             <%= @InvestingElem1.to_s.html_safe %>

@@ -1,6 +1,6 @@
 <h2>Suggestions from Il Sole 24 Ore</h2>
 
-
+<%if !@suggestionsFromSole24Ore.nil? %>
 <table class="tablesorter">
 	<caption>Il Sole 24 Ore</caption>
     <thead>
@@ -45,3 +45,14 @@
         <% end %>
     </tbody>
 </table>
+<% else %>
+	<table class="tablesorter">
+		<tbody>
+			<tr>
+				<td span="5">
+					No data
+				</td>
+			</tr>
+		</tbody>
+	</table>
+<% end %>
