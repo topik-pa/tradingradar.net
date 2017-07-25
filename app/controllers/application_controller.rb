@@ -123,11 +123,11 @@ class ApplicationController < ActionController::Base
           market = 'S&P 100'
           value = obj["DATA"][2]["VALUE"]
           variation = obj["DATA"][4]["VALUE"] + '%'             
-        when "!BRNN7.IPE"
+        when "!BRNU7.IPE"
           market = 'Brent'
           value = obj["DATA"][2]["VALUE"]
           variation = obj["DATA"][4]["VALUE"] + '%'               
-        when "!WBSM7.IPE"
+        when "!WBSU7.IPE"
           market = 'WTI'
           value = obj["DATA"][2]["VALUE"]
           variation = obj["DATA"][4]["VALUE"] + '%'               
@@ -524,9 +524,9 @@ class ApplicationController < ActionController::Base
 
   #DEVELOPMENT
   else
-    scheduler.every '30s' do
+    scheduler.every '20s' do
       
-      #updateMarketTable
+      updateMarketTable
       
     end
     

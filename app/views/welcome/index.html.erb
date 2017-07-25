@@ -3,7 +3,98 @@
         <%= render("shared/left_col") %>
         <%= render("shared/top_nav") %>
         <div class="right_col" role="main" style="min-height: 1657px;">
- 
+            <!-- top tiles -->
+            <div class="row  tile_count">
+                <div class="col-md-1 col-sm-2 col-xs-3 tile_stats_count markets_baskets">
+                    <span class="count_top"><i class="fa fa-area-chart"></i>FTSE MIB</span>
+                    <div class="count">
+                        <%= @market1.value %>
+                    </div>
+                    <span class="count_bottom"><i class="<%= colorClass(@market1.variation) %>"><%= @market1.variation %>% </i><%= @market1.updated_at %></span>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-3 tile_stats_count markets_baskets">
+                    <span class="count_top"><i class="fa fa-area-chart"></i>FTSE All Share</span>
+                    <div class="count">
+                        <%= @market2.value %>
+                    </div>
+                    <span class="count_bottom"><i class="<%= colorClass(@market2.variation) %>"><%= @market2.variation %>% </i><%= @market2.updated_at %></span>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-3 tile_stats_count markets_baskets">
+                    <span class="count_top"><i class="fa fa-area-chart"></i>S&P 100</span>
+                    <div class="count">
+                        <%= @market3.value %>
+                    </div>
+                    <span class="count_bottom"><i class="<%= colorClass(@market3.variation) %>"><%= @market3.variation %>% </i><%= @market3.updated_at %></span>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-3 tile_stats_count markets_baskets">
+                    <span class="count_top"><i class="fa fa-area-chart"></i>NIKKEI 225</span>
+                    <div class="count">
+                        <%= @market4.value %>
+                    </div>
+                    <span class="count_bottom"><i class="<%= colorClass(@market4.variation) %>"><%= @market4.variation %>% </i><%= @market4.updated_at %></span>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-3 tile_stats_count markets_baskets">
+                    <span class="count_top"><i class="fa fa-area-chart"></i>DAX 30</span>
+                    <div class="count">
+                        <%= @market5.value %>
+                    </div>
+                    <span class="count_bottom"><i class="<%= colorClass(@market5.variation) %>"><%= @market5.variation %>% </i><%= @market5.updated_at %></span>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-3 tile_stats_count markets_baskets">
+                    <span class="count_top"><i class="fa fa-area-chart"></i>CAC 40</span>
+                    <div class="count">
+                        <%= @market6.value %>
+                    </div>
+                    <span class="count_bottom"><i class="<%= colorClass(@market6.variation) %>"><%= @market6.variation %>% </i><%= @market6.updated_at %></span>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-3 tile_stats_count markets_baskets">
+                    <span class="count_top"><i class="fa fa-area-chart"></i>NASDAQ 100</span>
+                    <div class="count">
+                        <%= @market7.value %>
+                    </div>
+                    <span class="count_bottom"><i class="<%= colorClass(@market7.variation) %>"><%= @market7.variation %>% </i><%= @market7.updated_at %></span>
+                </div>
+            </div>
+            <div class="row tile_count">
+                <div class="col-md-1 col-sm-2 col-xs-3 tile_stats_count markets_rawMaterials">
+                    <span class="count_top"><i class="fa fa-star-o"></i>Gold</span>
+                    <div class="count">
+                        <%= @market8.value %>
+                    </div>
+                    <span class="count_bottom"><i class="<%= colorClass(@market8.variation) %>"><%= @market8.variation %>% </i><%= @market8.updated_at %></span>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-3 tile_stats_count markets_rawMaterials">
+                    <span class="count_top"><i class="fa fa-tint"></i>Brent</span>
+                    <div class="count">
+                        <%= @market9.value %>
+                    </div>
+                    <span class="count_bottom"><i class="<%= colorClass(@market9.variation) %>"><%= @market9.variation %>% </i><%= @market9.updated_at %></span>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-3 tile_stats_count markets_rawMaterials">
+                    <span class="count_top"><i class="fa fa-tint"></i>WTI</span>
+                    <div class="count">
+                        <%= @market10.value %>
+                    </div>
+                    <span class="count_bottom"><i class="<%= colorClass(@market10.variation) %>"><%= @market10.variation %>% </i><%= @market10.updated_at %></span>
+                </div>
+            </div>
+            <div class="row tile_count">
+                <div class="col-md-1 col-sm-2 col-xs-3 tile_stats_count markets_currencies">
+                    <span class="count_top"><i class="fa fa-money"></i>EUR/USD</span>
+                    <div class="count">
+                        <%= @market11.value %>
+                    </div>
+                    <span class="count_bottom"><i class="<%= colorClass(@market11.variation) %>"><%= @market11.variation %>% </i><%= @market11.updated_at %></span>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-3 tile_stats_count markets_currencies">
+                    <span class="count_top"><i class="fa fa-money"></i>EUR/GBP</span>
+                    <div class="count">
+                        <%= @market12.value %>
+                    </div>
+                    <span class="count_bottom"><i class="<%= colorClass(@market12.variation) %>"><%= @market12.variation %>% </i><%= @market12.updated_at %></span>
+                </div>
+            </div>
+            <!-- /top tiles -->
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                 	<div class="x_panel">

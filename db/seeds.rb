@@ -43,26 +43,26 @@ end
 
 
 ###Market###
-#Market.delete_all
+Market.delete_all
 
-#market_list = [ 
-#  [ "FTSE MIB"],
-#  [ "FTSE All Share"],
-#  [ "S&P 100"],
-#  [ "NIKKEI 225"],
-#  [ "DAX 30"],
-#  [ "CAC 40"],
-#  [ "NASDAQ 100"],
-#  [ "GOLD"],
-#  [ "Brent"],
-#  [ "WTI"],
-#  [ "EUR/USD"],
-#  [ "EUR/GBP"]
-#]
+market_list = [ 
+  [ "FTSE MIB", "", "-"],
+  [ "FTSE All Share", "", ""],
+  [ "S&P 100", "", ""],
+  [ "NIKKEI 225", "", ""],
+  [ "DAX 30", "", ""],
+  [ "CAC 40", "", ""],
+  [ "NASDAQ 100", "", ""],
+  [ "GOLD", "", ""],
+  [ "Brent", "", ""],
+  [ "WTI", "", ""],
+  [ "EUR/USD", "", ""],
+  [ "EUR/GBP", "", ""]
+]
 
-#market_list.each do |name|
-#  Market.create(name: name)
-#end
+market_list.each do |name, value, variation|
+  Market.create(name: name, value: value, variation: variation)
+end
 ###Market###
 
 ###Study###
