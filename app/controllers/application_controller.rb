@@ -528,30 +528,46 @@ class ApplicationController < ActionController::Base
   
   #PRODUCTION
   if Rails.env.production?
-  
+    
+    scheduler.every '17m' do  
+      updateMarketTable  
+    end
+    
+    scheduler.every '51m' do  
+      updateStockTable  
+    end
+    
+    
+    scheduler.cron '00 08 * * 1-5', :blocking => true do
+      updateAnalysisTable
+    end
+    
+    scheduler.cron '00 09 * * 1-5', :blocking => true do
+      updateAnalysisTable
+    end
+    
+    scheduler.cron '00 13 * * 1-5', :blocking => true do
+      updateAnalysisTable
+    end
+    
+    scheduler.cron '00 16 * * 1-5', :blocking => true do
+      updateAnalysisTable
+    end
+    
+    scheduler.cron '00 17 * * 1-5', :blocking => true do
+      updateAnalysisTable
+    end
 
   #DEVELOPMENT
   else
-    scheduler.every '37m' do
-      
-      updateMarketTable
-      
-    end
-    
-    scheduler.every '23m' do
-      
-      updateStockTable
-      
-    end
-    
+    scheduler.every '37m' do    
+      updateMarketTable    
+    end   
+    scheduler.every '23m' do    
+      updateStockTable     
+    end   
     scheduler.every '13m' do
-
-      updateAnalysisTable
-      
-    end
-    
-    scheduler.every '17s' do
-      #sendAlertMails
+      updateAnalysisTable 
     end
   end
   
