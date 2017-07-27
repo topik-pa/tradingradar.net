@@ -75,7 +75,7 @@ class StockPageController < ApplicationController
     @urlInvesting = @urls.url7
     
     begin
-      if @urlInvesting
+      if !@urlInvesting.blank?
         docInvesting = Nokogiri::HTML(open(@urlInvesting), nil, 'ISO-8859-1')
         docInvesting.encoding = 'UTF-8'
         docInvesting.search('script',  'img').each do |src|

@@ -116,6 +116,7 @@ Dati minimi
 Stock: isin, name
 Url: isin, url1
 Market: name, value(''), variation('')
+Analysis: isin
 
 
 

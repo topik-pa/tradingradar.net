@@ -273,7 +273,7 @@ class ApplicationController < ActionController::Base
    
   #Update Analisys table
   def self.updateAnalysisTable
-    analyses = Analysis.order(:name)
+    analyses = Analysis.order(:isin)
 
     analyses.find_each do |row|
         begin
@@ -297,13 +297,12 @@ class ApplicationController < ActionController::Base
     isin = analysis.isin
     urls = Url.find_by isin: isin
     
-    urlBorsaItaliana = urls.url2
-    urlSole24Ore = urls.url4
-    urlRepubblica = urls.url6
-    urlInvesting = urls.url7
          
     #Borsa italiana
-    if !urlBorsaItaliana.blank?
+    if urls.url2?
+      
+      urlBorsaItaliana = urls.url2
+      
       puts 'Updating analysis ' + analysis.isin + ' from ' + urlBorsaItaliana + '.'
        
       doc = Nokogiri::HTML(open(urlBorsaItaliana))
@@ -365,7 +364,10 @@ class ApplicationController < ActionController::Base
     
     
     #Sole 24 Ore
-    if !urlSole24Ore.blank?
+    if urls.url4?
+      
+      urlSole24Ore = urls.url4
+      
       puts 'Updating analysis ' + analysis.isin + ' from ' + urlSole24Ore + '.'
        
       doc2 = Nokogiri::HTML(open(urlSole24Ore))
@@ -445,7 +447,10 @@ class ApplicationController < ActionController::Base
     
     
     #Repubblica.it
-    if !urlRepubblica.blank?
+    if urls.url6?
+      
+      urlRepubblica = urls.url6
+      
       puts 'Updating analysis ' + analysis.isin + ' from ' + urlRepubblica + '.'
              
       doc3 = Nokogiri::HTML(open(urlRepubblica))
@@ -481,7 +486,10 @@ class ApplicationController < ActionController::Base
     
 
     #Investing.com
-    if !urlInvesting.blank?
+    if urls.url7?
+      
+      urlInvesting = urls.url7
+      
       puts 'Updating analysis ' + analysis.isin + ' from ' + urlInvesting + '.'
              
       doc4 = Nokogiri::HTML(open(urlInvesting))
@@ -524,21 +532,21 @@ class ApplicationController < ActionController::Base
 
   #DEVELOPMENT
   else
-    scheduler.every '20s' do
+    scheduler.every '37m' do
       
       updateMarketTable
       
     end
     
-    scheduler.every '25s' do
+    scheduler.every '23m' do
       
-      #updateStockTable
+      updateStockTable
       
     end
     
-    scheduler.every '38s' do
+    scheduler.every '13m' do
 
-      #updateAnalysisTable
+      updateAnalysisTable
       
     end
     

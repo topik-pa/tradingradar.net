@@ -4,5 +4,5 @@ class Stock < ApplicationRecord
   validates_associated :studies
   validates :isin, presence: true, uniqueness: true
   validates :name, :cod, uniqueness: true, allow_blank: true
-  validates :lastPrice, numericality: {greater_than: 0.00}, allow_blank: true
+  validates :lastPrice, numericality: {greater_than_or_equal_to: 0.00}, allow_blank: true
 end
