@@ -7,7 +7,7 @@
 		<div class="row section">
 		<div class="custom-title">
 			<h1><%= @stock.name %></h1>
-			<span><%= @stock.lastPrice %></span>&nbsp;/&nbsp;<span class="<%= colorClass(@stock.variation)%>"><%=@stock.variation%></span>
+			<span><%= @stock.last_price %></span>&nbsp;/&nbsp;<span class="<%= colorClass(@stock.variation)%>"><%=@stock.variation%></span>
 		</div>           
         </div>
 		
@@ -88,7 +88,7 @@
                                 Trading position:
                             </div>
                             <div class="study-data-value">
-                                <%= @study.tradingPosition %>
+                                <%= @study.trading_position %>
                             </div>
                         </div>
                         <div class="separator"/>
@@ -97,7 +97,7 @@
                                 Reversal Chart Pattern:
                             </div>
                             <div class="study-data-value">
-                                <%= @study.reversalChartPattern %>
+                                <%= @study.reversal_chart_pattern %>
                             </div>
                         </div>
                         <div class="study-data">
@@ -105,7 +105,7 @@
                                 Continuation Chart Pattern:
                             </div>
                             <div class="study-data-value">
-                                <%= @study.continuationChartPattern %>
+                                <%= @study.continuation_chart_pattern %>
                             </div>
                         </div>
                         <div class="study-data">
@@ -113,7 +113,7 @@
                                 Reversal Candlestick:
                             </div>
                             <div class="study-data-value">
-                                <%= @study.reversalCandlestick %>
+                                <%= @study.reversal_candlestick %>
                             </div>
                         </div>
                         <div class="study-data">
@@ -121,7 +121,7 @@
                                 Continuation Candlestick:
                             </div>
                             <div class="study-data-value">
-                                <%= @study.continuationCandlestick %>
+                                <%= @study.continuation_candlestick %>
                             </div>
                         </div>
                         <div class="separator"/>
@@ -138,7 +138,7 @@
                                 RSI Cross:
                             </div>
                             <div class="study-data-value">
-                                <%= @study.rsiCross %>
+                                <%= @study.rsi_cross %>
                             </div>
                         </div>
                         <div class="study-data">
@@ -146,7 +146,7 @@
                                 RSI Divergence:
                             </div>
                             <div class="study-data-value">
-                                <%= @study.rsiDivergence %>
+                                <%= @study.rsi_divergence %>
                             </div>
                         </div>
                         <div class="separator"/>
@@ -163,7 +163,7 @@
                                 Stochastic Cross:
                             </div>
                             <div class="study-data-value">
-                                <%= @study.stochCross %>
+                                <%= @study.stoch_cross %>
                             </div>
                         </div>
                         <div class="study-data">
@@ -171,7 +171,7 @@
                                 Stochastic Divergence:
                             </div>
                             <div class="study-data-value">
-                                <%= @study.stochDivergence %>
+                                <%= @study.stoch_divergence %>
                             </div>
                         </div>
                         <div class="separator"/>
@@ -188,7 +188,7 @@
                                 MACD Cross:
                             </div>
                             <div class="study-data-value">
-                                <%= @study.macdCross %>
+                                <%= @study.macd_cross %>
                             </div>
                         </div>
                         <div class="separator"/>
@@ -213,7 +213,7 @@
                                 Stop Loss:
                             </div>
                             <div class="study-data-value">
-                                <%= @study.stopLoss %>
+                                <%= @study.stop_loss %>
                             </div>
                         </div>
                         <div class="separator"/>
@@ -222,7 +222,7 @@
                                 Image:
                             </div>
                             <div class="study-data-value">
-                                <%= @study.imageUrl %>
+                                <%= @study.image_usrl %>
                             </div>
                         </div>
                         <div class="separator"/>
@@ -265,6 +265,7 @@
                                 <%= label_tag(:study_direction,  "Direction:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <%= text_field(:study, :direction, :class => 'form-control col-md-7 col-xs-12') %>
+									<%= select(:study, :direction, [['None', 'None'], ['Uptrend', 'Uptrend'], ['Lateral', 'Lateral'], ['Downtrend', 'Downtrend']], {}, {class: "select2_group form-control"}) %>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -286,33 +287,33 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <%= label_tag(:study_tradingPosition,  "Trading position:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                                <%= label_tag(:study_trading_position,  "Trading position:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <%= select(:study, :tradingPosition, [['None', 'None'], ['Long', 'Long'], ['Neutral', 'Neutral'], ['Short', 'Short']], {}, {class: "select2_group form-control"}) %>
+                                    <%= select(:study, :trading_position, [['None', 'None'], ['Long', 'Long'], ['Neutral', 'Neutral'], ['Short', 'Short']], {}, {class: "select2_group form-control"}) %>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <%= label_tag(:study_reversalChartPattern,  "Reversal chart pattern:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                                <%= label_tag(:study_reversal_chart_pattern,  "Reversal chart pattern:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <%= text_field(:study, :reversalChartPattern, :class => 'form-control col-md-7 col-xs-12') %>
+                                    <%= text_field(:study, :reversal_chart_pattern, :class => 'form-control col-md-7 col-xs-12') %>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <%= label_tag(:study_continuationChartPattern,  "Continuation chart pattern:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                                <%= label_tag(:study_continuation_chart_pattern,  "Continuation chart pattern:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <%= text_field(:study, :continuationChartPattern, :class => 'form-control col-md-7 col-xs-12') %>
+                                    <%= text_field(:study, :continuation_chart_pattern, :class => 'form-control col-md-7 col-xs-12') %>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <%= label_tag(:study_reversalCandlestick,  "Reversal candlestick:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                                <%= label_tag(:study_reversal_candlestick,  "Reversal candlestick:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <%= text_field(:study, :reversalCandlestick, :class => 'form-control col-md-7 col-xs-12') %>
+                                    <%= text_field(:study, :reversal_candlestick, :class => 'form-control col-md-7 col-xs-12') %>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <%= label_tag(:study_continuationCandlestick,  "Continuation candlestick:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                                <%= label_tag(:study_continuation_candlestick,  "Continuation candlestick:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <%= text_field(:study, :continuationCandlestick, :class => 'form-control col-md-7 col-xs-12') %>
+                                    <%= text_field(:study, :continuation_candlestick, :class => 'form-control col-md-7 col-xs-12') %>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -322,15 +323,15 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <%= label_tag(:study_rsiCross,  "RSI cross:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                                <%= label_tag(:study_rsi_cross,  "RSI cross:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <%= select(:study, :rsiCross, [['None', 'None'], ['Rising', 'Rising'], ['Falling', 'Falling']], {}, {class: "select2_group form-control"}) %>
+                                    <%= select(:study, :rsi_cross, [['None', 'None'], ['Rising', 'Rising'], ['Falling', 'Falling']], {}, {class: "select2_group form-control"}) %>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <%= label_tag(:study_rsiDivergence,  "RSI divergence:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                                <%= label_tag(:study_rsi_divergence,  "RSI divergence:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <%= select(:study, :rsiDivergence, [['None', 'None'], ['Bullish', 'Bullish'], ['Neutral', 'Neutral'], ['Bearish', 'Bearish']], {}, {class: "select2_group form-control"}) %>
+                                    <%= select(:study, :rsi_divergence, [['None', 'None'], ['Bullish', 'Bullish'], ['Neutral', 'Neutral'], ['Bearish', 'Bearish']], {}, {class: "select2_group form-control"}) %>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -340,15 +341,15 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <%= label_tag(:study_stochCross,  "Stochastic cross:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                                <%= label_tag(:study_stoch_cross,  "Stochastic cross:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <%= select(:study, :stochCross, [['None', 'None'], ['Rising', 'Rising'], ['Falling', 'Falling']], {}, {class: "select2_group form-control"}) %>
+                                    <%= select(:study, :stoch_cross, [['None', 'None'], ['Rising', 'Rising'], ['Falling', 'Falling']], {}, {class: "select2_group form-control"}) %>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <%= label_tag(:study_stochDivergence,  "Stochastic divergence:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                                <%= label_tag(:study_stoch_divergence,  "Stochastic divergence:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <%= select(:study, :stochDivergence, [['None', 'None'], ['Bullish', 'Bullish'], ['Neutral', 'Neutral'], ['Bearish', 'Bearish']], {}, {class: "select2_group form-control"}) %>
+                                    <%= select(:study, :stoch_divergence, [['None', 'None'], ['Bullish', 'Bullish'], ['Neutral', 'Neutral'], ['Bearish', 'Bearish']], {}, {class: "select2_group form-control"}) %>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -358,9 +359,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <%= label_tag(:study_macdCross,  "MACD cross:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                                <%= label_tag(:study_macd_cross,  "MACD cross:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <%= select(:study, :macdCross, [['None', 'None'], ['Rising', 'Rising'], ['Falling', 'Falling']], {}, {class: "select2_group form-control"}) %>
+                                    <%= select(:study, :macd_cross, [['None', 'None'], ['Rising', 'Rising'], ['Falling', 'Falling']], {}, {class: "select2_group form-control"}) %>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -376,15 +377,15 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <%= label_tag(:study_stopLoss,  "Stop loss:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                                <%= label_tag(:study_stop_loss,  "Stop loss:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <%= text_field(:study, :stopLoss, :class => 'form-control col-md-7 col-xs-12') %>
+                                    <%= text_field(:study, :stop_loss, :class => 'form-control col-md-7 col-xs-12') %>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <%= label_tag(:study_imageUrl,  "Image url:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                                <%= label_tag(:study_image_usrl,  "Image url:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <%= text_field(:study, :imageUrl, :class => 'form-control col-md-7 col-xs-12') %>
+                                    <%= text_field(:study, :image_usrl, :class => 'form-control col-md-7 col-xs-12') %>
                                 </div>
                             </div>
                             <div class="form-group">

@@ -2,18 +2,20 @@ class CreateAnalyses < ActiveRecord::Migration[5.0]
   def change
     create_table :analyses do |t|
       t.string :isin
-      t.decimal :borsaItalianaSupport
-      t.decimal :borsaItalianaResistance
-      t.string :borsaItalianaFTA
-      t.decimal :xxivOreSupport
-      t.decimal :xxivOreResistance
-      t.string :xxivOreShortTrend
-      t.string :xxivOreFTAIndex
-      t.string :xxivOreRSI
-      t.string :xxivOreRSIDiv
-      t.decimal :repubblicaSupport
-      t.decimal :repubblicaResistance
-      t.boolean :investingDotComRating
+      t.decimal :borsa_italiana_support
+      t.decimal :borsa_italiana_resistance
+      t.string :borsa_italiana_fta
+      t.decimal :xxivore_support
+      t.decimal :xxivore_resistance
+      t.string :xxivore_shorttrend
+      t.decimal :xxivore_ftaindex
+      t.decimal :xxivore_rsi
+      t.string :xxivore_rsidiv
+      t.decimal :repubblica_support
+      t.decimal :repubblica_resistance
+      t.boolean :investing_dotcomrating
+      
+      t.references :stock, foreign_key: true
 
       t.timestamps
     end

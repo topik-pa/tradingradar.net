@@ -7,23 +7,23 @@ one:
   mmp1: 9.99
   mmp2: 9.99
   gap: MyString
-  tradingPosition: MyString
-  reversalChartPattern: MyString
-  continuationChartPattern: MyString
-  reversalCandlestick: MyString
-  continuationCandlestick: MyString
+  trading_position: MyString
+  reversal_chart_pattern: MyString
+  continuation_chart_pattern: MyString
+  reversal_candlestick: MyString
+  continuation_candlestick: MyString
   rsi: MyString
-  rsiCross: MyString
-  rsiDivergence: MyString
+  rsi_cross: MyString
+  rsi_divergence: MyString
   stoch: MyString
-  stochCross: MyString
-  stochDivergence: MyString
+  stoch_cross: MyString
+  stoch_divergence: MyString
   macd: MyString
-  macdCross: MyString
+  macd_cross: MyString
   buy: 9.99
   sell: 9.99
-  stopLoss: 9.99
-  imageUrl: MyString
+  stop_loss: 9.99
+  image_usrl: MyString
   note: MyText
   stock: one
   user: one
@@ -35,23 +35,23 @@ two:
   mmp1: 9.99
   mmp2: 9.99
   gap: MyString
-  tradingPosition: MyString
-  reversalChartPattern: MyString
-  continuationChartPattern: MyString
-  reversalCandlestick: MyString
-  continuationCandlestick: MyString
+  trading_position: MyString
+  reversal_chart_pattern: MyString
+  continuation_chart_pattern: MyString
+  reversal_candlestick: MyString
+  continuation_candlestick: MyString
   rsi: MyString
-  rsiCross: MyString
-  rsiDivergence: MyString
+  rsi_cross: MyString
+  rsi_divergence: MyString
   stoch: MyString
-  stochCross: MyString
-  stochDivergence: MyString
+  stoch_cross: MyString
+  stoch_divergence: MyString
   macd: MyString
-  macdCross: MyString
+  macd_cross: MyString
   buy: 9.99
   sell: 9.99
-  stopLoss: 9.99
-  imageUrl: MyString
+  stop_loss: 9.99
+  image_usrl: MyString
   note: MyText
   stock: two
   user: two

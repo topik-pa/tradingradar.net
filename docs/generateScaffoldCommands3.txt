@@ -1,10 +1,10 @@
 rails generate scaffold Url isin:string url1:string url2:string url3:string url4:string url5:string url6:string url7:string url8:string url9:string url10:string
 
-rails generate scaffold Stock isin:string cod:string name:string sector:string lastPrice:decimal variation:string marketPhase:string
+rails generate scaffold Stock isin:string cod:string name:string sector:string last_price:decimal variation:string market_phase:string
 
-rails generate scaffold Analysis isin:string borsaItalianaSupport:decimal borsaItalianaResistance:decimal borsaItalianaFTA:string xxivOreSupport:decimal xxivOreResistance:decimal xxivOreShortTrend:string xxivOreFTAIndex:string xxivOreRSI:string xxivOreRSIDiv:string repubblicaSupport:decimal repubblicaResistance:decimal investingDotComRating:boolean
+rails generate scaffold Analysis isin:string borsa_italiana_support:decimal borsa_italiana_resistance:decimal borsa_italiana_fta:string xxivore_support:decimal xxivore_resistance:decimal xxivore_shorttrend:string xxivore_ftaindex:string xxivore_rsi:string xxivore_rsiDiv:string repubblica_support:decimal repubblica_resistance:decimal investing_dotcomrating:boolean
 
-rails generate scaffold Study resistance:decimal support:decimal direction:string mmp1:decimal mmp2:decimal gap:string tradingPosition:string reversalChartPattern:string continuationChartPattern:string reversalCandlestick:string continuationCandlestick:string rsi:string rsiCross:string rsiDivergence:string stoch:string stochCross:string stochDivergence:string macd:string macdCross:string buy:decimal sell:decimal stopLoss:decimal imageUrl:string note:text stock:references user:references
+rails generate scaffold Study resistance:decimal support:decimal direction:string mmp1:decimal mmp2:decimal gap:string trading_position:string reversal_chart_pattern:string continuation_chart_pattern:string reversal_candlestick:string continuation_candlestick:string rsi:string rsi_cross:string rsi_divergence:string stoch:string stoch_cross:string stoch_divergence:string macd:string macd_cross:string buy:decimal sell:decimal stop_loss:decimal image_usrl:string note:text stock:references user:references
 
 rails generate scaffold Market name:string value:decimal variation:decimal
 
@@ -31,18 +31,18 @@ self.primary_key = 'isin'
     has_many :studies, dependent: :destroy
 	validates_associated :studies
 	validates :name, :cod, uniqueness: true
-	validates :lastPrice, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :last_price, numericality: {greater_than: 0.00}, allow_blank: true
 end
 
 
 class Analysis < ApplicationRecord
 self.primary_key = 'isin'
-    validates :borsaItalianaSupport, numericality: {greater_than: 0.00}, allow_blank: true
-	validates :borsaItalianaResistance, numericality: {greater_than: 0.00}, allow_blank: true
-    validates :xxivOreSupport, numericality: {greater_than: 0.00}, allow_blank: true
-	validates :xxivOreResistance, numericality: {greater_than: 0.00}, allow_blank: true
-	validates :repubblicaSupport, numericality: {greater_than: 0.00}, allow_blank: true
-	validates :repubblicaResistance, numericality: {greater_than: 0.00}, allow_blank: true
+    validates :borsa_italiana_support, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :borsa_italiana_resistance, numericality: {greater_than: 0.00}, allow_blank: true
+    validates :xxivore_support, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :xxivore_resistance, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :repubblica_support, numericality: {greater_than: 0.00}, allow_blank: true
+	validates :repubblica_resistance, numericality: {greater_than: 0.00}, allow_blank: true
 end
 
 
@@ -55,18 +55,18 @@ class Study < ApplicationRecord
     validates :mmp1, numericality: {greater_than: 0.00}, allow_blank: true
     validates :mmp2, numericality: {greater_than: 0.00}, allow_blank: true
 	validates :gap, inclusion: { in: %w(Up None Down), message: "%{value} is not a valid gap value" }
-	validates :tradingPosition, inclusion: { in: %w(Long Neutral Short), message: "%{value} is not a valid trading position value" }
+	validates :trading_position, inclusion: { in: %w(Long Neutral Short), message: "%{value} is not a valid trading position value" }
 	validates :rsi, inclusion: { in: %w(Overbought Neutral Oversold), message: "%{value} is not a valid RSI value" }
-	validates :rsiCross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid RSI crossover value" }
-	validates :rsiDivergence , inclusion: { in: %w(Bullish Neutral Bearish), message: "%{value} is not a valid RSI divergence value" }
+	validates :rsi_cross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid RSI crossover value" }
+	validates :rsi_divergence , inclusion: { in: %w(Bullish Neutral Bearish), message: "%{value} is not a valid RSI divergence value" }
 	validates :stoch, inclusion: { in: %w(Overbought Neutral Oversold), message: "%{value} is not a valid Stochastic value" }
-	validates :stochCross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid Stochastic crossover value" }
-	validates :stochDivergence , inclusion: { in: %w(Bullish Neutral Bearish), message: "%{value} is not a valid Stochastic divergence value" }
+	validates :stoch_cross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid Stochastic crossover value" }
+	validates :stoch_divergence , inclusion: { in: %w(Bullish Neutral Bearish), message: "%{value} is not a valid Stochastic divergence value" }
 	validates :macd, inclusion: { in: %w(Overbought Neutral Oversold), message: "%{value} is not a valid MACD value" }
-	validates :macdCross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid MACD crossover value" }
+	validates :macd_cross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid MACD crossover value" }
     validates :buy, numericality: {greater_than: 0.00}, allow_blank: true
     validates :sell, numericality: {greater_than: 0.00}, allow_blank: true
-    validates :stopLoss, numericality: {greater_than: 0.00}, allow_blank: true
+    validates :stop_loss, numericality: {greater_than: 0.00}, allow_blank: true
 end
 
 

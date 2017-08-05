@@ -1,10 +1,10 @@
 rails generate scaffold Stock name:string isin:string cod:string sector:string url1:string url2:string url3:string url4:string url5:string url6:string
 
-rails generate scaffold DynamicDataStock isin:string lastPrice:decimal variation:decimal marketPhase:string dividendValue:decimal dividendDate:date dividendYeld:decimal 
+rails generate scaffold DynamicDataStock isin:string last_price:decimal variation:decimal market_phase:string dividendValue:decimal dividendDate:date dividendYeld:decimal 
 
-rails generate scaffold ExternalAnalysisStock isin:string XXIVOreSupport:decimal XXIVOreResistance:decimal XXIVOreShortTrend:string XXIVOreFTAIndex:string XXIVOreRSI:string XXIVOreRSIDiv:string  repubblicaSupport:decimal repubblicaResistance:decimal investingDotComRating:boolean
+rails generate scaffold ExternalAnalysisStock isin:string XXIVOreSupport:decimal XXIVOreResistance:decimal XXIVOreShortTrend:string XXIVOreFTAIndex:string XXIVOreRSI:string XXIVOreRSIDiv:string  repubblica_support:decimal repubblica_resistance:decimal investing_dotcomrating:boolean
 
-rails generate scaffold Analysis resistance:decimal support:decimal direction:string gap:string tradingPosition:string reversalChartPattern:string continuationChartPattern:string reversalCandlestick:string continuationCandlestick:string rsi:string rsiCross:string rsiDivergence:string stoch:string stochCross:string stochDivergence:string macd:string macdCross:string buy:decimal sell:decimal stopLoss:decimal imageUrl:string note:text stock:references user:references
+rails generate scaffold Analysis resistance:decimal support:decimal direction:string gap:string trading_position:string reversal_chart_pattern:string continuation_chart_pattern:string reversal_candlestick:string continuation_candlestick:string rsi:string rsi_cross:string rsi_divergence:string stoch:string stoch_cross:string stoch_divergence:string macd:string macd_cross:string buy:decimal sell:decimal stop_loss:decimal image_usrl:string note:text stock:references user:references
 
 rails generate scaffold Market name:string value:decimal variation:decimal
 
@@ -32,7 +32,7 @@ end
 class DynamicDataStock < ApplicationRecord
 					validates :isin, presence: true
 					validates :isin, uniqueness: true
-					validates :lastPrice, numericality; {greater_than: 0.00}
+					validates :last_price, numericality; {greater_than: 0.00}
 					validates :dividendValue, numericality; {greater_than: 0.00}
 					validates :dividendYeld, numericality; {greater_than: 0.00}
 end
@@ -43,8 +43,8 @@ class ExternalAnalysisStock < ApplicationRecord
 					validates :isin, uniqueness: true
 					validates :XXIVOreSupport, numericality; {greater_than: 0.00}
 					validates :XXIVOreResistance, numericality; {greater_than: 0.00}
-					validates :repubblicaSupport, numericality; {greater_than: 0.00}
-					validates :repubblicaResistance, numericality; {greater_than: 0.00}
+					validates :repubblica_support, numericality; {greater_than: 0.00}
+					validates :repubblica_resistance, numericality; {greater_than: 0.00}
 end
 
 
@@ -53,20 +53,20 @@ class Analysis < ApplicationRecord
 				belongs_to :user
 				validates :direction, inclusion: { in: %w(Uptrend Lateral Downtrend), message: "%{value} is not a valid direction value" }
 				validates :gap, inclusion: { in: %w(Up None Down), message: "%{value} is not a valid gap value" }
-				validates :tradingPosition, inclusion: { in: %w(Long Neutral Short), message: "%{value} is not a valid trading position value" }
+				validates :trading_position, inclusion: { in: %w(Long Neutral Short), message: "%{value} is not a valid trading position value" }
 				validates :rsi, inclusion: { in: %w(Overbought Neutral Oversold), message: "%{value} is not a valid RSI value" }
-				validates :rsiCross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid RSI crossover value" }
-				validates :rsiDivergence , inclusion: { in: %w(Bullish Neutral Bearish), message: "%{value} is not a valid RSI divergence value" }
+				validates :rsi_cross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid RSI crossover value" }
+				validates :rsi_divergence , inclusion: { in: %w(Bullish Neutral Bearish), message: "%{value} is not a valid RSI divergence value" }
 				validates :stoch, inclusion: { in: %w(Overbought Neutral Oversold), message: "%{value} is not a valid Stochastic value" }
-				validates :stochCross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid Stochastic crossover value" }
-				validates :stochDivergence , inclusion: { in: %w(Bullish Neutral Bearish), message: "%{value} is not a valid Stochastic divergence value" }
+				validates :stoch_cross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid Stochastic crossover value" }
+				validates :stoch_divergence , inclusion: { in: %w(Bullish Neutral Bearish), message: "%{value} is not a valid Stochastic divergence value" }
 				validates :macd, inclusion: { in: %w(Overbought Neutral Oversold), message: "%{value} is not a valid MACD value" }
-				validates :macdCross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid MACD crossover value" }
+				validates :macd_cross, inclusion: { in: %w(Rising None Falling), message: "%{value} is not a valid MACD crossover value" }
     validates :resistance, numericality; {greater_than: 0.00}
     validates :support, numericality; {greater_than: 0.00}
     validates :buy, numericality; {greater_than: 0.00}
     validates :sell, numericality; {greater_than: 0.00}
-    validates :stopLoss, numericality; {greater_than: 0.00}
+    validates :stop_loss, numericality; {greater_than: 0.00}
 end
 
 

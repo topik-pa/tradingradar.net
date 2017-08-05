@@ -70,6 +70,6 @@ class StudiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def study_params
-      params.require(:study).permit(:resistance, :support, :direction, :mmp1, :mmp2, :gap, :tradingPosition, :reversalChartPattern, :continuationChartPattern, :reversalCandlestick, :continuationCandlestick, :rsi, :rsiCross, :rsiDivergence, :stoch, :stochCross, :stochDivergence, :macd, :macdCross, :buy, :sell, :stopLoss, :imageUrl, :note, :stock_id, :user_id)
+      params.require(:study).permit(:resistance, :support, :direction, :mmp1, :mmp2, :gap, :trading_position, :reversal_chart_pattern, :continuation_chart_pattern, :reversal_candlestick, :continuation_candlestick, :rsi, :rsi_cross, :rsi_divergence, :stoch, :stoch_cross, :stoch_divergence, :macd, :macd_cross, :buy, :sell, :stop_loss, :image_usrl, :note, :stock_id, :user_id)
     end
 end

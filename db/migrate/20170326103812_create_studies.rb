@@ -7,23 +7,23 @@ class CreateStudies < ActiveRecord::Migration[5.0]
       t.decimal :mmp1
       t.decimal :mmp2
       t.string :gap
-      t.string :tradingPosition
-      t.string :reversalChartPattern
-      t.string :continuationChartPattern
-      t.string :reversalCandlestick
-      t.string :continuationCandlestick
+      t.string :trading_position
+      t.string :reversal_chart_pattern
+      t.string :continuation_chart_pattern
+      t.string :reversal_candlestick
+      t.string :continuation_candlestick
       t.string :rsi
-      t.string :rsiCross
-      t.string :rsiDivergence
+      t.string :rsi_cross
+      t.string :rsi_divergence
       t.string :stoch
-      t.string :stochCross
-      t.string :stochDivergence
+      t.string :stoch_cross
+      t.string :stoch_divergence
       t.string :macd
-      t.string :macdCross
+      t.string :macd_cross
       t.decimal :buy
       t.decimal :sell
-      t.decimal :stopLoss
-      t.string :imageUrl
+      t.decimal :stop_loss
+      t.string :image_usrl
       t.text :note
       t.references :stock, foreign_key: true
       t.references :user, foreign_key: true

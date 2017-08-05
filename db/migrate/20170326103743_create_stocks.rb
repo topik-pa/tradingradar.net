@@ -5,9 +5,9 @@ class CreateStocks < ActiveRecord::Migration[5.0]
       t.string :cod
       t.string :name
       t.string :sector
-      t.decimal :lastPrice
+      t.decimal :last_price
       t.string :variation
-      t.string :marketPhase
+      t.string :market_phase
 
       t.timestamps
     end

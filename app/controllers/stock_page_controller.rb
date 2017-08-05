@@ -13,7 +13,7 @@ class StockPageController < ApplicationController
     
     
     if !@lastStudy.nil?
-      @studyImageUrl = @lastStudy.imageUrl
+      @studyImageUrl = @lastStudy.image_usrl
     end
     
     if @studyImageUrl.blank?

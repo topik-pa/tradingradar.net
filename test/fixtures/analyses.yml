@@ -2,30 +2,30 @@
 
 one:
   isin: MyString
-  borsaItalianaSupport: 9.99
-  borsaItalianaResistance: 9.99
-  borsaItalianaFTA: MyString
-  xxivOreSupport: 9.99
-  xxivOreResistance: 9.99
-  xxivOreShortTrend: MyString
-  xxivOreFTAIndex: MyString
-  xxivOreRSI: MyString
-  xxivOreRSIDiv: MyString
-  repubblicaSupport: 9.99
-  repubblicaResistance: 9.99
-  investingDotComRating: false
+  borsa_italiana_support: 9.99
+  borsa_italiana_resistance: 9.99
+  borsa_italiana_fta: MyString
+  xxivore_support: 9.99
+  xxivore_resistance: 9.99
+  xxivore_shorttrend: MyString
+  xxivore_ftaindex: MyString
+  xxivore_rsi: MyString
+  xxivore_rsiDiv: MyString
+  repubblica_support: 9.99
+  repubblica_resistance: 9.99
+  investing_dotcomrating: false
 
 two:
   isin: MyString
-  borsaItalianaSupport: 9.99
-  borsaItalianaResistance: 9.99
-  borsaItalianaFTA: MyString
-  xxivOreSupport: 9.99
-  xxivOreResistance: 9.99
-  xxivOreShortTrend: MyString
-  xxivOreFTAIndex: MyString
-  xxivOreRSI: MyString
-  xxivOreRSIDiv: MyString
-  repubblicaSupport: 9.99
-  repubblicaResistance: 9.99
-  investingDotComRating: false
+  borsa_italiana_support: 9.99
+  borsa_italiana_resistance: 9.99
+  borsa_italiana_fta: MyString
+  xxivore_support: 9.99
+  xxivore_resistance: 9.99
+  xxivore_shorttrend: MyString
+  xxivore_ftaindex: MyString
+  xxivore_rsi: MyString
+  xxivore_rsiDiv: MyString
+  repubblica_support: 9.99
+  repubblica_resistance: 9.99
+  investing_dotcomrating: false

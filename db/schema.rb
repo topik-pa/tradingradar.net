@@ -17,20 +17,22 @@ ActiveRecord::Schema.define(version: 20170725191904) do
 
   create_table "analyses", force: :cascade do |t|
     t.string   "isin"
-    t.decimal  "borsaItalianaSupport"
-    t.decimal  "borsaItalianaResistance"
-    t.string   "borsaItalianaFTA"
-    t.decimal  "xxivOreSupport"
-    t.decimal  "xxivOreResistance"
-    t.string   "xxivOreShortTrend"
-    t.string   "xxivOreFTAIndex"
-    t.string   "xxivOreRSI"
-    t.string   "xxivOreRSIDiv"
-    t.decimal  "repubblicaSupport"
-    t.decimal  "repubblicaResistance"
-    t.boolean  "investingDotComRating"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.decimal  "borsa_italiana_support"
+    t.decimal  "borsa_italiana_resistance"
+    t.string   "borsa_italiana_fta"
+    t.decimal  "xxivore_support"
+    t.decimal  "xxivore_resistance"
+    t.string   "xxivore_shorttrend"
+    t.decimal  "xxivore_ftaindex"
+    t.decimal  "xxivore_rsi"
+    t.string   "xxivore_rsidiv"
+    t.decimal  "repubblica_support"
+    t.decimal  "repubblica_resistance"
+    t.boolean  "investing_dotcomrating"
+    t.integer  "stock_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["stock_id"], name: "index_analyses_on_stock_id", using: :btree
   end
 
   create_table "markets", force: :cascade do |t|
@@ -46,11 +48,11 @@ ActiveRecord::Schema.define(version: 20170725191904) do
     t.string   "cod"
     t.string   "name"
     t.string   "sector"
-    t.decimal  "lastPrice"
+    t.decimal  "last_price"
     t.string   "variation"
-    t.string   "marketPhase"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "market_phase"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "studies", force: :cascade do |t|
@@ -60,28 +62,28 @@ ActiveRecord::Schema.define(version: 20170725191904) do
     t.decimal  "mmp1"
     t.decimal  "mmp2"
     t.string   "gap"
-    t.string   "tradingPosition"
-    t.string   "reversalChartPattern"
-    t.string   "continuationChartPattern"
-    t.string   "reversalCandlestick"
-    t.string   "continuationCandlestick"
+    t.string   "trading_position"
+    t.string   "reversal_chart_pattern"
+    t.string   "continuation_chart_pattern"
+    t.string   "reversal_candlestick"
+    t.string   "continuation_candlestick"
     t.string   "rsi"
-    t.string   "rsiCross"
-    t.string   "rsiDivergence"
+    t.string   "rsi_cross"
+    t.string   "rsi_divergence"
     t.string   "stoch"
-    t.string   "stochCross"
-    t.string   "stochDivergence"
+    t.string   "stoch_cross"
+    t.string   "stoch_divergence"
     t.string   "macd"
-    t.string   "macdCross"
+    t.string   "macd_cross"
     t.decimal  "buy"
     t.decimal  "sell"
-    t.decimal  "stopLoss"
-    t.string   "imageUrl"
+    t.decimal  "stop_loss"
+    t.string   "image_usrl"
     t.text     "note"
     t.integer  "stock_id"
     t.integer  "user_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["stock_id"], name: "index_studies_on_stock_id", using: :btree
     t.index ["user_id"], name: "index_studies_on_user_id", using: :btree
   end
@@ -111,6 +113,7 @@ ActiveRecord::Schema.define(version: 20170725191904) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "analyses", "stocks"
   add_foreign_key "studies", "stocks"
   add_foreign_key "studies", "users"
 end

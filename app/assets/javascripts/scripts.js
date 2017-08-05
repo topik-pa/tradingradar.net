@@ -85,13 +85,13 @@ var myApp = (function() {
             	switch (index)
             	{
             	   case 0: 
-            	   	url = '/filter_one/filter';
+            	   	url = '/filters/filter_1';
             	   	break;
             	   case 1: 
-	           	   	url = '/filter_two/filter';
+	           	   	url = '/filters/filter_2';
 	           	   	break;
             	   case 2: 
-	           	   	url = '/filter_three/filter';
+	           	   	url = '/filters/filter_4';
 	           	   	break;
             	}
             	

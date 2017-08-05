@@ -190,25 +190,25 @@ class ApplicationController < ActionController::Base
     cod = doc.at_xpath('/descendant::table[contains(@class, "m-table")][2]//tr[5]//span[@class="t-text -right"]/text()').to_s.strip
     name = doc.at_xpath('/descendant::h1/a/text()').to_s.strip
     sector = doc.at_xpath('/descendant::table[contains(@class, "m-table")][2]//tr[6]//span[@class="t-text -right"]/text()').to_s.strip
-    lastPrice = doc.at_xpath('/descendant::div[@class="l-box"][5]/span[1]/strong/text()').to_s.strip
+    last_price = doc.at_xpath('/descendant::div[@class="l-box"][5]/span[1]/strong/text()').to_s.strip
     variation = doc.at_xpath('/descendant::div[@class="l-box"][5]/span[2]/strong/text()').to_s.strip
-    marketPhase = doc.at_xpath('/descendant::article[@class="l-grid__cell"]/div/div/div[3]/span[1]/strong/text()').to_s.strip
+    market_phase = doc.at_xpath('/descendant::article[@class="l-grid__cell"]/div/div/div[3]/span[1]/strong/text()').to_s.strip
     
-    if lastPrice
-      puts 'Last price: ' + lastPrice
-      lastPrice = lastPrice.tr(",", ".").to_f.round(4)
-      if lastPrice != 0
-        stock.lastPrice = lastPrice
+    if last_price
+      puts 'Last price: ' + last_price
+      last_price = last_price.tr(",", ".").to_f.round(4)
+      if last_price != 0
+        stock.last_price = last_price
         puts 'Last price updated'
       else
-        stock.lastPrice = nil
+        stock.last_price = nil
         stock.save!
-        raise UnexpectedElemValue, 'lastPrice variable is not numeric'
+        raise UnexpectedElemValue, 'last_price variable is not numeric'
       end
     else
-      stock.lastPrice = nil
+      stock.last_price = nil
       stock.save!
-      raise ElemNotFound, 'lastPrice variable is null'
+      raise ElemNotFound, 'last_price variable is null'
     end
     
     if variation
@@ -222,14 +222,14 @@ class ApplicationController < ActionController::Base
       raise ElemNotFound, 'variation variable is null'
     end
     
-    if marketPhase
-      puts 'Market phase: ' + marketPhase
-      stock.marketPhase = marketPhase
-      puts 'marketPhase updated'
+    if market_phase
+      puts 'Market phase: ' + market_phase
+      stock.market_phase = market_phase
+      puts 'market_phase updated'
     else
-      stock.marketPhase = nil
+      stock.market_phase = nil
       stock.save!
-      raise ElemNotFound, 'marketPhase variable is null'
+      raise ElemNotFound, 'market_phase variable is null'
     end
     
     if cod
@@ -307,59 +307,59 @@ class ApplicationController < ActionController::Base
        
       doc = Nokogiri::HTML(open(urlBorsaItaliana))
           
-      borsaItalianaSupport = doc.at_xpath('/descendant::span[contains(@class, "dato_techanalSup")]/strong/text()').to_s.strip
-      borsaItalianaResistance = doc.at_xpath('/descendant::span[contains(@class, "dato_techanalRes")]/strong/text()').to_s.strip
-      borsaItalianaFTA = ''
+      borsa_italiana_support = doc.at_xpath('/descendant::span[contains(@class, "dato_techanalSup")]/strong/text()').to_s.strip
+      borsa_italiana_resistance = doc.at_xpath('/descendant::span[contains(@class, "dato_techanalRes")]/strong/text()').to_s.strip
+      borsa_italiana_fta = ''
       
-      borsaItalianaFTAAttribute = doc.at_xpath('/descendant::img[contains(@src, "rank-fta")]/@src')
-      case borsaItalianaFTAAttribute
+      borsa_italiana_ftaAttribute = doc.at_xpath('/descendant::img[contains(@src, "rank-fta")]/@src')
+      case borsa_italiana_ftaAttribute
         when /rank-fta0/
-          borsaItalianaFTA = "0"
+          borsa_italiana_fta = "0"
         when /rank-fta1/
-          borsaItalianaFTA = "1"
+          borsa_italiana_fta = "1"
         when /rank-fta2/
-          borsaItalianaFTA = "2"
+          borsa_italiana_fta = "2"
         when /rank-fta3/
-          borsaItalianaFTA = "3"
+          borsa_italiana_fta = "3"
         when /rank-fta4/
-          borsaItalianaFTA = "4"
+          borsa_italiana_fta = "4"
       end 
       
 
-      if borsaItalianaSupport
-        puts 'Support Borsa Italiana: ' + borsaItalianaSupport
-        borsaItalianaSupport = borsaItalianaSupport.to_f.round(4)
-        analysis.borsaItalianaSupport = borsaItalianaSupport
+      if borsa_italiana_support
+        puts 'Support Borsa Italiana: ' + borsa_italiana_support
+        borsa_italiana_support = borsa_italiana_support.to_f.round(4)
+        analysis.borsa_italiana_support = borsa_italiana_support
       else
-        analysis.borsaItalianaSupport = nil
+        analysis.borsa_italiana_support = nil
         analysis.save!
-        raise ElemNotFound, 'borsaItalianaSupport variable is null'
+        raise ElemNotFound, 'borsa_italiana_support variable is null'
       end
       
-      if borsaItalianaResistance
-        puts 'Resistance Borsa Italiana: ' + borsaItalianaResistance
-        borsaItalianaResistance = borsaItalianaResistance.to_f.round(4)
-        analysis.borsaItalianaResistance = borsaItalianaResistance
+      if borsa_italiana_resistance
+        puts 'Resistance Borsa Italiana: ' + borsa_italiana_resistance
+        borsa_italiana_resistance = borsa_italiana_resistance.to_f.round(4)
+        analysis.borsa_italiana_resistance = borsa_italiana_resistance
       else
-        analysis.borsaItalianaResistance = nil
+        analysis.borsa_italiana_resistance = nil
         analysis.save!
-        raise ElemNotFound, 'borsaItalianaResistance variable is null'
+        raise ElemNotFound, 'borsa_italiana_resistance variable is null'
       end
       
-      if borsaItalianaFTA
-        puts 'FTA Borsa Italiana: ' + borsaItalianaFTA
-        analysis.borsaItalianaFTA = borsaItalianaFTA
+      if borsa_italiana_fta
+        puts 'FTA Borsa Italiana: ' + borsa_italiana_fta
+        analysis.borsa_italiana_fta = borsa_italiana_fta
       else
-        analysis.borsaItalianaFTA = nil
+        analysis.borsa_italiana_fta = nil
         analysis.save!
-        raise ElemNotFound, 'borsaItalianaFTA variable is null'
+        raise ElemNotFound, 'borsa_italiana_fta variable is null'
       end
       puts 'Analisys updated'
     else
         puts 'Url Borsa Italiana not available'
-        analysis.borsaItalianaSupport = nil
-        analysis.borsaItalianaResistance = nil
-        analysis.borsaItalianaFTA = nil
+        analysis.borsa_italiana_support = nil
+        analysis.borsa_italiana_resistance = nil
+        analysis.borsa_italiana_fta = nil
     end 
     
     
@@ -372,77 +372,77 @@ class ApplicationController < ActionController::Base
        
       doc2 = Nokogiri::HTML(open(urlSole24Ore))
            
-      xxivOreSupport = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][4]/text()').to_s.strip
-      xxivOreResistance = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][5]/text()').to_s.strip
-      xxivOreShortTrend = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][2]/text()').to_s.strip
-      xxivOreFTAIndex = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][3]/text()').to_s.strip  
-      xxivOreRSI = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][6]/text()').to_s.strip
-      xxivOreRSIDiv = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][7]/text()').to_s.strip
+      xxivore_support = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][4]/text()').to_s.strip
+      xxivore_resistance = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][5]/text()').to_s.strip
+      xxivore_shorttrend = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][2]/text()').to_s.strip
+      xxivore_ftaindex = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][3]/text()').to_s.strip  
+      xxivore_rsi = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][6]/text()').to_s.strip
+      xxivore_rsiDiv = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][7]/text()').to_s.strip
     
-      if xxivOreSupport
-        puts 'Support Sole 24 Ore: ' + xxivOreSupport
-        xxivOreSupport = xxivOreSupport.to_f.round(4)
-        analysis.xxivOreSupport = xxivOreSupport
+      if xxivore_support
+        puts 'Support Sole 24 Ore: ' + xxivore_support
+        xxivore_support = xxivore_support.to_f.round(4)
+        analysis.xxivore_support = xxivore_support
       else
-        analysis.xxivOreSupport = nil
+        analysis.xxivore_support = nil
         analysis.save!
-        raise ElemNotFound, 'xxivOreSupport variable is null'
+        raise ElemNotFound, 'xxivore_support variable is null'
       end
       
-      if xxivOreResistance
-        puts 'Resistance Sole 24 Ore: ' + xxivOreResistance
-        xxivOreResistance = xxivOreResistance.to_f.round(4)
-        analysis.xxivOreResistance = xxivOreResistance
+      if xxivore_resistance
+        puts 'Resistance Sole 24 Ore: ' + xxivore_resistance
+        xxivore_resistance = xxivore_resistance.to_f.round(4)
+        analysis.xxivore_resistance = xxivore_resistance
       else
-        analysis.xxivOreResistance = nil
+        analysis.xxivore_resistance = nil
         analysis.save!
-        raise ElemNotFound, 'xxivOreResistance variable is null'
+        raise ElemNotFound, 'xxivore_resistance variable is null'
       end        
           
-      if xxivOreShortTrend
-        puts 'Short trend Sole 24 Ore: ' + xxivOreShortTrend
-        analysis.xxivOreShortTrend = xxivOreShortTrend
+      if xxivore_shorttrend
+        puts 'Short trend Sole 24 Ore: ' + xxivore_shorttrend
+        analysis.xxivore_shorttrend = xxivore_shorttrend
       else
-        analysis.xxivOreShortTrend = nil
+        analysis.xxivore_shorttrend = nil
         analysis.save!
-        raise ElemNotFound, 'xxivOreShortTrend variable is null'
+        raise ElemNotFound, 'xxivore_shorttrend variable is null'
       end    
          
-      if xxivOreFTAIndex
-        puts 'FTA Index Sole 24 Ore: ' + xxivOreFTAIndex
-        analysis.xxivOreFTAIndex = xxivOreFTAIndex
+      if xxivore_ftaindex
+        puts 'FTA Index Sole 24 Ore: ' + xxivore_ftaindex
+        analysis.xxivore_ftaindex = xxivore_ftaindex
       else
-        analysis.xxivOreFTAIndex = nil
+        analysis.xxivore_ftaindex = nil
         analysis.save!
-        raise ElemNotFound, 'xxivOreFTAIndex variable is null'
+        raise ElemNotFound, 'xxivore_ftaindex variable is null'
       end  
        
-      if xxivOreRSI
-        puts 'RSI Sole 24 Ore: ' + xxivOreRSI
-        analysis.xxivOreRSI = xxivOreRSI
+      if xxivore_rsi
+        puts 'RSI Sole 24 Ore: ' + xxivore_rsi
+        analysis.xxivore_rsi = xxivore_rsi
       else
-        analysis.xxivOreRSI = nil
+        analysis.xxivore_rsi = nil
         analysis.save!
-        raise ElemNotFound, 'xxivOreRSI variable is null'
+        raise ElemNotFound, 'xxivore_rsi variable is null'
       end 
          
-      if xxivOreRSIDiv
-        puts 'RSI divergence Sole 24 Ore: ' + xxivOreRSIDiv
-        analysis.xxivOreRSIDiv = xxivOreRSIDiv
+      if xxivore_rsiDiv
+        puts 'RSI divergence Sole 24 Ore: ' + xxivore_rsiDiv
+        analysis.xxivore_rsiDiv = xxivore_rsiDiv
       else
-        analysis.xxivOreRSIDiv = nil
+        analysis.xxivore_rsiDiv = nil
         analysis.save!
-        raise ElemNotFound, 'xxivOreRSIDiv variable is null'
+        raise ElemNotFound, 'xxivore_rsiDiv variable is null'
       end 
       puts 'Analisys updated'
     else
       puts 'Url Sole 24 Ore not available'
-      analysis.xxivOreSupport = nil
-      analysis.xxivOreResistance = nil
-      analysis.xxivOreShortTrend = nil
-      analysis.xxivOreFTAIndex = nil
-      analysis.xxivOreRSI = nil
-      analysis.xxivOreRSIDiv = nil
+      analysis.xxivore_support = nil
+      analysis.xxivore_resistance = nil
+      analysis.xxivore_shorttrend = nil
+      analysis.xxivore_ftaindex = nil
+      analysis.xxivore_rsi = nil
+      analysis.xxivore_rsiDiv = nil
     end    
     
     
@@ -455,33 +455,33 @@ class ApplicationController < ActionController::Base
              
       doc3 = Nokogiri::HTML(open(urlRepubblica))
            
-      repubblicaSupport = doc3.at_xpath('/descendant::ul[contains(@class, "TLB-data-list")][2]/li[5]/b/text()').to_s.strip
-      repubblicaResistance = doc3.at_xpath('/descendant::ul[contains(@class, "TLB-data-list")][2]/li[1]/b/text()').to_s.strip
+      repubblica_support = doc3.at_xpath('/descendant::ul[contains(@class, "TLB-data-list")][2]/li[5]/b/text()').to_s.strip
+      repubblica_resistance = doc3.at_xpath('/descendant::ul[contains(@class, "TLB-data-list")][2]/li[1]/b/text()').to_s.strip
       
-      if repubblicaSupport
-        puts 'Support Repubblica.it: ' + repubblicaSupport
-        repubblicaSupport = repubblicaSupport.to_f.round(4)
-        analysis.repubblicaSupport = repubblicaSupport
+      if repubblica_support
+        puts 'Support Repubblica.it: ' + repubblica_support
+        repubblica_support = repubblica_support.to_f.round(4)
+        analysis.repubblica_support = repubblica_support
       else
-        analysis.repubblicaSupport = nil
+        analysis.repubblica_support = nil
         analysis.save!
-        raise ElemNotFound, 'repubblicaSupport variable is null'
+        raise ElemNotFound, 'repubblica_support variable is null'
       end
      
-      if repubblicaResistance
-        puts 'Resistance Repubblica.it: ' + repubblicaResistance
-        repubblicaResistance = repubblicaResistance.to_f.round(4)
-        analysis.repubblicaResistance = repubblicaResistance
+      if repubblica_resistance
+        puts 'Resistance Repubblica.it: ' + repubblica_resistance
+        repubblica_resistance = repubblica_resistance.to_f.round(4)
+        analysis.repubblica_resistance = repubblica_resistance
       else
-        analysis.repubblicaResistance = nil
+        analysis.repubblica_resistance = nil
         analysis.save!
-        raise ElemNotFound, 'repubblicaResistance variable is null'
+        raise ElemNotFound, 'repubblica_resistance variable is null'
       end 
       puts 'Analisys updated' 
     else
       puts 'Url Repubblica.it not available'
-      analysis.repubblicaSupport = nil
-      analysis.repubblicaResistance = nil
+      analysis.repubblica_support = nil
+      analysis.repubblica_resistance = nil
     end        
     
 
@@ -505,14 +505,14 @@ class ApplicationController < ActionController::Base
       resultText = mmgClassValue + mmmClassValue + itgClassValue + itmClassValue + rgclassValue + rmclassValue
       
       if resultText.include?(testText)
-        analysis.investingDotComRating = false
+        analysis.investing_dotcomrating = false
       else
-        analysis.investingDotComRating = true
+        analysis.investing_dotcomrating = true
       end
       puts 'Analisys updated'
     else
       puts 'Url Investing.com not available'
-      analysis.investingDotComRating = nil
+      analysis.investing_dotcomrating = nil
     end
     
         

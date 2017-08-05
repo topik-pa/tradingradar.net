@@ -35,18 +35,18 @@
     <% @analyses.each do |analysis| %>
       <tr class="<%= cycle('even', 'odd') -%>">
         <td><%= analysis.isin %></td>
-        <td><%= analysis.borsaItalianaSupport %></td>
-        <td><%= analysis.borsaItalianaResistance %></td>
-        <td><%= analysis.borsaItalianaFTA %></td>
-        <td><%= analysis.xxivOreSupport %></td>
-        <td><%= analysis.xxivOreResistance %></td>
-        <td><%= analysis.xxivOreShortTrend %></td>
-        <td><%= analysis.xxivOreFTAIndex %></td>
-        <td><%= analysis.xxivOreRSI %></td>
-        <td><%= analysis.xxivOreRSIDiv %></td>
-        <td><%= analysis.repubblicaSupport %></td>
-        <td><%= analysis.repubblicaResistance %></td>
-        <td><%= analysis.investingDotComRating %></td>
+        <td><%= analysis.borsa_italiana_support %></td>
+        <td><%= analysis.borsa_italiana_resistance %></td>
+        <td><%= analysis.borsa_italiana_fta %></td>
+        <td><%= analysis.xxivore_support %></td>
+        <td><%= analysis.xxivore_resistance %></td>
+        <td><%= analysis.xxivore_shorttrend %></td>
+        <td><%= analysis.xxivore_ftaindex %></td>
+        <td><%= analysis.xxivore_rsi %></td>
+        <td><%= analysis.xxivore_rsiDiv %></td>
+        <td><%= analysis.repubblica_support %></td>
+        <td><%= analysis.repubblica_resistance %></td>
+        <td><%= analysis.investing_dotcomrating %></td>
         <td><%= link_to 'Show', analysis %></td>
         <td><%= link_to 'Edit', edit_analysis_path(analysis) %></td>
         <td><%= link_to 'Destroy', analysis, method: :delete, data: { confirm: 'Are you sure?' } %></td>

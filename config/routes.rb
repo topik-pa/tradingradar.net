@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
-  get 'filter_three/filter'
+  get 'filters/filter_1'
 
-  get 'filter_two/filter'
+  get 'filters/filter_2'
 
-  get 'filter_one/filter'
+  get 'filters/filter_3'
+
+  get 'filters/filter_4'
+
+  get 'filters/filter_5'
+
+  get 'filters/filter_6'
 
   get 'study_page/index'
   post 'study_page/index'  => 'study_page#create' 

@@ -7,7 +7,7 @@
 		<div class="row section">
 		<div class="custom-title">
 			<h1><%= @stock.name %></h1>
-			<span><%= @stock.lastPrice %></span>&nbsp;/&nbsp;<span class="<%= colorClass(@stock.variation)%>"><%=@stock.variation%></span>
+			<span><%= @stock.last_price %></span>&nbsp;/&nbsp;<span class="<%= colorClass(@stock.variation)%>"><%=@stock.variation%></span>
 		</div>
 		
             
@@ -71,7 +71,7 @@
                                     <%= @lastStudy.gap %>
                                 </td>
                                 <td>
-                                    <%= @lastStudy.tradingPosition %>
+                                    <%= @lastStudy.trading_position %>
                                 </td>
                             </tr>
                         </tbody>
@@ -96,16 +96,16 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <%= @lastStudy.reversalChartPattern %>
+                                    <%= @lastStudy.reversal_chart_pattern %>
                                 </td>
                                 <td>
-                                    <%= @lastStudy.continuationChartPattern %>
+                                    <%= @lastStudy.continuation_chart_pattern %>
                                 </td>
                                 <td>
-                                    <%= @lastStudy.reversalCandlestick %>
+                                    <%= @lastStudy.reversal_candlestick %>
                                 </td>
                                 <td>
-                                    <%= @lastStudy.continuationCandlestick %>
+                                    <%= @lastStudy.continuation_candlestick %>
                                 </td>
                             </tr>
                         </tbody>
@@ -145,25 +145,25 @@
                                     <%= @lastStudy.rsi %>
                                 </td>
                                 <td>
-                                    <%= @lastStudy.rsiCross %>
+                                    <%= @lastStudy.rsi_cross %>
                                 </td>
                                 <td>
-                                    <%= @lastStudy.rsiDivergence %>
+                                    <%= @lastStudy.rsi_divergence %>
                                 </td>
                                 <td>
                                     <%= @lastStudy.stoch %>
                                 </td>
                                 <td>
-                                    <%= @lastStudy.stochCross %>
+                                    <%= @lastStudy.stoch_cross %>
                                 </td>
                                 <td>
-                                    <%= @lastStudy.stochDivergence %>
+                                    <%= @lastStudy.stoch_divergence %>
                                 </td>
                                 <td>
                                     <%= @lastStudy.macd %>
                                 </td>
                                 <td>
-                                    <%= @lastStudy.macdCross %>
+                                    <%= @lastStudy.macd_cross %>
                                 </td>
                             </tr>
                         </tbody>
@@ -191,7 +191,7 @@
                                     <%= @lastStudy.sell %>
                                 </td>
                                 <td>
-                                    <%= @lastStudy.stopLoss %>
+                                    <%= @lastStudy.stop_loss %>
                                 </td>
                             </tr>
                         </tbody>
@@ -259,13 +259,13 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <%= @analisis.borsaItalianaSupport %>
+                                    <%= @analisis.borsa_italiana_support %>
                                 </td>
                                 <td>
-                                    <%= @analisis.borsaItalianaResistance %>
+                                    <%= @analisis.borsa_italiana_resistance %>
                                 </td>
                                 <td>
-                                    <%= @analisis.borsaItalianaFTA %>
+                                    <%= @analisis.borsa_italiana_fta %>
                                 </td>
                             </tr>
                         </tbody>
@@ -331,22 +331,22 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <%= @analisis.xxivOreSupport %>
+                                    <%= @analisis.xxivore_support %>
                                 </td>
                                 <td>
-                                    <%= @analisis.xxivOreResistance %>
+                                    <%= @analisis.xxivore_resistance %>
                                 </td>
                                 <td>
-                                    <%= @analisis.xxivOreShortTrend %>
+                                    <%= @analisis.xxivore_shorttrend %>
                                 </td>
                                 <td>
-                                    <%= @analisis.xxivOreFTAIndex %>
+                                    <%= @analisis.xxivore_ftaindex %>
                                 </td>
                                 <td>
-                                    <%= @analisis.xxivOreRSI %>
+                                    <%= @analisis.xxivore_rsi %>
                                 </td>
                                 <td>
-                                    <%= @analisis.xxivOreRSIDiv %>
+                                    <%= @analisis.xxivore_rsidiv %>
                                 </td>
                             </tr>
                         </tbody>
@@ -391,10 +391,10 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <%= @analisis.repubblicaSupport %>
+                                    <%= @analisis.repubblica_support %>
                                 </td>
                                 <td>
-                                    <%= @analisis.repubblicaResistance %>
+                                    <%= @analisis.repubblica_resistance %>
                                 </td>
                             </tr>
                         </tbody>
@@ -426,7 +426,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <%= @analisis.investingDotComRating %>
+                                    <%= @analisis.investing_dotcomrating %>
                                 </td>
                             </tr>
                         </tbody>

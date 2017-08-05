@@ -30,16 +30,16 @@
 				<%= link_to "#{stock['name']}", stock_page_index_path(isin: "#{stock['isin']}") %>
             </td>
             <td>
-                <%= "#{stock['lastPrice']}" %>
+                <%= "#{stock['last_price']}" %>
             </td>
 			<td>
-                <%= "#{stock['xxivOreShortTrend']}" %>
+                <%= "#{stock['xxivore_shorttrend']}" %>
             </td>
 			<td>
-                <%= "#{stock['xxivOreFTAIndex']}" %>
+                <%= "#{stock['xxivore_ftaindex']}" %>
             </td>
 			<td>
-                <%= "#{stock['xxivOreRSI']}" %>
+                <%= "#{stock['xxivore_rsi']}" %>
             </td>
         </tr>
         <% end %>

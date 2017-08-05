@@ -6,63 +6,68 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Analysis.delete_all
+Stock.delete_all
+
+Url.delete_all
+Market.delete_all
+Study.delete_all
 
 
 ###Stock###
-Stock.delete_all
-
 stock_list = [
-  [ "IT0001233417", "A2a"],
-  [ "IT0003506190", "Atlantia"],
-  [ "IT0003261697", "Azimut Holding"],
-  [ "IT0001031084", "Banca Generali"],
-  [ "IT0004776628", "Banca Mediolanum"],
-  [ "IT0005218380", "Banco Bpm"],
-  [ "IT0000066123", "Bper Banca"],
-  [ "IT0005252728", "Brembo"],
-  [ "IT0001347308", "Buzzi Unicem"],
-  [ "IT0005252207", "Campari"],
-  [ "NL0010545661", "Cnh Industrial"],
-  [ "IT0003128367", "Enel"],
-  [ "IT0003132476", "Eni"],  
-  [ "NL0012059018", "Exor"],
-  [ "NL0011585146", "Ferrari"],
-  [ "IT0003132476", "Fiat Chrysler Automobiles"],
-  [ "IT0000072170", "Finecobank"],
-  [ "IT0003132476", "Generali"],
-  [ "IT0000072618", "Intesa Sanpaolo"],
-  [ "IT0005211237", "Italgas"],
-  [ "IT0003856405", "Leonardo"],
-  [ "IT0001479374", "Luxottica"],
-  [ "IT0001063210", "Mediaset"],  
-  [ "IT0000062957", "Mediobanca"],
-  [ "IT0004965148", "Moncler"],
-  [ "IT0003796171", "Poste Italiane"],
-  [ "IT0004176001", "Prysmian"],
-  [ "IT0003828271", "Recordati"],
-  [ "IT0005252140", "Saipem"],
-  [ "IT0004712375", "Salvatore Ferragamo"],
-  [ "IT0003153415", "Snam"],
-  [ "NL0000226223", "Stmicroelectronics"],
-  [ "IT0003497168", "Telecom Italia"], 
-  [ "LU0156801721", "Tenaris"],
-  [ "IT0003242622", "Terna - Rete Elettrica Nazionale"],
-  [ "IT0003487029", "Ubi Banca"],
-  [ "IT0005239360", "Unicredit"],
-  [ "IT0004810054", "Unipol"],
-  [ "IT0004827447", "Unipolsai"],
-  [ "IT0003540470", "Yoox Net-A-Porter Group"]
+  [1, "IT0001233417", "", "A2a", "", 66.2, "", ""],
+  [2, "IT0003506190", "", "Atlantia", "", nil, "", ""],
+  [3, "IT0003261697", "", "Azimut Holding", "", nil, "", ""],
+  [4, "IT0001031084", "", "Banca Generali", "", nil, "", ""],
+  [5, "IT0004776628", "", "Banca Mediolanum", "", nil, "", ""],
+  [6, "IT0005218380", "", "Banco Bpm", "", nil, "", ""],
+  [7, "IT0000066123", "", "Bper Banca", "", nil, "", ""],
+  [8, "IT0005252728", "", "Brembo", "", nil, "", ""],
+  [9, "IT0001347308", "", "Buzzi Unicem", "", nil, "", ""],
+  [10, "IT0005252207", "", "Campari", "", nil, "", ""],
+  [11, "NL0010545661", "", "Cnh Industrial", "", nil, "", ""],
+  [12, "IT0003128367", "", "Enel", "", nil, "", ""],
+  [13, "IT0003132476", "", "Eni", "", nil, "", ""],  
+  [14, "NL0012059018", "", "Exor", "", nil, "", ""],
+  [15, "NL0011585146", "", "Ferrari", "", nil, "", ""],
+  [16, "IT0003132476", "", "Fiat Chrysler Automobiles", "", nil, "", ""],
+  [17, "IT0000072170", "", "Finecobank", "", nil, "", ""],
+  [18, "IT0003132476", "", "Generali", "", nil, "", ""],
+  [19, "IT0000072618", "", "Intesa Sanpaolo", "", nil, "", ""],
+  [20, "IT0005211237", "", "Italgas", "", nil, "", ""],
+  [21, "IT0003856405", "", "Leonardo", "", nil, "", ""],
+  [22, "IT0001479374", "", "Luxottica", "", nil, "", ""],
+  [23, "IT0001063210", "", "Mediaset", "", nil, "", ""],  
+  [24, "IT0000062957", "", "Mediobanca", "", nil, "", ""],
+  [25, "IT0004965148", "", "Moncler", "", nil, "", ""],
+  [26, "IT0003796171", "", "Poste Italiane", "", nil, "", ""],
+  [27, "IT0004176001", "", "Prysmian", "", nil, "", ""],
+  [28, "IT0003828271", "", "Recordati", "", nil, "", ""],
+  [29, "IT0005252140", "", "Saipem", "", nil, "", ""],
+  [30, "IT0004712375", "", "Salvatore Ferragamo", "", nil, "", ""],
+  [31, "IT0003153415", "", "Snam", "", nil, "", ""],
+  [32, "NL0000226223", "", "Stmicroelectronics", "", nil, "", ""],
+  [33, "IT0003497168", "", "Telecom Italia", "", nil, "", ""], 
+  [34, "LU0156801721", "", "Tenaris", "", nil, "", ""],
+  [35, "IT0003242622", "", "Terna - Rete Elettrica Nazionale", "", nil, "", ""],
+  [36, "IT0003487029", "", "Ubi Banca", "", nil, "", ""],
+  [37, "IT0005239360", "", "Unicredit", "", nil, "", ""],
+  [38, "IT0004810054", "", "Unipol", "", nil, "", ""],
+  [39, "IT0004827447", "", "Unipolsai", "", nil, "", ""],
+  [40, "IT0003540470", "", "Yoox Net-A-Porter Group", "", nil, "", ""]
 ]
 
-stock_list.each do |isin, name|
-  Stock.create(isin: isin, name: name)
+#Stock.create(isin: "111", name: "qqqq", last_price: "10")
+
+stock_list.each do |id, isin, cod, name, sector, last_price, variation, market_phase|
+  Stock.create(id: id, isin: isin, cod: cod, name: name, sector: sector, last_price: last_price, variation: variation, market_phase: market_phase)
 end
 ###Stock###
 
 
-###Url###
-Url.delete_all
 
+###Url###
 url_list = [
   [ "IT0001233417", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0001233417.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0001233417&lang=it", "", "", "", "", "", "", "", ""],
   [ "IT0003506190", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0003506190.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0003506190&lang=it", "", "", "", "", "", "", "", ""],
@@ -112,9 +117,8 @@ end
 ###Url###
 
 
-###Market###
-Market.delete_all
 
+###Market###
 market_list = [ 
   [ "FTSE MIB", "", ""],
   [ "FTSE All Share", "", ""],
@@ -135,58 +139,60 @@ market_list.each do |name, value, variation|
 end
 ###Market###
 
-###Study###
-Study.delete_all
-###Study###
 
 
 ###Analysis###
-Analysis.delete_all
-
 analysis_list = [
-  "IT0001233417",
-  "IT0003506190",
-  "IT0003261697",
-  "IT0001031084",
-  "IT0004776628",
-  "IT0005218380",
-  "IT0000066123",
-  "IT0005252728",
-  "IT0001347308",
-  "IT0005252207",
-  "NL0010545661",
-  "IT0003128367",
-  "IT0003132476",  
-  "NL0012059018",
-  "NL0011585146",
-  "IT0003132476",
-  "IT0000072170",
-  "IT0003132476",
-  "IT0000072618",
-  "IT0005211237",
-  "IT0003856405",
-  "IT0001479374",
-  "IT0001063210",  
-  "IT0000062957",
-  "IT0004965148",
-  "IT0003796171",
-  "IT0004176001",
-  "IT0003828271",
-  "IT0005252140",
-  "IT0004712375",
-  "IT0003153415",
-  "NL0000226223",
-  "IT0003497168", 
-  "LU0156801721",
-  "IT0003242622",
-  "IT0003487029",
-  "IT0005239360",
-  "IT0004810054",
-  "IT0004827447",
-  "IT0003540470"
+  [1, "IT0001233417", 5, 6, "", 7, 8, "", "", "", "", 9, 10, nil],
+  [2, "IT0003506190", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [3, "IT0003261697", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [4, "IT0001031084", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [5, "IT0004776628", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [6, "IT0005218380", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [7, "IT0000066123", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [8, "IT0005252728", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [9, "IT0001347308", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [10, "IT0005252207", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [11, "NL0010545661", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [12, "IT0003128367", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [13, "IT0003132476", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],  
+  [14, "NL0012059018", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [15, "NL0011585146", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [16, "IT0003132476", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [17, "IT0000072170", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [18, "IT0003132476", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [19, "IT0000072618", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [20, "IT0005211237", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [21, "IT0003856405", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [22, "IT0001479374", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [23, "IT0001063210", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],  
+  [24, "IT0000062957", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [25, "IT0004965148", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [26, "IT0003796171", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [27, "IT0004176001", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [28, "IT0003828271", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [29, "IT0005252140", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [30, "IT0004712375", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [31, "IT0003153415", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [32, "NL0000226223", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [33, "IT0003497168", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil], 
+  [34, "LU0156801721", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [35, "IT0003242622", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [36, "IT0003487029", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [37, "IT0005239360", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [38, "IT0004810054", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [39, "IT0004827447", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
+  [40, "IT0003540470", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil]
 ]
 
-analysis_list.each do |isin|
-  Analysis.create(isin: isin)
+analysis_list.each do |stock_id, isin, borsa_italiana_support, borsa_italiana_resistance, borsa_italiana_fta, xxivore_support, xxivore_resistance, xxivore_shorttrend, xxivore_ftaindex, xxivore_rsi, xxivore_rsidiv, repubblica_support, repubblica_resistance, investing_dotcomrating|
+  Analysis.create(stock_id: stock_id, isin: isin, borsa_italiana_support: borsa_italiana_support, borsa_italiana_resistance: borsa_italiana_resistance, borsa_italiana_fta: borsa_italiana_fta, xxivore_support: xxivore_support, xxivore_resistance: xxivore_resistance, xxivore_shorttrend: xxivore_shorttrend, xxivore_ftaindex: xxivore_ftaindex, xxivore_rsi: xxivore_rsi, xxivore_rsidiv: xxivore_rsidiv, repubblica_support: repubblica_support, repubblica_resistance: repubblica_resistance, investing_dotcomrating: investing_dotcomrating)
 end
 ###Analysis setup###
+
+
+
+###Study###
+
+###Study###
+

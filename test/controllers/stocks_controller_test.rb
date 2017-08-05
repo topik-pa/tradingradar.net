@@ -17,7 +17,7 @@ class StocksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create stock" do
     assert_difference('Stock.count') do
-      post stocks_url, params: { stock: { cod: @stock.cod, isin: @stock.isin, lastPrice: @stock.lastPrice, marketPhase: @stock.marketPhase, name: @stock.name, sector: @stock.sector, variation: @stock.variation } }
+      post stocks_url, params: { stock: { cod: @stock.cod, isin: @stock.isin, last_price: @stock.last_price, market_phase: @stock.market_phase, name: @stock.name, sector: @stock.sector, variation: @stock.variation } }
     end
 
     assert_redirected_to stock_url(Stock.last)
@@ -34,7 +34,7 @@ class StocksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update stock" do
-    patch stock_url(@stock), params: { stock: { cod: @stock.cod, isin: @stock.isin, lastPrice: @stock.lastPrice, marketPhase: @stock.marketPhase, name: @stock.name, sector: @stock.sector, variation: @stock.variation } }
+    patch stock_url(@stock), params: { stock: { cod: @stock.cod, isin: @stock.isin, last_price: @stock.last_price, market_phase: @stock.market_phase, name: @stock.name, sector: @stock.sector, variation: @stock.variation } }
     assert_redirected_to stock_url(@stock)
   end
 
