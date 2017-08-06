@@ -16,7 +16,7 @@ Study.delete_all
 
 ###Stock###
 stock_list = [
-  [1, "IT0001233417", "", "A2a", "", 66.2, "", ""],
+  [1, "IT0001233417", "", "A2a", "", nil, "", ""],
   [2, "IT0003506190", "", "Atlantia", "", nil, "", ""],
   [3, "IT0003261697", "", "Azimut Holding", "", nil, "", ""],
   [4, "IT0001031084", "", "Banca Generali", "", nil, "", ""],
@@ -123,10 +123,10 @@ market_list = [
   [ "FTSE MIB", "", ""],
   [ "FTSE All Share", "", ""],
   [ "S&P 100", "", ""],
-  [ "NIKKEI 225", "", ""],
+  [ "NASDAQ 100", "", ""],
   [ "DAX 30", "", ""],
   [ "CAC 40", "", ""],
-  [ "NASDAQ 100", "", ""],
+  [ "NIKKEI 225", "", ""]
   [ "GOLD", "", ""],
   [ "Brent", "", ""],
   [ "WTI", "", ""],
@@ -143,7 +143,7 @@ end
 
 ###Analysis###
 analysis_list = [
-  [1, "IT0001233417", 5, 6, "", 7, 8, "", "", "", "", 9, 10, nil],
+  [1, "IT0001233417", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
   [2, "IT0003506190", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
   [3, "IT0003261697", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],
   [4, "IT0001031084", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil],

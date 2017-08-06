@@ -8,17 +8,9 @@ class StockPageController < ApplicationController
     @urls = Url.find_by isin: isin
     
     @analisis = Analysis.find_by isin: isin  
-    @studies_size = @stock.studies.size 
+    @studiesSize = @stock.studies.size 
     @lastStudy = @stock.studies.last
     
-    
-    if !@lastStudy.nil?
-      @studyImageUrl = @lastStudy.image_usrl
-    end
-    
-    if @studyImageUrl.blank?
-      @studyImageUrl = '#'
-    end
     
     
     #Borsa Italiana
@@ -27,8 +19,8 @@ class StockPageController < ApplicationController
     begin
       docBorsaItaliana = Nokogiri::HTML(open(@urlBorsaItaliana), nil, 'ISO-8859-1')
       docBorsaItaliana.encoding = 'UTF-8'
-      docBorsaItaliana.search('script',  'img').each do |src|
-        src.remove
+      docBorsaItaliana.search('script', 'img').each do |elem|
+        elem.remove
       end
       @borsaItalianaElem1 = docBorsaItaliana.at_xpath('/descendant::article[@class="l-grid__cell"][3]')
       @borsaItalianaElem2 = docBorsaItaliana.at_xpath('/descendant::article[@class="l-grid__cell"][2]') 
@@ -49,14 +41,13 @@ class StockPageController < ApplicationController
     
     
     #Il sole 24 ore
-    @urlSole24Ore = @urls.url3
-    
+    @urlSole24Ore = @urls.url3   
     begin
       if !@urlSole24Ore.blank?
         docSole24Ore = Nokogiri::HTML(open(@urlSole24Ore), nil, 'ISO-8859-1')
         docSole24Ore.encoding = 'UTF-8'
-        docSole24Ore.search('script',  'img').each do |src|
-          src.remove
+        docSole24Ore.search('script',  'img').each do |elem|
+          elem.remove
         end
         @sole24OreElem1 = docSole24Ore.at_xpath('/descendant::table[@class="boxDati_G3"][4]')
         @sole24OreElem2 = docSole24Ore.at_xpath('/descendant::table[@class="boxDati_G3"][6]')    
@@ -72,14 +63,13 @@ class StockPageController < ApplicationController
     
     
     #Investing.com
-    @urlInvesting = @urls.url7
-    
+    @urlInvesting = @urls.url7 
     begin
       if !@urlInvesting.blank?
         docInvesting = Nokogiri::HTML(open(@urlInvesting), nil, 'ISO-8859-1')
         docInvesting.encoding = 'UTF-8'
-        docInvesting.search('script',  'img').each do |src|
-          src.remove
+        docInvesting.search('script',  'img').each do |elem|
+          elem.remove
         end
         @InvestingElem1 = docInvesting.at_xpath('/descendant::table[contains(@class, "technicalSummaryTbl")]')
         @InvestingElem2 = docInvesting.at_xpath('/descendant::table[contains(@class, "patternTable")]')
@@ -95,19 +85,18 @@ class StockPageController < ApplicationController
     
     #Milano Finanza
     @urlMilanoFinanza = @urls.url9
-    @urlMilanoFinanza2 = @urls.url10
-    
+    @urlMilanoFinanza2 = @urls.url10 
     begin
       if !@urlMilanoFinanza.blank? and !@urlMilanoFinanza2.blank?
         docMilanoFinanza = Nokogiri::HTML(open(@urlMilanoFinanza), nil, 'ISO-8859-1')
         docMilanoFinanza2 = Nokogiri::HTML(open(@urlMilanoFinanza2), nil, 'ISO-8859-1')
         docMilanoFinanza.encoding = 'UTF-8'
         docMilanoFinanza2.encoding = 'UTF-8'       
-        docMilanoFinanza.search('script',  'img').each do |src|
-          src.remove
+        docMilanoFinanza.search('script',  'img').each do |elem|
+          elem.remove
         end
-        docMilanoFinanza2.search('script', 'img').each do |src|
-          src.remove
+        docMilanoFinanza2.search('script', 'img').each do |elem|
+          elem.remove
         end       
         @milanoFinanzaElem1 = docMilanoFinanza.at_xpath('/descendant::div[contains(@class, "wborsa-box")]')
         @milanoFinanzaElem2 = docMilanoFinanza.at_xpath('/descendant::div[@class="news"]')    

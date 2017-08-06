@@ -1,0 +1,52 @@
+<div class="stocks">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="stocks_table">
+                    <table id="datatable" class="table table-striped table-bordered dataTable no-footer">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Sector
+                                </th>
+                                <th>
+                                    Lastprice
+                                </th>
+                                <th>
+                                    Variation
+                                </th>
+                                <th>
+                                    Marketphase
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @stocks.each do |stock| %>
+                            <tr class="<%= cycle('even', 'odd') -%>">
+                                <td>
+                                    <%= link_to stock.name, stock_page_index_path(isin: stock.isin) %>
+                                </td>
+                                <td>
+                                    <%= stock.sector %>
+                                </td>
+                                <td>
+                                    <%= stock.last_price %>
+                                </td>
+                                <td class="<%= colorClass(stock.variation) %>">
+                                    <%= stock.variation %>
+                                </td>
+                                <td>
+                                    <%= stock.market_phase %>
+                                </td>
+                            </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

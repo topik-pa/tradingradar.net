@@ -560,13 +560,13 @@ class ApplicationController < ActionController::Base
 
   #DEVELOPMENT
   else
-    scheduler.every '37m' do    
+    scheduler.every '11m' do    
       updateMarketTable    
     end   
     scheduler.every '23m' do    
       updateStockTable     
     end   
-    scheduler.every '13m' do
+    scheduler.every '53m' do
       updateAnalysisTable 
     end
   end

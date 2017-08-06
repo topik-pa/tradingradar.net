@@ -13,14 +13,12 @@ $secondBGColor: $light-gray;
 $textColor: $black;
 $fontFamilyTitle: Arial, Helvetica, sans-serif;
 $fontFamily: Arial, Helvetica, sans-serif;
-$fontSizeDesktop: 16px;
-$fontSizeMobile: 15px;
- 
+$fontSizeDesktop: 12px;
+$fontSizeMobile: 12px;
 /*Project variables*/
 
 
 body {
-  //font-size: 12px;
   font-family: sans-serif;
   color: $black;
 }
@@ -29,12 +27,11 @@ body {
   width: $maxCentralColumnWidth;
   margin: 0 auto;
   font-family: $fontFamily;
-  font-size: $fontSizeMobile;
+  font-size: $fontSizeDesktop;
   color: $textColor;
   position: relative;
   overflow: hidden;
   background-color: $firstBGColor;
-  //padding: $pageMargin 0px;
 
   p {
     margin-bottom: $paragraphMargin;
@@ -74,12 +71,8 @@ body {
   }
 
   .title {
-    //text-transform: uppercase;
-    //color: $titleColor;
     font-family: $fontFamilyTitle;
     font-size: $font-huge;
-    //text-align: center;
-    //width: 100%;
 	margin-bottom:20px;
   }
 
@@ -124,41 +117,54 @@ body {
 	}
 	/*Overwrite tablesorter rules*/
 	
+	
+	
+	
 	/*Overwrite genterella rules*/
 	.tile_count .tile_stats_count .count {
-	  font-size: 20px;
+	  font-size: 130%;
 	  line-height: 35px;
+	  
+	  & i {
+	  	font-size: 120%;
+	  }
 	}
 	
-	@media (min-width: 768px) {
+	/*@media (min-width: 768px) {
 	  .tile_count .tile_stats_count .count {
-	    font-size: 25px;
+	    font-size: 15px;
 	  }
 	}
 	@media (min-width: 992px) and (max-width: 1100px) {
 	  .tile_count .tile_stats_count .count {
-	    font-size: 20px;
-	  }
-	}
-	
-	.tile_count .tile_stats_count span {
-	  font-size: 15px;
-	}
-	
-	@media (min-width: 768px) {
-	  .tile_count .tile_stats_count span {
 	    font-size: 15px;
 	  }
-	}
-	.tile_count .tile_stats_count span i {
-		font-weight:bold;
-		margin-right: 5px;
+	}*/
+	
+	.tile_count .tile_stats_count span {
+	  font-size: 160%;
 	}
 	
-	.tile_count .tile_stats_count span.count_bottom i {
+	.tile_count .count_top i {
+    	margin-right: 8px;
+	}
+	
+	/*@media (min-width: 768px) {
+	  .tile_count .tile_stats_count span {
+	    font-size: 18px;
+	  }
+	}*/
+	
+	/*.tile_count .tile_stats_count span i {
+		font-weight:bold;
+		margin-right: 5px;
+		font-size: 120%;
+	}*/
+	
+	/*.tile_count .tile_stats_count span.count_bottom i {
 		display:block;
 	    margin-bottom: 10px;
-	}
+	}*/
 	
 	.tile_count .tile_stats_count span.count_bottom {
 		font-size: 13px;
@@ -182,6 +188,9 @@ body {
 	
 	/*Overwrite genterella rules*/
 	
+	
+	
+	
 	/*General rules*/
 	.site_title {
 		i {
@@ -198,8 +207,12 @@ body {
 		h1 {
 			display:inline;
 			margin-right: 10px;
-    font-size: 50px;
+    		font-size: 50px;
 		}
+	}
+	
+	.return {
+		font-size: 120%;
 	}
 	
 	
@@ -233,6 +246,10 @@ body {
     		overflow-y: auto;
 		    margin: 20px 0;
 		}*/
+	}
+	
+	.markets {
+		padding-top: 70px;
 	}
 	/*Index page*/
 	
