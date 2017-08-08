@@ -99,8 +99,13 @@ class StockPageController < ApplicationController
           elem.remove
         end       
         @milanoFinanzaElem1 = docMilanoFinanza.at_xpath('/descendant::div[contains(@class, "wborsa-box")]')
-        @milanoFinanzaElem2 = docMilanoFinanza.at_xpath('/descendant::div[@class="news"]')    
-        @milanoFinanzaElem3 = docMilanoFinanza2.at_xpath('/descendant::div[contains(@class, "wMax")][2]')
+        @milanoFinanzaElem2 = docMilanoFinanza.at_xpath('//descendant::div[@class="news"][1]')
+        @milanoFinanzaElem3 = docMilanoFinanza.at_xpath('//descendant::div[@class="news"][2]') 
+        @milanoFinanzaElem4 = docMilanoFinanza.at_xpath('//descendant::div[@class="news"][3]') 
+        @milanoFinanzaElem5 = docMilanoFinanza.at_xpath('//descendant::div[@class="news"][4]') 
+        @milanoFinanzaElem6 = docMilanoFinanza.at_xpath('//descendant::div[@class="news"][5]') 
+        @milanoFinanzaElem7 = docMilanoFinanza.at_xpath('//descendant::div[@class="news"][6]') 
+        @milanoFinanzaElem8 = docMilanoFinanza2.at_xpath('/descendant::div[contains(@class, "wMax")][2]')
             
       end 
       rescue OpenURI::HTTPError => e

@@ -66,7 +66,7 @@
                             </tbody>
                         </table>
                         <% else %>
-                        Missing analysis data.
+                        	Missing analysis data.
 						<% end %>
 						
                         <div class="col-md-12 col-sm-12 col-xs-12 pr-section borsa-italiana">
@@ -97,7 +97,7 @@
                             Dati da: <a href="<%= @urlSole24Ore %>">Sole 24 Ore</a>
                         </div>
                         <% else %>
-                        Missing source data, only DB data will be displayed. 
+                        	Missing source data, only DB data will be displayed. 
 						<% end %>
                         <% if @analisis %>
                         <table class="tablesorter">
@@ -205,7 +205,7 @@
                         <h2 class="pr-title">Investing</h2>
                         <% if @urlInvesting %>
                         <div>
-                            Dati da: <a href="<%= @urlInvesting %>">Investing.com</a>
+                            Source: <a href="<%= @urlInvesting %>">Investing.com</a>
                         </div>
                         <% else %>
                         Missing source data, only DB data will be displayed. 
@@ -228,7 +228,8 @@
                             </tbody>
                         </table>
                         <% else %>
-                        Missing analysis data.<% end %>
+                        	Missing analysis data.
+						<% end %>
                         <div class="col-md-12 col-sm-12 col-xs-12 pr-section investing">
                             <div class="pr-content">
                                 <%= @InvestingElem1.to_s.html_safe %>
@@ -243,29 +244,44 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <h2 class="pr-title">Milano Finanza</h2>
-                        <% if @urlMilanoFinanza %>
-                        <div>
-                            Dati da: <a href="<%= @urlMilanoFinanza %>">Milano Finanza</a>
-                        </div>
+                        <% if @urlMilanoFinanza and @urlMilanoFinanza2%>
+	                        <div>
+								Source: <a href="<%= @urlMilanoFinanza %>">Borsa italiana</a> and <a href="<%= @urlMilanoFinanza2 %>">Borsa italiana</a>
+	                        </div>
                         <% else %>
-                        Missing source data, only DB data will be displayed. 
-						<% end %>
-                        <% if @urlMilanoFinanza2 %>
-                        <div>
-                            Dati da: <a href="<%= @urlMilanoFinanza2 %>">Milano Finanza</a>
-                        </div>
-                        <% else %>
-                        Missing source data, only DB data will be displayed. 
+                        	Missing source data, only DB data will be displayed. 
 						<% end %>
                         <div class="col-md-12 col-sm-12 col-xs-12 pr-section milano-finanza">
                             <div class="pr-content">
                                 <%= @milanoFinanzaElem1.to_s.html_safe %>
                             </div>
+                            
                             <div class="pr-content">
+                                <%= @milanoFinanzaElem8.to_s.html_safe %>
+                            </div>
+							
+							<div class="pr-content">
                                 <%= @milanoFinanzaElem2.to_s.html_safe %>
                             </div>
-                            <div class="pr-content">
+							
+							<div class="pr-content">
                                 <%= @milanoFinanzaElem3.to_s.html_safe %>
+                            </div>
+							
+							<div class="pr-content">
+                                <%= @milanoFinanzaElem4.to_s.html_safe %>
+                            </div>
+							
+							<div class="pr-content">
+                                <%= @milanoFinanzaElem5.to_s.html_safe %>
+                            </div>
+							
+							<div class="pr-content">
+                                <%= @milanoFinanzaElem6.to_s.html_safe %>
+                            </div>
+							
+							<div class="pr-content">
+                                <%= @milanoFinanzaElem7.to_s.html_safe %>
                             </div>
                         </div>
                     </div>

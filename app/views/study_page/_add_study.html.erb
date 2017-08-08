@@ -1,0 +1,164 @@
+<div class="row section">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Add study</h2>
+                <div class="clearfix">
+                </div>
+            </div>
+            <div class="x_content">
+                <%=	form_tag({controller: "study_page"}, action: "create", :class => 'form-horizontal form-label-left') %>
+                <div class="form-group">
+                    <%= label_tag(:study_resistance,  "Resistance:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= text_field(:study, :resistance, :class => 'form-control col-md-7 col-xs-12') %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_support,  "Support:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= text_field(:study, :support, :class => 'form-control col-md-7 col-xs-12') %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_direction,  "Direction:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= text_field(:study, :direction, :class => 'form-control col-md-7 col-xs-12') %>
+                        <%= select(:study, :direction, [['None', 'None'], ['Uptrend', 'Uptrend'], ['Lateral', 'Lateral'], ['Downtrend', 'Downtrend']], {}, {class: "select2_group form-control"}) %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_mmp1,  "Moving Average Weighted 1:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= text_field(:study, :mmp1, :class => 'form-control col-md-7 col-xs-12') %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_mmp2,  "Moving Average Weighted 2:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= text_field(:study, :mmp2, :class => 'form-control col-md-7 col-xs-12') %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_gap,  "Gap:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= select(:study, :gap, [['None', 'None'], ['Up', 'Up'], ['Down', 'Down']], {}, {class: "select2_group form-control"}) %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_trading_position,  "Trading position:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= select(:study, :trading_position, [['None', 'None'], ['Long', 'Long'], ['Neutral', 'Neutral'], ['Short', 'Short']], {}, {class: "select2_group form-control"}) %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_reversal_chart_pattern,  "Reversal chart pattern:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= text_field(:study, :reversal_chart_pattern, :class => 'form-control col-md-7 col-xs-12') %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_continuation_chart_pattern,  "Continuation chart pattern:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= text_field(:study, :continuation_chart_pattern, :class => 'form-control col-md-7 col-xs-12') %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_reversal_candlestick,  "Reversal candlestick:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= text_field(:study, :reversal_candlestick, :class => 'form-control col-md-7 col-xs-12') %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_continuation_candlestick,  "Continuation candlestick:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= text_field(:study, :continuation_candlestick, :class => 'form-control col-md-7 col-xs-12') %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_rsi,  "RSI:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= select(:study, :rsi, [['None', 'None'], ['Overbought', 'Overbought'], ['Neutral', 'Neutral'], ['Oversold', 'Oversold']], {}, {class: "select2_group form-control"}) %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_rsi_cross,  "RSI cross:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= select(:study, :rsi_cross, [['None', 'None'], ['Rising', 'Rising'], ['Falling', 'Falling']], {}, {class: "select2_group form-control"}) %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_rsi_divergence,  "RSI divergence:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= select(:study, :rsi_divergence, [['None', 'None'], ['Bullish', 'Bullish'], ['Neutral', 'Neutral'], ['Bearish', 'Bearish']], {}, {class: "select2_group form-control"}) %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_stoch,  "Stochastic:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= select(:study, :stoch, [['None', 'None'], ['Overbought', 'Overbought'], ['Neutral', 'Neutral'], ['Oversold', 'Oversold']], {}, {class: "select2_group form-control"}) %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_stoch_cross,  "Stochastic cross:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= select(:study, :stoch_cross, [['None', 'None'], ['Rising', 'Rising'], ['Falling', 'Falling']], {}, {class: "select2_group form-control"}) %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_stoch_divergence,  "Stochastic divergence:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= select(:study, :stoch_divergence, [['None', 'None'], ['Bullish', 'Bullish'], ['Neutral', 'Neutral'], ['Bearish', 'Bearish']], {}, {class: "select2_group form-control"}) %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_macd,  "MACD:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= select(:study, :macd, [['None', 'None'], ['Overbought', 'Overbought'], ['Neutral', 'Neutral'], ['Oversold', 'Oversold']], {}, {class: "select2_group form-control"}) %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_macd_cross,  "MACD cross:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= select(:study, :macd_cross, [['None', 'None'], ['Rising', 'Rising'], ['Falling', 'Falling']], {}, {class: "select2_group form-control"}) %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_buy,  "Buy:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= text_field(:study, :buy, :class => 'form-control col-md-7 col-xs-12') %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_sell,  "Sell:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= text_field(:study, :sell, :class => 'form-control col-md-7 col-xs-12') %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_stop_loss,  "Stop loss:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= text_field(:study, :stop_loss, :class => 'form-control col-md-7 col-xs-12') %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_image_usrl,  "Image url:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= text_field(:study, :image_usrl, :class => 'form-control col-md-7 col-xs-12') %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= label_tag(:study_note,  "Note:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <%= text_area(:study, :note, cols: 20, rows: 10, :class => 'form-control') %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <input type="hidden" name="study[stock_id]" id="study_stock_id" value="<%=@stock.id%>"/><input type="hidden" name="study[user_id]" id="study_user_id" value="<%=@user.id%>"/><%= submit_tag("Add new study", :class => 'btn btn-primary') %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

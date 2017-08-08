@@ -111,6 +111,7 @@ body {
   	table.tablesorter thead tr th, table.tablesorter tfoot tr th {
 		font-size: initial;
 		font-weight:bold;
+		font-size:100%;
 	}
 	table.tablesorter {
 		font-size: inherit;
@@ -320,6 +321,11 @@ body {
 		.taright, .tacenter {
 			margin:0 13px;
 		} 
+		
+		.gradient.padding5.shadow a, .news a {
+			display: inline;
+			cursor: default;
+		}
 	}
 	/*Analysis page*/
 	
