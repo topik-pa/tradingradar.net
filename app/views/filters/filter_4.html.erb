@@ -1,6 +1,6 @@
-<h2>Personal studies filter</h2>
+<h2>Over limits studies (they need an update)</h2>
 
-<%if !@overResistanceStocks.nil? %>
+<%if !@overResistanceStocksOnStudy.nil? %>
 	<table class="tablesorter">
 		<caption>Resistance breakout</caption>
 	    <thead>
@@ -17,7 +17,7 @@
 	        </tr>
 	    </thead>
 	    <tbody>
-	        <% @overResistanceStocks.each do |stock| %>
+	        <% @overResistanceStocksOnStudy.each do |stock| %>
 	        <tr class="<%= cycle('even', 'odd') -%>">
 	            <td>
 	                
@@ -46,7 +46,7 @@
 <% end %>
 
 
-<%if !@belowSupportStocks.nil? %>
+<%if !@belowSupportStocksOnStudy.nil? %>
 	<table class="tablesorter">
 		<caption>Support breakout</caption>
 	    <thead>
@@ -63,7 +63,7 @@
 	        </tr>
 	    </thead>
 	    <tbody>
-	        <% @belowSupportStocks.each do |stock| %>
+	        <% @belowSupportStocksOnStudy.each do |stock| %>
 	        <tr class="<%= cycle('even', 'odd') -%>">
 	            <td>
 	                

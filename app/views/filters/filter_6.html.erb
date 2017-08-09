@@ -1,2 +1,39 @@
-<h1>Filters#filter_6</h1>
-<p>Find me in app/views/filters/filter_6.html.erb</p>
+<h2>Bullish divergence stocks</h2>
+
+<%if !@bullishDivergenceStocksOnStudy.nil? %>
+	<table class="tablesorter">
+	    <thead>
+	        <tr>
+	            <th>
+	                Name
+	            </th>
+	            <th>
+	                Last price
+	            </th>		
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <% @bullishDivergenceStocksOnStudy.each do |stock| %>
+	        <tr class="<%= cycle('even', 'odd') -%>">
+	            <td>
+	                
+					<%= link_to "#{stock['name']}", stock_page_index_path(isin: "#{stock['isin']}") %>
+	            </td>
+	            <td>
+	                <%= "#{stock['last_price']}" %>
+	            </td>
+	        </tr>
+	        <% end %>
+	    </tbody>
+	</table>
+<% else %>
+	<table class="tablesorter">
+		<tbody>
+			<tr>
+				<td span="5">
+					No data
+				</td>
+			</tr>
+		</tbody>
+	</table>
+<% end %>

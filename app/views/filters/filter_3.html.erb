@@ -1,2 +1,40 @@
-<h1>Filters#filter_3</h1>
-<p>Find me in app/views/filters/filter_3.html.erb</p>
+<h2>Suggestions from investing.com</h2>
+
+<%if !@suggestionsFromInvestingDotCom.nil? %>
+<table class="tablesorter">
+	<caption>investing.com</caption>
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Last price
+            </th>		
+        </tr>
+    </thead>
+    <tbody>
+        <% @suggestionsFromInvestingDotCom.each do |stock| %>
+        <tr class="<%= cycle('even', 'odd') -%>">
+            <td>
+                
+				<%= link_to "#{stock['name']}", stock_page_index_path(isin: "#{stock['isin']}") %>
+            </td>
+            <td>
+                <%= "#{stock['last_price']}" %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<% else %>
+	<table class="tablesorter">
+		<tbody>
+			<tr>
+				<td span="5">
+					No data
+				</td>
+			</tr>
+		</tbody>
+	</table>
+<% end %>

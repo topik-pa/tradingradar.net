@@ -14,17 +14,20 @@ class FiltersController < ApplicationController
   end
 
   def filter_3
+    @suggestionsFromInvestingDotCom = @@SJA.select("stocks.isin, name, last_price, investing_dotcomrating").where("investing_dotcomrating = ?", true)
   end
 
   def filter_4
-    @overResistanceStocks = @@SJS.select("isin, name, last_price, resistance").where("last_price > resistance")
+    @overResistanceStocksOnStudy = @@SJS.select("isin, name, last_price, resistance").where("last_price > resistance")
     
-    @belowSupportStocks = @@SJS.select("isin, name, last_price, resistance").where("last_price < support")              
+    @belowSupportStocksOnStudy = @@SJS.select("isin, name, last_price, resistance").where("last_price < support")              
   end
 
   def filter_5
+    @risingCrossingStocksOnStudy = @@SJS.select("isin, name, last_price").where("rsi_cross = ? OR stoch_cross = ? OR macd_cross = ?", "Rising", "Rising", "Rising")   
   end
 
   def filter_6
+    @bullishDivergenceStocksOnStudy = @@SJS.select("isin, name, last_price").where("rsi_divergence = ? OR stoch_divergence = ?", "Bullish", "Bullish")
   end
 end
