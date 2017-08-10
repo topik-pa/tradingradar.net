@@ -17,21 +17,21 @@ ActiveRecord::Schema.define(version: 20170725191904) do
 
   create_table "analyses", force: :cascade do |t|
     t.string   "isin"
-    t.decimal  "borsa_italiana_support"
-    t.decimal  "borsa_italiana_resistance"
+    t.decimal  "borsa_italiana_support",    precision: 10, scale: 4
+    t.decimal  "borsa_italiana_resistance", precision: 10, scale: 4
     t.string   "borsa_italiana_fta"
-    t.decimal  "xxivore_support"
-    t.decimal  "xxivore_resistance"
+    t.decimal  "xxivore_support",           precision: 10, scale: 4
+    t.decimal  "xxivore_resistance",        precision: 10, scale: 4
     t.string   "xxivore_shorttrend"
     t.decimal  "xxivore_ftaindex"
     t.decimal  "xxivore_rsi"
     t.string   "xxivore_rsidiv"
-    t.decimal  "repubblica_support"
-    t.decimal  "repubblica_resistance"
+    t.decimal  "repubblica_support",        precision: 10, scale: 4
+    t.decimal  "repubblica_resistance",     precision: 10, scale: 4
     t.boolean  "investing_dotcomrating"
     t.integer  "stock_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
     t.index ["stock_id"], name: "index_analyses_on_stock_id", using: :btree
   end
 

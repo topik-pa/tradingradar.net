@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Analysis.delete_all
-Stock.delete_all
+#Stock.delete_all
 
-Url.delete_all
-Market.delete_all
-Study.delete_all
+#Url.delete_all
+#Market.delete_all
+#Study.delete_all
 
 
 ###Stock###
@@ -60,9 +60,9 @@ stock_list = [
 
 #Stock.create(isin: "111", name: "qqqq", last_price: "10")
 
-stock_list.each do |id, isin, cod, name, sector, last_price, variation, market_phase|
-  Stock.create(id: id, isin: isin, cod: cod, name: name, sector: sector, last_price: last_price, variation: variation, market_phase: market_phase)
-end
+#stock_list.each do |id, isin, cod, name, sector, last_price, variation, market_phase|
+#  Stock.create(id: id, isin: isin, cod: cod, name: name, sector: sector, last_price: last_price, variation: variation, market_phase: market_phase)
+#end
 ###Stock###
 
 
@@ -111,9 +111,9 @@ url_list = [
   [ "IT0003540470", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0003540470.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0003540470&lang=it", "", "", "", "", "", "", "", ""]
 ]
 
-url_list.each do |isin, url1, url2, url3, url4, url5, url6, url7, url8, url9, url10|
-  Url.create(isin: isin, url1: url1, url2: url2, url3: url3, url4: url4, url5: url5, url6: url6, url7: url7, url8: url8, url9: url9, url10: url10)
-end
+#url_list.each do |isin, url1, url2, url3, url4, url5, url6, url7, url8, url9, url10|
+#  Url.create(isin: isin, url1: url1, url2: url2, url3: url3, url4: url4, url5: url5, url6: url6, url7: url7, url8: url8, url9: url9, url10: url10)
+#end
 ###Url###
 
 
@@ -134,9 +134,9 @@ market_list = [
   [ "EUR/GBP", "", ""]
 ]
 
-market_list.each do |name, value, variation|
-  Market.create(name: name, value: value, variation: variation)
-end
+#market_list.each do |name, value, variation|
+#  Market.create(name: name, value: value, variation: variation)
+#end
 ###Market###
 
 
