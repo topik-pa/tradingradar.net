@@ -1,0 +1,8 @@
+<div class="row section">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="custom-title">
+            <h1><%= @stock.name %></h1>
+            <span><%= @stock.last_price %>&euro;</span>&nbsp;/&nbsp;<span class="<%= colorClass(@stock.variation)%>"><%=@stock.variation %>%</span>
+        </div>
+    </div>
+</div>

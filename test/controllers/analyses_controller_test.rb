@@ -17,7 +17,7 @@ class AnalysesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create analysis" do
     assert_difference('Analysis.count') do
-      post analyses_url, params: { analysis: { borsa_italiana_fta: @analysis.borsa_italiana_fta, borsa_italiana_resistance: @analysis.borsa_italiana_resistance, borsa_italiana_support: @analysis.borsa_italiana_support, investing_dotcomrating: @analysis.investing_dotcomrating, isin: @analysis.isin, repubblica_resistance: @analysis.repubblica_resistance, repubblica_support: @analysis.repubblica_support, xxivore_ftaindex: @analysis.xxivore_ftaindex, xxivore_rsi: @analysis.xxivore_rsi, xxivore_rsiDiv: @analysis.xxivore_rsiDiv, xxivore_resistance: @analysis.xxivore_resistance, xxivore_shorttrend: @analysis.xxivore_shorttrend, xxivore_support: @analysis.xxivore_support } }
+      post analyses_url, params: { analysis: { borsa_italiana_fta: @analysis.borsa_italiana_fta, borsa_italiana_resistance: @analysis.borsa_italiana_resistance, borsa_italiana_support: @analysis.borsa_italiana_support, investing_dotcomrating: @analysis.investing_dotcomrating, isin: @analysis.isin, repubblica_resistance: @analysis.repubblica_resistance, repubblica_support: @analysis.repubblica_support, xxivore_ftaindex: @analysis.xxivore_ftaindex, xxivore_rsi: @analysis.xxivore_rsi, xxivore_rsidiv: @analysis.xxivore_rsidiv, xxivore_resistance: @analysis.xxivore_resistance, xxivore_shorttrend: @analysis.xxivore_shorttrend, xxivore_support: @analysis.xxivore_support } }
     end
 
     assert_redirected_to analysis_url(Analysis.last)
@@ -34,7 +34,7 @@ class AnalysesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update analysis" do
-    patch analysis_url(@analysis), params: { analysis: { borsa_italiana_fta: @analysis.borsa_italiana_fta, borsa_italiana_resistance: @analysis.borsa_italiana_resistance, borsa_italiana_support: @analysis.borsa_italiana_support, investing_dotcomrating: @analysis.investing_dotcomrating, isin: @analysis.isin, repubblica_resistance: @analysis.repubblica_resistance, repubblica_support: @analysis.repubblica_support, xxivore_ftaindex: @analysis.xxivore_ftaindex, xxivore_rsi: @analysis.xxivore_rsi, xxivore_rsiDiv: @analysis.xxivore_rsiDiv, xxivore_resistance: @analysis.xxivore_resistance, xxivore_shorttrend: @analysis.xxivore_shorttrend, xxivore_support: @analysis.xxivore_support } }
+    patch analysis_url(@analysis), params: { analysis: { borsa_italiana_fta: @analysis.borsa_italiana_fta, borsa_italiana_resistance: @analysis.borsa_italiana_resistance, borsa_italiana_support: @analysis.borsa_italiana_support, investing_dotcomrating: @analysis.investing_dotcomrating, isin: @analysis.isin, repubblica_resistance: @analysis.repubblica_resistance, repubblica_support: @analysis.repubblica_support, xxivore_ftaindex: @analysis.xxivore_ftaindex, xxivore_rsi: @analysis.xxivore_rsi, xxivore_rsidiv: @analysis.xxivore_rsidiv, xxivore_resistance: @analysis.xxivore_resistance, xxivore_shorttrend: @analysis.xxivore_shorttrend, xxivore_support: @analysis.xxivore_support } }
     assert_redirected_to analysis_url(@analysis)
   end
 

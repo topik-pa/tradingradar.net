@@ -377,7 +377,7 @@ class ApplicationController < ActionController::Base
       xxivore_shorttrend = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][2]/text()').to_s.strip
       xxivore_ftaindex = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][3]/text()').to_s.strip  
       xxivore_rsi = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][6]/text()').to_s.strip
-      xxivore_rsiDiv = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][7]/text()').to_s.strip
+      xxivore_rsidiv = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][7]/text()').to_s.strip
     
       if xxivore_support
         puts 'Support Sole 24 Ore: ' + xxivore_support
@@ -426,13 +426,13 @@ class ApplicationController < ActionController::Base
         raise ElemNotFound, 'xxivore_rsi variable is null'
       end 
          
-      if xxivore_rsiDiv
-        puts 'RSI divergence Sole 24 Ore: ' + xxivore_rsiDiv
-        analysis.xxivore_rsiDiv = xxivore_rsiDiv
+      if xxivore_rsidiv
+        puts 'RSI divergence Sole 24 Ore: ' + xxivore_rsidiv
+        analysis.xxivore_rsidiv = xxivore_rsidiv
       else
-        analysis.xxivore_rsiDiv = nil
+        analysis.xxivore_rsidiv = nil
         analysis.save!
-        raise ElemNotFound, 'xxivore_rsiDiv variable is null'
+        raise ElemNotFound, 'xxivore_rsidiv variable is null'
       end 
       puts 'Analisys updated'
     else
@@ -442,7 +442,7 @@ class ApplicationController < ActionController::Base
       analysis.xxivore_shorttrend = nil
       analysis.xxivore_ftaindex = nil
       analysis.xxivore_rsi = nil
-      analysis.xxivore_rsiDiv = nil
+      analysis.xxivore_rsidiv = nil
     end    
     
     
@@ -563,7 +563,7 @@ class ApplicationController < ActionController::Base
     scheduler.every '11m' do    
       updateMarketTable    
     end   
-    scheduler.every '23m' do    
+    scheduler.every '31m' do    
       updateStockTable     
     end   
     scheduler.every '53m' do

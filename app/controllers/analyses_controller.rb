@@ -70,6 +70,6 @@ class AnalysesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def analysis_params
-      params.require(:analysis).permit(:isin, :borsa_italiana_support, :borsa_italiana_resistance, :borsa_italiana_fta, :xxivore_support, :xxivore_resistance, :xxivore_shorttrend, :xxivore_ftaindex, :xxivore_rsi, :xxivore_rsiDiv, :repubblica_support, :repubblica_resistance, :investing_dotcomrating)
+      params.require(:analysis).permit(:isin, :borsa_italiana_support, :borsa_italiana_resistance, :borsa_italiana_fta, :xxivore_support, :xxivore_resistance, :xxivore_shorttrend, :xxivore_ftaindex, :xxivore_rsi, :xxivore_rsidiv, :repubblica_support, :repubblica_resistance, :investing_dotcomrating)
     end
 end

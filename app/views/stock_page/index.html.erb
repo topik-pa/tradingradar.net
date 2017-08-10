@@ -3,15 +3,7 @@
         <%= render("shared/left_col") %>
         <%= render("shared/top_nav") %>
         <div class="right_col" role="main" style="min-height: 1657px;">
-            <div class="row section">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="custom-title">
-                        <h1><%= @stock.name %></h1>
-                        <span><%= @stock.last_price %>&euro;</span>&nbsp;/&nbsp;<span class="<%= colorClass(@stock.variation)%>"><%=@stock.variation %>%</span>
-                    </div>
-                </div>
-            </div>
-			
+            <%= render("shared/namePriceVariation") %>
             <div class="row section">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="return">
@@ -19,23 +11,18 @@
                     </div>
                 </div>
             </div>
-			
             <%= render("last_study") %>
-			
             <div class="row section">
-            	
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <h2 class="pr-title">Borsa italiana</h2>
-						
                         <% if @urlBorsaItaliana and @urlBorsaItaliana2 %>
                         <div>
-                            Source: <a href="<%= @urlBorsaItaliana %>">Borsa italiana</a> and <a href="<%= @urlBorsaItaliana2 %>">Borsa italiana</a>
+                            Source: <a href="<%= @urlBorsaItaliana %>">Borsa italiana</a>
+                            and <a href="<%= @urlBorsaItaliana2 %>">Borsa italiana</a>
                         </div>
                         <% else %>
-                        Missing source data, only DB data will be displayed. 
-						<% end %>
-
+                        Missing source data, only DB data will be displayed. <% end %>
                         <% if @analisis %>
                         <table class="tablesorter">
                             <thead>
@@ -66,9 +53,7 @@
                             </tbody>
                         </table>
                         <% else %>
-                        	Missing analysis data.
-						<% end %>
-						
+                        Missing analysis data.<% end %>
                         <div class="col-md-12 col-sm-12 col-xs-12 pr-section borsa-italiana">
                             <div class="pr-content">
                                 <%= @borsaItalianaElem1.to_s.html_safe %>
@@ -88,7 +73,6 @@
                         </div>
                     </div>
                 </div>
-				
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <h2 class="pr-title">Il sole 24 ore</h2>
@@ -97,8 +81,7 @@
                             Dati da: <a href="<%= @urlSole24Ore %>">Sole 24 Ore</a>
                         </div>
                         <% else %>
-                        	Missing source data, only DB data will be displayed. 
-						<% end %>
+                        Missing source data, only DB data will be displayed. <% end %>
                         <% if @analisis %>
                         <table class="tablesorter">
                             <thead>
@@ -167,7 +150,6 @@
                         </div>
                     </div>
                 </div>
-				
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <h2 class="pr-title">Repubblica</h2>
@@ -195,11 +177,9 @@
                             </tbody>
                         </table>
                         <% else %>
-                        Missing analysis data.
-						<% end %>
+                        Missing analysis data.<% end %>
                     </div>
                 </div>
-				
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <h2 class="pr-title">Investing</h2>
@@ -208,8 +188,7 @@
                             Source: <a href="<%= @urlInvesting %>">Investing.com</a>
                         </div>
                         <% else %>
-                        Missing source data, only DB data will be displayed. 
-						<% end %>
+                        Missing source data, only DB data will be displayed. <% end %>
                         <% if @analisis %>
                         <table class="tablesorter">
                             <thead>
@@ -228,8 +207,7 @@
                             </tbody>
                         </table>
                         <% else %>
-                        	Missing analysis data.
-						<% end %>
+                        Missing analysis data.<% end %>
                         <div class="col-md-12 col-sm-12 col-xs-12 pr-section investing">
                             <div class="pr-content">
                                 <%= @InvestingElem1.to_s.html_safe %>
@@ -240,53 +218,44 @@
                         </div>
                     </div>
                 </div>
-				
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <h2 class="pr-title">Milano Finanza</h2>
-                        <% if @urlMilanoFinanza and @urlMilanoFinanza2%>
-	                        <div>
-								Source: <a href="<%= @urlMilanoFinanza %>">Borsa italiana</a> and <a href="<%= @urlMilanoFinanza2 %>">Borsa italiana</a>
-	                        </div>
+                        <% if @urlMilanoFinanza and @urlMilanoFinanza2 %>
+                        <div>
+                            Source: <a href="<%= @urlMilanoFinanza %>">Borsa italiana</a>
+                            and <a href="<%= @urlMilanoFinanza2 %>">Borsa italiana</a>
+                        </div>
                         <% else %>
-                        	Missing source data, only DB data will be displayed. 
-						<% end %>
+                        Missing source data, only DB data will be displayed. <% end %>
                         <div class="col-md-12 col-sm-12 col-xs-12 pr-section milano-finanza">
                             <div class="pr-content">
                                 <%= @milanoFinanzaElem1.to_s.html_safe %>
                             </div>
-                            
                             <div class="pr-content">
                                 <%= @milanoFinanzaElem8.to_s.html_safe %>
                             </div>
-							
-							<div class="pr-content">
+                            <div class="pr-content">
                                 <%= @milanoFinanzaElem2.to_s.html_safe %>
                             </div>
-							
-							<div class="pr-content">
+                            <div class="pr-content">
                                 <%= @milanoFinanzaElem3.to_s.html_safe %>
                             </div>
-							
-							<div class="pr-content">
+                            <div class="pr-content">
                                 <%= @milanoFinanzaElem4.to_s.html_safe %>
                             </div>
-							
-							<div class="pr-content">
+                            <div class="pr-content">
                                 <%= @milanoFinanzaElem5.to_s.html_safe %>
                             </div>
-							
-							<div class="pr-content">
+                            <div class="pr-content">
                                 <%= @milanoFinanzaElem6.to_s.html_safe %>
                             </div>
-							
-							<div class="pr-content">
+                            <div class="pr-content">
                                 <%= @milanoFinanzaElem7.to_s.html_safe %>
                             </div>
                         </div>
                     </div>
                 </div>
-				
             </div>
             <%= render("shared/footer") %>
         </div>

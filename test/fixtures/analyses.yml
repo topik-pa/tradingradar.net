@@ -10,7 +10,7 @@ one:
   xxivore_shorttrend: MyString
   xxivore_ftaindex: MyString
   xxivore_rsi: MyString
-  xxivore_rsiDiv: MyString
+  xxivore_rsidiv: MyString
   repubblica_support: 9.99
   repubblica_resistance: 9.99
   investing_dotcomrating: false
@@ -25,7 +25,7 @@ two:
   xxivore_shorttrend: MyString
   xxivore_ftaindex: MyString
   xxivore_rsi: MyString
-  xxivore_rsiDiv: MyString
+  xxivore_rsidiv: MyString
   repubblica_support: 9.99
   repubblica_resistance: 9.99
   investing_dotcomrating: false

@@ -28,7 +28,7 @@
 
 
 
-rails generate scaffold ExchangeStock name:string isin:string cod:string sector:string url1:string url2:string url3:string url4:string url5:string url6:string last_price:decimal variation:decimal market_phase:string dividendValue:decimal dividendDate:date dividendYeld:decimal xxivore_support:decimal xxivore_resistance:decimal xxivore_shorttrend:string xxivore_ftaindex:string xxivore_rsi:string xxivore_rsiDiv:string  repubblica_support:decimal repubblica_resistance:decimal investing_dotcomrating:boolean
+rails generate scaffold ExchangeStock name:string isin:string cod:string sector:string url1:string url2:string url3:string url4:string url5:string url6:string last_price:decimal variation:decimal market_phase:string dividendValue:decimal dividendDate:date dividendYeld:decimal xxivore_support:decimal xxivore_resistance:decimal xxivore_shorttrend:string xxivore_ftaindex:string xxivore_rsi:string xxivore_rsidiv:string  repubblica_support:decimal repubblica_resistance:decimal investing_dotcomrating:boolean
 
 
 rails generate scaffold Analysis resistance:decimal support:decimal direction:string gap:string trading_position:string reversal_chart_pattern:string continuation_chart_pattern:string reversal_candlestick:string continuation_candlestick:string rsi:string rsi_cross:string rsi_divergence:string stoch:string stoch_cross:string stoch_divergence:string macd:string macd_cross:string buy:decimal sell:decimal stop_loss:decimal image_usrl:string note:text exchange_stock:references user:references
