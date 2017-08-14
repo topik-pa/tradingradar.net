@@ -6,12 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Study.delete_all
 Analysis.delete_all
-#Stock.delete_all
+Stock.delete_all
 
-#Url.delete_all
-#Market.delete_all
-#Study.delete_all
+Url.delete_all
+Market.delete_all
+
 
 
 ###Stock###
@@ -60,9 +61,9 @@ stock_list = [
 
 #Stock.create(isin: "111", name: "qqqq", last_price: "10")
 
-#stock_list.each do |id, isin, cod, name, sector, last_price, variation, market_phase|
-#  Stock.create(id: id, isin: isin, cod: cod, name: name, sector: sector, last_price: last_price, variation: variation, market_phase: market_phase)
-#end
+stock_list.each do |id, isin, cod, name, sector, last_price, variation, market_phase|
+  Stock.create(id: id, isin: isin, cod: cod, name: name, sector: sector, last_price: last_price, variation: variation, market_phase: market_phase)
+end
 ###Stock###
 
 
@@ -111,9 +112,9 @@ url_list = [
   [ "IT0003540470", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0003540470.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0003540470&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!YNAP.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0003540470&Lettera=Y&QUOTE=%21YNAP .MI", "", "http://finanza.repubblica.it/Company/Advanced?symbol=YNAP:IM", "https://it.investing.com/equities/yoox-spa", "", "https://www.milanofinanza.it/quotazioni/dettaglio/yoox-net-a-porter-group-2ae06a0", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=06a0&codicestrumento=w2ae&DBCOD=YNAP"]
 ]
 
-#url_list.each do |isin, url1, url2, url3, url4, url5, url6, url7, url8, url9, url10|
-#  Url.create(isin: isin, url1: url1, url2: url2, url3: url3, url4: url4, url5: url5, url6: url6, url7: url7, url8: url8, url9: url9, url10: url10)
-#end
+url_list.each do |isin, url1, url2, url3, url4, url5, url6, url7, url8, url9, url10|
+  Url.create(isin: isin, url1: url1, url2: url2, url3: url3, url4: url4, url5: url5, url6: url6, url7: url7, url8: url8, url9: url9, url10: url10)
+end
 ###Url###
 
 
@@ -134,9 +135,9 @@ market_list = [
   [ "EUR/GBP", "", ""]
 ]
 
-#market_list.each do |name, value, variation|
-#  Market.create(name: name, value: value, variation: variation)
-#end
+market_list.each do |name, value, variation|
+  Market.create(name: name, value: value, variation: variation)
+end
 ###Market###
 
 
