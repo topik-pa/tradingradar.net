@@ -328,7 +328,7 @@ class ApplicationController < ActionController::Base
 
       if borsa_italiana_support
         puts 'Support Borsa Italiana: ' + borsa_italiana_support
-        borsa_italiana_support = borsa_italiana_support.to_f.round(4)
+        borsa_italiana_support = borsa_italiana_support.gsub(",", ".").to_f.round(4)
         analysis.borsa_italiana_support = borsa_italiana_support
       else
         analysis.borsa_italiana_support = nil
@@ -338,7 +338,7 @@ class ApplicationController < ActionController::Base
       
       if borsa_italiana_resistance
         puts 'Resistance Borsa Italiana: ' + borsa_italiana_resistance
-        borsa_italiana_resistance = borsa_italiana_resistance.to_f.round(4)
+        borsa_italiana_resistance = borsa_italiana_resistance.gsub(",", ".").to_f.round(4)
         analysis.borsa_italiana_resistance = borsa_italiana_resistance
       else
         analysis.borsa_italiana_resistance = nil
@@ -460,7 +460,7 @@ class ApplicationController < ActionController::Base
       
       if repubblica_support
         puts 'Support Repubblica.it: ' + repubblica_support
-        repubblica_support = repubblica_support.to_f.round(4)
+        repubblica_support = repubblica_support.gsub(",", ".").to_f.round(4)
         analysis.repubblica_support = repubblica_support
       else
         analysis.repubblica_support = nil
@@ -470,7 +470,7 @@ class ApplicationController < ActionController::Base
      
       if repubblica_resistance
         puts 'Resistance Repubblica.it: ' + repubblica_resistance
-        repubblica_resistance = repubblica_resistance.to_f.round(4)
+        repubblica_resistance = repubblica_resistance.gsub(",", ".").to_f.round(4)
         analysis.repubblica_resistance = repubblica_resistance
       else
         analysis.repubblica_resistance = nil
@@ -566,7 +566,7 @@ class ApplicationController < ActionController::Base
     scheduler.every '31m' do    
       #updateStockTable     
     end   
-    scheduler.every '10s' do
+    scheduler.every '53m' do
       #updateAnalysisTable 
     end
   end
