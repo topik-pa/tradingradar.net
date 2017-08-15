@@ -107,7 +107,7 @@ body {
 
   h3 {}   
   
-  /*Overwrite tablesorter rules*/
+  	/*Overwrite tablesorter rules*/
   	table.tablesorter thead tr th, table.tablesorter tfoot tr th {
 		font-size: initial;
 		font-weight:bold;
@@ -131,17 +131,6 @@ body {
 	  }
 	}
 	
-	/*@media (min-width: 768px) {
-	  .tile_count .tile_stats_count .count {
-	    font-size: 15px;
-	  }
-	}
-	@media (min-width: 992px) and (max-width: 1100px) {
-	  .tile_count .tile_stats_count .count {
-	    font-size: 15px;
-	  }
-	}*/
-	
 	.tile_count .tile_stats_count span {
 	  font-size: 160%;
 	}
@@ -149,23 +138,6 @@ body {
 	.tile_count .count_top i {
     	margin-right: 8px;
 	}
-	
-	/*@media (min-width: 768px) {
-	  .tile_count .tile_stats_count span {
-	    font-size: 18px;
-	  }
-	}*/
-	
-	/*.tile_count .tile_stats_count span i {
-		font-weight:bold;
-		margin-right: 5px;
-		font-size: 120%;
-	}*/
-	
-	/*.tile_count .tile_stats_count span.count_bottom i {
-		display:block;
-	    margin-bottom: 10px;
-	}*/
 	
 	.tile_count .tile_stats_count span.count_bottom {
 		font-size: 13px;
@@ -185,6 +157,17 @@ body {
 	
 	.form-horizontal select {
 	  height: 60px;
+	}
+	
+	table.tablesorter tbody td {
+		max-width: 120px;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	}
+	
+	.dataTables_wrapper > .row:last-child {
+		overflow: hidden!important;
 	}
 	
 	/*Overwrite genterella rules*/
@@ -235,23 +218,53 @@ body {
 			}
 			
 		}
-		
-		
+			
 	/*Top section*/
+	
+	/*Footer*/
+	footer {
+		.pull-right {
+			color: #2A3F54;
+			margin: 0px 20px 0 0;
+    		line-height: 29px;
+		}
+	}
+	
+	
+	/*Footer*/
+	
+	
 	
 	/*Index page*/
 	#welcome {
 		
-		/*.stocks_table {
-			max-height: 500px;
-    		overflow-y: auto;
-		    margin: 20px 0;
-		}*/
 	}
 	
 	.markets {
 		padding-top: 70px;
 	}
+	
+	.x_panel {
+		
+		.panel_toolbox > li {
+			float: right;
+		}
+		
+		.x_title {
+			h2 {
+				margin-bottom: 0;
+				overflow: inherit;
+			}
+		}
+		
+		
+		.x_content {
+			overflow-y: auto;
+	    	height: 80%;
+		}
+	}
+	
+	
 	/*Index page*/
 	
 	
@@ -332,28 +345,7 @@ body {
 	
 	
 	/*Study page*/
-	/*.new-study-form {
-		label {
-			display:block;
-			margin-top: 15px;
-    		font-weight: bold;
-		}
-		form {
-			width: 33%;
-		}
-		input[type=text], input[type=email], input[type=password] {
-    		height: 40px;
-		}
-		textarea, select {
-			width:100%;
-			margin: 6px auto;
-			}
-			
-		input[type="submit"] {
-			@extend .btn;
-			@extend .primary;
-		}
-	}*/
+
 	/*Study page*/
 	
 	/*Study section*/

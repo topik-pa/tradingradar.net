@@ -2,66 +2,120 @@
     <div class="main_container">
         <%= render("shared/left_col") %>
         <%= render("shared/top_nav") %>
-        <div class="right_col" role="main" style="min-height: 1657px;">
-		<div class="row  tile_count">
-			<div class="col-md-12 col-sm-12 col-xs-12">
-                	<div class="x_panel">
-
-<p id="notice"><%= notice %></p>
-
-<h1>Analyses</h1>
-
-<table class="tablesorter">
-  <thead>
-    <tr>
-      <th>Isin</th>
-      <th>Borsaitalianasupport</th>
-      <th>Borsaitalianaresistance</th>
-      <th>Borsaitalianafta</th>
-      <th>Xxivoresupport</th>
-      <th>Xxivoreresistance</th>
-      <th>Xxivoreshorttrend</th>
-      <th>Xxivoreftaindex</th>
-      <th>Xxivorersi</th>
-      <th>Xxivorersidiv</th>
-      <th>Repubblicasupport</th>
-      <th>Repubblicaresistance</th>
-      <th>Investingdotcomrating</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @analyses.each do |analysis| %>
-      <tr class="<%= cycle('even', 'odd') -%>">
-        <td><%= analysis.isin %></td>
-        <td><%= analysis.borsa_italiana_support %></td>
-        <td><%= analysis.borsa_italiana_resistance %></td>
-        <td><%= analysis.borsa_italiana_fta %></td>
-        <td><%= analysis.xxivore_support %></td>
-        <td><%= analysis.xxivore_resistance %></td>
-        <td><%= analysis.xxivore_shorttrend %></td>
-        <td><%= analysis.xxivore_ftaindex %></td>
-        <td><%= analysis.xxivore_rsi %></td>
-        <td><%= analysis.xxivore_rsidiv %></td>
-        <td><%= analysis.repubblica_support %></td>
-        <td><%= analysis.repubblica_resistance %></td>
-        <td><%= analysis.investing_dotcomrating %></td>
-        <td><%= link_to 'Show', analysis %></td>
-        <td><%= link_to 'Edit', edit_analysis_path(analysis) %></td>
-        <td><%= link_to 'Destroy', analysis, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Analysis', new_analysis_path %>
-
-</div>
-</div>
-</div>
-<%= render("shared/footer") %>
+        <div class="right_col" role="main">
+            <div class="row  tile_count">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <p id="notice">
+                            <%= notice %>
+                        </p>
+                        <h1>Analyses</h1>
+                        <table class="tablesorter">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Isin
+                                    </th>
+                                    <th>
+                                        Borsa Italiana Support
+                                    </th>
+                                    <th>
+                                        Borsa Italiana Resistance
+                                    </th>
+                                    <th>
+                                        Borsa Italiana FTA
+                                    </th>
+                                    <th>
+                                        Sole 24 Ore Support
+                                    </th>
+                                    <th>
+                                        Sole 24 Ore Resistance
+                                    </th>
+                                    <th>
+                                        Sole 24 Ore Short trend
+                                    </th>
+                                    <th>
+                                        Sole 24 Ore FTA Index
+                                    </th>
+                                    <th>
+                                        Sole 24 Ore RSI
+                                    </th>
+                                    <th>
+                                        Sole 24 Ore RSI Divergence
+                                    </th>
+                                    <th>
+                                        Repubblica Support
+                                    </th>
+                                    <th>
+                                        Repubblica Resistance
+                                    </th>
+                                    <th>
+                                        Investing Dot Com Rating
+                                    </th>
+                                    <th colspan="3">
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @analyses.each do |analysis| %>
+                                <tr class="<%= cycle('even', 'odd') -%>">
+                                    <td>
+                                        <%= analysis.isin %>
+                                    </td>
+                                    <td>
+                                        <%= analysis.borsa_italiana_support %>
+                                    </td>
+                                    <td>
+                                        <%= analysis.borsa_italiana_resistance %>
+                                    </td>
+                                    <td>
+                                        <%= analysis.borsa_italiana_fta %>
+                                    </td>
+                                    <td>
+                                        <%= analysis.xxivore_support %>
+                                    </td>
+                                    <td>
+                                        <%= analysis.xxivore_resistance %>
+                                    </td>
+                                    <td>
+                                        <%= analysis.xxivore_shorttrend %>
+                                    </td>
+                                    <td>
+                                        <%= analysis.xxivore_ftaindex %>
+                                    </td>
+                                    <td>
+                                        <%= analysis.xxivore_rsi %>
+                                    </td>
+                                    <td>
+                                        <%= analysis.xxivore_rsidiv %>
+                                    </td>
+                                    <td>
+                                        <%= analysis.repubblica_support %>
+                                    </td>
+                                    <td>
+                                        <%= analysis.repubblica_resistance %>
+                                    </td>
+                                    <td>
+                                        <%= analysis.investing_dotcomrating %>
+                                    </td>
+                                    <td>
+                                        <%= link_to 'Show', analysis %>
+                                    </td>
+                                    <td>
+                                        <%= link_to 'Edit', edit_analysis_path(analysis) %>
+                                    </td>
+                                    <td>
+                                        <%= link_to 'Destroy', analysis, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                    </td>
+                                </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                        <br>
+                        <%= link_to 'New Analysis', new_analysis_path %>
+                    </div>
+                </div>
+            </div>
+            <%= render("shared/footer") %>
+        </div>
     </div>
-</div>

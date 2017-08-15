@@ -2,57 +2,84 @@
     <div class="main_container">
         <%= render("shared/left_col") %>
         <%= render("shared/top_nav") %>
-        <div class="right_col" role="main" style="min-height: 1657px;">
-		<div class="row  tile_count">
-			<div class="col-md-12 col-sm-12 col-xs-12">
-                	<div class="x_panel">
-		
-		
-<p id="notice"><%= notice %></p>
-
-<h1>Stocks</h1>
-
-<table class="tablesorter">
-  <thead>
-    <tr>
-      <th>Isin</th>
-      <th>Cod</th>
-      <th>Name</th>
-      <th>Sector</th>
-      <th>Lastprice</th>
-      <th>Variation</th>
-      <th>Marketphase</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @stocks.each do |stock| %>
-      <tr class="<%= cycle('even', 'odd') -%>">
-        <td><%= stock.isin %></td>
-        <td><%= stock.cod %></td>
-        <td><%= stock.name %></td>
-        <td><%= stock.sector %></td>
-        <td><%= stock.last_price %></td>
-        <td><%= stock.variation %></td>
-        <td><%= stock.market_phase %></td>
-        <td><%= link_to 'Show', stock %></td>
-        <td><%= link_to 'Edit', edit_stock_path(stock) %></td>
-        <td><%= link_to 'Destroy', stock, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Stock', new_stock_path %>
-
-
-
-</div>
-</div>
-</div>
-<%= render("shared/footer") %>
+        <div class="right_col" role="main">
+            <div class="row  tile_count">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <p id="notice">
+                            <%= notice %>
+                        </p>
+                        <h1>Stocks</h1>
+                        <table class="tablesorter">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Isin
+                                    </th>
+                                    <th>
+                                        Cod
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Sector
+                                    </th>
+                                    <th>
+                                        Last Price
+                                    </th>
+                                    <th>
+                                        Variation
+                                    </th>
+                                    <th>
+                                        Market Phase
+                                    </th>
+                                    <th colspan="3">
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @stocks.each do |stock| %>
+                                <tr class="<%= cycle('even', 'odd') -%>">
+                                    <td>
+                                        <%= stock.isin %>
+                                    </td>
+                                    <td>
+                                        <%= stock.cod %>
+                                    </td>
+                                    <td>
+                                        <%= stock.name %>
+                                    </td>
+                                    <td>
+                                        <%= stock.sector %>
+                                    </td>
+                                    <td>
+                                        <%= stock.last_price %>
+                                    </td>
+                                    <td>
+                                        <%= stock.variation %>
+                                    </td>
+                                    <td>
+                                        <%= stock.market_phase %>
+                                    </td>
+                                    <td>
+                                        <%= link_to 'Show', stock %>
+                                    </td>
+                                    <td>
+                                        <%= link_to 'Edit', edit_stock_path(stock) %>
+                                    </td>
+                                    <td>
+                                        <%= link_to 'Destroy', stock, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                    </td>
+                                </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                        <br>
+                        <%= link_to 'New Stock', new_stock_path %>
+                    </div>
+                </div>
+            </div>
+            <%= render("shared/footer") %>
+        </div>
     </div>
-</div>
