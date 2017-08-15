@@ -1,0 +1,24 @@
+.study-section {
+	width: 50%;
+	margin: 0 auto;
+}
+.study-name {
+	color: white;
+    background: #222;
+    text-align: center;
+    font-size: 150%;
+    line-height: 30px;
+	font-weight:bold;
+}
+.study-data {
+    margin: 10px auto;
+	font-size: 130%;
+	
+	div {
+		display:inline-block;
+	} 
+	.study-data-name {
+		font-weight:bold;
+		width: 50%;
+	}
+}

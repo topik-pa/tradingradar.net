@@ -1,0 +1,23 @@
+.markets {
+	padding-top: 70px;
+}
+
+.x_panel {
+	
+	.panel_toolbox > li {
+		float: right;
+	}
+	
+	.x_title {
+		h2 {
+			margin-bottom: 0;
+			overflow: inherit;
+		}
+	}
+	
+	
+	.x_content {
+		overflow-y: auto;
+    	height: 80%;
+	}
+}

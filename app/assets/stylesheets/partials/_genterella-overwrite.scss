@@ -1,0 +1,70 @@
+.site_title {
+	i {
+    	vertical-align: middle;
+	}
+	span {
+		margin-left:5px;
+		margin-right:30px;
+	}
+}
+
+.custom-title {
+	    font-size: 28px;
+	h1 {
+		display:inline;
+		margin-right: 10px;
+		font-size: 50px;
+	}
+}
+
+.return {
+	font-size: 120%;
+}
+
+.tile_count .tile_stats_count .count {
+	  font-size: 130%;
+	  line-height: 35px;
+	  
+	  & i {
+	  	font-size: 120%;
+	  }
+	}
+	
+	.tile_count .tile_stats_count span {
+	  font-size: 160%;
+	}
+	
+	.tile_count .count_top i {
+    	margin-right: 8px;
+	}
+	
+	.tile_count .tile_stats_count span.count_bottom {
+		font-size: 13px;
+	}
+	
+	table.tablesorter tbody td.red , #main-wrapper .pr-section table tbody td.red {
+		color: $red;
+	}
+	table.tablesorter tbody td.green , #main-wrapper .pr-section table tbody td.green {
+		color: $green;
+	}
+	
+	.form-horizontal .control-label {
+	  line-height: 60px;
+    font-weight: bold;
+	}
+	
+	.form-horizontal select {
+	  height: 60px;
+	}
+	
+	table.tablesorter tbody td {
+		max-width: 120px;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	}
+	
+	.dataTables_wrapper > .row:last-child {
+		overflow: hidden!important;
+	}

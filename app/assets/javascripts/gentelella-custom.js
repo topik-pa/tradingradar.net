@@ -56,17 +56,17 @@ function init_sidebar() {
 // TODO: This is some kind of easy fix, maybe we can improve this
 var setContentHeight = function () {
 	// reset height
-	$RIGHT_COL.css('min-height', $(window).height());
+	//$RIGHT_COL.css('min-height', $(window).height());
 
-	var bodyHeight = $BODY.outerHeight(),
-		footerHeight = $BODY.hasClass('footer_fixed') ? -10 : $FOOTER.height(),
-		leftColHeight = $LEFT_COL.eq(1).height() + $SIDEBAR_FOOTER.height(),
-		contentHeight = bodyHeight < leftColHeight ? leftColHeight : bodyHeight;
+	//var //bodyHeight = $BODY.outerHeight(),
+		//footerHeight = $BODY.hasClass('footer_fixed') ? -10 : $FOOTER.height(),
+		//leftColHeight = $LEFT_COL.eq(1).height() + $SIDEBAR_FOOTER.height(),
+		//contentHeight = bodyHeight < leftColHeight ? leftColHeight : bodyHeight;
 
 	// normalize content
-	contentHeight -= $NAV_MENU.height() + footerHeight;
+	//contentHeight -= $NAV_MENU.height() + footerHeight;
 
-	$RIGHT_COL.css('min-height', contentHeight);
+	//$RIGHT_COL.css('min-height', contentHeight);
 };
 
   $SIDEBAR_MENU.find('a').on('click', function(ev) {
@@ -5031,7 +5031,7 @@ if (typeof NProgress != 'undefined') {
 
 		init_sparklines();
 		init_flot_chart();
-		//init_sidebar();
+		init_sidebar();
 		init_wysiwyg();
 		init_InputMask();
 		//init_JQVmap();

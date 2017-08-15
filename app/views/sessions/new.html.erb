@@ -1,16 +1,21 @@
-<div class="login">
-  <div class="container">
-    <div class="form">
-
-    <h1>Log in</h1>
-
-    <%= form_for(:session, url: login_path) do |f| %> 
-      <%= f.email_field :email, :placeholder => "Email" %> 
-      <%= f.password_field :password, :placeholder => "Password" %> 
-      <%= f.submit "Log in", class: "btn-submit" %>
-    <% end %>
-
-  
+<div class="container body">
+    <div class="main_container">
+        <%= render("shared/top_nav") %>
+        <div class="right_col" role="main">
+            <div class="login">
+                <div class="container">
+                    <div class="form">
+                        <h1>Log in</h1>
+                        <%= form_for(:session, url: login_path) do |f| %>
+                        <%= f.email_field :email, :placeholder => "Email", :required => "true" %>
+                        <%= f.password_field :password, :placeholder => "Password", :required => "true" %>
+                        <%= f.submit "Log in", class: "btn primary" %>
+                        <% end %>
+						<div>Don't have an account? <%= link_to "Sign up", signup_path %>.</div>
+                    </div>					
+                </div>
+            </div>
+            <%= render("shared/footer") %>
+        </div>
     </div>
-  </div>
 </div>
