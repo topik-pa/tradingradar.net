@@ -205,7 +205,13 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <%= @analisis.investing_dotcomrating %>
+                                    	<% if @analisis.investing_dotcomrating %>
+											<span class="investing-response buy">BUY</span>
+										<% else %>
+											<span class="investing-response wait">BUY</span>
+										<% end %>
+										
+                                       
                                     </td>
                                 </tr>
                             </tbody>

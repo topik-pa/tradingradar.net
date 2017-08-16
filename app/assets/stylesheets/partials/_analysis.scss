@@ -35,16 +35,54 @@
 	font-style:italic;
 }
 
+
 .borsa-italiana {		
 	.t-text {
 		font-size: 112%;
 	    line-height: 25px;
 	    display: block;
 	}
+	
+	h3 {
+		font-weight: bold;
+	}
+	
+	.m-table td {
+		border: 1px solid #DDD;
+		max-width: 100%;
+	}
+	
+	.-sm-half {
+		display:inline-block;
+		margin-right: 20px;
+	}
+	
+	
+	
+
 }
+
+
 .sole-24-ore {
 	
+	.boxDati_G3 td {
+		
+		
+	}
+	
+	table tbody td {
+		max-width: 100%;
+		border: 1px solid #DDD;
+	}
+	
+	.pr-content {
+	    float: left;
+		margin-right: 40px;
+	}
+	
 }
+
+
 .investing {
 	.left {
 		float:none;
@@ -58,7 +96,36 @@
 	.noHover {
 	    font-weight: bold;
 	}
+	
+	table tbody td {
+		max-width: 100%;
+		border: 1px solid #DDD;
+	}
+	
+	.pr-content {
+	    float: left;
+		margin-right: 40px;
+	}
+	
+	
+	
 }
+.investing-response {
+	    text-align: center;
+	    border: 1px solid #DDD;
+	    font-size: 140%;
+	    font-weight: bold;
+	    color: #FFF;
+		display:block;
+		
+		&.wait {			
+			background-color: #1ABB9C;
+		}
+		&.buy {
+			background-color: #E74C3C;
+		}
+	}
+	
 .milano-finanza {
 	.fleft {
 		float:left;
@@ -73,5 +140,28 @@
 	.gradient.padding5.shadow a, .news a {
 		display: inline;
 		cursor: default;
+	}
+	
+	.bold {
+		font-weight:bold;
+	}
+	
+	.bgees {
+		font-style: italic;
+	}
+	
+	table tbody td {
+		max-width: 100%;
+		border: 1px solid #DDD;
+	}
+	
+	.wMax.mtop20.fleft {
+		float:none;
+		text-align: left;
+		margin: 40px 0;
+	}
+	
+	.didatabelle {
+		font-weight:bold;
 	}
 }
