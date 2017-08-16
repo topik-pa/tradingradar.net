@@ -183,7 +183,7 @@ var myApp = (function() {
 					break;
 					
 				case 1:
-					var url = '/filters/filter_1';
+					var url = '/filters/filter_2';
 					$.ajax({
 						url : url,
 						data : 'text/json',

@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end 
  
   $appName = 'Agenda Trading'
-  $appVersion = '1.0wip'
+  $appVersion = '1.0 Alpha'
   scheduler = Rufus::Scheduler.new
 
   
