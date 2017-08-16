@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   get 'filters/filter_1'
+  
+  get 'filters/filter_1b'
 
   get 'filters/filter_2'
 
   get 'filters/filter_3'
 
   get 'filters/filter_4'
+  
+  get 'filters/filter_4b'
 
   get 'filters/filter_5'
 

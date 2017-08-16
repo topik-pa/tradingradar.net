@@ -105,7 +105,13 @@ body {
   	@extend .title;
   }
 
-  h3 {}   
+  h3 {}  
+  
+  
+  .img-logo-small {
+  	max-height: 25px;
+    vertical-align: middle;
+  } 
   
   	/*Overwrite tablesorter rules*/
 	@import "partials/tablesorter-overwrite";  	
