@@ -10,6 +10,7 @@ class WelcomeController < ApplicationController
     @secondRowMarkets = @markets.select("*").where("name = ? OR name = ? OR name = ?", "GOLD", "Brent", "WTI")
     @thirdRowMarkets = @markets.select("*").where("name = ? OR name = ?", "EUR/USD", "EUR/GBP")
     
+    $isAdmin = current_user.email == $adminEmail
   end
   
   

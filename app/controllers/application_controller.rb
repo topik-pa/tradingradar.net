@@ -15,6 +15,9 @@ class ApplicationController < ActionController::Base
  
   $appName = 'Agenda Trading'
   $appVersion = '1.0 Alpha'
+  $adminEmail = 'agendatrading@yahoo.com'
+  
+  
   scheduler = Rufus::Scheduler.new
 
   
@@ -31,6 +34,8 @@ class ApplicationController < ActionController::Base
   def require_user 
     redirect_to '/login' unless current_user 
   end
+  
+  
   #Session related stuff
   
   
