@@ -123,27 +123,27 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <%= label_tag(:study_buy,  "Buy *:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <%= label_tag(:study_buy,  "Buy:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <%= number_field(:study, :buy, :class => 'form-control col-md-7 col-xs-12', :required => 'true', :step => 'any') %>
+                        <%= number_field(:study, :buy, :class => 'form-control col-md-7 col-xs-12', :step => 'any') %>
                     </div>
                 </div>
                 <div class="form-group">
-                    <%= label_tag(:study_sell,  "Sell *:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <%= label_tag(:study_sell,  "Sell:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <%= number_field(:study, :sell, :class => 'form-control col-md-7 col-xs-12', :required => 'true', :step => 'any') %>
+                        <%= number_field(:study, :sell, :class => 'form-control col-md-7 col-xs-12', :step => 'any') %>
                     </div>
                 </div>
                 <div class="form-group">
-                    <%= label_tag(:study_stop_loss,  "Stop loss *:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <%= label_tag(:study_stop_loss,  "Stop loss:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <%= number_field(:study, :stop_loss, :class => 'form-control col-md-7 col-xs-12', :required => 'true', :step => 'any') %>
+                        <%= number_field(:study, :stop_loss, :class => 'form-control col-md-7 col-xs-12', :step => 'any') %>
                     </div>
                 </div>
                 <div class="form-group">
-                    <%= label_tag(:study_image_usrl,  "Image url:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
+                    <%= label_tag(:study_image_usrl,  "Reference:", :class => 'control-label col-md-3 col-sm-3 col-xs-12') %>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <%= url_field(:study, :image_usrl, :class => 'form-control col-md-7 col-xs-12') %>
+                        <%= text_field(:study, :image_usrl, :class => 'form-control col-md-7 col-xs-12') %>
                     </div>
                 </div>
                 <div class="form-group">
