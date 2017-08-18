@@ -21,6 +21,9 @@
                                 <th>
                                     Marketphase
                                 </th>
+								<th>
+                                    Study page
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,6 +43,9 @@
                                 </td>
                                 <td>
                                     <%= stock.market_phase %>
+                                </td>
+								<td>
+                                    <%= link_to 'See/add study', study_page_index_path(isin: stock.isin) %>
                                 </td>
                             </tr>
                             <% end %>

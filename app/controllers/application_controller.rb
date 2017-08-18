@@ -538,29 +538,37 @@ class ApplicationController < ActionController::Base
       updateMarketTable  
     end
     
-    scheduler.every '51m' do  
-      updateStockTable  
-    end
-    
-    
-    scheduler.cron '00 08 * * 1-5', :blocking => true do
-      updateAnalysisTable
-    end
+    #scheduler.every '51m' do  
+      #updateStockTable  
+    #end
     
     scheduler.cron '00 09 * * 1-5', :blocking => true do
       updateAnalysisTable
     end
     
+    
+    #scheduler.cron '00 08 * * 1-5', :blocking => true do
+    #  updateStockTable
+    #end
+    
+    scheduler.cron '00 10 * * 1-5', :blocking => true do
+      updateStockTable
+    end
+    
     scheduler.cron '00 13 * * 1-5', :blocking => true do
-      updateAnalysisTable
+      updateStockTable
     end
     
     scheduler.cron '00 16 * * 1-5', :blocking => true do
-      updateAnalysisTable
+      updateStockTable
     end
     
     scheduler.cron '00 17 * * 1-5', :blocking => true do
-      updateAnalysisTable
+      updateStockTable
+    end
+    
+    scheduler.cron '00 18 * * 1-5', :blocking => true do
+      updateStockTable
     end
 
   #DEVELOPMENT
