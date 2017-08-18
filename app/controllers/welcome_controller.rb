@@ -11,7 +11,22 @@ class WelcomeController < ApplicationController
     @thirdRowMarkets = @markets.select("*").where("name = ? OR name = ?", "EUR/USD", "EUR/GBP")
     
     $isAdmin = current_user.email == $adminEmail
+    
+    @marketsUrlMap = { 
+      "FTSE MIB" => "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=SPMib",
+      "FTSE All Share" => "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=Mibtel",
+      "S&P 100" => "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!OEX.USD",
+      "DAX 30" => "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!DAX.XET",
+      "CAC 40" => "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!PCAC.PAR",
+      "NASDAQ 100" => "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!NDX.X.USD",
+      "GOLD" => "http://finanza-mercati.ilsole24ore.com/quotazioni/valore-oro-oggi/main.php",
+      "Brent" => "http://finanza-mercati.ilsole24ore.com/quotazione-petrolio-brent-wti/prezzo.php",
+      "WTI" => "http://finanza-mercati.ilsole24ore.com/quotazione-petrolio-brent-wti/prezzo.php",
+      "EUR/USD" => "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!EURUS.FX",
+      "EUR/GBP" => "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!GBPVS.FX"
+    }
   end
+  
   
   
   private
