@@ -22,3 +22,5 @@
 //= require jquery.tablesorter.min
 
 //= require scripts.js
+
+//= require statcounter.js

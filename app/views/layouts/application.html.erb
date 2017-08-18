@@ -11,7 +11,17 @@
     <body class="nav-md">
         <div id="main-wrapper" class="<%= controller.controller_name %>">
             <%= yield %>
-        </div>        
+        </div>     
+		
+		<!-- Start of StatCounter Code for old browsers -->
+		<noscript><div class="statcounter"><a title="free web stats"
+		href="http://statcounter.com/" target="_blank"><img
+		class="statcounter"
+		src="//c.statcounter.com/11043457/0/9f87886c/0/" alt="free
+		web stats"></a></div></noscript>
+		<!-- End of StatCounter Code for old browsers -->
+		   
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     </body>
 </html>
