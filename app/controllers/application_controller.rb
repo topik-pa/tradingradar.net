@@ -17,6 +17,9 @@ class ApplicationController < ActionController::Base
   $appVersion = '1.0 Alpha'
   $adminEmail = 'agendatrading@yahoo.com'
   
+  $user = nil
+  $isAdmin = false
+  
   
   scheduler = Rufus::Scheduler.new
 
@@ -29,6 +32,11 @@ class ApplicationController < ActionController::Base
   
   def current_user 
     @current_user ||= User.find(session[:user_id]) if session[:user_id] 
+      
+      if @current_user
+        $isAdmin = @current_user.email == $adminEmail
+        $user = @current_user
+      end
   end
 
   def require_user 
@@ -37,6 +45,8 @@ class ApplicationController < ActionController::Base
   
   
   #Session related stuff
+  
+  
   
   
    

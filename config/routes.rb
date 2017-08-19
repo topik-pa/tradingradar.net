@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'trading_plan/index'
+
   get 'filters/filter_1'
   
   get 'filters/filter_1b'
