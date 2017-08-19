@@ -473,7 +473,38 @@ var myApp = (function() {
 
 			});
 			
-		}
+		}//,
+		
+		
+		/*getMarketsStatus : function() {
+			var url = 'https://www.stockmarketclock.com/exchanges';
+			var source;
+			
+			$.ajax({
+				url : url,
+				dataType: "html",
+				type : 'get',
+				success : function(response) {
+					
+					source = response;
+					
+					
+					
+				},
+				error : function() {
+					console.log('error');
+				},
+				complete : function() {
+				}
+			});
+			
+			console.log($(source).find("[data-exchange='mta']").attr('class'));
+			
+			
+			$('.markets-status li').each(function() {
+				
+			});
+		},*/
 
 	};
 
@@ -482,6 +513,8 @@ var myApp = (function() {
 $(document).ready(function() {
 
 	myApp.loadHPFilters();
+	
+	//myApp.getMarketsStatus();
 
 	myApp.setPageData();
 
@@ -499,6 +532,8 @@ $(document).ready(function() {
 	}
 
 	$(".tablesorter").tablesorter();
+	
+	
 
 	// $('.pr-section a').removeAttr('href onclick style');
 
