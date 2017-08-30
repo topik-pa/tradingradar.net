@@ -477,7 +477,7 @@ var myApp = (function() {
 		
 		
 		/*getMarketsStatus : function() {
-			var url = 'https://www.stockmarketclock.com/exchanges';
+			var url = 'https://www.stockmarketclock.com/api-v1/list';
 			var source;
 			
 			$.ajax({

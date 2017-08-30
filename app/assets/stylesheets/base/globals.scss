@@ -1,14 +1,10 @@
-@import "partials/reset";
-@import "partials/variables";
-@import "partials/utilities";
-@import "partials/animations";
 /*Project variables*/
 $maxCentralColumnWidth: 100%;
 $centralColumnWidth: 100%;
 $pageMargin: 12px;
 $paragraphMargin: 10px;
 $titleColor: $highlight;
-$firstBGColor: $white;
+$firstBGColor: #F7F7F7;
 $secondBGColor: $light-gray;
 $textColor: $black;
 $fontFamilyTitle: Arial, Helvetica, sans-serif;
@@ -18,10 +14,14 @@ $fontSizeMobile: 12px;
 /*Project variables*/
 
 
+
 body {
   font-family: sans-serif;
   color: $black;
+  background-color: $firstBGColor;
 }
+
+
 
 #main-wrapper {
   width: $maxCentralColumnWidth;
@@ -63,12 +63,7 @@ body {
     }
   }
   
-  .not-implemented {
-  	opacity: 0.1;
-  }
-  .implemented {
-  	opacity: 1;
-  }
+  
 
   .title {
     font-family: $fontFamilyTitle;
@@ -113,13 +108,7 @@ body {
     vertical-align: middle;
   } 
   
-  	/*Overwrite tablesorter rules*/
-	@import "partials/tablesorter-overwrite";  	
-	/*Overwrite tablesorter rules*/
-	
-	/*Overwrite genterella rules*/
-	@import "partials/genterella-overwrite";
-	/*Overwrite genterella rules*/
+  
 	
 	
 	/*Left column*/
@@ -169,117 +158,9 @@ body {
 	}
 	/*Footer*/
 	
-	
-	
-	/*Index page*/
-	@import "partials/home";
-	/*Index page*/
-	
-	
-	/*Analisis page*/
-	@import "partials/analysis";
-	/*Analysis page*/
-	
-	
-	/*Study page*/
-	@import "partials/study";
-	/*Study page*/
+	}
 	
 	
 	
-	/*Sign up*/
-	@import "partials/signup-login";	
-	/*Sign up*/
 	
-}
-
-//Advanced features support
-.cssanimations {
-  #main-wrapper {}
-}
-
-.svg {
-  #main-wrapper {}
-}
-
-.video {
-  #main-wrapper {}
-}
-
-.textshadow {
-  #main-wrapper {}
-}
-
-.hsla {
-  #main-wrapper {}
-}
-
-//Advanced features support
-
-//Media queries
-/* Custom */
-@media only screen and (min-width: 320px) {
-  #main-wrapper {}
-}
-
-@media only screen and (min-width: 360px) {
-  #main-wrapper {}
-}
-
-@media only screen and (min-width: 375px) {
-  #main-wrapper {}
-}
-
-@media only screen and (min-width: 412px) {
-  #main-wrapper {}
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (min-width: 480px) {
-  #main-wrapper {}
-}
-
-@media only screen and (min-width: 568px) {
-  #main-wrapper {}
-}
-
-@media only screen and (min-width: 640px) {
-  #main-wrapper {}
-}
-
-@media only screen and (min-width: 667px) {
-  #main-wrapper {}
-}
-
-@media only screen and (min-width: 732px) {
-  #main-wrapper {}
-}
-
-/* Small Devices, Tablets */
-@media only screen and (min-width: 768px) {
-  #main-wrapper {}
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (min-width: 992px) {
-  #main-wrapper {}
-}
-
-/* Large Devices, Wide Screens */
-@media only screen and (min-width: 1200px) {
-  #main-wrapper {}
-}
-
-/* Mobile landscape orientation */
-@media phone and (orientation: landscape) {}
-
-@media tablet and (orientation: landscape) {}
-
-//Media queries
-
-/*Device specific rules*/
-.ipad {
-  #main-wrapper {}
-}
-
-/*Device specific rules*/
+	

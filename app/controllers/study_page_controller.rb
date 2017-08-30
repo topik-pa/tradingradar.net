@@ -1,4 +1,7 @@
 class StudyPageController < ApplicationController
+  
+  before_action :require_user, only: [:index, :show]
+    
   def index
     #id = params[:id] ? params[:id] : ''
       

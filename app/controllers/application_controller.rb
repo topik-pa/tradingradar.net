@@ -85,7 +85,7 @@ class ApplicationController < ActionController::Base
   
   #Update Market table
   def self.updateMarketTable      
-    url = 'http://www.ilsole24ore.com/includefinanza/box_xp/FinanzaMercatiUser/XtractData/dati_JSON.json?noCache=1490809784739.844146.1466823253'
+    url = 'http://www.ilsole24ore.com/includefinanza/box_xp/FinanzaMercatiUser/XtractData/dati_JSON.json'
      
     puts 'Updating market table from ' + url
     
@@ -138,11 +138,11 @@ class ApplicationController < ActionController::Base
           market = 'S&P 100'
           value = obj["DATA"][2]["VALUE"]
           variation = obj["DATA"][4]["VALUE"] + '%'             
-        when "!BRNU7.IPE"
+        when "!BRNX7.IPE"
           market = 'Brent'
           value = obj["DATA"][2]["VALUE"]
           variation = obj["DATA"][4]["VALUE"] + '%'               
-        when "!WBSU7.IPE"
+        when "!WBSV7.IPE"
           market = 'WTI'
           value = obj["DATA"][2]["VALUE"]
           variation = obj["DATA"][4]["VALUE"] + '%'               
@@ -552,7 +552,7 @@ class ApplicationController < ActionController::Base
       #updateStockTable  
     #end
     
-    scheduler.cron '00 09 * * 1-5', :blocking => true do
+    scheduler.cron '00 07 * * 1-5', :blocking => true do
       updateAnalysisTable
     end
     
@@ -561,23 +561,23 @@ class ApplicationController < ActionController::Base
     #  updateStockTable
     #end
     
-    scheduler.cron '00 10 * * 1-5', :blocking => true do
+    scheduler.cron '00 8 * * 1-5', :blocking => true do
       updateStockTable
     end
     
-    scheduler.cron '00 13 * * 1-5', :blocking => true do
+    scheduler.cron '00 11 * * 1-5', :blocking => true do
+      updateStockTable
+    end
+    
+    scheduler.cron '00 14 * * 1-5', :blocking => true do
+      updateStockTable
+    end
+    
+    scheduler.cron '00 15 * * 1-5', :blocking => true do
       updateStockTable
     end
     
     scheduler.cron '00 16 * * 1-5', :blocking => true do
-      updateStockTable
-    end
-    
-    scheduler.cron '00 17 * * 1-5', :blocking => true do
-      updateStockTable
-    end
-    
-    scheduler.cron '00 18 * * 1-5', :blocking => true do
       updateStockTable
     end
 

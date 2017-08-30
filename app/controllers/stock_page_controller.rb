@@ -1,4 +1,7 @@
 class StockPageController < ApplicationController
+  
+  before_action :require_user, only: [:index, :show]
+    
   def index
     
     @user = User.find_by_email(current_user.email)
