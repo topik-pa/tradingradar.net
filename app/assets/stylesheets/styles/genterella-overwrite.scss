@@ -39,18 +39,13 @@
 	}
 	
 	.tile_count .tile_stats_count span.count_bottom {
-		font-size: 13px;
+		font-size: 11px;
+	    font-style: italic;
 	}
 	
-	table.tablesorter tbody td.red , #main-wrapper .pr-section table tbody td.red {
-		color: $red;
-	}
-	table.tablesorter tbody td.green , #main-wrapper .pr-section table tbody td.green {
-		color: $green;
-	}
+	
 	
 	.form-horizontal .control-label {
-	  /*line-height: 60px;*/
     	font-weight: bold;
 	}
 	
@@ -58,12 +53,7 @@
 	  height: 60px;
 	}
 	
-	table.tablesorter tbody td {
-		max-width: 120px;
-	    overflow: hidden;
-	    text-overflow: ellipsis;
-	    white-space: nowrap;
-	}
+	
 	
 	.dataTables_wrapper > .row:last-child {
 		overflow: hidden!important;

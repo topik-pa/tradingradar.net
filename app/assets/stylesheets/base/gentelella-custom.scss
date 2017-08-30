@@ -356,9 +356,9 @@ body .container.body .right_col {
 .nav_title {
     width: 230px;
     float: left;
-    background: #2A3F54;
+    /*background: #2A3F54;*/
     border-radius: 0;
-    height: 57px
+    /*height: 57px*/
 }
 @media (max-width: 991px) {
     .nav-md .container.body .right_col,
@@ -813,9 +813,9 @@ a:focus {
     width: 100%;
     color: #ECF0F1 !important;
     margin-left: 0 !important;
-    line-height: 59px;
+    //line-height: 59px;
     display: block;
-    height: 55px;
+    //height: 55px;
     margin: 0;
     padding-left: 10px
 }

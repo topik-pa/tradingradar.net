@@ -267,7 +267,7 @@ var myApp = (function() {
 					
 				case 3:
 					
-					$titleElem.html('Over limits studies (update needed)');
+					$titleElem.html('Over limits studies');
 					
 					var url = '/filters/filter_4';
 					var url2 = '/filters/filter_4b';
@@ -531,7 +531,12 @@ $(document).ready(function() {
 
 	}
 
-	$(".tablesorter").tablesorter();
+	$(".tablesorter:not(.nojs)").tablesorter();
+	
+	
+	
+	$('[data-toggle="popover"]').popover();
+		
 	
 	
 

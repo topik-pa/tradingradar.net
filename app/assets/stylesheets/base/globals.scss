@@ -93,7 +93,6 @@ body {
 
   h1 {
   	@extend .title;
-	font-size: $font-largest;
   }
 
   h2 {
@@ -108,6 +107,20 @@ body {
     vertical-align: middle;
   } 
   
+  .main-logo {
+  	height: 70px;
+    padding: 5px;
+  }
+  
+  .warning {
+  	font-style:italic;
+	color: #999;
+	
+	i {
+		padding-right:5px;
+	}
+  }
+  
   
 	
 	
@@ -120,6 +133,8 @@ body {
 			display:inline-block;
 		}
 	}
+	
+	
 	
 	.date {
 		color: #E7E7E7;
@@ -135,7 +150,14 @@ body {
 			display: block;
 			font-size: 80%;
 		}
+		
+		
 	}
+	.nav-sm & .date {
+		display:none;
+	}
+	
+	
 	/*Left column*/
 	
 	/*Top section*/

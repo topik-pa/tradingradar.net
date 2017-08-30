@@ -25,7 +25,7 @@
                         <% else %>
                         Missing source data, only DB data will be displayed. <% end %>
                         <% if @analisis %>
-                        <table class="tablesorter">
+                        <table class="tablesorter nojs">
                             <thead>
                                 <tr>
                                     <th class="borsa-italiana">
@@ -85,7 +85,7 @@
                         <% else %>
                         Missing source data, only DB data will be displayed. <% end %>
                         <% if @analisis %>
-                        <table class="tablesorter">
+                        <table class="tablesorter nojs">
                             <thead>
                                 <tr>
                                     <th class="sole-24-ore">
@@ -157,7 +157,7 @@
                         <!--<h2 class="pr-title">Repubblica</h2>-->
 						<img src="/images/la-repubblica-logo.png" title="La Repubblica" alt="Logo La Repubblica" class="img-logo" />
                         <% if @analisis %>
-                        <table class="tablesorter">
+                        <table class="tablesorter nojs">
                             <thead>
                                 <tr>
                                     <th class="repubblica">
@@ -268,6 +268,7 @@
                     </div>
                 </div>
             </div>
-            <%= render("shared/footer") %>
+            
         </div>
+		<%= render("shared/footer") %>
     </div>
