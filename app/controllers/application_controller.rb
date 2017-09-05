@@ -18,6 +18,8 @@ class ApplicationController < ActionController::Base
   $adminEmail = 'agendatrading@yahoo.com'
   
   $user = nil
+  $user_id = nil
+  $user_email = nil
   $isAdmin = false
   
   
@@ -36,6 +38,8 @@ class ApplicationController < ActionController::Base
       if @current_user
         $isAdmin = @current_user.email == $adminEmail
         $user = @current_user
+        $user_id = session[:user_id]
+        $user_email = @current_user.email
       end
   end
 

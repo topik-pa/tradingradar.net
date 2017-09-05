@@ -5,7 +5,7 @@ class StocksController < ApplicationController
   # GET /stocks.json
   def index
     @stocks = Stock.all
-    @user = User.find_by_email(current_user.email)    
+    @user = User.find_by_email($user_email)    
   end
 
   # GET /stocks/1

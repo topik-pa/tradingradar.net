@@ -5,7 +5,7 @@ class StudiesController < ApplicationController
   # GET /studies.json
   def index
     @studies = Study.all
-    @user = User.find_by_email(current_user.email) 
+    @user = User.find_by_email($user_email) 
   end
 
   # GET /studies/1

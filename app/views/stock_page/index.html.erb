@@ -15,12 +15,11 @@
             <div class="row section">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
-                        <!--<h2 class="pr-title">Borsa italiana</h2>-->
-						<img src="/images/borsa-italiana-logo.png" title="Borsa Italiana" alt="Logo Borsa Italiana" class="img-logo" />
-                        <% if @urlBorsaItaliana and @urlBorsaItaliana2 %>
+                        <!--<h2 class="pr-title">Borsa italiana</h2>--><img src="/images/borsa-italiana-logo.png" title="Borsa Italiana" alt="Logo Borsa Italiana" class="img-logo" />
+						<% if @urlBorsaItaliana and @urlBorsaItaliana2 %>
                         <div>
-                            Source: <a href="<%= @urlBorsaItaliana %>">Borsa italiana</a>
-                            and <a href="<%= @urlBorsaItaliana2 %>">Borsa italiana</a>
+                            Source: <a href="<%= @urlBorsaItaliana %>">Borsa italiana scheda titolo</a>
+                            and <a href="<%= @urlBorsaItaliana2 %>">Borsa italiana analisi tecnica</a>
                         </div>
                         <% else %>
                         Missing source data, only DB data will be displayed. <% end %>
@@ -35,7 +34,7 @@
                                         Resistance
                                     </th>
                                     <th class="borsa-italiana">
-                                        FTA
+                                        FTA Rank
                                     </th>
                                 </tr>
                             </thead>
@@ -76,9 +75,7 @@
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
-                        <!--<h2 class="pr-title">Il sole 24 ore</h2>-->
-						<img src="/images/il-sole-24-ore-logo.png" title="Il Sole 24 Ore" alt="Logo Il Sole 24 Ore" class="img-logo" />
-                        <% if @urlSole24Ore %>
+                        <!--<h2 class="pr-title">Il sole 24 ore</h2>--><img src="/images/il-sole-24-ore-logo.png" title="Il Sole 24 Ore" alt="Logo Il Sole 24 Ore" class="img-logo" /><% if @urlSole24Ore %>
                         <div>
                             Dati da: <a href="<%= @urlSole24Ore %>">Sole 24 Ore</a>
                         </div>
@@ -135,28 +132,28 @@
                         Missing analysis data.<% end %>
                         <div class="col-md-12 col-sm-12 col-xs-12 pr-section sole-24-ore">
                             <div class="pr-content">
+                            	<h3>Anagrafica</h3>
                                 <%= @sole24OreElem1.to_s.html_safe %>
                             </div>
                             <div class="pr-content">
+                            	<h3>Indici borsistici e redditivit&agrave;</h3>
                                 <%= @sole24OreElem2.to_s.html_safe %>
                             </div>
                             <div class="pr-content">
+                            	<h3>Sintesi bilancio</h3>
                                 <%= @sole24OreElem3.to_s.html_safe %>
                             </div>
                             <div class="pr-content">
+                            	<h3>Sintesi analisi tecnica</h3>
                                 <%= @sole24OreElem4.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                                <%= @sole24OreElem5.to_s.html_safe %>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
-                        <!--<h2 class="pr-title">Repubblica</h2>-->
-						<img src="/images/la-repubblica-logo.png" title="La Repubblica" alt="Logo La Repubblica" class="img-logo" />
-                        <% if @analisis %>
+                        <!--<h2 class="pr-title">Repubblica</h2>--><img src="/images/la-repubblica-logo.png" title="La Repubblica" alt="Logo La Repubblica" class="img-logo" />
+						<% if @analisis %>
                         <table class="tablesorter nojs">
                             <thead>
                                 <tr>
@@ -181,13 +178,23 @@
                         </table>
                         <% else %>
                         Missing analysis data.<% end %>
+						<div class="col-md-12 col-sm-12 col-xs-12 pr-section larepubblica">
+                            <div class="pr-content">
+                                <%= @laRepubblicaElem1.to_s.html_safe %>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="pr-content">
+                                <%= @laRepubblicaElem3.to_s.html_safe %>
+                            </div>
+                            <div class="pr-content">
+                                <%= @laRepubblicaElem4.to_s.html_safe %>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
-                        <!--<h2 class="pr-title">Investing</h2>-->
-						<img src="/images/investing-logo.png" title="Investing" alt="Logo Investing" class="img-logo" />
-                        <% if @urlInvesting %>
+                        <!--<h2 class="pr-title">Investing</h2>--><img src="/images/investing-logo.png" title="Investing" alt="Logo Investing" class="img-logo" /><% if @urlInvesting %>
                         <div>
                             Source: <a href="<%= @urlInvesting %>">Investing.com</a>
                         </div>
@@ -205,13 +212,11 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                    	<% if @analisis.investing_dotcomrating %>
-											<span class="investing-response buy">BUY</span>
-										<% else %>
-											<span class="investing-response wait">WAIT</span>
-										<% end %>
-										
-                                       
+                                        <% if @analisis.investing_dotcomrating %>
+                                        <span class="investing-response buy">BUY</span>
+                                        <% else %>
+                                        <span class="investing-response wait">WAIT</span>
+                                        <% end %>
                                     </td>
                                 </tr>
                             </tbody>
@@ -230,9 +235,7 @@
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
-                        <!--<h2 class="pr-title">Milano Finanza</h2>-->
-						<img src="/images/milano-finanza-logo.png" title="Milano Finanza" alt="Logo Milano Finanza" class="img-logo" />
-                        <% if @urlMilanoFinanza and @urlMilanoFinanza2 %>
+                        <!--<h2 class="pr-title">Milano Finanza</h2>--><img src="/images/milano-finanza-logo.png" title="Milano Finanza" alt="Logo Milano Finanza" class="img-logo" /><% if @urlMilanoFinanza and @urlMilanoFinanza2 %>
                         <div>
                             Source: <a href="<%= @urlMilanoFinanza %>">Borsa italiana</a>
                             and <a href="<%= @urlMilanoFinanza2 %>">Borsa italiana</a>
@@ -268,7 +271,6 @@
                     </div>
                 </div>
             </div>
-            
         </div>
-		<%= render("shared/footer") %>
+        <%= render("shared/footer") %>
     </div>

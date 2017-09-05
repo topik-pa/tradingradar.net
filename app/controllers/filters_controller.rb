@@ -1,7 +1,12 @@
 class FiltersController < ApplicationController
   
   @@SJA = Stock.select("stocks.*, analyses.*").joins(:analysis)
-  @@SJS = Stock.select("stocks.*, studies.*").joins(:studies)
+  
+  #@@Studies = Study.select("*").where("user_id = ?", $user)
+  
+  ##@@test = Study.where("user_id = ?", 1).group('"id"').having('updated_at = MAX(updated_at)')
+  
+  @@SJS = Stock.select("stocks.*, studies.*").joins(:studies).where("user_id = ?", $user_id)
   
   def filter_1
     @overResistanceStocks = @@SJA.select("stocks.isin, name, last_price, borsa_italiana_resistance, xxivore_resistance, repubblica_resistance").where("last_price > borsa_italiana_resistance AND last_price > xxivore_resistance AND last_price > repubblica_resistance")    

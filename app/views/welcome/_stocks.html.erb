@@ -19,7 +19,10 @@
                                     Variation
                                 </th>
                                 <th>
-                                    Marketphase
+                                    Last updated
+                                </th>
+								<th>                                    
+									Marketphase
                                 </th>
 								<th>
                                     Study page
@@ -42,6 +45,9 @@
                                     <%= stock.variation %>
                                 </td>
                                 <td>
+                                    <%= stock.updated_at.strftime("%d/%m - %H:%M") %>
+                                </td>
+								<td>
                                     <%= stock.market_phase %>
                                 </td>
 								<td>

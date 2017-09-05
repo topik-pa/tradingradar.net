@@ -4,7 +4,7 @@ class StockPageController < ApplicationController
     
   def index
     
-    @user = User.find_by_email(current_user.email)
+    @user = User.find_by_email($user_email)
     
     isin = params[:isin] ? params[:isin] : ''     
     @stock = Stock.find_by isin: isin  
@@ -20,7 +20,7 @@ class StockPageController < ApplicationController
     @urlBorsaItaliana = @urls.url1
     @urlBorsaItaliana2 = @urls.url2   
     begin
-      docBorsaItaliana = Nokogiri::HTML(open(@urlBorsaItaliana), nil, 'ISO-8859-1')
+      docBorsaItaliana = Nokogiri::HTML(open(@urlBorsaItaliana), nil, 'UTF-8')
       docBorsaItaliana.encoding = 'UTF-8'
       docBorsaItaliana.search('script', 'img').each do |elem|
         elem.remove
@@ -28,7 +28,7 @@ class StockPageController < ApplicationController
       @borsaItalianaElem1 = docBorsaItaliana.at_xpath('/descendant::article[@class="l-grid__cell"][3]')
       @borsaItalianaElem2 = docBorsaItaliana.at_xpath('/descendant::article[@class="l-grid__cell"][2]') 
       if @urlBorsaItaliana2
-        docBorsaItaliana2 = Nokogiri::HTML(open(@urlBorsaItaliana2), nil, 'ISO-8859-1')
+        docBorsaItaliana2 = Nokogiri::HTML(open(@urlBorsaItaliana2), nil, 'UTF-8')
         docBorsaItaliana2.encoding = 'UTF-8'
         docBorsaItaliana2.search('script', 'img').each do |src|
           src.remove
@@ -47,9 +47,9 @@ class StockPageController < ApplicationController
     @urlSole24Ore = @urls.url3   
     begin
       if !@urlSole24Ore.blank?
-        docSole24Ore = Nokogiri::HTML(open(@urlSole24Ore), nil, 'ISO-8859-1')
+        docSole24Ore = Nokogiri::HTML(open(@urlSole24Ore), nil, 'UTF-8')
         docSole24Ore.encoding = 'UTF-8'
-        docSole24Ore.search('script',  'img').each do |elem|
+        docSole24Ore.search('script').each do |elem|
           elem.remove
         end
         @sole24OreElem1 = docSole24Ore.at_xpath('/descendant::table[@class="boxDati_G3"][4]')
@@ -63,13 +63,33 @@ class StockPageController < ApplicationController
     #Il sole 24 ore
     
     
+    #La Repubblica
+    @urlLaRepubblica = @urls.url6 
+    begin
+      if !@urlLaRepubblica.blank?
+        docLaRepubblica = Nokogiri::HTML(open(@urlLaRepubblica), nil, 'UTF-8')
+        docLaRepubblica.encoding = 'UTF-8'
+        docLaRepubblica.search('script').each do |elem|
+          elem.remove
+        end
+        @laRepubblicaElem1 = docLaRepubblica.at_xpath('/descendant::div[@class="TLB-HeaderScheda"]')
+        @laRepubblicaElem2 = docLaRepubblica.at_xpath('/descendant::div[@class="TLB TLB-chart-container"]')    
+        @laRepubblicaElem3 = docLaRepubblica.at_xpath('/descendant::div[@id="ctl00_ContentPlaceHolder1_ProfiloSocietario1_pnlContainer"]')
+        @laRepubblicaElem4 = docLaRepubblica.at_xpath('/descendant::div[contains(@class, "TLB-analisi-container")]')
+      end      
+      rescue OpenURI::HTTPError => e
+       puts 'Error retrieving url data: ' + e.message
+    end
+    #La Repubblica
+    
+    
     
     
     #Investing.com
     @urlInvesting = @urls.url7 
     begin
       if !@urlInvesting.blank?
-        docInvesting = Nokogiri::HTML(open(@urlInvesting), nil, 'ISO-8859-1')
+        docInvesting = Nokogiri::HTML(open(@urlInvesting), nil, 'UTF-8')
         docInvesting.encoding = 'UTF-8'
         docInvesting.search('script',  'img').each do |elem|
           elem.remove
@@ -91,8 +111,8 @@ class StockPageController < ApplicationController
     @urlMilanoFinanza2 = @urls.url10 
     begin
       if !@urlMilanoFinanza.blank? and !@urlMilanoFinanza2.blank?
-        docMilanoFinanza = Nokogiri::HTML(open(@urlMilanoFinanza), nil, 'ISO-8859-1')
-        docMilanoFinanza2 = Nokogiri::HTML(open(@urlMilanoFinanza2), nil, 'ISO-8859-1')
+        docMilanoFinanza = Nokogiri::HTML(open(@urlMilanoFinanza), nil, 'UTF-8')
+        docMilanoFinanza2 = Nokogiri::HTML(open(@urlMilanoFinanza2), nil, 'UTF-8')
         docMilanoFinanza.encoding = 'UTF-8'
         docMilanoFinanza2.encoding = 'UTF-8'       
         docMilanoFinanza.search('script',  'img').each do |elem|

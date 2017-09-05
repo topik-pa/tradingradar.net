@@ -5,7 +5,7 @@ class MarketsController < ApplicationController
   # GET /markets.json
   def index
     @markets = Market.all
-    @user = User.find_by_email(current_user.email) 
+    @user = User.find_by_email($user_email) 
   end
 
   # GET /markets/1

@@ -5,7 +5,7 @@ class UrlsController < ApplicationController
   # GET /urls.json
   def index
     @urls = Url.all
-    @user = User.find_by_email(current_user.email) 
+    @user = User.find_by_email($user_email) 
   end
 
   # GET /urls/1
