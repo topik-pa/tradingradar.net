@@ -217,3 +217,40 @@
 		font-weight:bold;
 	}
 }
+
+
+.soldionline {
+	
+	.dati, .fond {
+		float:left;
+		margin-right: 40px;
+    	margin-bottom: 20px;
+		b {
+			font-weight:bold;
+			margin-left:10px;
+		}
+		
+	}
+	
+	#lista-ultimenews {
+		a {
+			display:inline;
+		}
+	}
+	
+	.app, .leggituttenews {
+		display:none;
+	}
+	
+	h3 {
+		margin: 0;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+	
+	.second, .third {
+	    float: left;
+    	margin-right: 40px;
+	}
+	
+}

@@ -137,6 +137,28 @@ class StockPageController < ApplicationController
     #Milano Finanza
     
     
+    #Soldi online
+    @urlSoldiOnLine = @urls.url5  
+    begin
+      if !@urlSoldiOnLine.blank?
+        docSoldiOnLine = Nokogiri::HTML(open(@urlSoldiOnLine), nil, 'UTF-8')
+        docSoldiOnLine.encoding = 'UTF-8'
+        docSoldiOnLine.search('script').each do |elem|
+          elem.remove
+        end
+        @docSoldiOnLineElem1 = docSoldiOnLine.at_xpath('//descendant::div[@class="dati"][1]')
+        @docSoldiOnLineElem2 = docSoldiOnLine.at_xpath('//descendant::div[@class="fond"][1]')
+        @docSoldiOnLineElem3 = docSoldiOnLine.at_xpath('//descendant::div[@id="lista-ultimenews"][1]')
+        @docSoldiOnLineElem4 = docSoldiOnLine.at_xpath('//descendant::table[@class="tabellaDati"][1]')
+        @docSoldiOnLineElem5 = docSoldiOnLine.at_xpath('//descendant::div[@class="legenda"][1]')
+
+      end      
+      rescue OpenURI::HTTPError => e
+       puts 'Error retrieving url data: ' + e.message
+    end
+    #Soldi online
+    
+    
   end
   
   
