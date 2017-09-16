@@ -47,4 +47,9 @@ class FiltersController < ApplicationController
     @bullishDivergenceStocksOnStudy = @@SJS.select("isin, name, last_price").where("rsi_divergence = ? OR stoch_divergence = ?", "Bullish", "Bullish")
     render json: @bullishDivergenceStocksOnStudy  
   end
+  
+  def filter_7
+    @suggestionsFromMilanoFinanza = @@SJA.select("stocks.isin, name, last_price, milano_finanza_risk, milano_finanza_rating").where("milano_finanza_risk <= ? AND milano_finanza_rating like ? OR milano_finanza_rating like ?", 25, "%B%", "%A%")
+    render json: @suggestionsFromMilanoFinanza
+  end 
 end

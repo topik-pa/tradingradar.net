@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get 'filters/filter_5'
 
   get 'filters/filter_6'
+  
+  get 'filters/filter_7'
 
   get 'study_page/index'
   post 'study_page/index'  => 'study_page#create' 

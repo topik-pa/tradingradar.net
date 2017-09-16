@@ -426,10 +426,60 @@ var myApp = (function() {
 						}
 					});
 					break;
+					
+					
+				case 6:
+					var url = '/filters/filter_7';
+					$.ajax({
+						url : url,
+						data : 'text/json',
+						type : 'get',
+						success : function(response) {
+							
+							$titleElem.html('Suggestions from Milano Finanza');
+							
+							var $ico = $('<img/>', {
+							    class: 'img-logo-small',
+							    src: '/images/milano-finanza-logo.png',
+							    title: 'Milano Finanza',
+							    alt: 'Logo Milano Finanza'
+							}).appendTo($titleElem);			
+							
+							var $table = $('<table/>', {
+							    class: 'tablesorter'
+							}).appendTo($contentElem);
+							
+							var theadHTML = '';
+							theadHTML = '<thead><tr><th>Name</th><th>Last price</th><th>MF Risk</th><th>MF Rating</th></tr></thead>'
+							
+							var trHTML = '';
+					        $.each(response, function (i, item) {
+					        	var rowClass = i%2===0 ? 'even' : 'odd';
+					            trHTML += '<tr class="' + rowClass + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td><td>' + item.milano_finanza_risk + '</td><td>' + item.milano_finanza_rating + '</td></tr>';
+					        });
+					        $table.append(theadHTML);
+					        $table.append(trHTML);
+							
+						},
+						error : function() {
+							console.log('error');
+						},
+						complete : function() {
+						}
+					});
+					break;
+					
+					
 
 				default:
 					break;
 				}
+			});
+				
+				
+			
+
+			
 
 				/*var url = '/filters/filter_' + (index + 1);
 
@@ -471,7 +521,7 @@ var myApp = (function() {
 					}
 				});*/
 
-			});
+			
 			
 		}//,
 		
