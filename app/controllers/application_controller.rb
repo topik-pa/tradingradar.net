@@ -501,7 +501,46 @@ class ApplicationController < ActionController::Base
       puts 'Url Repubblica.it not available'
       analysis.repubblica_support = nil
       analysis.repubblica_resistance = nil
-    end        
+    end    
+    
+    
+    #Milano Finanza
+    if urls.url9?
+      
+      urlMilanoFinanza = urls.url9
+      
+      puts 'Updating analysis ' + analysis.isin + ' from ' + urlMilanoFinanza + '.'
+             
+      doc5 = Nokogiri::HTML(open(urlMilanoFinanza))
+           
+      milano_finanza_risk = doc5.at_xpath('/descendant::div[contains(@class, "indicior")]/text()').to_s.strip
+      milano_finanza_rating = doc5.at_xpath('/descendant::div[contains(@class, "indici2")]/text()').to_s.strip
+      
+      if milano_finanza_risk
+        puts 'Milano Finanza Risk: ' + milano_finanza_risk
+        milano_finanza_risk = milano_finanza_risk.gsub(",", ".").to_f.round(4)
+        analysis.milano_finanza_risk = milano_finanza_risk
+      else
+        analysis.milano_finanza_risk = nil
+        analysis.save!
+        raise ElemNotFound, 'milano_finanza_risk variable is null'
+      end
+     
+      if milano_finanza_rating
+        puts 'Milano Finanza Rating: ' + milano_finanza_rating
+        analysis.milano_finanza_rating = milano_finanza_rating
+      else
+        analysis.milano_finanza_rating = nil
+        analysis.save!
+        raise ElemNotFound, 'milano_finanza_rating variable is null'
+      end 
+      
+      puts 'Analisys updated' 
+    else
+      puts 'Url Milano Finanza not available'
+      analysis.milano_finanza_risk = nil
+      analysis.milano_finanza_rating = nil
+    end     
     
 
     #Investing.com
@@ -593,8 +632,8 @@ class ApplicationController < ActionController::Base
     scheduler.every '10m' do    
       #updateStockTable     
     end   
-    scheduler.every '17m' do
-      #updateAnalysisTable 
+    scheduler.every '10m' do
+      updateAnalysisTable 
     end
   end
   
