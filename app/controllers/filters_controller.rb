@@ -13,6 +13,46 @@ class FiltersController < ApplicationController
     render json: @overResistanceStocks
   end
   
+  
+  
+  def filter_1c
+      @overResistanceStocksBorsaItaliana = @@SJA.select("stocks.isin, name, last_price, borsa_italiana_resistance").where("last_price > borsa_italiana_resistance")    
+      render json: @overResistanceStocksBorsaItaliana
+    end
+    
+    
+  def filter_1d
+      @overResistanceStocksSolexxivore = @@SJA.select("stocks.isin, name, last_price, xxivore_resistance").where("last_price > xxivore_resistance")    
+      render json: @overResistanceStocksSolexxivore
+    end
+    
+    
+  def filter_1e
+      @overResistanceStocksRepubblica = @@SJA.select("stocks.isin, name, last_price, repubblica_resistance").where("last_price > repubblica_resistance")    
+      render json: @overResistanceStocksRepubblica
+    end
+    
+    
+  def filter_1f
+        @overSupportStocksBorsaItaliana = @@SJA.select("stocks.isin, name, last_price, borsa_italiana_support").where("last_price > borsa_italiana_support")    
+        render json: @overSupportStocksBorsaItaliana
+      end
+      
+      
+    def filter_1g
+        @overSupportStocksSolexxivore = @@SJA.select("stocks.isin, name, last_price, xxivore_support").where("last_price > xxivore_support")    
+        render json: @overSupportStocksSolexxivore
+      end
+      
+      
+    def filter_1h
+        @overSupportStocksRepubblica = @@SJA.select("stocks.isin, name, last_price, repubblica_support").where("last_price > repubblica_support")    
+        render json: @overSupportStocksRepubblica
+      end
+    
+    
+    
+  
   def filter_1b      
       @belowSupportStocks = @@SJA.select("stocks.isin, name, last_price, borsa_italiana_support, xxivore_support, repubblica_support").where("last_price < borsa_italiana_support AND last_price < xxivore_support AND last_price < repubblica_support")
       render json: @belowSupportStocks  

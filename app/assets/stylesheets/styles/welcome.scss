@@ -23,6 +23,18 @@
 		.x_content {
 			overflow-y: auto;
 	    	height: 80%;
+			
+			tr.repeated {
+				font-weight:bold;
+			}
+			
+			tr.green a {
+				color: $green;
+			}
+			
+			tr.red a {
+				color: $red;
+			}
 		}
 	}
 }

@@ -4,6 +4,13 @@ Rails.application.routes.draw do
   get 'filters/filter_1'
   
   get 'filters/filter_1b'
+  
+  get 'filters/filter_1c'
+  get 'filters/filter_1d'
+  get 'filters/filter_1e'
+  get 'filters/filter_1f'
+  get 'filters/filter_1g'
+  get 'filters/filter_1h'
 
   get 'filters/filter_2'
 

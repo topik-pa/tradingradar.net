@@ -633,7 +633,7 @@ class ApplicationController < ActionController::Base
       #updateStockTable     
     end   
     scheduler.every '10m' do
-      updateAnalysisTable 
+      #updateAnalysisTable 
     end
   end
   
