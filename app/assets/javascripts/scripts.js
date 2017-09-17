@@ -152,6 +152,7 @@ var myApp = (function() {
 							console.log('error');
 						},
 						complete : function() {
+							$(document).trigger("filterComplete");
 						}
 					});
 					
@@ -187,6 +188,7 @@ var myApp = (function() {
 							console.log('error');
 						},
 						complete : function() {
+							$(document).trigger("filterComplete");
 						}
 					});
 					break;
@@ -242,6 +244,7 @@ var myApp = (function() {
 							console.log('error');
 						},
 						complete : function() {
+							$(document).trigger("filterComplete");
 						}
 					});
 					
@@ -277,6 +280,7 @@ var myApp = (function() {
 							console.log('error');
 						},
 						complete : function() {
+							$(document).trigger("filterComplete");
 						}
 					});
 					break;
@@ -330,6 +334,7 @@ var myApp = (function() {
 							console.log('error');
 						},
 						complete : function() {
+							$(document).trigger("filterComplete");
 						}
 					});
 					
@@ -365,6 +370,7 @@ var myApp = (function() {
 							console.log('error');
 						},
 						complete : function() {
+							$(document).trigger("filterComplete");
 						}
 					});
 					break;
@@ -489,6 +495,7 @@ var myApp = (function() {
 							console.log('error');
 						},
 						complete : function() {
+							$(document).trigger("filterComplete");
 						}
 					});
 					break;
@@ -533,6 +540,7 @@ var myApp = (function() {
 							console.log('error');
 						},
 						complete : function() {
+							$(document).trigger("filterComplete");
 						}
 					});
 					break;
@@ -577,6 +585,7 @@ var myApp = (function() {
 							console.log('error');
 						},
 						complete : function() {
+							$(document).trigger("filterComplete");
 						}
 					});
 					
@@ -612,6 +621,7 @@ var myApp = (function() {
 							console.log('error');
 						},
 						complete : function() {
+							$(document).trigger("filterComplete");
 						}
 					});
 					break;
@@ -654,6 +664,7 @@ var myApp = (function() {
 							console.log('error');
 						},
 						complete : function() {
+							$(document).trigger("filterComplete");
 						}
 					});
 					break;
@@ -696,6 +707,7 @@ var myApp = (function() {
 							console.log('error');
 						},
 						complete : function() {
+							$(document).trigger("filterComplete");
 						}
 					});
 					break;
@@ -738,6 +750,7 @@ var myApp = (function() {
 							console.log('error');
 						},
 						complete : function() {
+							$(document).trigger("filterComplete");
 						}
 					});
 					break;
@@ -803,43 +816,59 @@ var myApp = (function() {
 		
 		
 		highlightStocks : function() {
-			$('.suggestions table:first-child tr').each(function() {
+			
+			var totalCalls = 13//$('.filters table').length;
+			var actualCalls = 0;
+			
+			
+			$(document).on("filterComplete", function() {
 				
-				var isin = $(this).data('isin');
-				var $occurences = $('.suggestions tr[data-isin=' + isin + ']');
 				
-				var count = $occurences.length
+				actualCalls++;
 				
-				if(count>=3) {
-					$occurences.addClass('repeated');
+				if(actualCalls==totalCalls) {
+					$('.suggestions table:first-child tr').each(function() {
+						
+						var isin = $(this).data('isin');
+						var $occurences = $('.suggestions tr[data-isin=' + isin + ']');
+						
+						var count = $occurences.length
+						
+						if(count>=3) {
+							$occurences.addClass('repeated');
+						}
+					});
+					
+					
+					$('.break-outs table.resistance').eq(0).find('tr').each(function() {
+						
+						var isin = $(this).data('isin');
+						var $occurences = $('.break-outs table.resistance tr[data-isin=' + isin + ']');
+						
+						var count = $occurences.length
+						
+						if(count>=3) {
+							$occurences.addClass('repeated red');
+						}
+					});
+					
+					
+					$('.break-outs table.support').eq(0).find('tr').each(function() {
+						
+						var isin = $(this).data('isin');
+						var $occurences = $('.break-outs table.suppor tr[data-isin=' + isin + ']');
+						
+						var count = $occurences.length
+						
+						if(count>=3) {
+							$occurences.addClass('repeated green');
+						}
+					});
 				}
 			});
 			
 			
-			$('.break-outs table.resistance').eq(0).find('tr').each(function() {
-				
-				var isin = $(this).data('isin');
-				var $occurences = $('.break-outs table.resistance tr[data-isin=' + isin + ']');
-				
-				var count = $occurences.length
-				
-				if(count>=3) {
-					$occurences.addClass('repeated red');
-				}
-			});
 			
-			
-			$('.break-outs table.support').eq(0).find('tr').each(function() {
-				
-				var isin = $(this).data('isin');
-				var $occurences = $('.break-outs table.suppor tr[data-isin=' + isin + ']');
-				
-				var count = $occurences.length
-				
-				if(count>=3) {
-					$occurences.addClass('repeated green');
-				}
-			});
 			
 		},
 
@@ -912,6 +941,8 @@ $(document).ready(function() {
 	});*/
 	
 	//setTimeout(myApp.highlightStocks(), 3000);
+	
+	myApp.highlightStocks();
 	
 	
 	
