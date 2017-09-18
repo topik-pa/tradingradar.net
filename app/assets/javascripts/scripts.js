@@ -153,6 +153,7 @@ var myApp = (function() {
 						},
 						complete : function() {
 							$(document).trigger("filterComplete");
+							$contentElem.addClass('loaded');
 						}
 					});
 					
@@ -189,6 +190,7 @@ var myApp = (function() {
 						},
 						complete : function() {
 							$(document).trigger("filterComplete");
+							$contentElem.addClass('loaded');
 						}
 					});
 					break;
@@ -245,6 +247,7 @@ var myApp = (function() {
 						},
 						complete : function() {
 							$(document).trigger("filterComplete");
+							$contentElem.addClass('loaded');
 						}
 					});
 					
@@ -281,6 +284,7 @@ var myApp = (function() {
 						},
 						complete : function() {
 							$(document).trigger("filterComplete");
+							$contentElem.addClass('loaded');
 						}
 					});
 					break;
@@ -335,6 +339,7 @@ var myApp = (function() {
 						},
 						complete : function() {
 							$(document).trigger("filterComplete");
+							$contentElem.addClass('loaded');
 						}
 					});
 					
@@ -371,6 +376,7 @@ var myApp = (function() {
 						},
 						complete : function() {
 							$(document).trigger("filterComplete");
+							$contentElem.addClass('loaded');
 						}
 					});
 					break;
@@ -496,6 +502,7 @@ var myApp = (function() {
 						},
 						complete : function() {
 							$(document).trigger("filterComplete");
+							$contentElem.addClass('loaded');
 						}
 					});
 					break;
@@ -541,6 +548,7 @@ var myApp = (function() {
 						},
 						complete : function() {
 							$(document).trigger("filterComplete");
+							$contentElem.addClass('loaded');
 						}
 					});
 					break;
@@ -586,6 +594,7 @@ var myApp = (function() {
 						},
 						complete : function() {
 							$(document).trigger("filterComplete");
+							$contentElem.addClass('loaded');
 						}
 					});
 					
@@ -622,6 +631,7 @@ var myApp = (function() {
 						},
 						complete : function() {
 							$(document).trigger("filterComplete");
+							$contentElem.addClass('loaded');
 						}
 					});
 					break;
@@ -665,6 +675,7 @@ var myApp = (function() {
 						},
 						complete : function() {
 							$(document).trigger("filterComplete");
+							$contentElem.addClass('loaded');
 						}
 					});
 					break;
@@ -708,6 +719,7 @@ var myApp = (function() {
 						},
 						complete : function() {
 							$(document).trigger("filterComplete");
+							$contentElem.addClass('loaded');
 						}
 					});
 					break;
@@ -751,6 +763,7 @@ var myApp = (function() {
 						},
 						complete : function() {
 							$(document).trigger("filterComplete");
+							$contentElem.addClass('loaded');
 						}
 					});
 					break;
