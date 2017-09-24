@@ -7,6 +7,20 @@
 	text-align:center;
 }
 
+.anchor-link {
+	float: left;
+    margin-right: 30px;
+	img {
+		height: 50px;
+	    border: 1px solid #AAA;
+	    padding: 5px;
+	}
+}
+
+.back-on-top {
+	float:right;
+}
+
 .img-logo {
 	margin-bottom: 25px;
 	max-width: 320px;
