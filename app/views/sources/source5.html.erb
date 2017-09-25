@@ -1,0 +1,65 @@
+<div class="row section">
+    <div class="col-md-12 col-sm-12 col-xs-12" id="milano-finanza">
+        <div class="x_panel">
+            <!--<h2 class="pr-title">Milano Finanza</h2>--><img src="/images/milano-finanza-logo.png" title="Milano Finanza" alt="Logo Milano Finanza" class="img-logo" /><% if @urlMilanoFinanza and @urlMilanoFinanza2 %>
+            <div>
+                Source: <a href="<%= @urlMilanoFinanza %>">Borsa italiana</a>
+                and <a href="<%= @urlMilanoFinanza2 %>">Borsa italiana</a>
+            </div>
+            <% else %>
+            Missing source data, only DB data will be displayed. <% end %>
+            <% if @analisis %>
+            <table class="tablesorter nojs">
+                <thead>
+                    <tr>
+                        <th class="milano-finanza">
+                            Risk
+                        </th>
+                        <th class="milano-finanza">
+                            Rating
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <%= @analisis.milano_finanza_risk %>
+                        </td>
+                        <td>
+                            <%= @analisis.milano_finanza_rating %>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <% else %>
+            Missing analysis data.<% end %>
+            <div class="col-md-12 col-sm-12 col-xs-12 pr-section milano-finanza">
+                <div class="pr-content">
+                    <%= @milanoFinanzaElem1.to_s.html_safe %>
+                </div>
+                <div class="pr-content">
+                    <%= @milanoFinanzaElem8.to_s.html_safe %>
+                </div>
+                <div class="pr-content">
+                    <%= @milanoFinanzaElem2.to_s.html_safe %>
+                </div>
+                <div class="pr-content">
+                    <%= @milanoFinanzaElem3.to_s.html_safe %>
+                </div>
+                <div class="pr-content">
+                    <%= @milanoFinanzaElem4.to_s.html_safe %>
+                </div>
+                <div class="pr-content">
+                    <%= @milanoFinanzaElem5.to_s.html_safe %>
+                </div>
+                <div class="pr-content">
+                    <%= @milanoFinanzaElem6.to_s.html_safe %>
+                </div>
+                <div class="pr-content">
+                    <%= @milanoFinanzaElem7.to_s.html_safe %>
+                </div>
+            </div>
+            <a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Back on top">Back on top</a>
+        </div>
+    </div>
+</div>

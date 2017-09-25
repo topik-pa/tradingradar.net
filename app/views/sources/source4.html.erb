@@ -1,0 +1,44 @@
+<div class="row section">
+    <div class="col-md-12 col-sm-12 col-xs-12" id="investing">
+        <div class="x_panel">
+            <!--<h2 class="pr-title">Investing</h2>--><img src="/images/investing-logo.png" title="Investing" alt="Logo Investing" class="img-logo" /><% if @urlInvesting %>
+            <div>
+                Source: <a href="<%= @urlInvesting %>">Investing.com</a>
+            </div>
+            <% else %>
+            Missing source data, only DB data will be displayed. <% end %>
+            <% if @analisis %>
+            <table class="tablesorter">
+                <thead>
+                    <tr>
+                        <th class="investing">
+                            Value
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <% if @analisis.investing_dotcomrating %>
+                            <span class="investing-response buy">BUY</span>
+                            <% else %>
+                            <span class="investing-response wait">WAIT</span>
+                            <% end %>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <% else %>
+            Missing analysis data.<% end %>
+            <div class="col-md-12 col-sm-12 col-xs-12 pr-section investing">
+                <div class="pr-content">
+                    <%= @InvestingElem1.to_s.html_safe %>
+                </div>
+                <div class="pr-content">
+                    <%= @InvestingElem2.to_s.html_safe %>
+                </div>
+            </div>
+            <a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Back on top">Back on top</a>
+        </div>
+    </div>
+</div>

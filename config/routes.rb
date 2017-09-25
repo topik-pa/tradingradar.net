@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'sources/source1'
+
+  get 'sources/source2'
+
+  get 'sources/source3'
+
+  get 'sources/source4'
+
+  get 'sources/source5'
+
+  get 'sources/source6'
+
   get 'trading_plan/index'
 
   get 'filters/filter_1'

@@ -1,0 +1,29 @@
+<div class="row section">
+    <div class="col-md-12 col-sm-12 col-xs-12" id="soldi-on-line">
+        <div class="x_panel">
+            <!--<h2 class="pr-title">SoldiOnline.it</h2>--><img src="/images/soldionline-logo.png" title="SoldiOnline.it" alt="Logo SoldiOnline.it" class="img-logo" /><% if @urlSoldiOnLine %>
+            <div>
+                Source: <a href="<%= @urlSoldiOnLine %>">SoldiOnline.it</a>
+            </div>
+            <% else %>
+            Missing source data, only DB data will be displayed. <% end %>
+            <div class="col-md-12 col-sm-12 col-xs-12 pr-section soldionline">
+                <div class="pr-content">
+                    <%= @docSoldiOnLineElem1.to_s.html_safe %>
+                    <%= @docSoldiOnLineElem2.to_s.html_safe %>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="pr-content second">
+                    <%= @docSoldiOnLineElem3.to_s.html_safe %>
+                </div>
+                <div class="pr-content third">
+                    <h3>Raccomandazioni degli analisti</h3>
+                    <%= @docSoldiOnLineElem4.to_s.html_safe %>
+                    <%= @docSoldiOnLineElem5.to_s.html_safe %>
+                </div>
+            </div>
+            <a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Back on top">Back on top</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="row section">
+    <div class="col-md-12 col-sm-12 col-xs-12" id="borsa-italiana">
+        <div class="x_panel">
+            <!--<h2 class="pr-title">Borsa italiana</h2>--><img src="/images/borsa-italiana-logo.png" title="Borsa Italiana" alt="Logo Borsa Italiana" class="img-logo" /><% if @urlBorsaItaliana and @urlBorsaItaliana2 %>
+            <div>
+                Source: <a href="<%= @urlBorsaItaliana %>">Borsa italiana scheda titolo</a>
+                and <a href="<%= @urlBorsaItaliana2 %>">Borsa italiana analisi tecnica</a>
+            </div>
+            <% else %>
+            Missing source data, only DB data will be displayed. <% end %>
+            <% if @analisis %>
+            <table class="tablesorter nojs">
+                <thead>
+                    <tr>
+                        <th class="borsa-italiana">
+                            Support
+                        </th>
+                        <th class="borsa-italiana">
+                            Resistance
+                        </th>
+                        <th class="borsa-italiana">
+                            FTA Rank
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <%= @analisis.borsa_italiana_support %>
+                        </td>
+                        <td>
+                            <%= @analisis.borsa_italiana_resistance %>
+                        </td>
+                        <td>
+                            <%= @analisis.borsa_italiana_fta %>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <% else %>
+            Missing analysis data.<% end %>
+            <div class="col-md-12 col-sm-12 col-xs-12 pr-section borsa-italiana">
+                <div class="pr-content">
+                    <%= @borsaItalianaElem1.to_s.html_safe %>
+                </div>
+                <div class="pr-content">
+                    <%= @borsaItalianaElem2.to_s.html_safe %>
+                </div>
+                <div class="pr-content">
+                    <%= @borsaItalianaElem3.to_s.html_safe %>
+                </div>
+                <div class="pr-content">
+                    <%= @borsaItalianaElem4.to_s.html_safe %>
+                </div>
+                <div class="pr-content">
+                    <%= @borsaItalianaElem5.to_s.html_safe %>
+                </div>
+            </div>
+            <a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Back on top">Back on top</a>
+        </div>
+    </div>
+</div>

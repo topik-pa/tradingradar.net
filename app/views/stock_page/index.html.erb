@@ -61,324 +61,39 @@
 			
 			
             <div class="row section">
-                <div class="col-md-12 col-sm-12 col-xs-12" id="borsa-italiana">
-                    <div class="x_panel">
-                        <!--<h2 class="pr-title">Borsa italiana</h2>--><img src="/images/borsa-italiana-logo.png" title="Borsa Italiana" alt="Logo Borsa Italiana" class="img-logo" />
-						<% if @urlBorsaItaliana and @urlBorsaItaliana2 %>
-                        <div>
-                            Source: <a href="<%= @urlBorsaItaliana %>">Borsa italiana scheda titolo</a>
-                            and <a href="<%= @urlBorsaItaliana2 %>">Borsa italiana analisi tecnica</a>
-                        </div>
-                        <% else %>
-                        Missing source data, only DB data will be displayed. <% end %>
-                        <% if @analisis %>
-                        <table class="tablesorter nojs">
-                            <thead>
-                                <tr>
-                                    <th class="borsa-italiana">
-                                        Support
-                                    </th>
-                                    <th class="borsa-italiana">
-                                        Resistance
-                                    </th>
-                                    <th class="borsa-italiana">
-                                        FTA Rank
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <%= @analisis.borsa_italiana_support %>
-                                    </td>
-                                    <td>
-                                        <%= @analisis.borsa_italiana_resistance %>
-                                    </td>
-                                    <td>
-                                        <%= @analisis.borsa_italiana_fta %>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <% else %>
-                        Missing analysis data.<% end %>
-                        <div class="col-md-12 col-sm-12 col-xs-12 pr-section borsa-italiana">
-                            <div class="pr-content">
-                                <%= @borsaItalianaElem1.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                                <%= @borsaItalianaElem2.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                                <%= @borsaItalianaElem3.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                                <%= @borsaItalianaElem4.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                                <%= @borsaItalianaElem5.to_s.html_safe %>
-                            </div>
-                        </div>
-						<a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Back on top">Back on top</a>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-12 col-xs-12" id="il-sole-24-ore">
-                    <div class="x_panel">
-                        <!--<h2 class="pr-title">Il sole 24 ore</h2>--><img src="/images/il-sole-24-ore-logo.png" title="Il Sole 24 Ore" alt="Logo Il Sole 24 Ore" class="img-logo" /><% if @urlSole24Ore %>
-                        <div>
-                            Dati da: <a href="<%= @urlSole24Ore %>">Sole 24 Ore</a>
-                        </div>
-                        <% else %>
-                        Missing source data, only DB data will be displayed. <% end %>
-                        <% if @analisis %>
-                        <table class="tablesorter nojs">
-                            <thead>
-                                <tr>
-                                    <th class="sole-24-ore">
-                                        Support
-                                    </th>
-                                    <th class="sole-24-ore">
-                                        Resistance
-                                    </th>
-                                    <th class="sole-24-ore">
-                                        Short trend
-                                    </th>
-                                    <th class="sole-24-ore">
-                                        FTA
-                                    </th>
-                                    <th class="sole-24-ore">
-                                        RSI
-                                    </th>
-                                    <th class="sole-24-ore">
-                                        RSI Divergence
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <%= @analisis.xxivore_support %>
-                                    </td>
-                                    <td>
-                                        <%= @analisis.xxivore_resistance %>
-                                    </td>
-                                    <td>
-                                        <%= @analisis.xxivore_shorttrend %>
-                                    </td>
-                                    <td>
-                                        <%= @analisis.xxivore_ftaindex %>
-                                    </td>
-                                    <td>
-                                        <%= @analisis.xxivore_rsi %>
-                                    </td>
-                                    <td>
-                                        <%= @analisis.xxivore_rsidiv %>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <% else %>
-                        Missing analysis data.<% end %>
-                        <div class="col-md-12 col-sm-12 col-xs-12 pr-section sole-24-ore">
-                            <div class="pr-content">
-                            	<h3>Anagrafica</h3>
-                                <%= @sole24OreElem1.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                            	<h3>Indici borsistici e redditivit&agrave;</h3>
-                                <%= @sole24OreElem2.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                            	<h3>Sintesi bilancio</h3>
-                                <%= @sole24OreElem3.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                            	<h3>Sintesi analisi tecnica</h3>
-                                <%= @sole24OreElem4.to_s.html_safe %>
-                            </div>
-                        </div>
-						<a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Back on top">Back on top</a>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-12 col-xs-12" id="la-repubblica">
-                    <div class="x_panel">
-                        <!--<h2 class="pr-title">Repubblica</h2>--><img src="/images/la-repubblica-logo.png" title="La Repubblica" alt="Logo La Repubblica" class="img-logo" />
-						<% if @analisis %>
-                        <table class="tablesorter nojs">
-                            <thead>
-                                <tr>
-                                    <th class="repubblica">
-                                        Support
-                                    </th>
-                                    <th class="repubblica">
-                                        Resistance
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <%= @analisis.repubblica_support %>
-                                    </td>
-                                    <td>
-                                        <%= @analisis.repubblica_resistance %>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <% else %>
-                        Missing analysis data.<% end %>
-						<div class="col-md-12 col-sm-12 col-xs-12 pr-section larepubblica">
-                            <div class="pr-content">
-                                <%= @laRepubblicaElem1.to_s.html_safe %>
-                            </div>
-                            <div class="clear"></div>
-                            <div class="pr-content">
-                                <%= @laRepubblicaElem3.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                                <%= @laRepubblicaElem4.to_s.html_safe %>
-                            </div>
-                        </div>
-						<a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Back on top">Back on top</a>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-12 col-xs-12" id="investing">
-                    <div class="x_panel">
-                        <!--<h2 class="pr-title">Investing</h2>--><img src="/images/investing-logo.png" title="Investing" alt="Logo Investing" class="img-logo" />
-						<% if @urlInvesting %>
-                        <div>
-                            Source: <a href="<%= @urlInvesting %>">Investing.com</a>
-                        </div>
-                        <% else %>
-                        Missing source data, only DB data will be displayed. <% end %>
-                        <% if @analisis %>
-                        <table class="tablesorter">
-                            <thead>
-                                <tr>
-                                    <th class="investing">
-                                        Value
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <% if @analisis.investing_dotcomrating %>
-                                        <span class="investing-response buy">BUY</span>
-                                        <% else %>
-                                        <span class="investing-response wait">WAIT</span>
-                                        <% end %>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <% else %>
-                        Missing analysis data.
-						<% end %>
-                        <div class="col-md-12 col-sm-12 col-xs-12 pr-section investing">
-                            <div class="pr-content">
-                                <%= @InvestingElem1.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                                <%= @InvestingElem2.to_s.html_safe %>
-                            </div>
-                        </div>
-						<a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Back on top">Back on top</a>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-12 col-xs-12" id="milano-finanza">
-                    <div class="x_panel">
-                        <!--<h2 class="pr-title">Milano Finanza</h2>--><img src="/images/milano-finanza-logo.png" title="Milano Finanza" alt="Logo Milano Finanza" class="img-logo" /><% if @urlMilanoFinanza and @urlMilanoFinanza2 %>
-                        <div>
-                            Source: <a href="<%= @urlMilanoFinanza %>">Borsa italiana</a>
-                            and <a href="<%= @urlMilanoFinanza2 %>">Borsa italiana</a>
-                        </div>
-                        <% else %>
-                        Missing source data, only DB data will be displayed. <% end %>
-						<% if @analisis %>
-                        <table class="tablesorter nojs">
-                            <thead>
-                                <tr>
-                                    <th class="milano-finanza">
-                                        Risk
-                                    </th>
-                                    <th class="milano-finanza">
-                                        Rating
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <%= @analisis.milano_finanza_risk %>
-                                    </td>
-                                    <td>
-                                        <%= @analisis.milano_finanza_rating %>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <% else %>
-                        Missing analysis data.
-						<% end %>
-                        <div class="col-md-12 col-sm-12 col-xs-12 pr-section milano-finanza">
-                            <div class="pr-content">
-                                <%= @milanoFinanzaElem1.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                                <%= @milanoFinanzaElem8.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                                <%= @milanoFinanzaElem2.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                                <%= @milanoFinanzaElem3.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                                <%= @milanoFinanzaElem4.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                                <%= @milanoFinanzaElem5.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                                <%= @milanoFinanzaElem6.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content">
-                                <%= @milanoFinanzaElem7.to_s.html_safe %>
-                            </div>
-                        </div>
-						<a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Back on top">Back on top</a>
-                    </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 source" id="borsa-italiana">
+                	<div class="x_panel">
+                	</div>                	
                 </div>
 				
-				<div class="col-md-12 col-sm-12 col-xs-12" id="soldi-on-line">
-                    <div class="x_panel">
-                        <!--<h2 class="pr-title">SoldiOnline.it</h2>--><img src="/images/soldionline-logo.png" title="SoldiOnline.it" alt="Logo SoldiOnline.it" class="img-logo" />
-						<% if @urlSoldiOnLine %>
-                        <div>
-                            Source: <a href="<%= @urlSoldiOnLine %>">SoldiOnline.it</a>
-                        </div>
-                        <% else %>
-                        Missing source data, only DB data will be displayed. 
-						<% end %>
-                        <div class="col-md-12 col-sm-12 col-xs-12 pr-section soldionline">
-                            <div class="pr-content">
-                                <%= @docSoldiOnLineElem1.to_s.html_safe %>
-								<%= @docSoldiOnLineElem2.to_s.html_safe %>
-								<div class="clear"></div>
-                            </div>
-                            <div class="pr-content second">
-                                <%= @docSoldiOnLineElem3.to_s.html_safe %>
-                            </div>
-                            <div class="pr-content third">
-                            	<h3>Raccomandazioni degli analisti</h3>
-                                <%= @docSoldiOnLineElem4.to_s.html_safe %>
-								<%= @docSoldiOnLineElem5.to_s.html_safe %>
-                            </div>                         
-                        </div>
-						<a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Back on top">Back on top</a>
-                    </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 source" id="il-sole-24-ore">
+                	<div class="x_panel">
+                	</div> 
+                    
+                </div>
+				
+                <div class="col-md-12 col-sm-12 col-xs-12 source" id="la-repubblica">
+                	<div class="x_panel">
+                	</div> 
+
+                </div>
+				
+                <div class="col-md-12 col-sm-12 col-xs-12 source" id="investing">
+                	<div class="x_panel">
+                	</div> 
+        
+                </div>
+				
+                <div class="col-md-12 col-sm-12 col-xs-12 source" id="milano-finanza">
+                	<div class="x_panel">
+                	</div> 
+
+                </div>
+				
+				<div class="col-md-12 col-sm-12 col-xs-12 source" id="soldi-on-line">
+					<div class="x_panel">
+                	</div> 
+
                 </div>
 				
 				

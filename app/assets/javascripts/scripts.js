@@ -71,6 +71,51 @@ var myApp = (function() {
 				$('body').scrollTo($('#elem'), 800);
 			});
 		},
+		
+		
+		getParameterByName: function(name, url) {
+		    if (!url) url = window.location.href;
+		    name = name.replace(/[\[\]]/g, "\\$&");
+		    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+		        results = regex.exec(url);
+		    if (!results) return null;
+		    if (!results[2]) return '';
+		    return decodeURIComponent(results[2].replace(/\+/g, " "));
+		},
+		
+		
+		loadSources : function() {
+			$('.source').each(function(index, elem) {
+				//debugger
+				var isin = myApp.getParameterByName('isin');
+				var url = '/sources/source' + (index+1) + '?isin=' + isin;
+				var $target = $(this).find('.x_panel');
+				
+				//console.log(isin);
+				//console.log(url);
+				
+				
+				jQuery.ajax({
+					url : url,
+					data : 'text/html',
+					type : 'get',
+					success : function(data) {
+						//var title = $(data).find('h2').html();
+						var content = $(data).find('.x_panel').html();
+						//$titleElem.html(title);
+						//debugger
+						$target.html(content);
+					},
+					error : function() {
+						console.log('error');
+					},
+					complete : function() {
+					}
+				});
+				
+				
+			});
+		},
 
 		loadHPFilters : function() {
 			/*$('.hp-filter').each(function(index, elem) {
@@ -957,6 +1002,8 @@ $(document).ready(function() {
 	
 	myApp.highlightStocks();
 	
+	
+	myApp.loadSources();
 	
 	
 		
