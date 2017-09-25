@@ -55,7 +55,9 @@
                 </div>
             </div>
 			
-            <%= render("last_study") %>
+			<%if $user.present?%>
+            	<%= render("last_study") %>
+			<%end%>
 			
 			
             <div class="row section">

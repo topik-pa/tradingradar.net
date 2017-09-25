@@ -5,11 +5,15 @@
             <div class="profile_pic">
                 <img src="/images/abstract-user-flat.png" alt="..." class="img-circle profile_img">
             </div>
-            <div class="profile_info">
-                <span>Welcome</span>
-                <h2><%= $user.present? ? $user.first_name : '' %></h2>
-				<%= link_to 'Log out', logout_url, :method => :delete %>
-            </div>
+			
+			<%if $user.present?%>
+				<div class="profile_info">
+	                <span>Welcome</span>
+	                <h2><%= $user.first_name%></h2>
+					<%= link_to 'Log out', logout_url, :method => :delete %>
+	            </div>
+			<%end%> 
+            
         </div>
         <!-- /menu profile quick info -->
         <br>

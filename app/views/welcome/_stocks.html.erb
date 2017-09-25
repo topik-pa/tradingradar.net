@@ -24,9 +24,11 @@
 								<th>                                    
 									Marketphase
                                 </th>
-								<th>
-                                    Study page
-                                </th>
+								<%if $user.present?%>
+									<th>
+	                                    Study page
+	                                </th>
+								<%end%>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,9 +52,11 @@
 								<td>
                                     <%= stock.market_phase %>
                                 </td>
-								<td>
-                                    <%= link_to 'See/add study', study_page_index_path(isin: stock.isin) %>
-                                </td>
+								<%if $user.present?%>
+									<td>
+	                                    <%= link_to 'See/add study', study_page_index_path(isin: stock.isin) %>
+                                	</td>
+								<%end%>
                             </tr>
                             <% end %>
                         </tbody>
