@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
     
   
-  #require 'open-uri'
   require 'rufus-scheduler'
   require 'json'
   
@@ -14,7 +13,7 @@ class ApplicationController < ActionController::Base
   end 
  
   $appName = 'Agenda Trading'
-  $appVersion = '1.0 Alpha'
+  $appVersion = '1.0 Beta'
   $adminEmail = 'agendatrading@yahoo.com'
   
   $user = nil
@@ -22,11 +21,15 @@ class ApplicationController < ActionController::Base
   $user_email = nil
   $isAdmin = false
   
+  $maxRetryToGetUrl = 2
+  $sleepTime = 2
+  
   
   scheduler = Rufus::Scheduler.new
 
   
   puts 'Starting application: ' + $appName + '. Version: ' + $appVersion
+  
   
   
   #Session related stuff
@@ -36,24 +39,19 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id] 
       
       if @current_user
-        $isAdmin = @current_user.email == $adminEmail
         $user = @current_user
         $user_id = session[:user_id]
         $user_email = @current_user.email
+        $isAdmin = @current_user.email == $adminEmail
       end
   end
 
   def require_user 
     redirect_to '/login' unless current_user 
   end
-  
-  
   #Session related stuff
   
   
-  
-  
-   
   
   #stocksWithAlert = Array.new
   
@@ -69,6 +67,7 @@ class ApplicationController < ActionController::Base
   #    stocksWithAlert.clear
   #  end
   #end
+  
   
   #Restart server
   def self.restartServer
@@ -89,9 +88,9 @@ class ApplicationController < ActionController::Base
   
   #Update Market table
   def self.updateMarketTable      
-    url = 'http://www.ilsole24ore.com/includefinanza/box_xp/FinanzaMercatiUser/XtractData/dati_JSON.json'
-     
+    url = 'http://www.ilsole24ore.com/includefinanza/box_xp/FinanzaMercatiUser/XtractData/dati_JSON.json' 
     puts 'Updating market table from ' + url
+    retries = $maxRetryToGetUrl
     
     begin
       doc = open(url)
@@ -102,66 +101,74 @@ class ApplicationController < ActionController::Base
         objName = obj["NAME"]
         
         case objName
-        when "SPMib"
-          market = 'FTSE MIB'
-          value = obj["DATA"][2]["VALUE"]
-          variation = obj["DATA"][3]["VALUE"] + '%'        
-        when "!EURUS.FX"
-          market = 'EUR/USD'
-          value = obj["DATA"][1]["VALUE"]
-          variation = obj["DATA"][3]["VALUE"] + '%'        
-        when "!GBPVS.FX"
-          market = 'EUR/GBP'
-          value = obj["DATA"][1]["VALUE"]
-          variation = obj["DATA"][3]["VALUE"] + '%'        
-        when "!DAX.XET"
-          market = 'DAX 30'
-          value = obj["DATA"][2]["VALUE"]
-          variation = obj["DATA"][3]["VALUE"] + '%'        
-        when "!PCAC.PAR"
-          market = 'CAC 40'
-          value = obj["DATA"][2]["VALUE"]
-          variation = obj["DATA"][3]["VALUE"] + '%'        
-        when "!NDX.X.USD"
-          market = 'NASDAQ 100'
-          value = obj["DATA"][2]["VALUE"]
-          variation = obj["DATA"][3]["VALUE"] + '%'        
-        when "!NI225.IND"
-          market ='NIKKEI 225'
-          value = obj["DATA"][2]["VALUE"]
-          variation = obj["DATA"][3]["VALUE"] + '%'        
-        when "GLD"
-          market ='GOLD'
-          value = obj["DATA"][1]["VALUE"]
-          variation = obj["DATA"][2]["VALUE"] + '%'        
-        when "Mibtel"
-          market = 'FTSE All Share'
-          value = obj["DATA"][2]["VALUE"]
-          variation = obj["DATA"][4]["VALUE"] + '%'        
-        when "!OEX.USD"
-          market = 'S&P 100'
-          value = obj["DATA"][2]["VALUE"]
-          variation = obj["DATA"][4]["VALUE"] + '%'             
-        when "!BRNX7.IPE"
-          market = 'Brent'
-          value = obj["DATA"][2]["VALUE"]
-          variation = obj["DATA"][4]["VALUE"] + '%'               
-        when "!WBSV7.IPE"
-          market = 'WTI'
-          value = obj["DATA"][2]["VALUE"]
-          variation = obj["DATA"][4]["VALUE"] + '%'               
+          when "SPMib"
+            market = 'FTSE MIB'
+            value = obj["DATA"][2]["VALUE"]
+            variation = obj["DATA"][3]["VALUE"] + '%'        
+          when "!EURUS.FX"
+            market = 'EUR/USD'
+            value = obj["DATA"][1]["VALUE"]
+            variation = obj["DATA"][3]["VALUE"] + '%'        
+          when "!GBPVS.FX"
+            market = 'EUR/GBP'
+            value = obj["DATA"][1]["VALUE"]
+            variation = obj["DATA"][3]["VALUE"] + '%'        
+          when "!DAX.XET"
+            market = 'DAX 30'
+            value = obj["DATA"][2]["VALUE"]
+            variation = obj["DATA"][3]["VALUE"] + '%'        
+          when "!PCAC.PAR"
+            market = 'CAC 40'
+            value = obj["DATA"][2]["VALUE"]
+            variation = obj["DATA"][3]["VALUE"] + '%'        
+          when "!NDX.X.USD"
+            market = 'NASDAQ 100'
+            value = obj["DATA"][2]["VALUE"]
+            variation = obj["DATA"][3]["VALUE"] + '%'        
+          when "!NI225.IND"
+            market ='NIKKEI 225'
+            value = obj["DATA"][2]["VALUE"]
+            variation = obj["DATA"][3]["VALUE"] + '%'        
+          when "GLD"
+            market ='GOLD'
+            value = obj["DATA"][1]["VALUE"]
+            variation = obj["DATA"][2]["VALUE"] + '%'        
+          when "Mibtel"
+            market = 'FTSE All Share'
+            value = obj["DATA"][2]["VALUE"]
+            variation = obj["DATA"][4]["VALUE"] + '%'        
+          when "!OEX.USD"
+            market = 'S&P 100'
+            value = obj["DATA"][2]["VALUE"]
+            variation = obj["DATA"][4]["VALUE"] + '%'             
+          when "!BRNX7.IPE"
+            market = 'Brent'
+            value = obj["DATA"][2]["VALUE"]
+            variation = obj["DATA"][4]["VALUE"] + '%'               
+          when "!WBSV7.IPE"
+            market = 'WTI'
+            value = obj["DATA"][2]["VALUE"]
+            variation = obj["DATA"][4]["VALUE"] + '%'               
         end        
         writeInMarketTableValues(market, value, variation)
       end
       rescue JSON::ParserError => e
-        puts 'Error:' + e.message
+        puts 'Parse error:' + e.message
       rescue ElemNotFound => e
-        puts 'Error:' + e.message
+        puts 'Element not found error:' + e.message
       rescue OpenURI::HTTPError => e
-        puts 'Error:' + e.message
+        puts 'HTTP error:' + e.message
+        if retries > 0
+          puts "\tTrying #{retries} more times"
+          retries -= 1
+          sleep $sleepTime
+          retry
+        else
+          puts "\t\tCan't get #{url}, so moving on..."
+        end 
     end    
   end
-  #Update Market table
+
   def self.writeInMarketTableValues(market, value, variation)
     if market and value and variation
       puts 'Market: ' + market +  ' Value: ' + value + ' Variation: ' + variation
@@ -182,17 +189,26 @@ class ApplicationController < ActionController::Base
   def self.updateStockTable
     stocks = Stock.order(:name)
     stocks.find_each do |row|
-        begin
-          stockUpdate(row)
-          rescue ElemNotFound => e
-            puts 'Error:' + e.message
-          rescue UnexpectedElemValue => e
-            puts 'Error:' + e.message
-          rescue TypeError => e
-            puts 'Error:' + e.message
-          rescue OpenURI::HTTPError => e
-            puts 'Error:' + e.message
-        end
+      retries = $maxRetryToGetUrl
+      begin
+        stockUpdate(row)
+        rescue ElemNotFound => e
+          puts 'Error element not found:' + e.message
+        rescue UnexpectedElemValue => e
+          puts 'Error Unexpected element value:' + e.message
+        rescue TypeError => e
+          puts 'Type error:' + e.message
+        rescue OpenURI::HTTPError => e
+          puts 'HTTP error:' + e.message
+          if retries > 0
+            puts "\tTrying #{retries} more times"
+            retries -= 1
+            sleep $sleepTime
+            retry
+          else
+            puts "\t\tCan't get #{url}, so moving on..."
+          end
+      end
     end
     puts 'Stock table updated'
   end
@@ -287,7 +303,6 @@ class ApplicationController < ActionController::Base
   #Update Stock table
   
   
-  
    
    
   #Update Analisys table
@@ -295,27 +310,35 @@ class ApplicationController < ActionController::Base
     analyses = Analysis.order(:isin)
 
     analyses.find_each do |row|
-        begin
-          analysisUpdate(row)
-          rescue ElemNotFound => e
-            puts 'Error:' + e.message
-          rescue UnexpectedElemValue => e
-            puts 'Error:' + e.message
-          rescue TypeError => e
-            puts 'Error:' + e.message
-          rescue OpenURI::HTTPError => e
-            puts 'Error:' + e.message
-        end
+      retries = $maxRetryToGetUrl
+      begin
+        analysisUpdate(row)
+        rescue ElemNotFound => e
+          puts 'Error element not found:' + e.message
+        rescue UnexpectedElemValue => e
+          puts 'Error Unexpected element value:' + e.message
+        rescue TypeError => e
+          puts 'Type error:' + e.message
+        rescue OpenURI::HTTPError => e
+          puts 'HTTP error:' + e.message
+          if retries > 0
+            puts "\tTrying #{retries} more times"
+            retries -= 1
+            sleep $sleepTime
+            retry
+          else
+            puts "\t\tCan't get #{url}, so moving on..."
+          end
+      end
     end
     puts 'Analisys table updated.'
   end
   
-  
-  #Update single row analysis
   def self.analysisUpdate(analysis)
     isin = analysis.isin
     urls = Url.find_by isin: isin
-    
+    doc = ''
+        
          
     #Borsa italiana
     if urls.url2?
@@ -389,14 +412,14 @@ class ApplicationController < ActionController::Base
       
       puts 'Updating analysis ' + analysis.isin + ' from ' + urlSole24Ore + '.'
        
-      doc2 = Nokogiri::HTML(open(urlSole24Ore))
+      doc = Nokogiri::HTML(open(urlSole24Ore))
            
-      xxivore_support = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][4]/text()').to_s.strip
-      xxivore_resistance = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][5]/text()').to_s.strip
-      xxivore_shorttrend = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][2]/text()').to_s.strip
-      xxivore_ftaindex = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][3]/text()').to_s.strip  
-      xxivore_rsi = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][6]/text()').to_s.strip
-      xxivore_rsidiv = doc2.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][7]/text()').to_s.strip
+      xxivore_support = doc.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][4]/text()').to_s.strip
+      xxivore_resistance = doc.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][5]/text()').to_s.strip
+      xxivore_shorttrend = doc.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][2]/text()').to_s.strip
+      xxivore_ftaindex = doc.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][3]/text()').to_s.strip  
+      xxivore_rsi = doc.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][6]/text()').to_s.strip
+      xxivore_rsidiv = doc.at_xpath('//table[@cellspacing="1px"]//td[@class="xpC6"][7]/text()').to_s.strip
     
       if xxivore_support
         puts 'Support Sole 24 Ore: ' + xxivore_support
@@ -472,10 +495,10 @@ class ApplicationController < ActionController::Base
       
       puts 'Updating analysis ' + analysis.isin + ' from ' + urlRepubblica + '.'
              
-      doc3 = Nokogiri::HTML(open(urlRepubblica))
+      doc = Nokogiri::HTML(open(urlRepubblica))
            
-      repubblica_support = doc3.at_xpath('/descendant::ul[contains(@class, "TLB-data-list")][2]/li[5]/b/text()').to_s.strip
-      repubblica_resistance = doc3.at_xpath('/descendant::ul[contains(@class, "TLB-data-list")][2]/li[1]/b/text()').to_s.strip
+      repubblica_support = doc.at_xpath('/descendant::ul[contains(@class, "TLB-data-list")][2]/li[5]/b/text()').to_s.strip
+      repubblica_resistance = doc.at_xpath('/descendant::ul[contains(@class, "TLB-data-list")][2]/li[1]/b/text()').to_s.strip
       
       if repubblica_support
         puts 'Support Repubblica.it: ' + repubblica_support
@@ -511,10 +534,10 @@ class ApplicationController < ActionController::Base
       
       puts 'Updating analysis ' + analysis.isin + ' from ' + urlMilanoFinanza + '.'
              
-      doc5 = Nokogiri::HTML(open(urlMilanoFinanza))
+      doc = Nokogiri::HTML(open(urlMilanoFinanza))
            
-      milano_finanza_risk = doc5.at_xpath('/descendant::div[contains(@class, "indicior")]/text()').to_s.strip
-      milano_finanza_rating = doc5.at_xpath('/descendant::div[contains(@class, "indici2")]/text()').to_s.strip
+      milano_finanza_risk = doc.at_xpath('/descendant::div[contains(@class, "indicior")]/text()').to_s.strip
+      milano_finanza_rating = doc.at_xpath('/descendant::div[contains(@class, "indici2")]/text()').to_s.strip
       
       if milano_finanza_risk
         puts 'Milano Finanza Risk: ' + milano_finanza_risk
@@ -550,14 +573,14 @@ class ApplicationController < ActionController::Base
       
       puts 'Updating analysis ' + analysis.isin + ' from ' + urlInvesting + '.'
              
-      doc4 = Nokogiri::HTML(open(urlInvesting))
+      doc = Nokogiri::HTML(open(urlInvesting))
            
-      mmgClassValue = doc4.at_xpath('//table[contains(@class, "technicalSummaryTbl")]//tr[1]/td[5]/@class').to_s
-      mmmClassValue = doc4.at_xpath('//table[contains(@class, "technicalSummaryTbl")]//tr[1]/td[6]/@class').to_s
-      itgClassValue = doc4.at_xpath('//table[contains(@class, "technicalSummaryTbl")]//tr[2]/td[5]/@class').to_s
-      itmClassValue = doc4.at_xpath('//table[contains(@class, "technicalSummaryTbl")]//tr[2]/td[6]/@class').to_s
-      rgclassValue =  doc4.at_xpath('//table[contains(@class, "technicalSummaryTbl")]//tr[3]/td[5]/@class').to_s
-      rmclassValue =  doc4.at_xpath('//table[contains(@class, "technicalSummaryTbl")]//tr[3]/td[6]/@class').to_s
+      mmgClassValue = doc.at_xpath('//table[contains(@class, "technicalSummaryTbl")]//tr[1]/td[5]/@class').to_s
+      mmmClassValue = doc.at_xpath('//table[contains(@class, "technicalSummaryTbl")]//tr[1]/td[6]/@class').to_s
+      itgClassValue = doc.at_xpath('//table[contains(@class, "technicalSummaryTbl")]//tr[2]/td[5]/@class').to_s
+      itmClassValue = doc.at_xpath('//table[contains(@class, "technicalSummaryTbl")]//tr[2]/td[6]/@class').to_s
+      rgclassValue =  doc.at_xpath('//table[contains(@class, "technicalSummaryTbl")]//tr[3]/td[5]/@class').to_s
+      rmclassValue =  doc.at_xpath('//table[contains(@class, "technicalSummaryTbl")]//tr[3]/td[6]/@class').to_s
       
       testText = 'red'
       resultText = mmgClassValue + mmmClassValue + itgClassValue + itmClassValue + rgclassValue + rmclassValue
@@ -587,54 +610,81 @@ class ApplicationController < ActionController::Base
   #PRODUCTION
   if Rails.env.production?
     
-    scheduler.every '17m' do  
-      updateMarketTable  
-    end
-    
-    #scheduler.every '51m' do  
-      #updateStockTable  
-    #end
-    
-    scheduler.cron '00 07 * * 1-5', :blocking => true do
+    scheduler.cron '00 02 * * 1-5', :blocking => true do
       updateAnalysisTable
     end
     
+    scheduler.cron '00 06 * * 1-5', :blocking => true do
+      updateMarketTable
+      updateStockTable
+      updateAnalysisTable
+    end
     
-    #scheduler.cron '00 08 * * 1-5', :blocking => true do
-    #  updateStockTable
-    #end
-    
-    scheduler.cron '00 8 * * 1-5', :blocking => true do
+    scheduler.cron '00 07 * * 1-5', :blocking => true do
+      updateMarketTable
       updateStockTable
     end
     
+    scheduler.cron '00 08 * * 1-5', :blocking => true do
+      updateMarketTable
+      updateStockTable
+    end
+    
+    scheduler.cron '00 09 * * 1-5', :blocking => true do
+      updateMarketTable
+      updateStockTable
+    end
+        
+    scheduler.cron '00 10 * * 1-5', :blocking => true do
+      updateMarketTable
+      updateStockTable
+      updateAnalysisTable
+    end
+    
     scheduler.cron '00 11 * * 1-5', :blocking => true do
+      updateMarketTable
+      updateStockTable
+    end
+    
+    scheduler.cron '00 12 * * 1-5', :blocking => true do
+      updateMarketTable
+      updateStockTable
+    end
+        
+    scheduler.cron '00 13 * * 1-5', :blocking => true do
+      updateMarketTable
       updateStockTable
     end
     
     scheduler.cron '00 14 * * 1-5', :blocking => true do
+      updateMarketTable
       updateStockTable
     end
     
     scheduler.cron '00 15 * * 1-5', :blocking => true do
+      updateMarketTable
       updateStockTable
     end
     
     scheduler.cron '00 16 * * 1-5', :blocking => true do
+      updateMarketTable
+      updateStockTable
+      updateAnalysisTable
+    end
+    
+    scheduler.cron '00 17 * * 1-5', :blocking => true do
+      updateMarketTable
       updateStockTable
     end
+        
 
   #DEVELOPMENT
   else
-    scheduler.every '53m' do    
-      #updateMarketTable    
+    scheduler.every '2m', :first_at => Time.now + 5 do    #first job in 5 sec...
+      #updateMarketTable
+      #updateStockTable
+      #updateAnalysisTable    
     end   
-    scheduler.every '10m' do    
-      #updateStockTable     
-    end   
-    scheduler.every '10m' do
-      #updateAnalysisTable 
-    end
   end
   
     
