@@ -1,29 +1,25 @@
-var myApp = (function() {
+var tradingRadar = (function() {
 
-	var _pageData = {};
-
-	var $mainContainer = $('#main-wrapper');
+	var _pageData = {};	
 	var $inputElem = $('#pageData');
 
-	return {
+	var $mainContainer = $('#main-wrapper');
 
+	return {
+		
 		setPageData : function() {
 			if ($inputElem.length > 0) {
-				_pageData.country = $inputElem.data('country');
-				_pageData.device = $inputElem.data('device');
+				_pageData.isin = $inputElem.data('isin');
+				_pageData.user = $inputElem.data('user');
+				_pageData.isAdmin = $inputElem.data('isadmin');
 			}
 		},
-
+		
+		
 		getPageData : function() {
 			return _pageData;
 		},
 
-		manageLazyLoading : function() {
-			$.extend($.lazyLoadXT, {
-				edgeY : 200,
-				visibleOnly : false
-			});
-		},
 
 		manageWindowPosition : function() {
 
@@ -45,25 +41,7 @@ var myApp = (function() {
 				checkPosition();
 			});
 		},
-
-		setCustomCursor : function($container) {
-			$container.append('<div id="customCursor">Custom cursor</div>');
-			$container.on('mousemove', function(ev) {
-				$('#customCursor').css(
-						{
-							'transform' : 'translateY(' + ev.offsetY
-									+ 'px) translateX(' + ev.offsetX + 'px)',
-							'top' : 'auto',
-							'left' : 'auto'
-						});
-			});
-			$container.on('mouseenter', function() {
-				$('#customCursor').css('opacity', 1);
-			});
-			$container.on('mouseleave', function() {
-				$('#customCursor').css('opacity', 0);
-			});
-		},
+		
 
 		scrollDown : function() {
 			$('#scrolldown').click(function(e) {
@@ -85,31 +63,26 @@ var myApp = (function() {
 		
 		
 		loadSources : function() {
-			$('.source').each(function(index, elem) {
-				//debugger
-				var isin = myApp.getParameterByName('isin');
+			var containerSelector = '.x_panel';
+			var isin = _pageData.isin;
+			var $targets = $mainContainer.find('.press-release .ext-source');
+			$targets.each(function(index, elem) {				
 				var url = '/sources/source' + (index+1) + '?isin=' + isin;
-				var $target = $(this).find('.x_panel');
+				var $destination = $(this).find(containerSelector);
 				
-				//console.log(isin);
-				//console.log(url);
-				
-				
-				jQuery.ajax({
+				$.ajax({
 					url : url,
 					data : 'text/html',
 					type : 'get',
 					success : function(data) {
-						//var title = $(data).find('h2').html();
-						var content = $(data).find('.x_panel').html();
-						//$titleElem.html(title);
-						//debugger
-						$target.html(content);
+						var content = $(data).find(containerSelector).html();
+						$destination.html(content);
 					},
 					error : function() {
-						console.log('error');
+						console.error('Unable to perform request');
 					},
 					complete : function() {
+						$destination.addClass('loaded');
 					}
 				});
 				
@@ -118,32 +91,133 @@ var myApp = (function() {
 		},
 
 		loadHPFilters : function() {
-			/*$('.hp-filter').each(function(index, elem) {
-				var $titleElem = $(this).find('h2');
-				var $contentElem = $(this).find('.x_content');
-
-				var url = '/filters/filter_' + (index + 1);
-
-				jQuery.ajax({
-					url : url,
-					data : 'text/html',
-					type : 'get',
-					success : function(data) {
-						var title = $(data).find('h2').html();
-						var content = $(data).find('table');
-						$titleElem.html(title);
-						$contentElem.html(content);
-					},
-					error : function() {
-						console.log('error');
-					},
-					complete : function() {
-					}
-				});
-
-			});*/
 			
-			$('.hp-filter').each(function(index, elem) {
+			var filters = {
+					filter_1: {			        	   
+						index: 0,
+						title: 'Channels break out ',
+						urls: ['/filters/filter_overResistanceBorsaItaliana', '/filters/filter_belowSupportBorsaItaliana'],
+						icon: {
+						    class: 'img-logo-small',
+						    src: '/images/borsa-italiana-logo.png',
+						    title: 'Borsa Italiana',
+						    alt: 'Logo Borsa Italiana'
+						},						
+						captions: ['Resistance', 'Support'],
+						table_headers: [ ['Name', 'Last price', 'Borsa Italiana'], ['Name', 'Last price', 'Borsa Italiana'] ],
+						attributes: [ ['last_price', 'borsa_italiana_resistance'], ['last_price', 'borsa_italiana_support'] ]
+		           },
+		           filter_2: {			        	   
+						index: 1,
+						title: 'Channels break out ',
+						urls: ['/filters/filter_overResistanceSoleXXIVOre', '/filters/filter_belowSupportSoleXXIVOre'],
+						icon: {
+						    class: 'img-logo-small',
+						    src: '/images/il-sole-24-ore-logo.png',
+						    title: 'Il sole 24 ore',
+						    alt: 'Logo Il sole 24 ore'
+						},						
+						captions: ['Resistance', 'Support'],
+						table_headers: [ ['Name', 'Last price', 'Il sole 24 ore'], ['Name', 'Last price', 'Il sole 24 ore'] ],
+						attributes: [ ['last_price', 'xxivore_resistance'], ['last_price', 'xxivore_support'] ]
+		           },
+		           filter_3: {			        	   
+						index: 2,
+						title: 'Channels break out ',
+						urls: ['/filters/filter_overResistanceRepubblica', '/filters/filter_belowSupportRepubblica'],
+						icon: {
+						    class: 'img-logo-small',
+						    src: '/images/la-repubblica-logo.png',
+						    title: 'La Repubblica',
+						    alt: 'Logo La Repubblica'
+						},						
+						captions: ['Resistance', 'Support'],
+						table_headers: [ ['Name', 'Last price', 'La Repubblica'], ['Name', 'Last price', 'La Repubblica'] ],
+						attributes: [ ['last_price', 'repubblica_resistance'], ['last_price', 'repubblica_support'] ]
+		           }
+			}
+	           
+          
+			
+			
+			for (var filter in filters) {
+			    if (filters.hasOwnProperty(filter)) {
+			    	
+			    	var obj = filters[filter];
+
+			    	var $filter = $mainContainer.find('.filters .hp-filter:eq(' + obj.index + ')');
+			    	var $titleElem = $filter.find('h2');
+			    	var $contentElem = $filter.find('.x_content');
+			    	var count = 0;
+			    	
+			    	$titleElem.html(obj.title);
+			    	
+			    	var $ico = $('<img/>', obj.icon).appendTo($titleElem);
+			    	
+		    	
+			    	obj.urls.forEach(function(url, index) {
+			    		
+			    		
+			    		var $table = $('<table/>', {
+						    class: 'tablesorter ' + obj.captions[index]
+						}).appendTo($contentElem);
+			    		
+			    		var $caption = $('<caption/>', {
+						    text: obj.captions[index]
+						});
+				    	$table.append($caption);
+				    	
+				    	var thead = '';
+						thead = '<thead><tr>';
+						obj.table_headers[index].forEach(function(theader) {
+							thead += '<th>' + theader + '</th>';
+						});
+						thead += '</tr></thead>';
+				        $table.append(thead);
+				        
+			    		$.ajax({
+							url : url,
+							data : 'text/json',
+							type : 'get',
+							success : function(response) {				
+
+								var tbody = '<tbody>';
+						        $.each(response, function (i, item) {
+						        	var rowClass = i%2===0 ? 'even' : 'odd';
+						        	
+						        	tbody += '<tr class="' + rowClass + '" data-isin="' + item.isin + '">';
+						        	tbody += '<td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td>';
+						        	obj.attributes[index].forEach(function(attribute) {
+										
+										tbody += '<td>' + item[attribute] + '</td>';
+									});
+									tbody += '</tr>';
+									tbody += '</tbody>';
+						        	
+						        });
+						        
+						        $table.append(tbody);
+								
+							},
+							error : function() {
+								console.log('error');
+							},
+							complete : function() {
+								count++;
+								if(count === obj.urls.length) {
+									$(document).trigger("filterComplete");
+									$contentElem.addClass('loaded');
+								}
+								
+							}
+						});
+			    		
+			    	});
+			    	
+			    }
+			}
+			
+			/*$targets = $mainContainer.find('.filters .hp-filter').each(function(index, elem) {
 				var $titleElem = $(this).find('h2');
 				var $contentElem = $(this).find('.x_content');
 				
@@ -223,7 +297,7 @@ var myApp = (function() {
 							var trHTML = '';
 					        $.each(response, function (i, item) {
 					        	var rowClass = i%2===0 ? 'even' : 'odd';
-					            trHTML += '<tr class="' + rowClass + '" data-isin="' + item.isin + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td><td>' + item.borsa_italiana_resistance + '</td></tr>';
+					            trHTML += '<tr class="' + rowClass + '" data-isin="' + item.isin + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td><td>' + item.borsa_italiana_support + '</td></tr>';
 					        });
 					        $table.append(caption);
 					        $table.append(theadHTML);
@@ -427,87 +501,7 @@ var myApp = (function() {
 					break;
 					
 					
-					
-					
-					
-				
-				/*case 3:
-					
-					$titleElem.html('Channels break out');
-					
-					var url = '/filters/filter_1';
-					var url2 = '/filters/filter_1b';
-					
-					$.ajax({
-						url : url,
-						data : 'text/json',
-						type : 'get',
-						success : function(response) {
-										
-							
-							var $table = $('<table/>', {
-							    class: 'tablesorter'
-							}).appendTo($contentElem);
-							
-							var caption = $('<caption/>', {
-							    text: 'Resistance'
-							});
-							
-							var theadHTML = '';
-							theadHTML = '<thead><tr><th>Name</th><th>Last price</th><th>Borsa Italiana</th><th>Il Sole 24 Ore</th><th>Repubblica</th></tr></thead>'
-							
-							var trHTML = '';
-					        $.each(response, function (i, item) {
-					        	var rowClass = i%2===0 ? 'even' : 'odd';
-					            trHTML += '<tr class="' + rowClass + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td><td>' + item.borsa_italiana_resistance + '</td><td>' + item.xxivore_resistance + '</td><td>' + item.repubblica_resistance + '</td></tr>';
-					        });
-					        $table.append(caption);
-					        $table.append(theadHTML);
-					        $table.append(trHTML);
-							
-						},
-						error : function() {
-							console.log('error');
-						},
-						complete : function() {
-						}
-					});
-					
-					$.ajax({
-						url : url2,
-						data : 'text/json',
-						type : 'get',
-						success : function(response) {
-			
-							
-							var $table = $('<table/>', {
-							    class: 'tablesorter'
-							}).appendTo($contentElem);
-							
-							var caption = $('<caption/>', {
-							    text: 'Support'
-							});
-							
-							var theadHTML = '';
-							theadHTML = '<thead><tr><th>Name</th><th>Last price</th><th>Borsa Italiana</th><th>Il Sole 24 Ore</th><th>Repubblica</th></tr></thead>'
-							
-							var trHTML = '';
-					        $.each(response, function (i, item) {
-					        	var rowClass = i%2===0 ? 'even' : 'odd';
-					            trHTML += '<tr class="' + rowClass + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td><td>' + item.borsa_italiana_resistance + '</td><td>' + item.xxivore_resistance + '</td><td>' + item.repubblica_resistance + '</td></tr>';
-					        });
-					        $table.append(caption);
-					        $table.append(theadHTML);
-					        $table.append(trHTML);
-							
-						},
-						error : function() {
-							console.log('error');
-						},
-						complete : function() {
-						}
-					});
-					break;*/
+
 					
 				case 1:
 					var url = '/filters/filter_2';
@@ -691,13 +685,7 @@ var myApp = (function() {
 						success : function(response) {
 							
 							$titleElem.html('Rising crossing stocks');
-							
-							/*var $ico = $('<img/>', {
-							    class: 'img-logo-small',
-							    src: '/images/il-sole-24-ore-logo.png',
-							    title: 'Il Sole 24 Ore',
-							    alt: 'Logo Il Sole 24 Ore'
-							}).appendTo($titleElem);*/				
+			
 							
 							var $table = $('<table/>', {
 							    class: 'tablesorter'
@@ -735,13 +723,7 @@ var myApp = (function() {
 						success : function(response) {
 							
 							$titleElem.html('Bullish divergence stocks');
-							
-							/*var $ico = $('<img/>', {
-							    class: 'img-logo-small',
-							    src: '/images/il-sole-24-ore-logo.png',
-							    title: 'Il Sole 24 Ore',
-							    alt: 'Logo Il Sole 24 Ore'
-							}).appendTo($titleElem);*/				
+			
 							
 							var $table = $('<table/>', {
 							    class: 'tablesorter'
@@ -818,53 +800,8 @@ var myApp = (function() {
 				default:
 					break;
 				}
-			});
+			});*/
 				
-				
-			
-
-			
-
-				/*var url = '/filters/filter_' + (index + 1);
-
-				$.ajax({
-					url : url,
-					data : 'text/json',
-					type : 'get',
-					success : function(response) {
-						
-						$titleElem.html('Suggestions from ');
-						
-						var $ico = $('<img/>', {
-						    class: 'img-logo-small',
-						    src: '/images/investing-logo.png',
-						    title: 'Investing',
-						    alt: 'Logo Investing'
-						}).appendTo($titleElem);					
-						
-						var $table = $('<table/>', {
-						    class: 'tablesorter'
-						}).appendTo($contentElem);
-						
-						var theadHTML = '';
-						theadHTML = '<thead><tr><th>Name</th><th>Last price</th></tr></thead>'
-						
-						var trHTML = '';
-				        $.each(response, function (i, item) {
-				        	var rowClass = i%2===0 ? 'even' : 'odd';
-				            trHTML += '<tr class="' + rowClass + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td></tr>';
-				        });
-				        $table.append(theadHTML);
-				        $table.append(trHTML);
-						
-					},
-					error : function() {
-						console.log('error');
-					},
-					complete : function() {
-					}
-				});*/
-			
 			
 
 			
@@ -875,7 +812,7 @@ var myApp = (function() {
 		
 		highlightStocks : function() {
 			
-			var totalCalls = 13//$('.filters table').length;
+			var totalCalls = 13// $('.filters table').length;
 			var actualCalls = 0;
 			
 			
@@ -932,60 +869,45 @@ var myApp = (function() {
 
 		
 		
-		/*getMarketsStatus : function() {
-			var url = 'https://www.stockmarketclock.com/api-v1/list';
-			var source;
-			
-			$.ajax({
-				url : url,
-				dataType: "html",
-				type : 'get',
-				success : function(response) {
-					
-					source = response;
-					
-					
-					
-				},
-				error : function() {
-					console.log('error');
-				},
-				complete : function() {
-				}
-			});
-			
-			console.log($(source).find("[data-exchange='mta']").attr('class'));
-			
-			
-			$('.markets-status li').each(function() {
-				
-			});
-		},*/
+		/*
+		 * getMarketsStatus : function() { var url =
+		 * 'https://www.stockmarketclock.com/api-v1/list'; var source;
+		 * 
+		 * $.ajax({ url : url, dataType: "html", type : 'get', success :
+		 * function(response) {
+		 * 
+		 * source = response;
+		 * 
+		 * 
+		 *  }, error : function() { console.log('error'); }, complete :
+		 * function() { } });
+		 * 
+		 * 
+		 * $('.markets-status li').each(function() {
+		 * 
+		 * }); },
+		 */
 
 	};
 
 }());
 
 $(document).ready(function() {
-
-	myApp.loadHPFilters();
 	
-	//myApp.getMarketsStatus();
+	tradingRadar.setPageData();
+	var pageData = tradingRadar.getPageData();
 
-	myApp.setPageData();
+	
+	// myApp.getMarketsStatus();
 
-	var pageData = myApp.getPageData();
 
-	myApp.manageLazyLoading();
-
-	if (pageData.device === "Desktop") {
-		myApp.manageWindowPosition();
-		myApp.scrollDown();
-	}
-
-	if (pageData.device === "Mobile") {
-
-	}
+	/*
+	 * if (pageData.device === "Desktop") { tradingRadar.manageWindowPosition();
+	 * tradingRadar.scrollDown(); }
+	 * 
+	 * if (pageData.device === "Mobile") {
+	 *  }
+	 */
 
 	$(".tablesorter:not(.nojs)").tablesorter();
 	
@@ -994,83 +916,28 @@ $(document).ready(function() {
 	$('[data-toggle="popover"]').popover();
 	
 	
-	/*$.when( myApp.loadHPFilters() ).done(function() {
-		myApp.highlightStocks();
-	});*/
+	/*
+	 * $.when( myApp.loadHPFilters() ).done(function() {
+	 * myApp.highlightStocks(); });
+	 */
 	
-	//setTimeout(myApp.highlightStocks(), 3000);
+	// setTimeout(myApp.highlightStocks(), 3000);
 	
-	myApp.highlightStocks();
-	
-	
-	myApp.loadSources();
+	// tradingRadar.highlightStocks();
 	
 	
-		
 	
+	
+	if($('.stock_page').length) {
+		tradingRadar.loadSources();
+	}
+	
+	
+	if($('.welcome').length) {
+		tradingRadar.loadHPFilters();
+	}
 	
 
-	// $('.pr-section a').removeAttr('href onclick style');
 
 });
 
-// var big = (x > 10) ? true : false;
-
-// var big = (x > 10) ? "greater 10" : (x < 5) ? "less 5" : "between 5 and 10";
-
-// var variable2 = variable1 || '';
-
-// var a = ["myString1", "myString2", "myString3"];
-
-/*
- * var skillSet = { 'Document language' : 'HTML5', 'Styling language' : 'CSS3',
- * 'Javascript library' : 'jQuery', 'Other' : 'Usability and accessibility' };
- */
-
-// var x, y, z=3;
-// if (likeJavaScript)
-/*
- * var a; if ( !a ) { // do something... }
- */
-
-/*
- * function myFunction() { console.log( arguments.length ); // Returns 5 for ( i =
- * 0; i < arguments.length; i++ ) { console.log( typeof arguments[i] ); //
- * Returns string, number, object, object, boolean } } myFunction( "String", 1,
- * [], {}, true );
- * 
- */
-
-/*
- * for(var i in allImgs)
- */
-
-// "myString"[0]; // Returns 'm'
-// return ret || fum('g2g');
-/*
- * function x() {console.log('x')};function y() {console.log('y')};var z = 3;
- * (z==3?x:y)(); // Short version!
- */
-
-/*
- * var cases = { 1: doX, 2: doY, 3: doN }; if (cases[something]) {
- * cases[something](); }
- */
-
-// if([1,5,7,22].indexOf(myvar)!=-1) alert('yeah baby!')
-/*
- * var types = { aligator: aligatorBehavior, parrot: parrotBehavior, dolphin:
- * dolphinBehavior, bulldog: bulldogBehavior };
- * 
- * var func = types[type]; if (!func) throw new Error('Invalid animal ' + type);
- * func();
- */
-
-// ~~4.9 === 4 //true
-/*
- * function documentTitle(theTitle) theTitle = theTitle || "Untitled Document"; }
- */
-
-/*
- * function isAdult(age) { return age && age > 17 ; }
- */

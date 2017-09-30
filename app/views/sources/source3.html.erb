@@ -1,7 +1,10 @@
 <div class="row section">
     <div class="col-md-12 col-sm-12 col-xs-12" id="la-repubblica">
         <div class="x_panel">
-            <!--<h2 class="pr-title">Repubblica</h2>--><img src="/images/la-repubblica-logo.png" title="La Repubblica" alt="Logo La Repubblica" class="img-logo" /><% if @analisis %>
+            <div class="pr-title">
+				<%= image_tag 'la-repubblica-logo.png', class: 'img-logo', alt: 'Logo La Repubblica', title: 'La Repubblica' %>
+			</div>
+			<% if @analisis %>
             <table class="tablesorter nojs">
                 <thead>
                     <tr>

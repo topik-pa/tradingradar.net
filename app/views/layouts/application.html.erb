@@ -16,7 +16,9 @@
     <body class="nav-md">
         <div id="main-wrapper" class="<%= controller.controller_name %>">
             <%= yield %>
-        </div>     
+        </div> 
+		
+		<input id="pageData" type="hidden" data-isin="<%= params[:isin] ? params[:isin] : '' %>" data-user="<%= $user %>" data-isadmin="<%= $isAdmin %>" />    
 		
 		<!-- Start of StatCounter Code for old browsers -->
 		<noscript><div class="statcounter"><a title="free web stats"

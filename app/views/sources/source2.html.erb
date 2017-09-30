@@ -1,7 +1,10 @@
 <div class="row section">
     <div class="col-md-12 col-sm-12 col-xs-12" id="il-sole-24-ore">
         <div class="x_panel">
-            <!--<h2 class="pr-title">Il sole 24 ore</h2>--><img src="/images/il-sole-24-ore-logo.png" title="Il Sole 24 Ore" alt="Logo Il Sole 24 Ore" class="img-logo" /><% if @urlSole24Ore %>
+            <div class="pr-title">
+				<%= image_tag 'il-sole-24-ore-logo.png', class: 'img-logo', alt: 'Logo Il Sole 24 Ore', title: 'Il Sole 24 Ore' %>
+			</div>
+			<% if @urlSole24Ore %>
             <div>
                 Dati da: <a href="<%= @urlSole24Ore %>">Sole 24 Ore</a>
             </div>

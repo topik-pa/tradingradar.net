@@ -1,7 +1,10 @@
 <div class="row section">
     <div class="col-md-12 col-sm-12 col-xs-12" id="investing">
         <div class="x_panel">
-            <!--<h2 class="pr-title">Investing</h2>--><img src="/images/investing-logo.png" title="Investing" alt="Logo Investing" class="img-logo" /><% if @urlInvesting %>
+            <div class="pr-title">
+				<%= image_tag 'investing-logo.png', class: 'img-logo', alt: 'Logo Investing', title: 'Investing' %>
+			</div>
+			<% if @urlInvesting %>
             <div>
                 Source: <a href="<%= @urlInvesting %>">Investing.com</a>
             </div>

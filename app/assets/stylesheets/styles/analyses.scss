@@ -1,274 +1,227 @@
-// Place all the styles related to the Analyses controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
+// Place all the styles related to the Analyses controller here.// They will automatically be included in application.css.
+// You can use Sass (SCSS) here:http://sass-lang.com/
 
 .chart-image {
-	text-align:center;
+    text-align: center;
 }
 
-.anchor-link {
-	float: left;
-    margin-right: 30px;
-	img {
-		height: 50px;
-	    border: 1px solid #AAA;
-	    padding: 5px;
+.ext-source {
+	.x_panel {
+		background-image: image-url("loader.gif");
+	    background-repeat: no-repeat;
+	    background-position: 50%;
+	    background-size: contain;
+		min-height: 200px;
+		
+		&.loaded {
+			background-image: none;
+		}
 	}
+	
 }
-
+.anchor-link {
+    float: left;
+    margin-right: 30px;
+    img {
+        height: 50px;
+        border: 1px solid #AAA;
+        padding: 5px;
+    }
+}
 .back-on-top {
-	float:right;
+    float: right;
 }
-
 .img-logo {
-	margin-bottom: 25px;
-	max-width: 320px;
+    margin-bottom: 25px;
+    max-width: 320px;
     max-height: 150px;
 }
-
 .pr-title {
-	font-size: $font-huge;
-	margin: 10px 0;
+    font-size: $font-huge;
+    margin: 10px 0;
     width: 100%;
-	border-bottom: 1px solid #000;
-}	
-
+    border-bottom: 1px solid #000;
+}
 .pr-section {
-	margin: 30px 0;
-	
-	a, .-indice, a[href="/azioni/legenda.htm"], div.m-tabs, .dettaglio_container, .xpie6fix .xpmodule.twocolsleft .titolo-dati-box, .xpie6fix .xpmodule.twocolsleft .group, .xpcorG3,
-	.realtime, a[href="/investimenti-personali/inserisci-alert?StockCodeRt=00c0&codiceStrumento=w2ae"], a[href="/investimenti-personali/aggiungi-titoli-portafoglio?codiceStrumento=w2ae&titolo=A2A"], a[href="/investimenti-personali/aggiungi-titoli-selezione?codiceStrumento=w2ae&titolo=A2A"],
-	.spandata, .prezzo
-	{
-		display:none;
-	}
-	h3 {
-		font-size: 120%;
-		margin: 10px 0;
-	}
-	table {
-		@extend .tablesorter;
-		width: auto;
-	}
+    margin: 30px 0;
+    a, .-indice, a[href="/azioni/legenda.htm"], div.m-tabs, .dettaglio_container, .xpie6fix .xpmodule.twocolsleft .titolo-dati-box, .xpie6fix .xpmodule.twocolsleft .group, .xpcorG3, .realtime, a[href="/investimenti-personali/inserisci-alert?StockCodeRt=00c0&codiceStrumento=w2ae"], a[href="/investimenti-personali/aggiungi-titoli-portafoglio?codiceStrumento=w2ae&titolo=A2A"], a[href="/investimenti-personali/aggiungi-titoli-selezione?codiceStrumento=w2ae&titolo=A2A"], .spandata, .prezzo {
+        display: none;
+    }
+    h3 {
+        font-size: 120%;
+        margin: 10px 0;
+    }
+    table {
+        @extend .tablesorter;
+        width: auto;
+    }
 }
-
-.note{
-	padding:20px 10px;
-	font-style:italic;
+.note {
+    padding: 20px 10px;
+    font-style: italic;
 }
-
-
-.borsa-italiana {		
-	.t-text {
-		font-size: 112%;
-	    line-height: 25px;
-	    display: block;
-	}
-	
-	h3 {
-		font-weight: bold;
-	}
-	
-	.m-table td {
-		border: 1px solid #DDD;
-		max-width: 100%;
-	}
-	
-	.-sm-half {
-		display:inline-block;
-		margin-right: 20px;
-	}
-	
-	.-right {
-		font-style: italic;
-	}
-	
-	strong {
-		font-weight:bold;
-	}
-	
-	
-
+.borsa-italiana {
+    .t-text {
+        font-size: 112%;
+        line-height: 25px;
+        display: block;
+    }
+    h3 {
+        font-weight: bold;
+    }
+    .m-table td {
+        border: 1px solid #DDD;
+        max-width: 100%;
+    }
+    .-sm-half {
+        display: inline-block;
+        margin-right: 20px;
+    }
+    .-right {
+        font-style: italic;
+    }
+    strong {
+        font-weight: bold;
+    }
 }
-
-
 .sole-24-ore {
-	
-	
-	table tbody td {
-		max-width: 100%;
-		border: 1px solid #DDD;
-	}
-	
-	.pr-content {
-	    float: left;
-		margin-right: 40px;
-		
-		h3 {
-			font-weight:bold;
-			text-transform: uppercase;
-		}
-	}
-	
-	.xpF1, .xpF2 {
-		font-weight:bold;
-	}
-	
-	
-	
+    table tbody td {
+        max-width: 100%;
+        border: 1px solid #DDD;
+    }
+    .pr-content {
+        float: left;
+        margin-right: 40px;
+        h3 {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+    .xpF1, .xpF2 {
+        font-weight: bold;
+    }
 }
-
 .larepubblica {
-	
-	.TLB-clear {
-		clear:both;
-	}
-	.TLB-header-base-snapshot .TLB-LeftFloated {
-		float:left;
-		padding: 0 20px;	
-		
-	}
-	
-	.TLB-Profilo-Societario .TLB-data-list {
-		display:none;
-	}
-	
-	.TLB-analisi-container .TLB-data-list {
-		float:left;
-		margin-right:50px;
-		b {
-			margin-right: 20px;
-		}
-		li {
-			padding-bottom: 5px;
-			padding-top: 5px;
-    		border-bottom: 1px solid #999;
-		}
-	}
-	
-	.JCF-analisi-container {
-		display:none;
-	}
+    .TLB-clear {
+        clear: both;
+    }
+    .TLB-header-base-snapshot .TLB-LeftFloated {
+        float: left;
+        padding: 0 20px;
+    }
+    .TLB-Profilo-Societario .TLB-data-list {
+        display: none;
+    }
+    .TLB-analisi-container .TLB-data-list {
+        float: left;
+        margin-right: 50px;
+        b {
+            margin-right: 20px;
+        }
+        li {
+            padding-bottom: 5px;
+            padding-top: 5px;
+            border-bottom: 1px solid #999;
+        }
+    }
+    .JCF-analisi-container {
+        display: none;
+    }
 }
-
-
 .investing {
-	.left {
-		float:none;
-	}
-	.redFont {
-		color: $red;
-	}
-	.greenFont {
-		color: $green;
-	}
-	.noHover {
-	    font-weight: bold;
-	}
-	
-	table tbody td {
-		max-width: 100%;
-		border: 1px solid #DDD;
-	}
-	
-	.pr-content {
-	    float: left;
-		margin-right: 40px;
-	}
-	
-	
-	
+    .left {
+        float: none;
+    }
+    .redFont {
+        color: $red;
+    }
+    .greenFont {
+        color: $green;
+    }
+    .noHover {
+        font-weight: bold;
+    }
+    table tbody td {
+        max-width: 100%;
+        border: 1px solid #DDD;
+    }
+    .pr-content {
+        float: left;
+        margin-right: 40px;
+    }
 }
 .investing-response {
-	    text-align: center;
-	    border: 1px solid #DDD;
-	    font-size: 140%;
-	    font-weight: bold;
-	    color: #FFF;
-		display:block;
-		
-		&.wait {			
-			background-color: #E74C3C;
-		}
-		&.buy {
-			background-color: #1ABB9C;
-		}
-	}
-	
-.milano-finanza {
-	.fleft {
-		float:left;
-	}
-	.clearfloat {
-		clear:both;
-	}
-	.taright, .tacenter {
-		margin:0 13px;
-	} 
-	
-	.gradient.padding5.shadow a, .news a {
-		display: inline;
-		cursor: default;
-	}
-	
-	.bold {
-		font-weight:bold;
-	}
-	
-	.bgees {
-		font-style: italic;
-	}
-	
-	table tbody td {
-		max-width: 100%;
-		border: 1px solid #DDD;
-	}
-	
-	.wMax.mtop20.fleft {
-		float:none;
-		text-align: left;
-		margin: 40px 0;
-	}
-	
-	.didatabelle {
-		font-weight:bold;
-	}
+    text-align: center;
+    border: 1px solid #DDD;
+    font-size: 140%;
+    font-weight: bold;
+    color: #FFF;
+    display: block;
+    &.wait {
+        background-color: #E74C3C;
+    }
+    &.buy {
+        background-color: #1ABB9C;
+    }
 }
-
-
+.milano-finanza {
+    .fleft {
+        float: left;
+    }
+    .clearfloat {
+        clear: both;
+    }
+    .taright, .tacenter {
+        margin: 0 13px;
+    }
+    .gradient.padding5.shadow a, .news a {
+        display: inline;
+        cursor: default;
+    }
+    .bold {
+        font-weight: bold;
+    }
+    .bgees {
+        font-style: italic;
+    }
+    table tbody td {
+        max-width: 100%;
+        border: 1px solid #DDD;
+    }
+    .wMax.mtop20.fleft {
+        float: none;
+        text-align: left;
+        margin: 40px 0;
+    }
+    .didatabelle {
+        font-weight: bold;
+    }
+}
 .soldionline {
-	
-	.dati, .fond {
-		float:left;
-		margin-right: 40px;
-    	margin-bottom: 20px;
-		b {
-			font-weight:bold;
-			margin-left:10px;
-		}
-		
-	}
-	
-	#lista-ultimenews {
-		a {
-			display:inline;
-		}
-	}
-	
-	.app, .leggituttenews {
-		display:none;
-	}
-	
-	h3 {
-		margin: 0;
-		text-transform: uppercase;
-		font-weight: bold;
-	}
-	
-	.second, .third {
-	    float: left;
-    	margin-right: 40px;
-	}
-	
+    .dati, .fond {
+        float: left;
+        margin-right: 40px;
+        margin-bottom: 20px;
+        b {
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    }
+    #lista-ultimenews {
+        a {
+            display: inline;
+        }
+    }
+    .app, .leggituttenews {
+        display: none;
+    }
+    h3 {
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .second, .third {
+        float: left;
+        margin-right: 40px;
+    }
 }

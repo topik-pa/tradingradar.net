@@ -1,7 +1,10 @@
 <div class="row section">
     <div class="col-md-12 col-sm-12 col-xs-12" id="soldi-on-line">
         <div class="x_panel">
-            <!--<h2 class="pr-title">SoldiOnline.it</h2>--><img src="/images/soldionline-logo.png" title="SoldiOnline.it" alt="Logo SoldiOnline.it" class="img-logo" /><% if @urlSoldiOnLine %>
+            <div class="pr-title">
+				<%= image_tag 'soldionline-logo.png', class: 'img-logo', alt: 'Logo Soldi On Line', title: 'Soldi On Line' %>
+			</div>
+			<% if @urlSoldiOnLine %>
             <div>
                 Source: <a href="<%= @urlSoldiOnLine %>">SoldiOnline.it</a>
             </div>

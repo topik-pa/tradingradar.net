@@ -13,31 +13,29 @@ Rails.application.routes.draw do
 
   get 'trading_plan/index'
 
-  get 'filters/filter_1'
+  get 'filters/filter_overAllResistancesStocks'
+  get 'filters/filter_belowAllSupportsStocks'
   
-  get 'filters/filter_1b'
+  get 'filters/filter_overResistanceBorsaItaliana'
+  get 'filters/filter_belowSupportBorsaItaliana'
   
-  get 'filters/filter_1c'
-  get 'filters/filter_1d'
-  get 'filters/filter_1e'
-  get 'filters/filter_1f'
-  get 'filters/filter_1g'
-  get 'filters/filter_1h'
-
-  get 'filters/filter_2'
-
-  get 'filters/filter_3'
-
-  get 'filters/filter_4'
+  get 'filters/filter_overResistanceSoleXXIVOre'
+  get 'filters/filter_belowSupportSoleXXIVOre'
   
-  get 'filters/filter_4b'
+  get 'filters/filter_overResistanceRepubblica'
+  get 'filters/filter_belowSupportRepubblica'
 
-  get 'filters/filter_5'
+  get 'filters/filter_suggestionsSoleXXIVOre'
+  get 'filters/filter_suggestionsInvestingDotCom'
+  get 'filters/filter_suggestionsMilanoFinanza'
 
-  get 'filters/filter_6'
+  get 'filters/filter_overResistanceStocksOnStudy'
+  get 'filters/filter_belowSupportStocksOnStudy'
+
+  get 'filters/filter_risingCrossingStocksOnStudy'
+  get 'filters/filter_bullishDivergenceStocksOnStudy'
   
-  get 'filters/filter_7'
-
+  
   get 'study_page/index'
   post 'study_page/index'  => 'study_page#create' 
 

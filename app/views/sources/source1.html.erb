@@ -1,7 +1,10 @@
 <div class="row section">
     <div class="col-md-12 col-sm-12 col-xs-12" id="borsa-italiana">
         <div class="x_panel">
-            <!--<h2 class="pr-title">Borsa italiana</h2>--><img src="/images/borsa-italiana-logo.png" title="Borsa Italiana" alt="Logo Borsa Italiana" class="img-logo" /><% if @urlBorsaItaliana and @urlBorsaItaliana2 %>
+            <div class="pr-title">
+				<%= image_tag 'borsa-italiana-logo.png', class: 'img-logo', alt: 'Logo Borsa Italiana', title: 'Borsa Italiana' %>
+			</div>
+			<% if @urlBorsaItaliana and @urlBorsaItaliana2 %>
             <div>
                 Source: <a href="<%= @urlBorsaItaliana %>">Borsa italiana scheda titolo</a>
                 and <a href="<%= @urlBorsaItaliana2 %>">Borsa italiana analisi tecnica</a>

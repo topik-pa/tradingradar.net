@@ -1,7 +1,10 @@
 <div class="row section">
     <div class="col-md-12 col-sm-12 col-xs-12" id="milano-finanza">
         <div class="x_panel">
-            <!--<h2 class="pr-title">Milano Finanza</h2>--><img src="/images/milano-finanza-logo.png" title="Milano Finanza" alt="Logo Milano Finanza" class="img-logo" /><% if @urlMilanoFinanza and @urlMilanoFinanza2 %>
+            <div class="pr-title">
+				<%= image_tag 'milano-finanza-logo.png', class: 'img-logo', alt: 'Logo Milano Finanza', title: 'Milano Finanza' %>
+			</div>
+			<% if @urlMilanoFinanza and @urlMilanoFinanza2 %>
             <div>
                 Source: <a href="<%= @urlMilanoFinanza %>">Borsa italiana</a>
                 and <a href="<%= @urlMilanoFinanza2 %>">Borsa italiana</a>
