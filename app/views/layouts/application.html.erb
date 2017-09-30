@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Agenda Trading 1.0</title>
+		<title>
+		  <%= if content_for?(:title) then yield(:title) + ' | ' end %><%=$appName + ' ' + $appVersion%>
+		</title>
         <%= csrf_meta_tags %>
-        <meta name="keywords" content="comma, separated, keywords">
-        <meta name="description" content="A description of this project.">
-        <meta name="author" content="Marco Pavan - marcopavan.mp@gmail.com">
+		
+		<meta name='description' content='<%= yield_meta_tag(:description, 'A description of this project') %>' />
+		<meta name='keywords' content='<%= yield_meta_tag(:keywords, 'comma, separated, keywords') %>' />
+		<meta name='author' content='<%= yield_meta_tag(:author, 'Name Surname') %>' />
+
 		<%= favicon_link_tag 'favicon.ico' %>
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     </head>

@@ -12,9 +12,11 @@ class ApplicationController < ActionController::Base
   class UnexpectedElemValue < StandardError
   end 
  
-  $appName = 'Agenda Trading'
+  $appName = 'Trading Radar'
   $appVersion = '1.0 Beta'
   $adminEmail = 'agendatrading@yahoo.com'
+  $author = 'Marco Pavan'
+  $authorMail = 'marcopavan.mp@gmail.com'
   
   $user = nil
   $user_id = nil
@@ -680,7 +682,7 @@ class ApplicationController < ActionController::Base
 
   #DEVELOPMENT
   else
-    scheduler.every '2m', :first_at => Time.now + 5 do    #first job in 5 sec...
+    scheduler.every '3m', :first_at => Time.now + 5 do    #first job in 5 sec...
       #updateMarketTable
       #updateStockTable
       #updateAnalysisTable    
@@ -688,4 +690,24 @@ class ApplicationController < ActionController::Base
   end
   
     
+end
+
+
+#Site title
+module ApplicationHelper
+  def title(text)
+    content_for :title, text
+  end
+end
+
+
+#Site meta tags
+module ApplicationHelper
+  def meta_tag(tag, text)
+    content_for :"meta_#{tag}", text
+  end
+
+  def yield_meta_tag(tag, default_text='')
+    content_for?(:"meta_#{tag}") ? content_for(:"meta_#{tag}") : default_text
+  end
 end
