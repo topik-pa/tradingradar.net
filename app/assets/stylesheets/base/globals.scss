@@ -1,25 +1,19 @@
-	$maxCentralColumnWidth: 85%;
+$maxCentralColumnWidth: 85%;
 $leftColWidth: 12%;
 $navSectionHeight: 85px;
 $centralColumnWidth: 100%;
 $pageMargin: 12px;
 $paragraphMargin: 10px;
-
 $titleColor: $highlight;
 $firstBGColor: #F7F7F7;
-$secondBGColor: $light-gray;
+$secondBGColor: #2A3F54;
 $textColor: $black;
-
 $firstColor: #2A3F54;
 $secondColor: #4FB2CA;
-
-
 $fontFamilyTitle: Arial,Helvetica,sans-serif;
 $fontFamily: Arial,Helvetica,sans-serif;
 $fontSizeDesktop: 12px;
 $fontSizeMobile: 12px;
-
-
 body {
     font-family: sans-serif;
     color: $black;
@@ -34,15 +28,19 @@ body {
     position: relative;
     overflow: hidden;
     background-color: $firstBGColor;
+	
+	
     p {
         margin-bottom: $paragraphMargin;
         font-family: $fontFamily;
         font-weight: normal;
         font-size: 100%;
     }
+	
     .section {
         padding: 0 $pageMargin;
     }
+	
     .btn {
         @extend .btn;
         font-family: $fontFamilyTitle;
@@ -57,88 +55,146 @@ body {
             background: url("../img/arrow-white.png") no-repeat;
         }
     }
+	
     .title {
         font-family: $fontFamilyTitle;
         font-size: $font-huge;
         margin-bottom: 20px;
     }
+	
     .subtitle {
         text-align: center;
         font-family: $fontFamilyTitle;
         font-size: $font-larger;
     }
+	
     .text {
         margin: 0 0 $pageMargin 0;
         line-height: 128%;
         text-align: justify;
     }
+	
     .section {
         margin: 30px 0;
     }
+	
     header {
         padding-top: 10px;
     }
+	
     h1 {
         @extend .title;
     }
+	
     h2 {
         @extend .title;
     }
-    h3 {
-    }
+	
+
     .img-logo-small {
         max-height: 25px;
         vertical-align: middle;
     }
+	
     .main-logo {
         height: $navSectionHeight;
         padding: 0 5px;
     }
-    .warning {
-        font-style: italic;
-        color: #999;
+	
+    .info {
+        color: $dark-gray;
+        span {
+            font-style: italic;
+        }
         i {
             padding-right: 5px;
         }
     }
+	
     .error {
         font-style: bold;
         color: $highlight;
     }
-    #sidebar-menu {
-        .profile_info {
-            padding: 17px 10px 10px;
-            text-align: right;
-            h2 {
-                display: inline-block;
+	
+	
+	/*LEFT COLUMN*/
+    .left_col {
+    	
+		.scroll-view {
+			width: 100%;
+		}
+    	
+		
+        .profile {
+            height: $navSectionHeight;
+			
+			.profile_pic {
+				width: 30%;
+				float: left;
+			}
+            .profile_info {
+                width: 70%;
+    			float: right;
+				padding:0;
+                h2 {
+                    display: inline-block;
+                }
             }
+			
         }
-        .date {
-            color: #E7E7E7;
-            font-weight: 500;
-            position: relative;
-            display: block;
-            padding: 13px 15px 12px;
-            cursor: default;
-            font-size: 150%;
-            span {
-                padding: 10px 0 0 26px;
-                display: block;
-                font-size: 80%;
+        #sidebar-menu {
+            .menu_section {
+                ul {
+                    margin-top: 0;
+                }
+                li {
+                    padding: 5px 15px;
+                    border-top: 1px solid $firstBGColor;
+                    border-bottom: 1px solid $firstBGColor;
+                    margin: -1px;
+                    text-transform: uppercase;
+                    &:hover {
+                        background-color: $firstBGColor;
+                        span, a {
+                            color: $secondBGColor;
+                        }
+                    }
+                }
+                .date {
+                    color: $firstBGColor;
+                    font-weight: 500;
+                    position: relative;
+                    display: block;
+                    padding: 13px 15px 12px;
+                    cursor: default;
+                    font-size: 100%;
+                    margin-bottom: 20px;
+                    span {
+                        padding: 5px 0 0 27px;
+                        display: block;
+                    }
+                }
             }
-        }
-        .nav-sm & .date {
-            display: none;
+			
+			
+            .nav-sm & .date {
+                display: none;
+            }
         }
     }
+	
+	/*TOP BAR*/
     .top_nav {
         .navbar-right {
             width: inherit;
         }
     }
+	
+	/*FOOTER*/
     footer {
+        margin-left: 10%;
         .pull-right {
-            color: #2A3F54;
+            color: $dark-gray;
             margin: 0px 20px 0 0;
             line-height: 29px;
         }

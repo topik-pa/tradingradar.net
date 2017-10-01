@@ -66,6 +66,14 @@
   .center {
     text-align: center;
   }
+  
+  .f-left {
+  	float:left;
+  }
+  
+  .f-right {
+  	float:right;
+  }
 
   // generates generic classes for padding and margin
   $positions: top bottom left right;

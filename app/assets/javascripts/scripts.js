@@ -62,13 +62,30 @@ var tradingRadar = (function() {
 		},
 		
 		
+		fixHREFs: function() {
+			console.log('Ciccio');
+			var milanoFinanzaUrl = 'https://www.milanofinanza.it';
+			debugger
+		    $links = $mainContainer.find('#milano-finanza a');
+		    $links.each(function() {
+		    	var actualHREF = $(this).attr('href');
+		    	var newHREF = milanoFinanzaUrl + actualHREF;
+		    	$(this).attr('href', newHREF);
+		    });
+		    
+		},
+		
+		
 		loadSources : function() {
 			var containerSelector = '.x_panel';
 			var isin = _pageData.isin;
 			var $targets = $mainContainer.find('.press-release .ext-source');
+			
 			$targets.each(function(index, elem) {				
 				var url = '/sources/source' + (index+1) + '?isin=' + isin;
 				var $destination = $(this).find(containerSelector);
+				var currentSource = $(this).attr('id');
+				var $currentImageAnchor = $('.anchors').find('img[data-refers="' + currentSource + '"]');
 				
 				$.ajax({
 					url : url,
@@ -80,9 +97,12 @@ var tradingRadar = (function() {
 					},
 					error : function() {
 						console.error('Unable to perform request');
+						$destination.addClass('error');
+						$currentImageAnchor.addClass('error');
 					},
-					complete : function() {
+					complete : function() {						
 						$destination.addClass('loaded');
+						$currentImageAnchor.addClass('ready');
 					}
 				});
 				
@@ -134,7 +154,52 @@ var tradingRadar = (function() {
 						captions: ['Resistance', 'Support'],
 						table_headers: [ ['Name', 'Last price', 'La Repubblica'], ['Name', 'Last price', 'La Repubblica'] ],
 						attributes: [ ['last_price', 'repubblica_resistance'], ['last_price', 'repubblica_support'] ]
-		           }
+		           },
+		           
+		           filter_4: {			        	   
+						index: 3,
+						title: 'Suggestions from ',
+						urls: ['/filters/filter_suggestionsMilanoFinanza'],
+						icon: {
+						    class: 'img-logo-small',
+						    src: '/images/milano-finanza-logo.png',
+						    title: 'Milano Finanza',
+						    alt: 'Logo Milano Finanza'
+						},						
+						captions: [],
+						table_headers: [ ['Name', 'Last price', 'MF Risk', 'MF Rating'] ],
+						attributes: [ ['last_price', 'milano_finanza_risk', 'milano_finanza_rating'] ]
+		           },
+		           
+		           filter_5: {			        	   
+						index: 4,
+						title: 'Suggestions from ',
+						urls: ['/filters/filter_suggestionsSoleXXIVOre'],
+						icon: {
+						    class: 'img-logo-small',
+						    src: '/images/il-sole-24-ore-logo.png',
+						    title: 'Il sole 24 ore',
+						    alt: 'Logo Il sole 24 ore'
+						},						
+						captions: [],
+						table_headers: [ ['Name', 'Last price', 'Short Trend', 'FTA Index', 'RSI'] ],
+						attributes: [ ['last_price', 'xxivore_shorttrend', 'xxivore_ftaindex', 'xxivore_rsi'] ]
+		          },
+		          
+		          filter_6: {			        	   
+						index: 5,
+						title: 'Suggestions from ',
+						urls: ['/filters/filter_suggestionsInvestingDotCom'],
+						icon: {
+						    class: 'img-logo-small',
+						    src: '/images/investing-logo.png',
+						    title: 'Investing',
+						    alt: 'Logo Investing'
+						},						
+						captions: [],
+						table_headers: [ ['Name', 'Last price'] ],
+						attributes: [ ['last_price'] ]
+		        }
 			}
 	           
           
@@ -153,10 +218,9 @@ var tradingRadar = (function() {
 			    	$titleElem.html(obj.title);
 			    	
 			    	var $ico = $('<img/>', obj.icon).appendTo($titleElem);
-			    	
+
 		    	
 			    	obj.urls.forEach(function(url, index) {
-			    		
 			    		
 			    		var $table = $('<table/>', {
 						    class: 'tablesorter ' + obj.captions[index]
@@ -175,6 +239,8 @@ var tradingRadar = (function() {
 						thead += '</tr></thead>';
 				        $table.append(thead);
 				        
+				        
+				        
 			    		$.ajax({
 							url : url,
 							data : 'text/json',
@@ -187,6 +253,7 @@ var tradingRadar = (function() {
 						        	
 						        	tbody += '<tr class="' + rowClass + '" data-isin="' + item.isin + '">';
 						        	tbody += '<td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td>';
+
 						        	obj.attributes[index].forEach(function(attribute) {
 										
 										tbody += '<td>' + item[attribute] + '</td>';
@@ -205,7 +272,7 @@ var tradingRadar = (function() {
 							complete : function() {
 								count++;
 								if(count === obj.urls.length) {
-									$(document).trigger("filterComplete");
+									$(document).trigger("filterComplete", [obj.index]);
 									$contentElem.addClass('loaded');
 								}
 								
@@ -217,678 +284,11 @@ var tradingRadar = (function() {
 			    }
 			}
 			
-			/*$targets = $mainContainer.find('.filters .hp-filter').each(function(index, elem) {
-				var $titleElem = $(this).find('h2');
-				var $contentElem = $(this).find('.x_content');
-				
-				switch (index) {
-				
-				
-				case 3:
-					
-					$titleElem.html('Channels break out ');
-					
-					var url = '/filters/filter_1c';
-					var url2 = '/filters/filter_1f';
-					
-					$.ajax({
-						url : url,
-						data : 'text/json',
-						type : 'get',
-						success : function(response) {
-							
-							
-							var $ico = $('<img/>', {
-							    class: 'img-logo-small',
-							    src: '/images/borsa-italiana-logo.png',
-							    title: 'Borsa Italiana',
-							    alt: 'Logo Borsa Italiana'
-							}).appendTo($titleElem);
-										
-							
-							var $table = $('<table/>', {
-							    class: 'tablesorter resistance'
-							}).appendTo($contentElem);
-							
-							var caption = $('<caption/>', {
-							    text: 'Resistance'
-							});
-							
-							var theadHTML = '';
-							theadHTML = '<thead><tr><th>Name</th><th>Last price</th><th>Borsa Italiana</th></tr></thead>'
-							
-							var trHTML = '';
-					        $.each(response, function (i, item) {
-					        	var rowClass = i%2===0 ? 'even' : 'odd';
-					            trHTML += '<tr class="' + rowClass + '" data-isin="' + item.isin + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td><td>' + item.borsa_italiana_resistance + '</td>></tr>';
-					        });
-					        $table.append(caption);
-					        $table.append(theadHTML);
-					        $table.append(trHTML);
-							
-						},
-						error : function() {
-							console.log('error');
-						},
-						complete : function() {
-							$(document).trigger("filterComplete");
-							$contentElem.addClass('loaded');
-						}
-					});
-					
-					$.ajax({
-						url : url2,
-						data : 'text/json',
-						type : 'get',
-						success : function(response) {
 			
-							
-							var $table = $('<table/>', {
-							    class: 'tablesorter support'
-							}).appendTo($contentElem);
-							
-							var caption = $('<caption/>', {
-							    text: 'Support'
-							});
-							
-							var theadHTML = '';
-							theadHTML = '<thead><tr><th>Name</th><th>Last price</th><th>Borsa Italiana</th></tr></thead>'
-							
-							var trHTML = '';
-					        $.each(response, function (i, item) {
-					        	var rowClass = i%2===0 ? 'even' : 'odd';
-					            trHTML += '<tr class="' + rowClass + '" data-isin="' + item.isin + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td><td>' + item.borsa_italiana_support + '</td></tr>';
-					        });
-					        $table.append(caption);
-					        $table.append(theadHTML);
-					        $table.append(trHTML);
-							
-						},
-						error : function() {
-							console.log('error');
-						},
-						complete : function() {
-							$(document).trigger("filterComplete");
-							$contentElem.addClass('loaded');
-						}
-					});
-					break;
-					
-					
-					
-					
-					
-				case 4:
-					
-					$titleElem.html('Channels break out ');
-					
-					var url = '/filters/filter_1d';
-					var url2 = '/filters/filter_1g';
-					
-					$.ajax({
-						url : url,
-						data : 'text/json',
-						type : 'get',
-						success : function(response) {
-							
-							
-							var $ico = $('<img/>', {
-							    class: 'img-logo-small',
-							    src: '/images/il-sole-24-ore-logo.png',
-							    title: 'Il Sole 24 Ore',
-							    alt: 'Logo Il Sole 24 Ore'
-							}).appendTo($titleElem);
-										
-							
-							var $table = $('<table/>', {
-							    class: 'tablesorter resistance'
-							}).appendTo($contentElem);
-							
-							var caption = $('<caption/>', {
-							    text: 'Resistance'
-							});
-							
-							var theadHTML = '';
-							theadHTML = '<thead><tr><th>Name</th><th>Last price</th><th>Il Sole 24 Ore</th></tr></thead>'
-							
-							var trHTML = '';
-					        $.each(response, function (i, item) {
-					        	var rowClass = i%2===0 ? 'even' : 'odd';
-					            trHTML += '<tr class="' + rowClass + '" data-isin="' + item.isin + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td><td>' + item.xxivore_resistance + '</td>></tr>';
-					        });
-					        $table.append(caption);
-					        $table.append(theadHTML);
-					        $table.append(trHTML);
-							
-						},
-						error : function() {
-							console.log('error');
-						},
-						complete : function() {
-							$(document).trigger("filterComplete");
-							$contentElem.addClass('loaded');
-						}
-					});
-					
-					$.ajax({
-						url : url2,
-						data : 'text/json',
-						type : 'get',
-						success : function(response) {
 			
-							
-							var $table = $('<table/>', {
-							    class: 'tablesorter support'
-							}).appendTo($contentElem);
-							
-							var caption = $('<caption/>', {
-							    text: 'Support'
-							});
-							
-							var theadHTML = '';
-							theadHTML = '<thead><tr><th>Name</th><th>Last price</th><th>Il Sole 24 Ore</th></tr></thead>'
-							
-							var trHTML = '';
-					        $.each(response, function (i, item) {
-					        	var rowClass = i%2===0 ? 'even' : 'odd';
-					            trHTML += '<tr class="' + rowClass + '" data-isin="' + item.isin + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td><td>' + item.xxivore_support + '</td></tr>';
-					        });
-					        $table.append(caption);
-					        $table.append(theadHTML);
-					        $table.append(trHTML);
-							
-						},
-						error : function() {
-							console.log('error');
-						},
-						complete : function() {
-							$(document).trigger("filterComplete");
-							$contentElem.addClass('loaded');
-						}
-					});
-					break;
-					
-					
-					
-				case 5:
-					
-					$titleElem.html('Channels break out ');
-					
-					var url = '/filters/filter_1e';
-					var url2 = '/filters/filter_1h';
-					
-					$.ajax({
-						url : url,
-						data : 'text/json',
-						type : 'get',
-						success : function(response) {
-							
-							
-							var $ico = $('<img/>', {
-							    class: 'img-logo-small',
-							    src: '/images/la-repubblica-logo.png',
-							    title: 'La Repubblica',
-							    alt: 'Logo La Repubblica'
-							}).appendTo($titleElem);
-										
-							
-							var $table = $('<table/>', {
-							    class: 'tablesorter resistance'
-							}).appendTo($contentElem);
-							
-							var caption = $('<caption/>', {
-							    text: 'Resistance'
-							});
-							
-							var theadHTML = '';
-							theadHTML = '<thead><tr><th>Name</th><th>Last price</th><th>La Repubblica</th></tr></thead>'
-							
-							var trHTML = '';
-					        $.each(response, function (i, item) {
-					        	var rowClass = i%2===0 ? 'even' : 'odd';
-					            trHTML += '<tr class="' + rowClass + '" data-isin="' + item.isin + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td><td>' + item.repubblica_resistance + '</td>></tr>';
-					        });
-					        $table.append(caption);
-					        $table.append(theadHTML);
-					        $table.append(trHTML);
-							
-						},
-						error : function() {
-							console.log('error');
-						},
-						complete : function() {
-							$(document).trigger("filterComplete");
-							$contentElem.addClass('loaded');
-						}
-					});
-					
-					$.ajax({
-						url : url2,
-						data : 'text/json',
-						type : 'get',
-						success : function(response) {
-			
-							
-							var $table = $('<table/>', {
-							    class: 'tablesorter support'
-							}).appendTo($contentElem);
-							
-							var caption = $('<caption/>', {
-							    text: 'Support'
-							});
-							
-							var theadHTML = '';
-							theadHTML = '<thead><tr><th>Name</th><th>Last price</th><th>La Repubblica</th></tr></thead>'
-							
-							var trHTML = '';
-					        $.each(response, function (i, item) {
-					        	var rowClass = i%2===0 ? 'even' : 'odd';
-					            trHTML += '<tr class="' + rowClass + '" data-isin="' + item.isin + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td><td>' + item.repubblica_support + '</td></tr>';
-					        });
-					        $table.append(caption);
-					        $table.append(theadHTML);
-					        $table.append(trHTML);
-							
-						},
-						error : function() {
-							console.log('error');
-						},
-						complete : function() {
-							$(document).trigger("filterComplete");
-							$contentElem.addClass('loaded');
-						}
-					});
-					break;
-					
-					
+		}
 
-					
-				case 1:
-					var url = '/filters/filter_2';
-					$.ajax({
-						url : url,
-						data : 'text/json',
-						type : 'get',
-						success : function(response) {
-							
-							$titleElem.html('Suggestions from ');
-							
-							var $ico = $('<img/>', {
-							    class: 'img-logo-small',
-							    src: '/images/il-sole-24-ore-logo.png',
-							    title: 'Il Sole 24 Ore',
-							    alt: 'Logo Il Sole 24 Ore'
-							}).appendTo($titleElem);				
-							
-							var $table = $('<table/>', {
-							    class: 'tablesorter'
-							}).appendTo($contentElem);
-							
-							var theadHTML = '';
-							theadHTML = '<thead><tr><th>Name</th><th>Last price</th><th>Short Trend</th><th>FTA Index</th><th>RSI</th></tr></thead>'
-							
-							var trHTML = '';
-					        $.each(response, function (i, item) {
-					        	var rowClass = i%2===0 ? 'even' : 'odd';
-					            trHTML += '<tr class="' + rowClass + '" data-isin="' + item.isin + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td><td>' + item.xxivore_shorttrend + '</td><td>' + item.xxivore_ftaindex + '</td><td>' + item.xxivore_rsi + '</td></tr>';
-					        });
-					        $table.append(theadHTML);
-					        $table.append(trHTML);
-							
-						},
-						error : function() {
-							console.log('error');
-						},
-						complete : function() {
-							$(document).trigger("filterComplete");
-							$contentElem.addClass('loaded');
-						}
-					});
-					break;
-					
-					
-					
-					
-				case 2:
-					var url = '/filters/filter_3';
-					$.ajax({
-						url : url,
-						data : 'text/json',
-						type : 'get',
-						success : function(response) {
-							
-							$titleElem.html('Suggestions from ');
-							
-							var $ico = $('<img/>', {
-							    class: 'img-logo-small',
-							    src: '/images/investing-logo.png',
-							    title: 'Investing',
-							    alt: 'Logo Investing'
-							}).appendTo($titleElem);					
-							
-							var $table = $('<table/>', {
-							    class: 'tablesorter'
-							}).appendTo($contentElem);
-							
-							var theadHTML = '';
-							theadHTML = '<thead><tr><th>Name</th><th>Last price</th></tr></thead>'
-							
-							var trHTML = '';
-					        $.each(response, function (i, item) {
-					        	var rowClass = i%2===0 ? 'even' : 'odd';
-					            trHTML += '<tr class="' + rowClass + '" data-isin="' + item.isin + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td></tr>';
-					        });
-					        $table.append(theadHTML);
-					        $table.append(trHTML);
-							
-						},
-						error : function() {
-							console.log('error');
-						},
-						complete : function() {
-							$(document).trigger("filterComplete");
-							$contentElem.addClass('loaded');
-						}
-					});
-					break;
-					
-					
-				case 8:
-					
-					$titleElem.html('Over limits studies');
-					
-					var url = '/filters/filter_4';
-					var url2 = '/filters/filter_4b';
-					
-					$.ajax({
-						url : url,
-						data : 'text/json',
-						type : 'get',
-						success : function(response) {
-										
-							
-							var $table = $('<table/>', {
-							    class: 'tablesorter'
-							}).appendTo($contentElem);
-							
-							var caption = $('<caption/>', {
-							    text: 'Resistance breakout'
-							});
-							
-							var theadHTML = '';
-							theadHTML = '<thead><tr><th>Name</th><th>Last price</th><th>Resistance</th></tr></thead>'
-							
-							var trHTML = '';
-					        $.each(response, function (i, item) {
-					        	var rowClass = i%2===0 ? 'even' : 'odd';
-					            trHTML += '<tr class="' + rowClass + '" data-isin="' + item.isin + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td><td>' + item.resistance + '</td></tr>';
-					        });
-					        $table.append(caption);
-					        $table.append(theadHTML);
-					        $table.append(trHTML);
-							
-						},
-						error : function() {
-							console.log('error');
-						},
-						complete : function() {
-							$(document).trigger("filterComplete");
-							$contentElem.addClass('loaded');
-						}
-					});
-					
-					$.ajax({
-						url : url2,
-						data : 'text/json',
-						type : 'get',
-						success : function(response) {
-										
-							
-							var $table = $('<table/>', {
-							    class: 'tablesorter'
-							}).appendTo($contentElem);
-							
-							var caption = $('<caption/>', {
-							    text: 'Support breakout'
-							});
-							
-							var theadHTML = '';
-							theadHTML = '<thead><tr><th>Name</th><th>Last price</th><th>Resistance</th></tr></thead>'
-							
-							var trHTML = '';
-					        $.each(response, function (i, item) {
-					        	var rowClass = i%2===0 ? 'even' : 'odd';
-					            trHTML += '<tr class="' + rowClass + '" data-isin="' + item.isin + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td><td>' + item.support + '</td></tr>';
-					        });
-					        $table.append(caption);
-					        $table.append(theadHTML);
-					        $table.append(trHTML);
-							
-						},
-						error : function() {
-							console.log('error');
-						},
-						complete : function() {
-							$(document).trigger("filterComplete");
-							$contentElem.addClass('loaded');
-						}
-					});
-					break;
-					
-					
-				case 6:
-					var url = '/filters/filter_5';
-					$.ajax({
-						url : url,
-						data : 'text/json',
-						type : 'get',
-						success : function(response) {
-							
-							$titleElem.html('Rising crossing stocks');
-			
-							
-							var $table = $('<table/>', {
-							    class: 'tablesorter'
-							}).appendTo($contentElem);
-							
-							var theadHTML = '';
-							theadHTML = '<thead><tr><th>Name</th><th>Last price</th></tr></thead>'
-							
-							var trHTML = '';
-					        $.each(response, function (i, item) {
-					        	var rowClass = i%2===0 ? 'even' : 'odd';
-					            trHTML += '<tr class="' + rowClass + '" data-isin="' + item.isin + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td></tr>';
-					        });
-					        $table.append(theadHTML);
-					        $table.append(trHTML);
-							
-						},
-						error : function() {
-							console.log('error');
-						},
-						complete : function() {
-							$(document).trigger("filterComplete");
-							$contentElem.addClass('loaded');
-						}
-					});
-					break;
-					
-					
-				case 7:
-					var url = '/filters/filter_6';
-					$.ajax({
-						url : url,
-						data : 'text/json',
-						type : 'get',
-						success : function(response) {
-							
-							$titleElem.html('Bullish divergence stocks');
-			
-							
-							var $table = $('<table/>', {
-							    class: 'tablesorter'
-							}).appendTo($contentElem);
-							
-							var theadHTML = '';
-							theadHTML = '<thead><tr><th>Name</th><th>Last price</th></tr></thead>'
-							
-							var trHTML = '';
-					        $.each(response, function (i, item) {
-					        	var rowClass = i%2===0 ? 'even' : 'odd';
-					            trHTML += '<tr class="' + rowClass + '" data-isin="' + item.isin + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td></tr>';
-					        });
-					        $table.append(theadHTML);
-					        $table.append(trHTML);
-							
-						},
-						error : function() {
-							console.log('error');
-						},
-						complete : function() {
-							$(document).trigger("filterComplete");
-							$contentElem.addClass('loaded');
-						}
-					});
-					break;
-					
-					
-				case 0:
-					var url = '/filters/filter_7';
-					$.ajax({
-						url : url,
-						data : 'text/json',
-						type : 'get',
-						success : function(response) {
-							
-							$titleElem.html('Suggestions from ');
-							
-							var $ico = $('<img/>', {
-							    class: 'img-logo-small',
-							    src: '/images/milano-finanza-logo.png',
-							    title: 'Milano Finanza',
-							    alt: 'Logo Milano Finanza'
-							}).appendTo($titleElem);			
-							
-							var $table = $('<table/>', {
-							    class: 'tablesorter'
-							}).appendTo($contentElem);
-							
-							var theadHTML = '';
-							theadHTML = '<thead><tr><th>Name</th><th>Last price</th><th>MF Risk</th><th>MF Rating</th></tr></thead>'
-							
-							var trHTML = '';
-					        $.each(response, function (i, item) {
-					        	var rowClass = i%2===0 ? 'even' : 'odd';
-					            trHTML += '<tr class="' + rowClass + '" data-isin="' + item.isin + '"><td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td><td>' + item.last_price + '</td><td>' + item.milano_finanza_risk + '</td><td>' + item.milano_finanza_rating + '</td></tr>';
-					        });
-					        $table.append(theadHTML);
-					        $table.append(trHTML);
-							
-						},
-						error : function() {
-							console.log('error');
-						},
-						complete : function() {
-							$(document).trigger("filterComplete");
-							$contentElem.addClass('loaded');
-						}
-					});
-					break;
-					
-					
-
-				default:
-					break;
-				}
-			});*/
-				
-			
-
-			
-			
-		},
-		
-		
-		
-		highlightStocks : function() {
-			
-			var totalCalls = 13// $('.filters table').length;
-			var actualCalls = 0;
-			
-			
-			$(document).on("filterComplete", function() {
-				
-				
-				actualCalls++;
-				
-				if(actualCalls==totalCalls) {
-					$('.suggestions table:first-child tr').each(function() {
-						
-						var isin = $(this).data('isin');
-						var $occurences = $('.suggestions tr[data-isin=' + isin + ']');
-						
-						var count = $occurences.length
-						
-						if(count>=3) {
-							$occurences.addClass('repeated');
-						}
-					});
-					
-					
-					$('.break-outs table.resistance').eq(0).find('tr').each(function() {
-						
-						var isin = $(this).data('isin');
-						var $occurences = $('.break-outs table.resistance tr[data-isin=' + isin + ']');
-						
-						var count = $occurences.length
-						
-						if(count>=3) {
-							$occurences.addClass('repeated red');
-						}
-					});
-					
-					
-					$('.break-outs table.support').eq(0).find('tr').each(function() {
-						
-						var isin = $(this).data('isin');
-						var $occurences = $('.break-outs table.suppor tr[data-isin=' + isin + ']');
-						
-						var count = $occurences.length
-						
-						if(count>=3) {
-							$occurences.addClass('repeated green');
-						}
-					});
-				}
-			});
-			
-			
-			
-			
-		},
-
-		
-		
-		/*
-		 * getMarketsStatus : function() { var url =
-		 * 'https://www.stockmarketclock.com/api-v1/list'; var source;
-		 * 
-		 * $.ajax({ url : url, dataType: "html", type : 'get', success :
-		 * function(response) {
-		 * 
-		 * source = response;
-		 * 
-		 * 
-		 *  }, error : function() { console.log('error'); }, complete :
-		 * function() { } });
-		 * 
-		 * 
-		 * $('.markets-status li').each(function() {
-		 * 
-		 * }); },
-		 */
-
-	};
+	}
 
 }());
 
@@ -909,11 +309,11 @@ $(document).ready(function() {
 	 *  }
 	 */
 
-	$(".tablesorter:not(.nojs)").tablesorter();
+	$('#main-wrapper').find(".tablesorter:not(.nojs)").tablesorter();
 	
 	
 	
-	$('[data-toggle="popover"]').popover();
+	$('#main-wrapper').find('[data-toggle="popover"]').popover();
 	
 	
 	/*
@@ -928,13 +328,14 @@ $(document).ready(function() {
 	
 	
 	
-	if($('.stock_page').length) {
+	if($('.stock_page').length) { 
 		tradingRadar.loadSources();
+		tradingRadar.fixHREFs();
 	}
 	
 	
 	if($('.welcome').length) {
-		tradingRadar.loadHPFilters();
+		//tradingRadar.loadHPFilters();
 	}
 	
 

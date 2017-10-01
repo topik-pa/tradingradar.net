@@ -1,10 +1,11 @@
 class SourcesController < ApplicationController
   
-  
+   
   
   def source1
     isin = params[:isin] ? params[:isin] : ''
     urls = Url.find_by isin: isin
+    @analisis = Analysis.find_by isin: isin
     
     #Borsa Italiana
       @urlBorsaItaliana = urls.url1
@@ -34,6 +35,7 @@ class SourcesController < ApplicationController
   def source2
     isin = params[:isin] ? params[:isin] : ''
     urls = Url.find_by isin: isin
+    @analisis = Analysis.find_by isin: isin
     
     #Il sole 24 ore
     @urlSole24Ore = urls.url3   
@@ -59,6 +61,7 @@ class SourcesController < ApplicationController
   def source3
     isin = params[:isin] ? params[:isin] : ''
     urls = Url.find_by isin: isin
+    @analisis = Analysis.find_by isin: isin
     
     #La Repubblica
     @urlLaRepubblica = urls.url6 
@@ -84,6 +87,7 @@ class SourcesController < ApplicationController
   def source4
     isin = params[:isin] ? params[:isin] : ''
     urls = Url.find_by isin: isin
+    @analisis = Analysis.find_by isin: isin
     
     #Investing.com
     @urlInvesting = urls.url7 
@@ -106,6 +110,7 @@ class SourcesController < ApplicationController
   def source5
     isin = params[:isin] ? params[:isin] : ''
     urls = Url.find_by isin: isin
+    @analisis = Analysis.find_by isin: isin
     
     #Milano Finanza
     @urlMilanoFinanza = urls.url9
@@ -115,7 +120,9 @@ class SourcesController < ApplicationController
         docMilanoFinanza = Nokogiri::HTML(open(@urlMilanoFinanza), nil, 'UTF-8')
         docMilanoFinanza2 = Nokogiri::HTML(open(@urlMilanoFinanza2), nil, 'UTF-8')
         docMilanoFinanza.encoding = 'UTF-8'
-        docMilanoFinanza2.encoding = 'UTF-8'       
+        docMilanoFinanza2.encoding = 'UTF-8'   
+        docMilanoFinanza.xpath('//@style', '//@onclick').remove
+        docMilanoFinanza2.xpath('//@style', '//@onclick').remove  
         docMilanoFinanza.search('script',  'img').each do |elem|
           elem.remove
         end
@@ -141,6 +148,7 @@ class SourcesController < ApplicationController
   def source6
     isin = params[:isin] ? params[:isin] : ''
     urls = Url.find_by isin: isin
+    @analisis = Analysis.find_by isin: isin
     
     #Soldi online
     @urlSoldiOnLine = urls.url5  

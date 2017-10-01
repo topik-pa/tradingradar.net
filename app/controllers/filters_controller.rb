@@ -41,7 +41,7 @@ class FiltersController < ApplicationController
     
   def filter_belowSupportSoleXXIVOre
     @belowSupportStocksSolexxivore = @@SJA.select("stocks.isin, name, last_price, xxivore_support").where("last_price < xxivore_support")    
-    render json: @belowSupportStocksRepubblica
+    render json: @belowSupportStocksSolexxivore
   end
     
     

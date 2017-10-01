@@ -2,6 +2,8 @@ class WelcomeController < ApplicationController
 
   #before_action :require_user, only: [:index, :show]
 
+  before_action :current_user, only: [:index, :show]
+  
   def index
     @stocks = Stock.order(:name)
     @markets = Market.order(:id)

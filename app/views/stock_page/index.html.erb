@@ -1,9 +1,16 @@
+<% title @stock.name + ' | Press release'  %>
+<% meta_tag :description, '' %>
+<% meta_tag :keywords, '' %>
+<% meta_tag :author, $author + ' - ' + $authorMail %>
+
 <div class="container body">
     <div class="main_container">
         <%= render("shared/left_col") %>
         <%= render("shared/top_nav") %>
         <div class="right_col" role="main">
+        	
             <%= render("shared/namePriceVariation") %>
+			
             <div class="row section">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="return">
@@ -12,91 +19,54 @@
                 </div>
             </div>
 			
-			
-			<div class="row section">
+            <div class="row section anchors">
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                	<div class="x_panel">
-	                    <div class="anchor-link">
-	                        <a href="#borsa-italiana" data-turbolinks="false"><img src="/images/borsa-italiana-logo.png" title="Go to Borsa Italiana Analysis" alt="Go to Borsa Italiana Analysis" /></a>
-	                    </div>
-						
-						<div class="anchor-link">
-	                        <a href="#il-sole-24-ore" data-turbolinks="false"><img src="/images/il-sole-24-ore-logo.png" title="Go to Il Sole 24 Ore Analysis" alt="Go to Il Sole 24 Ore Analysis" /></a>
-	                    </div>
-						
-						<div class="anchor-link">
-	                        <a href="#la-repubblica" data-turbolinks="false"><img src="/images/la-repubblica-logo.png" title="Go to La Repubblica Analysis" alt="Go to La Repubblica Analysis" /></a>
-	                    </div>
-						
-						<div class="anchor-link">
-	                        <a href="#investing" data-turbolinks="false"><img src="/images/investing-logo.png" title="Go to Investing Analysis" alt="Go to Investing Analysis" /></a>
-	                    </div>
-						
-						<div class="anchor-link">
-	                        <a href="#milano-finanza" data-turbolinks="false"><img src="/images/milano-finanza-logo.png" title="Go to Milano Finanza Analysis" alt="Go to Milano Finanza Analysis" /></a>
-	                    </div>
-						
-						<div class="anchor-link">
-	                        <a href="#soldi-on-line" data-turbolinks="false"><img src="/images/soldionline-logo.png" title="Go to Soldi On Line Analysis" alt="Go to Soldi On Line Analysis" /></a>
-	                    </div>
-					</div>
+                    <div class="x_panel">
+                        <%= render("anchors") %>
+                    </div>
                 </div>
             </div>
 			
-			
-			<div class="row section">
+            <div class="row section">
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                	<div class="x_panel">
-            			<h2>Chart image</h2>
-	                    <div class="chart-image">
-	                        <img src="<%= @urlchartImage %>" title="<%= @stock.name %> chart image" alt="<%= @stock.name %> chart image" />
-	                    </div>
-					</div>
+                    <div class="x_panel">
+                        <h2>Chart image</h2>
+                        <div class="chart-image">
+                            <img src="<%= @urlchartImage %>" title="<%= @stock.name %> chart image" alt="<%= @stock.name %> chart image" />
+                        </div>
+                    </div>
                 </div>
             </div>
 			
-			<%if $user.present?%>
+			<%if $user.present? %>
             	<%= render("last_study") %>
-			<%end%>
-			
+            <%end %>
 			
             <div class="row section press-release">
                 <div class="col-md-12 col-sm-12 col-xs-12 ext-source" id="borsa-italiana">
-                	<div class="x_panel">
-                	</div>                	
+                    <div class="x_panel">
+                    </div>
                 </div>
-				
                 <div class="col-md-12 col-sm-12 col-xs-12 ext-source" id="il-sole-24-ore">
-                	<div class="x_panel">
-                	</div> 
-                    
+                    <div class="x_panel">
+                    </div>
                 </div>
-				
                 <div class="col-md-12 col-sm-12 col-xs-12 ext-source" id="la-repubblica">
-                	<div class="x_panel">
-                	</div> 
-
+                    <div class="x_panel">
+                    </div>
                 </div>
-				
                 <div class="col-md-12 col-sm-12 col-xs-12 ext-source" id="investing">
-                	<div class="x_panel">
-                	</div> 
-        
+                    <div class="x_panel">
+                    </div>
                 </div>
-				
                 <div class="col-md-12 col-sm-12 col-xs-12 ext-source" id="milano-finanza">
-                	<div class="x_panel">
-                	</div> 
-
+                    <div class="x_panel">
+                    </div>
                 </div>
-				
-				<div class="col-md-12 col-sm-12 col-xs-12 ext-source" id="soldi-on-line">
-					<div class="x_panel">
-                	</div> 
-
+                <div class="col-md-12 col-sm-12 col-xs-12 ext-source" id="soldi-on-line">
+                    <div class="x_panel">
+                    </div>
                 </div>
-				
-				
             </div>
         </div>
         <%= render("shared/footer") %>

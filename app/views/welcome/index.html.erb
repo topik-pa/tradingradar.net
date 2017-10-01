@@ -3,20 +3,42 @@
 <% meta_tag :keywords, '' %>
 <% meta_tag :author, $author + ' - ' + $authorMail %>
 
-
 <div class="container body">
     <div class="main_container">
         <%= render("shared/left_col") %>
         <%= render("shared/top_nav") %>
         <div class="right_col" role="main"">
-		
-			<div class="warning"><i class="fa fa-warning"></i>Attention: stocks and markets data are not real time.</div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="info">
+                        <i class="fa fa-info"></i>Ultimo aggiornamento dati: <span><%= @stocks.first.updated_at.strftime("%d/%m - %H:%M") %></span>
+                    </div>
+                </div>
+            </div>
+            <div class="markets">
+                <%= render :partial => "markets", :object => @firstRowMarkets %>
+                <%= render :partial => "markets", :object => @secondRowMarkets %>
+                <%= render :partial => "markets", :object => @thirdRowMarkets %>
+            </div>
 			
-            <%= render("markets") %>
+            <%= render("stocks") %>
 			
-			<%= render("stocks") %>
-            
-            <%= render("filters") %>
+            <div class="filters">
+                <div class="row suggestions">
+                    <%= render("filter") %>
+					<%= render("filter") %>
+					<%= render("filter") %>
+					<%= render("filter") %>
+					<%= render("filter") %>
+					<%= render("filter") %>
+					<% if $user.present? %>
+						<%= render("filter") %>
+						<%= render("filter") %>
+						<%= render("filter") %>
+					<% end %>
+                </div>
+            </div>
+			
         </div>
         <%= render("shared/footer") %>
     </div>

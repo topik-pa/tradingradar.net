@@ -6,11 +6,12 @@
 			</div>
 			<% if @urlMilanoFinanza and @urlMilanoFinanza2 %>
             <div>
-                Source: <a href="<%= @urlMilanoFinanza %>">Borsa italiana</a>
-                and <a href="<%= @urlMilanoFinanza2 %>">Borsa italiana</a>
+                Source: <a href="<%= @urlMilanoFinanza %>">Milano Finanza</a>
+                and <a href="<%= @urlMilanoFinanza2 %>">Milano Finanza</a>
             </div>
             <% else %>
-            Missing source data, only DB data will be displayed. <% end %>
+            Missing source data, only DB data will be displayed. 
+			<% end %>
             <% if @analisis %>
             <table class="tablesorter nojs">
                 <thead>

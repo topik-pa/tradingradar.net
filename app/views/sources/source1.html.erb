@@ -10,7 +10,9 @@
                 and <a href="<%= @urlBorsaItaliana2 %>">Borsa italiana analisi tecnica</a>
             </div>
             <% else %>
-            Missing source data, only DB data will be displayed. <% end %>
+            	Missing source data, only DB data will be displayed. 
+			<% end %>
+			
             <% if @analisis %>
             <table class="tablesorter nojs">
                 <thead>
@@ -41,12 +43,14 @@
                 </tbody>
             </table>
             <% else %>
-            Missing analysis data.<% end %>
+            	Missing analysis data.
+			<% end %>
+			
             <div class="col-md-12 col-sm-12 col-xs-12 pr-section borsa-italiana">
                 <div class="pr-content">
                     <%= @borsaItalianaElem1.to_s.html_safe %>
                 </div>
-                <div class="pr-content">
+                <div class="pr-content f-left">
                     <%= @borsaItalianaElem2.to_s.html_safe %>
                 </div>
                 <div class="pr-content">

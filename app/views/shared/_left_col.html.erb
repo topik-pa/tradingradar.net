@@ -6,81 +6,70 @@
 				<%= image_tag 'abstract-user-flat.png', class: 'img-circle profile_img', alt: 'Profile image' %>
             </div>
 			
-			<%if $user.present?%>
+			<% if $user.present? %>
 				<div class="profile_info">
-	                <span>Welcome</span>
+	                <span>Welcome,</span>
 	                <h2><%= $user.first_name%></h2>
-					<%= link_to 'Log out', logout_url, :method => :delete %>
+					<div><%= link_to 'Log out', logout_url, :method => :delete %></div>
 	            </div>
-			<%end%> 
+			<% else %>
+				<div class="profile_info">
+	                <span>Welcome,</span>
+					<h2>user</h2>
+					<div><%= link_to 'Log in', login_url %></div>
+	            </div>		
+			<% end %> 
+			
             
         </div>
         <!-- /menu profile quick info -->
-        <br>
+		
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
-                <!--<h3>DB Settings</h3>-->
-                <ul class="nav side-menu">
-                	<%if $isAdmin %>
-                    <li>
-                        <a><i class="fa fa-database"></i>Database settings <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li>
-                                <%= link_to "Urls", :controller => "urls", :action => "index" %>
-                            </li>
-                            <li>
-                                <%= link_to "Stocks", :controller => "stocks", :action => "index" %>
-                            </li>
-                            <li>
-                                <%= link_to "Analysis", :controller => "analyses", :action => "index" %>
-                            </li>
-                            <li>
-                                <%= link_to "Studies", :controller => "studies", :action => "index" %>
-                            </li>
-                            <li>
-                                <%= link_to "Markets", :controller => "markets", :action => "index" %>
-                            </li>                      
-                        </ul>
-                    </li>
-					<%end%> 
-					
-					<li class="date">
-						<i class="fa fa-clock-o"></i><%=DateTime.now.strftime("%A")%>,<br/>						
-						<span><%= DateTime.now.strftime("%d/%m/%Y %H:%M") %></span>
-					</li> 
-					
-					<!--<li>
-                        <a><i class="fa fa-database"></i>Markets status <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu markets-status">
-                            <li data-market="mta">
-                                <img class="flag" src="/images/Italy-icon.png" title="Italy flag" alt="MTA" />
-								<span class="name">MTA</span>
-								<span class="status">&#9679;<span>&dash;</span></span>
-                            </li>                     
-                        </ul>
-                    </li>-->
-					               
-                </ul>
+            	
+				<div class="date">
+					<i class="fa fa-calendar"></i><%=DateTime.now.strftime("%A")%>,<br/>						
+					<span><%= DateTime.now.strftime("%d/%m/%Y %H:%M") %></span>
+				</div>
+
+				<%if $isAdmin %>
+	                <ul class="nav side-menu">
+	                    <li>
+	                    	<span><i class="fa fa-link"></i><%= link_to "Urls", :controller => "urls", :action => "index" %></span>
+						</li>
+						
+						<li>
+	                    	<span><i class="fa fa-line-chart"></i><%= link_to "Stocks", :controller => "stocks", :action => "index" %></span>
+						</li>
+						
+						<li>
+	                    	<span><i class="fa fa-flask"></i><%= link_to "Analysis", :controller => "analyses", :action => "index" %></span>
+						</li>
+						
+						<li>
+	                    	<span><i class="fa fa-gears"></i><%= link_to "Studies", :controller => "studies", :action => "index" %></span>
+						</li>
+						
+						<li>
+	                    	<span><i class="fa fa-pie-chart"></i><%= link_to "Markets", :controller => "markets", :action => "index" %></span>
+						</li>
+	
+						<!--<li>
+	                        <a><i class="fa fa-database"></i>Markets status <span class="fa fa-chevron-down"></span></a>
+	                        <ul class="nav child_menu markets-status">
+	                            <li data-market="mta">
+	                                <img class="flag" src="/images/Italy-icon.png" title="Italy flag" alt="MTA" />
+									<span class="name">MTA</span>
+									<span class="status">&#9679;<span>&dash;</span></span>
+	                            </li>                     
+	                        </ul>
+	                    </li>-->				               
+	                </ul>
+				<% end %>
+								
             </div>
         </div>
-		
-		<!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
-              <!--<a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-              </a>-->
-		
-            </div>
-            <!-- /menu footer buttons -->
+
     </div>
 </div>

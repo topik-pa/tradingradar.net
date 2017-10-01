@@ -4,6 +4,14 @@
             <div class="pr-title">
 				<%= image_tag 'la-repubblica-logo.png', class: 'img-logo', alt: 'Logo La Repubblica', title: 'La Repubblica' %>
 			</div>
+			<% if @urlLaRepubblica %>
+	            <div>
+	                Source: <a href="<%= @urlLaRepubblica %>">La Repubblica</a>
+	            </div>
+            <% else %>
+            	Missing source data, only DB data will be displayed. 
+			<% end %>
+			
 			<% if @analisis %>
             <table class="tablesorter nojs">
                 <thead>

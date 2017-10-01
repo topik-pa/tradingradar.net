@@ -1,35 +1,11 @@
-<div class="markets">
-    <div class="row  tile_count">
-        <% @firstRowMarkets.each do |market| %>
-        <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count markets_baskets">
-            <span class="count_top"><i class="fa fa-line-chart"></i><a href="<%= @marketsUrlMap[market.name] %>"><%= market.name %></a></span>
-            <div class="count">
-                <%= market.value %>&nbsp;/&nbsp;<i class="variation <%= colorClass(market.variation) %>"><%= market.variation %>% </i>
-            </div>
-            <span class="count_bottom"><%= market.updated_at.strftime("%d/%m %H:%M") %></span>
+<div class="row  tile_count">
+    <% markets.each do |market| %>
+    <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count markets_baskets">
+        <span class="count_top"><i class="fa fa-line-chart"></i><a href="<%= @marketsUrlMap[market.name] %>"><%= market.name %></a></span>
+        <div class="count">
+            <%= market.value %>&nbsp;/&nbsp;<i class="variation <%= colorClass(market.variation) %>"><%= market.variation %>% </i>
         </div>
-        <% end %>
     </div>
-    <div class="row  tile_count">
-        <% @secondRowMarkets.each do |market| %>
-        <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count markets_baskets">
-            <span class="count_top"><i class="fa fa-globe"></i><a href="<%= @marketsUrlMap[market.name] %>"><%= market.name %></a></span>
-            <div class="count">
-                <%= market.value %>&nbsp;/&nbsp;<i class="<%= colorClass(market.variation) %>"><%= market.variation %>% </i>
-            </div>
-            <span class="count_bottom"><%= market.updated_at.strftime("%d/%m %H:%M") %></span>
-        </div>
-        <% end %>
-    </div>
-    <div class="row  tile_count">
-        <% @thirdRowMarkets.each do |market| %>
-        <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count markets_baskets">
-            <span class="count_top"><i class="fa fa-money"></i><a href="<%= @marketsUrlMap[market.name] %>"><%= market.name %></a></span>
-            <div class="count">
-                <%= market.value %>&nbsp;/&nbsp;<i class="<%= colorClass(market.variation) %>"><%= market.variation %>% </i>
-            </div>
-            <span class="count_bottom"><%= market.updated_at.strftime("%d/%m %H:%M") %></span>
-        </div>
-        <% end %>
-    </div>
+    <% end %>
 </div>
+

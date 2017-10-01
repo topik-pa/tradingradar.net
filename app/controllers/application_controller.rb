@@ -36,7 +36,6 @@ class ApplicationController < ActionController::Base
   
   #Session related stuff
   helper_method :current_user 
-  
   def current_user 
     @current_user ||= User.find(session[:user_id]) if session[:user_id] 
       
@@ -46,6 +45,16 @@ class ApplicationController < ActionController::Base
         $user_email = @current_user.email
         $isAdmin = @current_user.email == $adminEmail
       end
+  end
+  
+  helper_method :reset_user    
+  def reset_user 
+    @current_user ||= User.find(session[:user_id]) if session[:user_id] 
+
+    $user = nil
+    $user_id = nil
+    $user_email = nil
+    $isAdmin = false
   end
 
   def require_user 

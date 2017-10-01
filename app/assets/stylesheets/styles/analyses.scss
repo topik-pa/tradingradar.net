@@ -5,6 +5,41 @@
     text-align: center;
 }
 
+.anchors {
+	
+	.x_panel {
+		display: flex;
+		justify-content: center;
+	}
+	
+	.anchor-link {
+	    margin: 0 15px;
+	    img {
+	        height: 40px;
+	        padding: 2px;
+			opacity: .6;
+			cursor: auto;
+			
+			&:hover {
+				background-color: $firstBGColor;
+			}
+			
+			&.ready {
+				opacity: 1;
+				cursor: pointer;
+			}
+			
+			&.error {
+				opacity: .6;
+				cursor: pointer;
+			}
+	    }
+	}
+	
+	
+	
+}
+
 .ext-source {
 	.x_panel {
 		background-image: image-url("loader.gif");
@@ -16,18 +51,15 @@
 		&.loaded {
 			background-image: none;
 		}
+		
+		&.ready {
+			opacity: .6;
+			cursor: pointer;
+		}
 	}
 	
 }
-.anchor-link {
-    float: left;
-    margin-right: 30px;
-    img {
-        height: 50px;
-        border: 1px solid #AAA;
-        padding: 5px;
-    }
-}
+
 .back-on-top {
     float: right;
 }
@@ -84,14 +116,19 @@
         font-weight: bold;
     }
 }
-.sole-24-ore {
+
+div.sole-24-ore {
+	
+    display: flex;
+    justify-content: space-between;
+	
+	
     table tbody td {
         max-width: 100%;
         border: 1px solid #DDD;
     }
     .pr-content {
-        float: left;
-        margin-right: 40px;
+		margin: 0 15px;
         h3 {
             font-weight: bold;
             text-transform: uppercase;
@@ -100,8 +137,14 @@
     .xpF1, .xpF2 {
         font-weight: bold;
     }
+	.xpie6fix {
+		table:nth-child(3) {
+			display: none;
+		}
+	}
 }
-.larepubblica {
+
+div.larepubblica {
     .TLB-clear {
         clear: both;
     }
@@ -127,6 +170,9 @@
     .JCF-analisi-container {
         display: none;
     }
+	.TLB-header-title {
+		font-weight: bold;
+	}
 }
 .investing {
     .left {
@@ -158,10 +204,10 @@
     color: #FFF;
     display: block;
     &.wait {
-        background-color: #E74C3C;
+        color: $red;
     }
     &.buy {
-        background-color: #1ABB9C;
+        color: $green;
     }
 }
 .milano-finanza {
@@ -188,6 +234,11 @@
         max-width: 100%;
         border: 1px solid #DDD;
     }
+	table {
+		a {
+			cursor: default!important;
+		}
+	}
     .wMax.mtop20.fleft {
         float: none;
         text-align: left;
