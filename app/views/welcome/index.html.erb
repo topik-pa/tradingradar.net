@@ -24,13 +24,17 @@
             <%= render("stocks") %>
 			
             <div class="filters">
-                <div class="row suggestions">
+                <div class="row break-outs">
                     <%= render("filter") %>
 					<%= render("filter") %>
 					<%= render("filter") %>
+				</div>
+				<div class="row suggestions">
 					<%= render("filter") %>
 					<%= render("filter") %>
 					<%= render("filter") %>
+				</div>
+				<div class="row personals">
 					<% if $user.present? %>
 						<%= render("filter") %>
 						<%= render("filter") %>
