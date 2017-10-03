@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="info">
-                        <i class="fa fa-info"></i>Ultimo aggiornamento dati: <span><%= @stocks.first.updated_at.strftime("%d/%m - %H:%M") %></span>
+                        <i class="fa fa-info"></i>Ultimo aggiornamento dati: <span class="italic"><%= @stocks.first.updated_at.strftime("%d/%m - %H:%M") %></span>
                     </div>
                 </div>
             </div>
@@ -23,12 +23,24 @@
 			
             <%= render("stocks") %>
 			
-            <div class="filters">
+            <div class="filters">    
+			   	
+				<div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="info">
+                        <i class="fa fa-info"></i>I titoli in <span class="bold">grassetto</span> compaiono in tutte e tre i filtri nelle rispettive tabelle &quot;Resistenza&quot; e &quot;Supporto&quot;
+                    </div>
+                </div>
                 <div class="row break-outs">
                     <%= render("filter") %>
 					<%= render("filter") %>
 					<%= render("filter") %>
 				</div>
+				
+				<div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="info">
+                        <i class="fa fa-info"></i>I titoli in <span class="bold">grassetto</span> compaiono in tutte e tre i filtri
+                    </div>
+                </div>
 				<div class="row suggestions">
 					<%= render("filter") %>
 					<%= render("filter") %>

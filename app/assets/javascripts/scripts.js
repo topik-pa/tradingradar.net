@@ -19,7 +19,9 @@ var tradingRadar = (function() {
 				},						
 				captions: ['Resistance', 'Support'],
 				table_headers: [ ['Name', 'Last price', 'Borsa Italiana'], ['Name', 'Last price', 'Borsa Italiana'] ],
-				attributes: [ ['last_price', 'borsa_italiana_resistance'], ['last_price', 'borsa_italiana_support'] ]
+				attributes: [ ['last_price', 'borsa_italiana_resistance'], ['last_price', 'borsa_italiana_support'] ],
+				info_title: 'Channels break out Borsa Italiana',
+				info_content: 'Violazione di resistenze e supporti secondo Borsa Italiana'
            },
            filter_2: {			        	   
 				index: 1,
@@ -33,7 +35,9 @@ var tradingRadar = (function() {
 				},						
 				captions: ['Resistance', 'Support'],
 				table_headers: [ ['Name', 'Last price', 'Il sole 24 ore'], ['Name', 'Last price', 'Il sole 24 ore'] ],
-				attributes: [ ['last_price', 'xxivore_resistance'], ['last_price', 'xxivore_support'] ]
+				attributes: [ ['last_price', 'xxivore_resistance'], ['last_price', 'xxivore_support'] ],
+				info_title: 'Channels break out IL sole 24 ore',
+				info_content: 'Violazione di resistenze e supporti secondo Il sole 24 ore'
            },
            filter_3: {			        	   
 				index: 2,
@@ -47,7 +51,9 @@ var tradingRadar = (function() {
 				},						
 				captions: ['Resistance', 'Support'],
 				table_headers: [ ['Name', 'Last price', 'La Repubblica'], ['Name', 'Last price', 'La Repubblica'] ],
-				attributes: [ ['last_price', 'repubblica_resistance'], ['last_price', 'repubblica_support'] ]
+				attributes: [ ['last_price', 'repubblica_resistance'], ['last_price', 'repubblica_support'] ],
+				info_title: 'Channels break out La Repubblica',
+				info_content: 'Violazione di resistenze e supporti secondo La Repubblica'
            },
            
            filter_4: {			        	   
@@ -62,7 +68,9 @@ var tradingRadar = (function() {
 				},						
 				captions: [],
 				table_headers: [ ['Name', 'Last price', 'MF Risk', 'MF Rating'] ],
-				attributes: [ ['last_price', 'milano_finanza_risk', 'milano_finanza_rating'] ]
+				attributes: [ ['last_price', 'milano_finanza_risk', 'milano_finanza_rating'] ],
+				info_title: 'Suggerimenti da Milano Finanza',
+				info_content: 'Titoli con "MF Risk" minore di 25 e "MF Rating" almeno B'
            },
            
            filter_5: {			        	   
@@ -77,7 +85,9 @@ var tradingRadar = (function() {
 				},						
 				captions: [],
 				table_headers: [ ['Name', 'Last price', 'Short Trend', 'FTA Index', 'RSI'] ],
-				attributes: [ ['last_price', 'xxivore_shorttrend', 'xxivore_ftaindex', 'xxivore_rsi'] ]
+				attributes: [ ['last_price', 'xxivore_shorttrend', 'xxivore_ftaindex', 'xxivore_rsi'] ],
+				info_title: 'Suggerimenti da Il sole 24 ore',
+				info_content: 'Titoli con "Short trend" "Molto rialzista" e "FTA Index" di almeno 50 e "RSI" almeno 75'
           },
           
           filter_6: {			        	   
@@ -92,7 +102,9 @@ var tradingRadar = (function() {
 				},						
 				captions: [],
 				table_headers: [ ['Name', 'Last price'] ],
-				attributes: [ ['last_price'] ]
+				attributes: [ ['last_price'] ],
+				info_title: 'Suggerimenti da Investing',
+				info_content: 'Titoli con valutazione "Compra ora" nel frame temporale giornaliero e mensile'
         }
 	}
 
@@ -169,94 +181,94 @@ var tradingRadar = (function() {
 		},
 		
 		
+		initPopOvers: function() {
+			$('#main-wrapper').find('[data-toggle="popover"]').popover();		    
+		},
+		
+	
 		loadSources : function() {
-			var containerSelector = '.x_panel';
-			var isin = _pageData.isin;
-			var $targets = $mainContainer.find('.press-release .ext-source');
 			
-			$targets.each(function(index, elem) {				
-				var url = '/sources/source' + (index+1) + '?isin=' + isin;
-				var $destination = $(this).find(containerSelector);
-				var currentSource = $(this).attr('id');
-				var $currentImageAnchor = $('.anchors').find('img[data-refers="' + currentSource + '"]');
+			var sourcesPromise = new Promise(function(resolve, reject) {
+				var containerSelector = '.x_panel';
+				var isin = _pageData.isin;
+				var $targets = $mainContainer.find('.press-release .ext-source');
+				var count = 0;
 				
-				$.ajax({
-					url : url,
-					data : 'text/html',
-					type : 'get',
-					success : function(data) {
-						var content = $(data).find(containerSelector).html();
-						$destination.html(content);
-					},
-					error : function() {
-						console.error('Unable to perform request');
-						$destination.addClass('error');
-						$currentImageAnchor.addClass('error');
-					},
-					complete : function() {						
-						$destination.addClass('loaded');
-						$currentImageAnchor.addClass('ready');
-					}
+				$targets.each(function(index, elem) {				
+					var url = '/sources/source' + (index+1) + '?isin=' + isin;
+					var $destination = $(this).find(containerSelector);
+					var currentSource = $(this).attr('id');
+					var $currentImageAnchor = $('.anchors').find('img[data-refers="' + currentSource + '"]');
+					
+					$.ajax({
+						url : url,
+						data : 'text/html',
+						type : 'get',
+						success : function(data) {
+							var content = $(data).find(containerSelector).html();
+							$destination.html(content);
+						},
+						error : function() {
+							console.error('Unable to perform request');
+							$destination.addClass('error');
+							$currentImageAnchor.addClass('error');
+						},
+						complete : function() {						
+							$destination.addClass('loaded');
+							$currentImageAnchor.addClass('ready');
+							count++;
+							if(count == $targets.length) {
+								resolve();
+							}
+						}
+					});
+					
+					
 				});
 				
-				
-			});
+			}).then(function() {
+				tradingRadar.fixHREFs();
+			}).catch(function(err) {
+    			console.error(err);
+    		});
+			
+			
 		},
 		
 		
 		highlightStocks : function() {
 			
-			//var totalCalls = 13//$('.filters table').length;
-			//var actualCalls = 0;
+			$('.suggestions table:first-child tr').each(function() {			
+				var isin = $(this).data('isin');
+				var $occurences = $('.suggestions tr[data-isin=' + isin + ']');
+				
+				var count = $occurences.length			
+				if(count>=3) {
+					$occurences.addClass('repeated');
+				}
+			});
 			
 			
-			$(document).on("filtersLoaded", function() {
+			$('.break-outs table.Resistance').eq(0).find('tr').each(function() {			
+				var isin = $(this).data('isin');
+				var $occurences = $('.break-outs table.Resistance tr[data-isin=' + isin + ']');
 				
-				console.log('Inizio io...');
+				var count = $occurences.length			
+				if(count>=3) {
+					$occurences.addClass('repeated red');
+				}
+			});
+			
+			
+			$('.break-outs table.Support').eq(0).find('tr').each(function() {	
+				var isin = $(this).data('isin');
+				var $occurences = $('.break-outs table.Support tr[data-isin=' + isin + ']');
 				
-				//a/ctualCalls++;
-				
-				//if(actualCalls==totalCalls) {
-				
-					$('.suggestions table:first-child tr').each(function() {
-						
-						var isin = $(this).data('isin');
-						var $occurences = $('.suggestions tr[data-isin=' + isin + ']');
-						
-						var count = $occurences.length
-						
-						if(count>=3) {
-							$occurences.addClass('repeated');
-						}
-					});
-					
-					
-					$('.break-outs table.Resistance').eq(0).find('tr').each(function() {
-						
-						var isin = $(this).data('isin');
-						var $occurences = $('.break-outs table.Resistance tr[data-isin=' + isin + ']');
-						
-						var count = $occurences.length
-						
-						if(count>=3) {
-							$occurences.addClass('repeated red');
-						}
-					});
-					
-					
-					$('.break-outs table.Support').eq(0).find('tr').each(function() {
-						
-						var isin = $(this).data('isin');
-						var $occurences = $('.break-outs table.Support tr[data-isin=' + isin + ']');
-						
-						var count = $occurences.length
-						
-						if(count>=3) {
-							$occurences.addClass('repeated green');
-						}
-					});
-				//}
-			});	
+				var count = $occurences.length
+				if(count>=3) {
+					$occurences.addClass('repeated green');
+				}
+			});
 		},
 		
 		
@@ -279,11 +291,15 @@ var tradingRadar = (function() {
 					    	var $filter = $mainContainer.find('.filters .hp-filter:eq(' + obj.index + ')');
 					    	var $titleElem = $filter.find('h2');
 					    	var $contentElem = $filter.find('.x_content');
+					    	var $infoPopOver = $filter.find('.info-pop-over');
 					    	var count = 0;
 					    	
 					    	$titleElem.html(obj.title);
 					    	
 					    	var $ico = $('<img/>', obj.icon).appendTo($titleElem);
+					    	
+					    	$infoPopOver.attr('data-title', obj.info_title);
+					    	$infoPopOver.attr('data-content', obj.info_content);
 					    					    
 					    	
 					    	obj.urls.forEach(function(url, index) {
@@ -361,7 +377,8 @@ var tradingRadar = (function() {
 				    }
 				}
 			}).then(function() {
-				$(document).trigger("filtersLoaded");
+				tradingRadar.highlightStocks();
+				tradingRadar.initPopOvers();
 			}).catch(function(err) {
     			console.error(err);
     		});
@@ -396,7 +413,7 @@ $(document).ready(function() {
 	
 	
 	
-	$('#main-wrapper').find('[data-toggle="popover"]').popover();
+	//$('#main-wrapper').find('[data-toggle="popover"]').popover();
 	
 	
 	/*
@@ -412,14 +429,13 @@ $(document).ready(function() {
 	
 	
 	if($('.stock_page').length) { 
-		tradingRadar.loadSources();
-		tradingRadar.fixHREFs();
+		tradingRadar.loadSources();		
 	}
 	
 	
 	if($('.welcome').length) {
 		tradingRadar.loadHPFilters();
-		tradingRadar.highlightStocks();
+		
 	}
 	
 

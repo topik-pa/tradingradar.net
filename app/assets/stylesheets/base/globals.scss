@@ -103,11 +103,9 @@ body {
 	
     .info {
         color: $dark-gray;
-        span {
-            font-style: italic;
-        }
+		margin: 15px 0 8px 0;
         i {
-            padding-right: 5px;
+            padding-right: 7px;
         }
     }
 	

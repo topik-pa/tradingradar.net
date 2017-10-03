@@ -74,6 +74,14 @@
   .f-right {
   	float:right;
   }
+  
+  .bold {
+  	font-weight: bold;
+  }
+  
+  .italic {
+  	font-style: italic;
+  }
 
   // generates generic classes for padding and margin
   $positions: top bottom left right;
