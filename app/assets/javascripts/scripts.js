@@ -9,103 +9,151 @@ var tradingRadar = (function() {
 	var HPFilters = {
 			filter_1: {			        	   
 				index: 0,
-				title: 'Channels break out ',
+				active: true,
+				title: 'Violazione trendline ',
 				urls: ['/filters/filter_overResistanceBorsaItaliana', '/filters/filter_belowSupportBorsaItaliana'],
 				icon: {
 				    class: 'img-logo-small',
-				    src: '/images/borsa-italiana-logo.png',
-				    title: 'Borsa Italiana',
-				    alt: 'Logo Borsa Italiana'
+				    src: '/images/borsa-italiana-logo-small.png',
+				    title: 'Supporti e resistenze da Borsa Italiana',
+				    alt: 'Supporti e resistenze da Borsa Italiana'
 				},						
-				captions: ['Resistance', 'Support'],
-				table_headers: [ ['Name', 'Last price', 'Borsa Italiana'], ['Name', 'Last price', 'Borsa Italiana'] ],
+				captions: ['Resistenza', 'Supporto'],
+				table_headers: [ ['Nome', 'Ultimo prezzo', 'Borsa Italiana'], ['Nome', 'Ultimo prezzo', 'Borsa Italiana'] ],
 				attributes: [ ['last_price', 'borsa_italiana_resistance'], ['last_price', 'borsa_italiana_support'] ],
-				info_title: 'Channels break out Borsa Italiana',
-				info_content: 'Violazione di resistenze e supporti secondo Borsa Italiana'
+				info_title: 'Violazione trendline secondo "Borsa Italiana"',
+				info_content: 'Violazione di resistenze e supporti secondo "Borsa Italiana"'
            },
            filter_2: {			        	   
 				index: 1,
-				title: 'Channels break out ',
+				active: true,
+				title: 'Violazione trendline ',
 				urls: ['/filters/filter_overResistanceSoleXXIVOre', '/filters/filter_belowSupportSoleXXIVOre'],
 				icon: {
 				    class: 'img-logo-small',
-				    src: '/images/il-sole-24-ore-logo.png',
-				    title: 'Il sole 24 ore',
-				    alt: 'Logo Il sole 24 ore'
+				    src: '/images/il-sole-24-ore-logo-small.png',
+				    title: 'Supporti e resistenze da Il Sole 24 Ore',
+				    alt: 'Supporti e resistenze da Il Sole 24 Ore'
 				},						
-				captions: ['Resistance', 'Support'],
-				table_headers: [ ['Name', 'Last price', 'Il sole 24 ore'], ['Name', 'Last price', 'Il sole 24 ore'] ],
+				captions: ['Resistenza', 'Supporto'],
+				table_headers: [ ['Nome', 'Ultimo prezzo', 'Il sole 24 ore'], ['Nome', 'Ultimo prezzo', 'Il Sole 24 Ore'] ],
 				attributes: [ ['last_price', 'xxivore_resistance'], ['last_price', 'xxivore_support'] ],
-				info_title: 'Channels break out IL sole 24 ore',
-				info_content: 'Violazione di resistenze e supporti secondo Il sole 24 ore'
+				info_title: 'Violazione trendline per "Il Sole 24 Ore"',
+				info_content: 'Violazione di resistenze e supporti secondo "Il sole 24 ore"'
            },
            filter_3: {			        	   
 				index: 2,
-				title: 'Channels break out ',
+				active: true,
+				title: 'Violazione trendline ',
 				urls: ['/filters/filter_overResistanceRepubblica', '/filters/filter_belowSupportRepubblica'],
 				icon: {
 				    class: 'img-logo-small',
-				    src: '/images/la-repubblica-logo.png',
-				    title: 'La Repubblica',
-				    alt: 'Logo La Repubblica'
+				    src: '/images/la-repubblica-logo-small.png',
+				    title: 'Supporti e resistenze da La Repubblica',
+				    alt: 'Supporti e resistenze da La Repubblica'
 				},						
-				captions: ['Resistance', 'Support'],
-				table_headers: [ ['Name', 'Last price', 'La Repubblica'], ['Name', 'Last price', 'La Repubblica'] ],
+				captions: ['Resistenza', 'Supporto'],
+				table_headers: [ ['Nome', 'Ultimo prezzo', 'La Repubblica'], ['Nome', 'Ultimo prezzo', 'La Repubblica'] ],
 				attributes: [ ['last_price', 'repubblica_resistance'], ['last_price', 'repubblica_support'] ],
-				info_title: 'Channels break out La Repubblica',
-				info_content: 'Violazione di resistenze e supporti secondo La Repubblica'
+				info_title: 'Violazione trendline per "La Repubblica"',
+				info_content: 'Violazione di resistenze e supporti secondo "La Repubblica"'
            },
            
            filter_4: {			        	   
 				index: 3,
-				title: 'Suggestions from ',
+				active: true,
+				title: 'Analisi da ',
 				urls: ['/filters/filter_suggestionsMilanoFinanza'],
 				icon: {
 				    class: 'img-logo-small',
-				    src: '/images/milano-finanza-logo.png',
-				    title: 'Milano Finanza',
-				    alt: 'Logo Milano Finanza'
+				    src: '/images/milano-finanza-logo-small.png',
+				    title: 'Analisi da Milano Finanza',
+				    alt: 'Analisi da Milano Finanza'
 				},						
 				captions: [],
-				table_headers: [ ['Name', 'Last price', 'MF Risk', 'MF Rating'] ],
+				table_headers: [ ['Nome', 'Ultimo prezzo', 'MF Risk', 'MF Rating'] ],
 				attributes: [ ['last_price', 'milano_finanza_risk', 'milano_finanza_rating'] ],
-				info_title: 'Suggerimenti da Milano Finanza',
-				info_content: 'Titoli con "MF Risk" minore di 25 e "MF Rating" almeno B'
+				info_title: 'Analisi da "Milano Finanza"',
+				info_content: 'Titoli con "MF Risk" minore di 25 e "MF Rating" almeno B secondo le analisi di "Milano Finanza"'
            },
            
            filter_5: {			        	   
 				index: 4,
-				title: 'Suggestions from ',
+				active: true,
+				title: 'Analisi da  ',
 				urls: ['/filters/filter_suggestionsSoleXXIVOre'],
 				icon: {
 				    class: 'img-logo-small',
-				    src: '/images/il-sole-24-ore-logo.png',
-				    title: 'Il sole 24 ore',
-				    alt: 'Logo Il sole 24 ore'
+				    src: '/images/il-sole-24-ore-logo-small.png',
+				    title: 'Analisi da Il Sole 24 Ore',
+				    alt: 'Analisi da Il Sole 24 Ore'
 				},						
 				captions: [],
-				table_headers: [ ['Name', 'Last price', 'Short Trend', 'FTA Index', 'RSI'] ],
+				table_headers: [ ['Nome', 'Ultimo prezzo', 'Short Trend', 'FTA Index', 'RSI'] ],
 				attributes: [ ['last_price', 'xxivore_shorttrend', 'xxivore_ftaindex', 'xxivore_rsi'] ],
-				info_title: 'Suggerimenti da Il sole 24 ore',
-				info_content: 'Titoli con "Short trend" "Molto rialzista" e "FTA Index" di almeno 50 e "RSI" almeno 75'
+				info_title: 'Analisi da "Il Sole 24 Ore"',
+				info_content: 'Titoli con "Short trend" "Molto rialzista" e "FTA Index" di almeno 50 e "RSI" almeno 75 secondo le analisi de "Il Sole 24 Ore"'
           },
           
           filter_6: {			        	   
 				index: 5,
-				title: 'Suggestions from ',
+				active: true,
+				title: 'Analisi da ',
 				urls: ['/filters/filter_suggestionsInvestingDotCom'],
 				icon: {
 				    class: 'img-logo-small',
-				    src: '/images/investing-logo.png',
-				    title: 'Investing',
-				    alt: 'Logo Investing'
+				    src: '/images/investing-logo-small.png',
+				    title: 'Analisi da Investing.com',
+				    alt: 'Analisi da Investing.com'
 				},						
 				captions: [],
-				table_headers: [ ['Name', 'Last price'] ],
+				table_headers: [ ['Nome', 'Ultimo prezzo'] ],
 				attributes: [ ['last_price'] ],
-				info_title: 'Suggerimenti da Investing',
-				info_content: 'Titoli con valutazione "Compra ora" nel frame temporale giornaliero e mensile'
-        }
+				info_title: 'Analisi da Investing.com',
+				info_content: 'Titoli con valutazione "Compra ora" nel frame temporale giornaliero e mensile secondo le analisi di "Investing.com"'
+				},
+				
+
+
+
+				filter_7: {			        	   
+					index: 6,
+					active: pageData.islogged,
+					title: 'Violazione trendline Analisi personali',
+					urls: ['/filters/filter_overResistanceStocksOnStudy', '/filters/filter_belowSupportStocksOnStudy'],						
+					captions: ['Resistenza', 'Supporto'],
+					table_headers: [ ['Nome', 'Ultimo prezzo', 'Resistenza'], ['Nome', 'Ultimo prezzo', 'Supporto'] ],
+					attributes: [ ['last_price', 'resistance'], ['last_price', 'support'] ],
+					info_title: 'Violazione trendline Analisi personali',
+					info_content: 'Violazione di resistenze e supporti secondo le tue Analisi personali'
+					},
+
+
+					filter_8: {			        	   
+						index: 7,
+						active: pageData.islogged,
+						title: 'Rafforzamento del trend in atto',
+						urls: ['/filters/filter_trendReinforcement'],						
+						captions: [],
+						table_headers: [ ['Nome', 'Ultimo prezzo', 'Posizione', 'Pattern', 'Candlestick'] ],
+						attributes: [ ['last_price', 'trading_position', 'continuation_chart_pattern', 'continuation_candlestick'] ],
+						info_title: 'Rafforzamento del trend in atto',
+						info_content: 'Rafforzamento del trend in atto secondo le tue Analisi personali'
+						},
+
+						filter_9: {			        	   
+							index: 8,
+							active: pageData.islogged,
+							title: 'Cambiamento del trend in atto',
+							urls: ['/filters/filter_trendChanging'],						
+							captions: [],
+							table_headers: [ ['Nome', 'Ultimo prezzo', 'Posizione', 'Pattern', 'Candlestick', 'Div. RSI', 'Div, Stocastico'] ],
+							attributes: [ ['last_price', 'trading_position', 'reversal_chart_pattern', 'reversal_candlestick', 'rsi_divergence', 'stoch_divergence'] ],
+							info_title: 'Rafforzamento del trend in atto',
+							info_content: 'Rafforzamento del trend in atto secondo le tue Analisi personali'
+							}
+
+
 	}
 
 	return {
@@ -115,6 +163,7 @@ var tradingRadar = (function() {
 				_pageData.isin = $inputElem.data('isin');
 				_pageData.user = $inputElem.data('user');
 				_pageData.isAdmin = $inputElem.data('isadmin');
+				_pageData.islogged = $inputElem.data('islogged');
 			}
 		},
 		
@@ -171,7 +220,7 @@ var tradingRadar = (function() {
 		
 		fixHREFs: function() {
 			var milanoFinanzaUrl = 'https://www.milanofinanza.it';
-		    $links = $mainContainer.find('#milano-finanza a');
+		    $links = $mainContainer.find('.milano-finanza a');
 		    $links.each(function() {
 		    	var actualHREF = $(this).attr('href');
 		    	var newHREF = milanoFinanzaUrl + actualHREF;
@@ -182,6 +231,7 @@ var tradingRadar = (function() {
 		
 		
 		initPopOvers: function() {
+			console.log('Pop');
 			$('#main-wrapper').find('[data-toggle="popover"]').popover();		    
 		},
 		
@@ -282,11 +332,16 @@ var tradingRadar = (function() {
 			
 			var filtersPromise = new Promise(function(resolve, reject) {
 				for (var filter in filters) {
+					
 				    if (filters.hasOwnProperty(filter)) {
 				    	
 				    	
 				    	var filterPromise = new Promise(function(resolve, reject) {
-				    		var obj = filters[filter];
+								var obj = filters[filter];
+								
+								if (!obj.active ) {
+									resolve();
+								}
 
 					    	var $filter = $mainContainer.find('.filters .hp-filter:eq(' + obj.index + ')');
 					    	var $titleElem = $filter.find('h2');

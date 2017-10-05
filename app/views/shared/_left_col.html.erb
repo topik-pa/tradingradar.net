@@ -8,13 +8,13 @@
 			
 			<% if $user.present? %>
 				<div class="profile_info">
-	                <span>Welcome,</span>
+	                <span>Benvenuto,</span>
 	                <h2><%= $user.first_name%></h2>
 					<div><%= link_to 'Log out', logout_url, :method => :delete %></div>
 	            </div>
 			<% else %>
 				<div class="profile_info">
-	                <span>Welcome,</span>
+	                <span>Benvenuto,</span>
 					<h2>user</h2>
 					<div><%= link_to 'Log in', login_url %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Sign in', signup_url %></div>
 	            </div>		
@@ -36,23 +36,23 @@
 				<%if $isAdmin %>
 	                <ul class="nav side-menu">
 	                    <li>
-	                    	<span><i class="fa fa-link"></i><%= link_to "Urls", :controller => "urls", :action => "index" %></span>
+	                    	<span><i class="fa fa-link"></i><%= link_to "Url", :controller => "urls", :action => "index" %></span>
 						</li>
 						
 						<li>
-	                    	<span><i class="fa fa-line-chart"></i><%= link_to "Stocks", :controller => "stocks", :action => "index" %></span>
+	                    	<span><i class="fa fa-line-chart"></i><%= link_to "Stock", :controller => "stocks", :action => "index" %></span>
 						</li>
 						
 						<li>
-	                    	<span><i class="fa fa-flask"></i><%= link_to "Analysis", :controller => "analyses", :action => "index" %></span>
+	                    	<span><i class="fa fa-flask"></i><%= link_to "Analisi", :controller => "analyses", :action => "index" %></span>
 						</li>
 						
 						<li>
-	                    	<span><i class="fa fa-gears"></i><%= link_to "Studies", :controller => "studies", :action => "index" %></span>
+	                    	<span><i class="fa fa-gears"></i><%= link_to "Studi", :controller => "studies", :action => "index" %></span>
 						</li>
 						
 						<li>
-	                    	<span><i class="fa fa-pie-chart"></i><%= link_to "Markets", :controller => "markets", :action => "index" %></span>
+	                    	<span><i class="fa fa-pie-chart"></i><%= link_to "Mercati", :controller => "markets", :action => "index" %></span>
 						</li>
 	
 						<!--<li>

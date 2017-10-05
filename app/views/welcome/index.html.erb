@@ -1,60 +1,86 @@
-<% title 'Home' %>
-<% meta_tag :description, '' %>
-<% meta_tag :keywords, '' %>
+<% title 'Analisi, notizie e suggerimenti di trading per il mercato italiano | Home ' %>
+<% meta_tag :description, 'Trading Radar - Analisi, suggerimenti di acquisto e vendita, notizie sui titoli azionari del Mercato Italiano' %>
+<% meta_tag :keywords, 'analisi, spunti, suggerimenti, trading, acquisto, vendita, notizie, rassegna, stampa, mercato, italiano, MTA, FTSE, MIB' %>
+<% meta_tag :robots, 'index, follow' %>
 <% meta_tag :author, $author + ' - ' + $authorMail %>
-
 <div class="container body">
     <div class="main_container">
         <%= render("shared/left_col") %>
         <%= render("shared/top_nav") %>
         <div class="right_col" role="main"">
-            <div class="row">
+            <div class="row section">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <h1>Trading Radar - 
+                        <small>
+                            Analisi, notizie e suggerimenti di trading per il mercato italiano
+                        </small>
+                    </h1>
+                    <div class="content">
+                        Titoli azionari Italia FTSE MIB e situazione Mercati internazionali. I dati provengono da <%= link_to 'Borsa Italiana', 'http://www.borsaitaliana.it', title: 'Vai al sito: Borsa Italiana' %>, <%= link_to 'Il Sole 24 Ore', 'http://www.ilsole24ore.com/', title: 'Vai al sito: Il Sole 24 Ore' %>, <%= link_to 'La Repubblica', 'http://finanza.repubblica.it', title: 'Vai al sito: La Repubblica' %>, <%= link_to 'Milano Finanza', 'https://www.milanofinanza.it/', title: 'Vai al sito: Milano Finanza' %>, <%= link_to 'Investing.com', 'https://it.investing.com', title: 'Vai al sito: Investing.com' %>e sono aggiornati ad intervalli regolari.
+                        <br/>
+                        Cliccando sul nome di un titolo &egrave; possibile visualizzare una rassegna stampa con analisi ottenute in tempo reale da diverse fonti Web.
+                        <br/>
+                        In basso, una serie di filtri evidenziano dei suggerimenti e spunti di acquisto o vendita sui titoli di maggiore interesse e i parametri con i quali sono stati selezionati.
+                    </div>
+                </div>
+            </div>
+            <div class="row section">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="info">
                         <i class="fa fa-info"></i>Ultimo aggiornamento dati: <span class="italic"><%= @stocks.first.updated_at.strftime("%d/%m - %H:%M") %></span>
                     </div>
                 </div>
             </div>
-            <div class="markets">
-                <%= render :partial => "markets", :object => @firstRowMarkets %>
-                <%= render :partial => "markets", :object => @secondRowMarkets %>
-                <%= render :partial => "markets", :object => @thirdRowMarkets %>
+            <div class="row section">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="markets">
+                        <%= render :partial => "markets", :object => @firstRowMarkets %>
+                        <%= render :partial => "markets", :object => @secondRowMarkets %>
+                        <%= render :partial => "markets", :object => @thirdRowMarkets %>
+                    </div>
+                </div>
             </div>
-			
             <%= render("stocks") %>
 			
-            <div class="filters">    
-			   	
-				<div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="row section filters">
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="info">
-                        <i class="fa fa-info"></i>I titoli in <span class="bold">grassetto</span> compaiono in tutte e tre i filtri nelle rispettive tabelle &quot;Resistenza&quot; e &quot;Supporto&quot;
+                        <i class="fa fa-info"></i>I titoli in <span class="bold">grassetto</span>
+                        compaiono in tutte e tre i filtri nelle rispettive tabelle &quot;Resistenza&quot; e &quot;Supporto&quot;
                     </div>
                 </div>
-                <div class="row break-outs">
+                <div class="break-outs">
                     <%= render("filter") %>
-					<%= render("filter") %>
-					<%= render("filter") %>
-				</div>
-				
-				<div class="col-md-12 col-sm-12 col-xs-12">
+                    <%= render("filter") %>
+                    <%= render("filter") %>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="info">
-                        <i class="fa fa-info"></i>I titoli in <span class="bold">grassetto</span> compaiono in tutte e tre i filtri
+                        <i class="fa fa-info"></i>I titoli in <span class="bold">grassetto</span>
+                        compaiono in tutte e tre i filtri
                     </div>
                 </div>
-				<div class="row suggestions">
-					<%= render("filter") %>
-					<%= render("filter") %>
-					<%= render("filter") %>
-				</div>
-				<div class="row personals">
-					<% if $user.present? %>
-						<%= render("filter") %>
-						<%= render("filter") %>
-						<%= render("filter") %>
-					<% end %>
+                <div class="suggestions">
+                    <%= render("filter") %>
+                    <%= render("filter") %>
+                    <%= render("filter") %>
+                </div>
+                <div class="personals">
+                    <% if $user.present? %>
+                    <%= render("filter") %>
+                    <%= render("filter") %>
+                    <%= render("filter") %>
+                    <% end %>
                 </div>
             </div>
 			
+            <div class="row section">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="keywords">
+                        Keywords: analisi e suggerimenti di acquisto e vendita, spunti di trading e rassegna stampa dai mercati internazionali e dal FTSE MIB Italia MTA.
+                    </div>
+                </div>
+            </div>
         </div>
         <%= render("shared/footer") %>
     </div>

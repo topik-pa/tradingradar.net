@@ -1,5 +1,5 @@
 <div class="stocks">
-    <div class="row">
+    <div class="row section">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="stocks_table">
@@ -8,26 +8,26 @@
                         <thead>
                             <tr>
                                 <th>
-                                    Name
+                                    Nome
                                 </th>
                                 <th>
-                                    Sector
+                                    Settore
                                 </th>
                                 <th>
-                                    Lastprice
+                                    Ultimo prezzo
                                 </th>
                                 <th>
-                                    Variation
+                                    Variazione
                                 </th>
                                 <th>
-                                    Last updated
+                                    Ultimo aggiornamento
                                 </th>
 								<th>                                    
-									Marketphase
+									Fase di mercato
                                 </th>
 								<%if $user.present?%>
 									<th>
-	                                    Study page
+	                                    Analisi personale
 	                                </th>
 								<%end%>
                             </tr>
@@ -35,8 +35,8 @@
                         <tbody>
                             <% @stocks.each do |stock| %>
                             <tr class="<%= cycle('even', 'odd') -%>">
-                                <td>
-                                    <%= link_to stock.name, stock_page_index_path(isin: stock.isin) %>
+                                <td class="bold">
+                                    <%= link_to stock.name, stock_page_index_path(isin: stock.isin), title: 'Rassegna stampa e analisi titolo: ' + stock.name %>
                                 </td>
                                 <td>
                                     <%= stock.sector %>
@@ -55,7 +55,7 @@
                                 </td>
 								<%if $user.present?%>
 									<td>
-	                                    <%= link_to 'See/add study', study_page_index_path(isin: stock.isin) %>
+	                                    <%= link_to 'Vedi/aggiungi analisi', study_page_index_path(isin: stock.isin) %>
                                 	</td>
 								<%end%>
                             </tr>

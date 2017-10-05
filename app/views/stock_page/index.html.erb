@@ -1,6 +1,7 @@
-<% title @stock.name + ' | Press release'  %>
-<% meta_tag :description, '' %>
-<% meta_tag :keywords, '' %>
+<% title @stock.name + ' analisi, rassegna stampa e idee di trading | Press release'  %>
+<% meta_tag :description, 'Analisi trading e rassegna stampa per il titolo' +  @stock.name + 'del mercato italiano' %>
+<% meta_tag :keywords, @stock.name + ', trading, analisi, rassegna, stampa, Borsa, Italiana, Milano, Finanza' %>
+<% meta_tag :robots, 'index, follow' %>
 <% meta_tag :author, $author + ' - ' + $authorMail %>
 
 <div class="container body">
@@ -11,13 +12,6 @@
         	
             <%= render("shared/namePriceVariation") %>
 			
-            <div class="row section">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="return">
-                        <i class="fa fa-angle-left"></i>&nbsp;<%= link_to "Return home", root_path %>
-                    </div>
-                </div>
-            </div>
 			
             <div class="row section anchors">
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -30,9 +24,9 @@
             <div class="row section">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
-                        <h2>Chart image</h2>
+                        <h2>Analisi grafica titolo: <%= @stock.name %></h2>
                         <div class="chart-image">
-                            <img src="<%= @urlchartImage %>" title="<%= @stock.name %> chart image" alt="<%= @stock.name %> chart image" />
+                            <img src="<%= @urlchartImage %>" title="Analisi grafica: <%= @stock.name %>" alt="Analisi grafica: <%= @stock.name %>" />
                         </div>
                     </div>
                 </div>
@@ -68,6 +62,15 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row section">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="keywords">
+                        Keywords: trading <%= @stock.name %>, rassegna stampa e analisi con dati provenienti da Borsa Italiana, Milano Finanza, Il Sole 24 Ore, Investing.com, La Repubblica, Soldi On Line
+                    </div>
+                </div>
+            </div>
+
         </div>
         <%= render("shared/footer") %>
     </div>

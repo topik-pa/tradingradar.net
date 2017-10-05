@@ -2,11 +2,11 @@
     <div class="col-md-12 col-sm-12 col-xs-12" id="soldi-on-line">
         <div class="x_panel">
             <div class="pr-title">
-				<%= image_tag 'soldionline-logo.png', class: 'img-logo', alt: 'Logo Soldi On Line', title: 'Soldi On Line' %>
+				<%= image_tag 'soldi-on-line-logo-big.png', class: 'img-logo', alt: 'Logo Soldi On Line', title: 'Analisi titolo trading da Soldi On Line' %>
 			</div>
 			<% if @urlSoldiOnLine %>
             <div>
-                Source: <a href="<%= @urlSoldiOnLine %>">SoldiOnline.it</a>
+                Source: <a href="<%= @urlSoldiOnLine %>" title="Vai alla analisi titolo su Soldi On Line">Soldi On Line</a>
             </div>
             <% else %>
             Missing source data, only DB data will be displayed. <% end %>
@@ -26,7 +26,7 @@
                     <%= @docSoldiOnLineElem5.to_s.html_safe %>
                 </div>
             </div>
-            <a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Back on top"><i class="fa fa-chevron-up"></i>Back on top</a>
+            <a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Torna in alto"><i class="fa fa-chevron-up"></i>Torna in alto</a>
         </div>
     </div>
 </div>

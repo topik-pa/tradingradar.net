@@ -21,8 +21,7 @@
 	.anchor-link {
 	    margin: 0 15px;
 	    img {
-	        height: 40px;
-	        padding: 2px;
+	        padding: 3px;
 			opacity: .6;
 			cursor: auto;
 			
@@ -71,8 +70,7 @@
 }
 .img-logo {
     margin-bottom: 25px;
-    max-width: 320px;
-    max-height: 150px;
+    max-height: 75px;
 }
 .pr-title {
     font-size: $font-huge;
@@ -228,7 +226,6 @@ div.larepubblica {
     }
     .gradient.padding5.shadow a, .news a {
         display: inline;
-        cursor: default;
     }
     .bold {
         font-weight: bold;

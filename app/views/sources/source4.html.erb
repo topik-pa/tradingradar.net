@@ -2,11 +2,11 @@
     <div class="col-md-12 col-sm-12 col-xs-12" id="investing">
         <div class="x_panel">
             <div class="pr-title">
-				<%= image_tag 'investing-logo.png', class: 'img-logo', alt: 'Logo Investing', title: 'Investing' %>
+				<%= image_tag 'investing-logo-big.png', class: 'img-logo', alt: 'Logo Investing', title: 'Analisi titolo trading da Investing.com' %>
 			</div>
 			<% if @urlInvesting %>
             <div>
-                Source: <a href="<%= @urlInvesting %>">Investing.com</a>
+                Source: <a href="<%= @urlInvesting %>"  title="Vai alla analisi titolo su Investing.com">Investing.com</a>
             </div>
             <% else %>
             Missing source data, only DB data will be displayed. <% end %>
@@ -41,7 +41,7 @@
                     <%= @InvestingElem2.to_s.html_safe %>
                 </div>
             </div>
-            <a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Back on top"><i class="fa fa-chevron-up"></i>Back on top</a>
+            <a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Torna in alto"><i class="fa fa-chevron-up"></i>Torna in alto</a>
         </div>
     </div>
 </div>

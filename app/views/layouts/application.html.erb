@@ -18,7 +18,7 @@
             <%= yield %>
         </div> 
 		
-		<input id="pageData" type="hidden" data-isin="<%= params[:isin] ? params[:isin] : '' %>" data-user="<%= $user %>" data-isadmin="<%= $isAdmin %>" />    
+		<input id="pageData" type="hidden" data-isin="<%= params[:isin] ? params[:isin] : '' %>" data-user="<%= $user %>" data-isadmin="<%= $isAdmin %>" data-islogged="<%= $islogged %>"/>    
 		
 		<!-- Start of StatCounter Code for old browsers -->
 		<noscript><div class="statcounter"><a title="free web stats"

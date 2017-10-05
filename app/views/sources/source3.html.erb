@@ -2,11 +2,11 @@
     <div class="col-md-12 col-sm-12 col-xs-12" id="la-repubblica">
         <div class="x_panel">
             <div class="pr-title">
-				<%= image_tag 'la-repubblica-logo.png', class: 'img-logo', alt: 'Logo La Repubblica', title: 'La Repubblica' %>
+				<%= image_tag 'la-repubblica-logo-big.png', class: 'img-logo', alt: 'Logo La Repubblica', title: 'Analisi titolo trading da La Repubblica' %>
 			</div>
 			<% if @urlLaRepubblica %>
 	            <div>
-	                Source: <a href="<%= @urlLaRepubblica %>">La Repubblica</a>
+	                Source: <a href="<%= @urlLaRepubblica %>" title="Vai alla analisi titolo su La Repubblica">La Repubblica</a>
 	            </div>
             <% else %>
             	Missing source data, only DB data will be displayed. 
@@ -50,7 +50,7 @@
                     <%= @laRepubblicaElem4.to_s.html_safe %>
                 </div>
             </div>
-            <a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Back on top"><i class="fa fa-chevron-up"></i>Back on top</a>
+            <a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Torna in alto"><i class="fa fa-chevron-up"></i>Torna in alto</a>
         </div>
     </div>
 </div>

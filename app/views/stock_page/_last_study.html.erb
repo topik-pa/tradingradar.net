@@ -2,30 +2,30 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <% if @lastStudy %>
         <div class="x_panel">
-            <h2>Stock last study</h2>
+            <h2>Ultima analisi inserita</h2>
             <table class="tablesorter nojs">
                 <thead>
                     <tr>
                         <th>
-                            Resistance
+                            Resistenza
                         </th>
                         <th>
-                            Support
+                            Supporto
                         </th>
                         <th>
-                            Direction
+                            Direzione
                         </th>
                         <th>
-                            mmp1
+                            Media ponderata 1
                         </th>
                         <th>
-                            mmp2
+                            Media ponderata 2
                         </th>
                         <th>
                             Gap
                         </th>
                         <th>
-                            Trading Position
+                            Posizione (Long/Short)
                         </th>
                     </tr>
                 </thead>
@@ -176,22 +176,22 @@
                 </tbody>
             </table>
             <div>
-                Note:
+                Ulteriori note:
                 <div class="note">
                     <%= @lastStudy.note %>
                 </div>
             </div>
             <div>
-                This stock has <%= @studiesSize %> study/s. 
-                Go to 
-                <%= link_to 'study page ', study_page_index_path(isin: @stock.isin, id: @lastStudy.id) %> &nbsp;to add/view more studies.
+                Questo titolo ha <%= @studiesSize %> studio/i. 
+                Vai alla 
+                <%= link_to 'Pagina studi personalizzati', study_page_index_path(isin: @stock.isin, id: @lastStudy.id) %> &nbsp;per aggiungere/visualizzare nuovi studi.
             </div>
         </div>
         <% else %>
         <div>
-            This stock has <%= @studiesSize %> study/s. 
-            Go to 
-            <%= link_to 'study page', study_page_index_path(isin: @stock.isin) %>&nbsp;to add/view more studies.
+            Questo titolo ha <%= @studiesSize %> studio/i.
+            Vai alla 
+            <%= link_to 'Pagina studi personalizzati', study_page_index_path(isin: @stock.isin) %>&nbsp;per aggiungere/visualizzare nuovi studi.
         </div>
         <% end %>
     </div>

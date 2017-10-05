@@ -19,14 +19,14 @@
     font-size: 120%;
 }
 .tile_count .tile_stats_count .count {
-    font-size: 130%;
+    font-size: 110%;
     line-height: 35px;
     & i {
         font-size: 120%;
     }
 }
 .tile_count .tile_stats_count span {
-    font-size: 160%;
+    font-size: 140%;
 }
 .tile_count .count_top i {
     margin-right: 8px;
@@ -94,7 +94,8 @@ legend {
 }
 
 .left_col {
-    background: $firstColor;
+    background: rgba( $firstColor, .7 );
+    border-left: 1px solid $firstColor;
 }
 
 

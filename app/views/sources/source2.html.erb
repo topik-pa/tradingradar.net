@@ -2,11 +2,11 @@
     <div class="col-md-12 col-sm-12 col-xs-12" id="il-sole-24-ore">
         <div class="x_panel">
             <div class="pr-title">
-				<%= image_tag 'il-sole-24-ore-logo.png', class: 'img-logo', alt: 'Logo Il Sole 24 Ore', title: 'Il Sole 24 Ore' %>
+				<%= image_tag 'il-sole-24-ore-logo-big.png', class: 'img-logo', alt: 'Logo Il Sole 24 Ore', title: 'Analisi titolo trading da Il Sole 24 Ore' %>
 			</div>
 			<% if @urlSole24Ore %>
             <div>
-                Dati da: <a href="<%= @urlSole24Ore %>">Sole 24 Ore</a>
+                Dati da: <a href="<%= @urlSole24Ore %>" title="Vai alla analisi titolo su Il Sole 24 Ore">Il Sole 24 Ore</a>
             </div>
             <% else %>
             Missing source data, only DB data will be displayed. <% end %>
@@ -77,7 +77,7 @@
                     <%= @sole24OreElem4.to_s.html_safe %>
                 </div>
             </div>
-            <a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Back on top"><i class="fa fa-chevron-up"></i>Back on top</a>
+            <a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Torna in alto"><i class="fa fa-chevron-up"></i>Torna in alto</a>
         </div>
     </div>
 </div>

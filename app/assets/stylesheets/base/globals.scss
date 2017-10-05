@@ -1,14 +1,14 @@
 $maxCentralColumnWidth: 85%;
 $leftColWidth: 12%;
-$navSectionHeight: 85px;
+$navSectionHeight: 65px;
 $centralColumnWidth: 100%;
 $pageMargin: 12px;
 $paragraphMargin: 10px;
 $titleColor: $highlight;
 $firstBGColor: #F7F7F7;
-$secondBGColor: #2A3F54;
+$secondBGColor: rgba(42, 63, 84, 1);
 $textColor: $black;
-$firstColor: #2A3F54;
+$firstColor: rgba(42, 63, 84, 0.5);;
 $secondColor: #4FB2CA;
 $fontFamilyTitle: Arial,Helvetica,sans-serif;
 $fontFamily: Arial,Helvetica,sans-serif;
@@ -35,6 +35,12 @@ body {
         font-family: $fontFamily;
         font-weight: normal;
         font-size: 100%;
+
+        @include moreReadable;
+    }
+
+    div {
+        @include moreReadable;
     }
 	
     .section {
@@ -58,19 +64,24 @@ body {
 	
     .title {
         font-family: $fontFamilyTitle;
-        font-size: $font-huge;
+        font-size: 130%;
         margin-bottom: 20px;
+        color: $secondBGColor;
+
+        @include moreReadable;
     }
 	
     .subtitle {
         text-align: center;
         font-family: $fontFamilyTitle;
         font-size: $font-larger;
+
+        @include moreReadable;
     }
 	
     .text {
         margin: 0 0 $pageMargin 0;
-        line-height: 128%;
+        line-height: 130%;
         text-align: justify;
     }
 	
@@ -84,6 +95,7 @@ body {
 	
     h1 {
         @extend .title;
+        font-size: $font-huge;
     }
 	
     h2 {
@@ -92,27 +104,48 @@ body {
 	
 
     .img-logo-small {
-        max-height: 25px;
+        max-height: 30px;
         vertical-align: middle;
+        image-rendering: -webkit-optimize-contrast;
+        margin-left: 10px;
     }
 	
     .main-logo {
         height: $navSectionHeight;
         padding: 0 5px;
+        image-rendering: -webkit-optimize-contrast;
     }
 	
     .info {
         color: $dark-gray;
-		margin: 15px 0 8px 0;
+		margin-bottom: 15px;
         i {
             padding-right: 7px;
         }
+    }
+
+    .content {
+        color: $dark-gray;
+		font-size: 110%;
+    }
+
+    .keywords {
+        color: $dark-gray;
+        font-size: $font-small;
+        margin: 10px 0;
+        text-align: center;
     }
 	
     .error {
         font-style: bold;
         color: $highlight;
+		font-size: 110%;
     }
+	
+	.return {
+	    margin-top: 20px;
+		font-size: 110%;
+	}
 	
 	
 	/*LEFT COLUMN*/

@@ -242,3 +242,17 @@ $background-color: #F7F7F7;
 //.bx-viewport{
 //    @include noShadows;
 //}
+
+
+@mixin moreReadable {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-font-smoothing: antialiased !important;
+  text-rendering: optimizelegibility !important;
+  text-shadow: 0 0 0 #AAA, 0 0 .5px transparent;
+}
+
+//Usage:
+//.p{
+//    @include moreReadable;
+//}
