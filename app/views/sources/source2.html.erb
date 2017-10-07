@@ -15,10 +15,10 @@
                 <thead>
                     <tr>
                         <th class="sole-24-ore">
-                            Support
+                            Supporto
                         </th>
                         <th class="sole-24-ore">
-                            Resistance
+                            Resistenza
                         </th>
                         <th class="sole-24-ore">
                             Short trend
@@ -30,7 +30,7 @@
                             RSI
                         </th>
                         <th class="sole-24-ore">
-                            RSI Divergence
+                            Divergenza RSI
                         </th>
                     </tr>
                 </thead>
@@ -61,19 +61,15 @@
             Missing analysis data.<% end %>
             <div class="col-md-12 col-sm-12 col-xs-12 pr-section sole-24-ore">
                 <div class="pr-content">
-                    <h3>Anagrafica</h3>
                     <%= @sole24OreElem1.to_s.html_safe %>
                 </div>
                 <div class="pr-content">
-                    <h3>Indici borsistici e redditivit&agrave;</h3>
                     <%= @sole24OreElem2.to_s.html_safe %>
                 </div>
                 <div class="pr-content">
-                    <h3>Sintesi bilancio</h3>
                     <%= @sole24OreElem3.to_s.html_safe %>
                 </div>
                 <div class="pr-content">
-                    <h3>Sintesi analisi tecnica</h3>
                     <%= @sole24OreElem4.to_s.html_safe %>
                 </div>
             </div>

@@ -62,54 +62,54 @@ var tradingRadar = (function() {
            filter_4: {			        	   
 				index: 3,
 				active: true,
-				title: 'Analisi da ',
+				title: 'Indicazioni da ',
 				urls: ['/filters/filter_suggestionsMilanoFinanza'],
 				icon: {
 				    class: 'img-logo-small',
 				    src: '/images/milano-finanza-logo-small.png',
-				    title: 'Analisi da Milano Finanza',
-				    alt: 'Analisi da Milano Finanza'
+				    title: 'Indicazioni da Milano Finanza',
+				    alt: 'Indicazioni da Milano Finanza'
 				},						
 				captions: [],
 				table_headers: [ ['Nome', 'Ultimo prezzo', 'MF Risk', 'MF Rating'] ],
 				attributes: [ ['last_price', 'milano_finanza_risk', 'milano_finanza_rating'] ],
-				info_title: 'Analisi da "Milano Finanza"',
+				info_title: 'Indicazioni da "Milano Finanza"',
 				info_content: 'Titoli con "MF Risk" minore di 25 e "MF Rating" almeno B secondo le analisi di "Milano Finanza"'
            },
            
            filter_5: {			        	   
 				index: 4,
 				active: true,
-				title: 'Analisi da  ',
+				title: 'Indicazioni da  ',
 				urls: ['/filters/filter_suggestionsSoleXXIVOre'],
 				icon: {
 				    class: 'img-logo-small',
 				    src: '/images/il-sole-24-ore-logo-small.png',
-				    title: 'Analisi da Il Sole 24 Ore',
-				    alt: 'Analisi da Il Sole 24 Ore'
+				    title: 'Indicazioni da Il Sole 24 Ore',
+				    alt: 'Indicazioni da Il Sole 24 Ore'
 				},						
 				captions: [],
 				table_headers: [ ['Nome', 'Ultimo prezzo', 'Short Trend', 'FTA Index', 'RSI'] ],
 				attributes: [ ['last_price', 'xxivore_shorttrend', 'xxivore_ftaindex', 'xxivore_rsi'] ],
-				info_title: 'Analisi da "Il Sole 24 Ore"',
+				info_title: 'Indicazioni da "Il Sole 24 Ore"',
 				info_content: 'Titoli con "Short trend" "Molto rialzista" e "FTA Index" di almeno 50 e "RSI" almeno 75 secondo le analisi de "Il Sole 24 Ore"'
           },
           
           filter_6: {			        	   
 				index: 5,
 				active: true,
-				title: 'Analisi da ',
+				title: 'Indicazioni da ',
 				urls: ['/filters/filter_suggestionsInvestingDotCom'],
 				icon: {
 				    class: 'img-logo-small',
 				    src: '/images/investing-logo-small.png',
-				    title: 'Analisi da Investing.com',
-				    alt: 'Analisi da Investing.com'
+				    title: 'Indicazioni da Investing.com',
+				    alt: 'Indicazioni da Investing.com'
 				},						
 				captions: [],
 				table_headers: [ ['Nome', 'Ultimo prezzo'] ],
 				attributes: [ ['last_price'] ],
-				info_title: 'Analisi da Investing.com',
+				info_title: 'Indicazioni da Investing.com',
 				info_content: 'Titoli con valutazione "Compra ora" nel frame temporale giornaliero e mensile secondo le analisi di "Investing.com"'
 				},
 				
@@ -221,11 +221,16 @@ var tradingRadar = (function() {
 		fixHREFs: function() {
 			var milanoFinanzaUrl = 'https://www.milanofinanza.it';
 		    $links = $mainContainer.find('.milano-finanza a');
+		    $linksToDisable = $mainContainer.find('.milano-finanza table a');
 		    $links.each(function() {
 		    	var actualHREF = $(this).attr('href');
 		    	var newHREF = milanoFinanzaUrl + actualHREF;
 		    	$(this).attr('href', newHREF);
 		    });
+		    
+		    $linksToDisable.click(function(e) {
+		    	e.preventDefault();
+		    })
 		    
 		},
 		
@@ -239,15 +244,16 @@ var tradingRadar = (function() {
 		loadSources : function() {
 			
 			var sourcesPromise = new Promise(function(resolve, reject) {
-				var containerSelector = '.x_panel';
+				var containerSelector = '#source-container';
 				var isin = _pageData.isin;
-				var $targets = $mainContainer.find('.press-release .ext-source');
+				var $targets = $mainContainer.find('.ext-source .pr-section');
 				var count = 0;
 				
-				$targets.each(function(index, elem) {				
+				$targets.each(function(index, elem) {
 					var url = '/sources/source' + (index+1) + '?isin=' + isin;
-					var $destination = $(this).find(containerSelector);
-					var currentSource = $(this).attr('id');
+					var $destination = $(this);
+					var $panel = $(this).parents('.x_panel');
+					var currentSource = $(this).parents('.ext-source').attr('id');
 					var $currentImageAnchor = $('.anchors').find('img[data-refers="' + currentSource + '"]');
 					
 					$.ajax({
@@ -255,7 +261,7 @@ var tradingRadar = (function() {
 						data : 'text/html',
 						type : 'get',
 						success : function(data) {
-							var content = $(data).find(containerSelector).html();
+							var content = $(data).html();
 							$destination.html(content);
 						},
 						error : function() {
@@ -264,7 +270,7 @@ var tradingRadar = (function() {
 							$currentImageAnchor.addClass('error');
 						},
 						complete : function() {						
-							$destination.addClass('loaded');
+							$panel.addClass('loaded');
 							$currentImageAnchor.addClass('ready');
 							count++;
 							if(count == $targets.length) {

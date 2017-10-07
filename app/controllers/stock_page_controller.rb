@@ -23,8 +23,8 @@ class StockPageController < ApplicationController
     
     
     #Borsa Italiana
-    #@urlBorsaItaliana = @urls.url1
-    #@urlBorsaItaliana2 = @urls.url2   
+    @urlBorsaItaliana = @urls.url1
+    @urlBorsaItaliana2 = @urls.url2   
     #begin
     #  docBorsaItaliana = Nokogiri::HTML(open(@urlBorsaItaliana), nil, 'UTF-8')
     #  docBorsaItaliana.encoding = 'UTF-8'
@@ -45,6 +45,18 @@ class StockPageController < ApplicationController
     #   puts 'Error retrieving url data: ' + e.message
     #end
     #Borsa Italiana
+    
+    
+    @urlSole24Ore = @urls.url3 
+    
+    @urlLaRepubblica = @urls.url6 
+    
+    @urlInvesting = @urls.url7 
+    
+    @urlMilanoFinanza = @urls.url9
+    @urlMilanoFinanza2 = @urls.url10
+    
+    @urlSoldiOnLine = @urls.url5 
     
     
     

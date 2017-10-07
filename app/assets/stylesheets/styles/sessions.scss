@@ -6,10 +6,14 @@
 .users, .sessions {
 	.form {
 	  text-align:center;
-	  margin: 0 auto 10px;
+	  margin: 75px auto 100px;
 	  padding: 20px 0 10px 0;
 	  font-size: 16px;
 	  width: 300px;
+	}
+	
+	form {
+		margin-bottom: 20px;
 	}
 	
 	input[type=text],
@@ -20,7 +24,7 @@
 	  border: 1px solid #E6E6E6;
 	  border-radius: 0px; 
 	  height: 60px;
-	  margin: 6px auto;
+	  margin: 20px auto;
 	  text-indent: 10px;
 	}
   

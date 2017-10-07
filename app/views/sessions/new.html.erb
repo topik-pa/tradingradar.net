@@ -7,14 +7,14 @@
                     <div class="form">
                         <h1>Log in</h1>
 						<% if  params[:error] %>
-							<div class="error">Wrong email or password. Please retry.</div>
+							<div class="error">Email o password sbagliati. Riprova per favore.</div>
 						<% end %>
                         <%= form_for(:session, url: login_path) do |f| %>
                         <%= f.email_field :email, :placeholder => "Email", :required => "true" %>
                         <%= f.password_field :password, :placeholder => "Password", :required => "true" %>
                         <%= f.submit "Log in", class: "btn primary" %>
                         <% end %>
-						<div>Don't have an account? <%= link_to "Sign up", signup_path %>.</div>
+						<div>Non sei registrato? <%= link_to "Sign up", signup_path %>.</div>
                     </div>					
                 </div>
             </div>

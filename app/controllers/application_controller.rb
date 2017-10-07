@@ -687,6 +687,10 @@ class ApplicationController < ActionController::Base
       updateMarketTable
       updateStockTable
     end
+    
+    scheduler.cron '00 08 * * 6-7', :blocking => true do
+      updateAnalysisTable
+    end
         
 
   #DEVELOPMENT

@@ -265,10 +265,20 @@ html , body{
     margin-top: 10px;
     border: 1px solid rgba(52, 73, 94, 0.44);
 }
+
+.profile  {
+     
+}
 .profile_info {
-    padding: 25px 10px 10px;
-    width: 65%;
-    float: left
+    height: $navSectionHeight;
+    border-bottom: 1px solid #D9DEE4;
+    padding: 10px;
+    color: $firstBGColor;
+    
+    .username {
+        font-size: 180%;    
+    }
+    
 }
 .profile_info span {
     font-size: 13px;

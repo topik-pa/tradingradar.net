@@ -5,10 +5,12 @@
 @import "base/utilities.scss";
 @import "base/variables.scss";
 @import "base/reset.scss";
+
+@import "base/globals.scss";
 @import "base/gentelella-custom.scss";
 @import "base/tablesorter-style.scss";
 @import "base/form-custom.scss";
-@import "base/globals.scss";
+
 @import "base/animations.scss";
 @import "base/progress.scss";
 @import "base/bootstrap-overwrite.scss";

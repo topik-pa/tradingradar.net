@@ -17,10 +17,10 @@
                 <thead>
                     <tr>
                         <th class="repubblica">
-                            Support
+                            Supporto
                         </th>
                         <th class="repubblica">
-                            Resistance
+                            Resistenza
                         </th>
                     </tr>
                 </thead>
@@ -40,15 +40,16 @@
             <div class="col-md-12 col-sm-12 col-xs-12 pr-section larepubblica">
                 <div class="pr-content">
                     <%= @laRepubblicaElem1.to_s.html_safe %>
+					<span>Range value di oggi: </span><span class="bold"><%= @laRepubblicaRangeValue%></span>
                 </div>
-                <div class="clear">
-                </div>
-                <div class="pr-content">
-                    <%= @laRepubblicaElem3.to_s.html_safe %>
+                <!--<div class="clear">
                 </div>
                 <div class="pr-content">
-                    <%= @laRepubblicaElem4.to_s.html_safe %>
+                    < @laRepubblicaElem3.to_s.html_safe %>
                 </div>
+                <div class="pr-content">
+                    < @laRepubblicaElem4.to_s.html_safe %>
+                </div>-->
             </div>
             <a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Torna in alto"><i class="fa fa-chevron-up"></i>Torna in alto</a>
         </div>

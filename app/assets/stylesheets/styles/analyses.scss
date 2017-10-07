@@ -177,6 +177,44 @@ div.larepubblica {
 	.TLB-header-title {
 		font-weight: bold;
 	}
+	
+	.chart-area, .TLB-range-bar {
+		display:none;
+	}
+	
+	.header-data {
+		span {
+			margin-left:5px;
+			font-style: italic;
+			font-weight: bold;
+		}
+	}
+	
+	.TLB-range-Large-Text{
+		float:left;
+		margin-right: 20px;
+	}
+	
+	.TLB-range-Small-Text {
+		font-style: italic;
+	}
+	
+	.TLB-range-max {
+		margin-left: 0!important;
+	}
+	
+	.fLeft.color-grey.margin-right {
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+	
+	.separator {
+		display:none;
+	}
+	
+	.linear-range {
+		margin-top: 20px;
+	}
 }
 .investing {
     .left {
@@ -250,6 +288,10 @@ div.larepubblica {
     .didatabelle {
         font-weight: bold;
     }
+	
+	.info.font22 {
+		margin-left: 5px;
+	}
 }
 .soldionline {
     .dati, .fond {

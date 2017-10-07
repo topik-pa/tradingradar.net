@@ -146,6 +146,7 @@ body {
 	    margin-top: 20px;
 		font-size: 110%;
 	}
+		
 	
 	
 	/*LEFT COLUMN*/
@@ -155,28 +156,13 @@ body {
 			width: 100%;
 		}
     	
-		
-        .profile {
-            height: $navSectionHeight;
 			
-			.profile_pic {
-				width: 30%;
-				float: left;
-			}
-            .profile_info {
-                width: 70%;
-    			float: right;
-				padding:0;
-                h2 {
-                    display: inline-block;
-                }
-            }
-			
-        }
+        
         #sidebar-menu {
             .menu_section {
                 ul {
                     margin-top: 0;
+                    margin-bottom: 50px;
                 }
                 li {
                     padding: 5px 15px;
@@ -199,7 +185,7 @@ body {
                     padding: 13px 15px 12px;
                     cursor: default;
                     font-size: 100%;
-                    margin-bottom: 20px;
+                    margin-bottom: 40px;
                     span {
                         padding: 5px 0 0 27px;
                         display: block;
