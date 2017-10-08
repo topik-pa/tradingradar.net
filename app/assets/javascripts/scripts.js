@@ -244,17 +244,15 @@ var tradingRadar = (function() {
 		loadSources : function() {
 			
 			var sourcesPromise = new Promise(function(resolve, reject) {
-				var containerSelector = '#source-container';
-				var isin = _pageData.isin;
-				var $targets = $mainContainer.find('.ext-source .pr-section');
+				var isin = tradingRadar.getPageData().isin;
+				var $destinations = $mainContainer.find('.ext-source .pr-section');
 				var count = 0;
 				
-				$targets.each(function(index, elem) {
+				$destinations.each(function(index, elem) {
 					var url = '/sources/source' + (index+1) + '?isin=' + isin;
-					var $destination = $(this);
-					var $panel = $(this).parents('.x_panel');
 					var currentSource = $(this).parents('.ext-source').attr('id');
 					var $currentImageAnchor = $('.anchors').find('img[data-refers="' + currentSource + '"]');
+					var $target = $(this);
 					
 					$.ajax({
 						url : url,
@@ -262,18 +260,18 @@ var tradingRadar = (function() {
 						type : 'get',
 						success : function(data) {
 							var content = $(data).html();
-							$destination.html(content);
+							$target.html(content);
 						},
 						error : function() {
 							console.error('Unable to perform request');
-							$destination.addClass('error');
+							$target.addClass('error');
 							$currentImageAnchor.addClass('error');
 						},
 						complete : function() {						
-							$panel.addClass('loaded');
+							$target.addClass('loaded');
 							$currentImageAnchor.addClass('ready');
 							count++;
-							if(count == $targets.length) {
+							if(count == $destinations.length) {
 								resolve();
 							}
 						}

@@ -1,70 +1,52 @@
-// Place all the styles related to the Analyses controller here.// They will automatically be included in application.css.
-// You can use Sass (SCSS) here:http://sass-lang.com/
-
 .chart-image {
     text-align: center;
 }
-
-.back-on-top
- {
- 	i {
- 		margin-right: 8px;
- 	}
- }
+.back-on-top {
+    i {
+        margin-right: 8px;
+    }
+}
 .anchors {
-	
-	.x_panel {
-		display: flex;
-		justify-content: center;
-	}
-	
-	.anchor-link {
-	    margin: 0 15px;
-	    img {
-	        padding: 3px;
-			opacity: .6;
-			cursor: auto;
-			
-			&:hover {
-				background-color: $firstBGColor;
-			}
-			
-			&.ready {
-				opacity: 1;
-				cursor: pointer;
-			}
-			
-			&.error {
-				opacity: .6;
-				cursor: pointer;
-			}
-	    }
-	}
-	
-	
-	
+    .x_panel {
+        display: flex;
+        justify-content: center;
+    }
+    .anchor-link {
+        margin: 0 15px;
+        img {
+            padding: 3px;
+            opacity: .6;
+            cursor: auto;
+            &:hover {
+                background-color: $firstBGColor;
+            }
+            &.ready {
+                opacity: 1;
+                cursor: pointer;
+            }
+            &.error {
+                opacity: .6;
+                cursor: pointer;
+            }
+        }
+    }
 }
-
 .ext-source {
-	.x_panel {
-		background-image: image-url("loader.gif");
-	    background-repeat: no-repeat;
-	    background-position: 50%;
-	    background-size: contain;
-		min-height: 200px;
-		
-		&.loaded {
-			background-image: none;
-		}
-		
-		&.ready {
-			opacity: .6;
-			cursor: pointer;
-		}
-	}
-	
+    .pr-section {
+        background-image: image-url("loader.gif");
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: contain;
+        min-height: 200px;
+        &.loaded {
+            background-image: none;
+        }
+        &.ready {
+            opacity: .6;
+            cursor: pointer;
+        }
+    }
 }
-
 .back-on-top {
     float: right;
 }
@@ -96,6 +78,8 @@
     padding: 20px 10px;
     font-style: italic;
 }
+
+
 .borsa-italiana {
     .t-text {
         font-size: 112%;
@@ -121,18 +105,17 @@
     }
 }
 
+
 div.sole-24-ore {
-	
     display: flex;
     justify-content: space-between;
-	
 	
     table tbody td {
         max-width: 100%;
         border: 1px solid #DDD;
     }
     .pr-content {
-		margin: 0 15px;
+        margin: 0 15px;
         h3 {
             font-weight: bold;
             text-transform: uppercase;
@@ -141,12 +124,13 @@ div.sole-24-ore {
     .xpF1, .xpF2 {
         font-weight: bold;
     }
-	.xpie6fix {
-		table:nth-child(3) {
-			display: none;
-		}
-	}
+    .xpie6fix {
+        table:nth-child(3) {
+            display: none;
+        }
+    }
 }
+
 
 div.larepubblica {
     .TLB-clear {
@@ -174,48 +158,42 @@ div.larepubblica {
     .JCF-analisi-container {
         display: none;
     }
-	.TLB-header-title {
-		font-weight: bold;
-	}
-	
-	.chart-area, .TLB-range-bar {
-		display:none;
-	}
-	
-	.header-data {
-		span {
-			margin-left:5px;
-			font-style: italic;
-			font-weight: bold;
-		}
-	}
-	
-	.TLB-range-Large-Text{
-		float:left;
-		margin-right: 20px;
-	}
-	
-	.TLB-range-Small-Text {
-		font-style: italic;
-	}
-	
-	.TLB-range-max {
-		margin-left: 0!important;
-	}
-	
-	.fLeft.color-grey.margin-right {
-		font-weight: bold;
-		margin-bottom: 5px;
-	}
-	
-	.separator {
-		display:none;
-	}
-	
-	.linear-range {
-		margin-top: 20px;
-	}
+    .TLB-header-title {
+        font-weight: bold;
+    }
+    .chart-area, .TLB-range-bar {
+        display: none;
+    }
+    .header-data {
+        span {
+            margin-left: 5px;
+            font-style: italic;
+            font-weight: bold;
+        }
+    }
+    .TLB-range-Large-Text {
+        float: left;
+        margin-right: 20px;
+    }
+    .TLB-range-Small-Text {
+        font-style: italic;
+    }
+    .TLB-range-max {
+        margin-left: 0!important;
+    }
+    .fLeft.color-grey.margin-right {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .separator {
+        display: none;
+    }
+    .linear-range {
+        margin-top: 20px;
+    }
 }
+
+
 .investing {
     .left {
         float: none;
@@ -252,6 +230,8 @@ div.larepubblica {
         color: $green;
     }
 }
+
+
 .milano-finanza {
     .fleft {
         float: left;
@@ -275,11 +255,11 @@ div.larepubblica {
         max-width: 100%;
         border: 1px solid #DDD;
     }
-	table {
-		a {
-			cursor: default!important;
-		}
-	}
+    table {
+        a {
+            cursor: default!important;
+        }
+    }
     .wMax.mtop20.fleft {
         float: none;
         text-align: left;
@@ -288,11 +268,12 @@ div.larepubblica {
     .didatabelle {
         font-weight: bold;
     }
-	
-	.info.font22 {
-		margin-left: 5px;
-	}
+    .info.font22 {
+        margin-left: 5px;
+    }
 }
+
+
 .soldionline {
     .dati, .fond {
         float: left;
@@ -320,4 +301,6 @@ div.larepubblica {
         float: left;
         margin-right: 40px;
     }
+	
+	
 }

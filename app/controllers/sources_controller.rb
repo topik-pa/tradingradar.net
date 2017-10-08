@@ -59,7 +59,7 @@ class SourcesController < ApplicationController
     end
     #Il sole 24 ore
     
-    render html: ('<div id="source-container">' + @sole24OreElem1  + @sole24OreElem2 + @sole24OreElem3 + @sole24OreElem4 + '</div>').html_safe 
+    render html: ('<div id="source-container">' + '<div class="pr-content">' + @sole24OreElem1 + '</div>' + '<div class="pr-content">' + @sole24OreElem2 + '</div>' + '<div class="pr-content">' + @sole24OreElem3 + '</div>' + '<div class="pr-content">' + @sole24OreElem4 + '</div>' + '</div>').html_safe 
         
   end
 
@@ -89,7 +89,7 @@ class SourcesController < ApplicationController
     end
     #La Repubblica 
     
-    render html: ('<div id="source-container">' + @laRepubblicaElem1  + @laRepubblicaRangeValue + '</div>').html_safe
+    render html: ('<div id="source-container">' + @laRepubblicaElem1  + '<span>Range value di oggi: </span><span class="bold">' + @laRepubblicaRangeValue + '</span></div>').html_safe
     
   end
 
@@ -115,7 +115,7 @@ class SourcesController < ApplicationController
     end
     #Investing.com    
     
-    render html: ('<div id="source-container">' + @InvestingElem1  + @InvestingElem2 + '</div>').html_safe
+    render html: ('<div id="source-container">' + '<div class="pr-content">' + @InvestingElem1 + '</div>'  + '<div class="pr-content">' + @InvestingElem2 + '</div>' + '</div>').html_safe
   end
 
   def source5
@@ -155,7 +155,7 @@ class SourcesController < ApplicationController
     end
     #Milano Finanza    
     
-    render html: ('<div id="source-container">' + @milanoFinanzaElem1  + @milanoFinanzaElem2 + @milanoFinanzaElem3 + @milanoFinanzaElem4 + @milanoFinanzaElem5  + @milanoFinanzaElem6 + @milanoFinanzaElem7 + @milanoFinanzaElem8 + '</div>').html_safe 
+    render html: ('<div id="source-container">' + '<div class="pr-content">' + @milanoFinanzaElem1 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem2 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem3 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem4 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem5 + '</div>'  + '<div class="pr-content">' + @milanoFinanzaElem6 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem7 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem8 + '</div>' + '</div>').html_safe 
   end
 
   def source6
@@ -184,7 +184,7 @@ class SourcesController < ApplicationController
     end
     #Soldi online    
     
-    render html: ('<div id="source-container">' + @docSoldiOnLineElem1  + @docSoldiOnLineElem2 + @docSoldiOnLineElem3  + @docSoldiOnLineElem4.html_safe + @docSoldiOnLineElem5 + '</div>').html_safe
+    render html: ('<div id="source-container">' + '<div class="pr-content f-left">' + @docSoldiOnLineElem1 + '</div>'  + '<div class="pr-content f-left">' + @docSoldiOnLineElem2 + '</div>' + '<div class="pr-content f-right">' + @docSoldiOnLineElem3 + '</div>'  + ('<div class="pr-content clear">' + @docSoldiOnLineElem4 + '</div>').html_safe + @docSoldiOnLineElem5 + '</div>').html_safe
       
   end
 end
