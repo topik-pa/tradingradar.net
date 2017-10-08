@@ -32,8 +32,11 @@ Rails.application.routes.draw do
   get 'filters/filter_overResistanceStocksOnStudy'
   get 'filters/filter_belowSupportStocksOnStudy'
 
-  get 'filters/filter_risingCrossingStocksOnStudy'
-  get 'filters/filter_bullishDivergenceStocksOnStudy'
+  #get 'filters/filter_risingCrossingStocksOnStudy'
+  #get 'filters/filter_bullishDivergenceStocksOnStudy'
+  
+  get 'filters/filter_trendReinforcement'
+  get 'filters/filter_trendChanging'
   
   
   get 'study_page/index'

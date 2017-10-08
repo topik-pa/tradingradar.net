@@ -236,7 +236,6 @@ var tradingRadar = (function() {
 		
 		
 		initPopOvers: function() {
-			console.log('Pop');
 			$('#main-wrapper').find('[data-toggle="popover"]').popover();		    
 		},
 		

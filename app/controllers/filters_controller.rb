@@ -86,13 +86,15 @@ class FiltersController < ApplicationController
       @belowSupportStocksOnStudy = @@SJS.select("isin, name, last_price, resistance").where("last_price < support")         
       render json: @belowSupportStocksOnStudy     
   end 
+  
+  
 
-  def filter_risingCrossingStocksOnStudy
+  def filter_trendReinforcement
     @risingCrossingStocksOnStudy = @@SJS.select("isin, name, last_price").where("rsi_cross = ? OR stoch_cross = ? OR macd_cross = ?", "Rising", "Rising", "Rising")   
     render json: @risingCrossingStocksOnStudy  
   end
 
-  def filter_bullishDivergenceStocksOnStudy
+  def filter_trendChanging
     @bullishDivergenceStocksOnStudy = @@SJS.select("isin, name, last_price").where("rsi_divergence = ? OR stoch_divergence = ?", "Bullish", "Bullish")
     render json: @bullishDivergenceStocksOnStudy  
   end

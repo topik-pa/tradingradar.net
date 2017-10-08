@@ -49,6 +49,7 @@ class SourcesController < ApplicationController
         docSole24Ore.search('script').each do |elem|
           elem.remove
         end
+        docSole24Ore.xpath('//img[contains(@src,"images2010")]').remove  
         @sole24OreElem1 = '<h3>Anagrafica</h3>' + docSole24Ore.at_xpath('/descendant::table[@class="boxDati_G3"][4]').to_s.html_safe
         @sole24OreElem2 = '<h3>Indici borsistici e redditivit&agrave;</h3>' + docSole24Ore.at_xpath('/descendant::table[@class="boxDati_G3"][6]').to_s.html_safe   
         @sole24OreElem3 = '<h3>Sintesi bilancio</h3>' + docSole24Ore.at_xpath('/descendant::div[@class="xpie6fix"][3]').to_s.html_safe
