@@ -103,10 +103,17 @@ legend {
 .nav.child_menu > li > span {
 	a {
 		color: #E7E7E7;
+		display: block;
+	    padding: 6px 0px 6px 0px;
+	}
+	
+	i {
+		float:left;
+		margin: 6px 0px 0px 10px;
 	}
   color: #E7E7E7;
   font-weight: 500;
-  padding: 13px 15px 12px;
+  /*padding: 13px 15px 12px;*/
 }
 
 

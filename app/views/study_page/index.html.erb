@@ -1,16 +1,15 @@
+<% title @stock.name + ' - analisi tecnica personale | Press release' %>
+<% meta_tag :description, 'Analisi trading per il titolo' +  @stock.name + 'del mercato italiano' %>
+<% meta_tag :keywords, @stock.name + ', analisi, tecnica, Borsa, Italiana, Milano, Finanza' %>
+<% meta_tag :robots, 'index, follow' %>
+<% meta_tag :author, $author + ' - ' + $authorMail %>
+
 <div class="container body">
     <div class="main_container">
         <%= render("shared/left_col") %>
         <%= render("shared/top_nav") %>
         <div class="right_col" role="main">
             <%= render("shared/namePriceVariation") %>
-            <div class="row section">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="return">
-                        <i class="fa fa-angle-left"></i>&nbsp;<%= link_to "Return to title analisys", stock_page_index_path(isin: @stock.isin) %>
-                    </div>
-                </div>
-            </div>
             <%= render("last_study") %>
             <%= render("add_study") %>
         </div>
