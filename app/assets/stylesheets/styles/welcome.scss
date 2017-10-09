@@ -34,10 +34,19 @@
 			background-image: url('/images/loader.gif');
 			background-repeat: no-repeat;
 		    background-position: 50%;
-		    background-size: contain;
+		    background-size: 25%;
 			
 			&.loaded {
 				background: none;
+			}
+			
+			&.disabled {
+				background: none;
+				display: flex;
+			    align-items: center;
+			    justify-content: center;
+				color: $light-gray;
+				text-align: center;
 			}
 			
 			tr.repeated {

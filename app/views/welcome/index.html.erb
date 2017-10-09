@@ -66,12 +66,15 @@
                     <%= render("filter") %>
                     <%= render("filter") %>
                 </div>
+				<div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="info">
+                        <i class="fa fa-info"></i>Filtri basati sulle analisi personali
+                    </div>
+                </div>
                 <div class="personals">
-                    <% if $user.present? %>
                     <%= render("filter") %>
                     <%= render("filter") %>
                     <%= render("filter") %>
-                    <% end %>
                 </div>
             </div>
 			

@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
   $user_id = nil
   $user_email = nil
   $isAdmin = false
+  $isLogged = false
   
   $maxRetryToGetUrl = 2
   $sleepTime = 2
@@ -44,6 +45,7 @@ class ApplicationController < ActionController::Base
         $user_id = session[:user_id]
         $user_email = @current_user.email
         $isAdmin = @current_user.email == $adminEmail
+        $isLogged = true
       end
   end
   
@@ -55,6 +57,7 @@ class ApplicationController < ActionController::Base
     $user_id = nil
     $user_email = nil
     $isAdmin = false
+    $isLogged = false
   end
 
   def require_user 
@@ -631,7 +634,7 @@ class ApplicationController < ActionController::Base
       updateAnalysisTable
     end
     
-    scheduler.cron '00 07 * * 1-5', :blocking => true do
+    scheduler.cron '20 07 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
     end
