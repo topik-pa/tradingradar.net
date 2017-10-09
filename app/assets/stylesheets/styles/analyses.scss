@@ -8,8 +8,10 @@
 }
 .anchors {
     .x_panel {
+        .anchors {
         display: flex;
         justify-content: center;
+        }
     }
     .anchor-link {
         margin: 0 15px;

@@ -1,4 +1,4 @@
-<% title @stock.name + ' - analisi tecnica, rassegna stampa e idee di trading | Press release' %>
+<% title @stock.name + ' - rassegna stampa, analisi tecnica e idee di trading | Press release' %>
 <% meta_tag :description, 'Analisi trading e rassegna stampa per il titolo' +  @stock.name + 'del mercato italiano' %>
 <% meta_tag :keywords, @stock.name + ', trading, analisi, tecnica, rassegna, stampa, Borsa, Italiana, Milano, Finanza' %>
 <% meta_tag :robots, 'index, follow' %>
@@ -9,26 +9,28 @@
         <%= render("shared/top_nav") %>
         <div class="right_col" role="main">
             <%= render("shared/namePriceVariation") %>
-            <div class="row section anchors">
+            <section class="row section anchors">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
+                        <h2>Cliccare sull&apos;icona del sito per visualizzare le analisi relative. I dati sono forniti in tempo reale. </h2>
                         <%= render("anchors") %>
                     </div>
                 </div>
-            </div>
-            <div class="row section">
+            </section>
+            <section class="row section">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <h2>Analisi grafica titolo: <%= @stock.name %></h2>
+                        Fonte: <a href="<%= @urlSoldiOnLine %>" title="Vai alla analisi titolo su Soldi On Line">Soldi On Line</a>
                         <div class="chart-image">
                             <img src="<%= @urlchartImage %>" title="Analisi grafica: <%= @stock.name %>" alt="Analisi grafica: <%= @stock.name %>" />
                         </div>
                     </div>
                 </div>
-            </div><%if $user.present? %>
+            </section><%if $user.present? %>
             <%= render("last_study") %>
             <%end %>
-            <div class="row section press-release">
+            <section class="row section press-release">
                 <div class="col-md-12 col-sm-12 col-xs-12 ext-source" id="borsa-italiana">
                     <div class="x_panel">
                         <div class="pr-title">
@@ -36,11 +38,11 @@
                         </div>
                         <% if @urlBorsaItaliana and @urlBorsaItaliana2 %>
                         <div>
-                            Source: <a href="<%= @urlBorsaItaliana %>" title="Vai alla analisi titolo su Borsa Italiana">Borsa italiana scheda titolo</a>
-                            and <a href="<%= @urlBorsaItaliana2 %>" title="Vai alla analisi titolo su Borsa Italiana">Borsa italiana analisi tecnica</a>
+                            Fonte: <a href="<%= @urlBorsaItaliana %>" title="Vai alla analisi titolo su Borsa Italiana">Borsa italiana scheda titolo</a>
+                            e <a href="<%= @urlBorsaItaliana2 %>" title="Vai alla analisi titolo su Borsa Italiana">Borsa italiana analisi tecnica</a>
                         </div>
                         <% else %>
-                        Missing source data, only DB data will be displayed. <% end %>
+                        Dati mancanti, saranno visualizzati solo in dati salvati nel database. <% end %>
                         <% if @analisis %>
                         <table class="tablesorter nojs">
                             <thead>
@@ -84,10 +86,10 @@
                         </div>
                         <% if @urlSole24Ore %>
                         <div>
-                            Dati da: <a href="<%= @urlSole24Ore %>" title="Vai alla analisi titolo su Il Sole 24 Ore">Il Sole 24 Ore</a>
+                            Fonte: <a href="<%= @urlSole24Ore %>" title="Vai alla analisi titolo su Il Sole 24 Ore">Il Sole 24 Ore</a>
                         </div>
                         <% else %>
-                        Missing source data, only DB data will be displayed. <% end %>
+                        Dati mancanti, saranno visualizzati solo in dati salvati nel database. <% end %>
                         <% if @analisis %>
                         <table class="tablesorter nojs">
                             <thead>
@@ -149,10 +151,10 @@
                         </div>
                         <% if @urlLaRepubblica %>
                         <div>
-                            Source: <a href="<%= @urlLaRepubblica %>" title="Vai alla analisi titolo su La Repubblica">La Repubblica</a>
+                            Fonte: <a href="<%= @urlLaRepubblica %>" title="Vai alla analisi titolo su La Repubblica">La Repubblica</a>
                         </div>
                         <% else %>
-                        Missing source data, only DB data will be displayed. <% end %>
+                        Dati mancanti, saranno visualizzati solo in dati salvati nel database. <% end %>
                         <% if @analisis %>
                         <table class="tablesorter nojs">
                             <thead>
@@ -190,10 +192,10 @@
                         </div>
                         <% if @urlInvesting %>
                         <div>
-                            Source: <a href="<%= @urlInvesting %>" title="Vai alla analisi titolo su Investing.com">Investing.com</a>
+                            Fonte: <a href="<%= @urlInvesting %>" title="Vai alla analisi titolo su Investing.com">Investing.com</a>
                         </div>
                         <% else %>
-                        Missing source data, only DB data will be displayed. <% end %>
+                        Dati mancanti, saranno visualizzati solo in dati salvati nel database. <% end %>
                         <% if @analisis %>
                         <table class="tablesorter nojs">
                             <thead>
@@ -229,11 +231,11 @@
                         </div>
                         <% if @urlMilanoFinanza and @urlMilanoFinanza2 %>
                         <div>
-                            Source: <a href="<%= @urlMilanoFinanza %>" title="Vai alla analisi titolo su Milano Finanza">Milano Finanza</a>
+                            Fonte: <a href="<%= @urlMilanoFinanza %>" title="Vai alla analisi titolo su Milano Finanza">Milano Finanza</a>
                             and <a href="<%= @urlMilanoFinanza2 %>" title="Vai alla analisi titolo su Milano Finanza">Milano Finanza</a>
                         </div>
                         <% else %>
-                        Missing source data, only DB data will be displayed. <% end %>
+                        Dati mancanti, saranno visualizzati solo in dati salvati nel database. <% end %>
                         <% if @analisis %>
                         <table class="tablesorter nojs">
                             <thead>
@@ -271,23 +273,23 @@
                         </div>
                         <% if @urlSoldiOnLine %>
                         <div>
-                            Source: <a href="<%= @urlSoldiOnLine %>" title="Vai alla analisi titolo su Soldi On Line">Soldi On Line</a>
+                            Fonte: <a href="<%= @urlSoldiOnLine %>" title="Vai alla analisi titolo su Soldi On Line">Soldi On Line</a>
                         </div>
                         <% else %>
-                        Missing source data, only DB data will be displayed. <% end %>
+                        Dati mancanti, saranno visualizzati solo in dati salvati nel database. <% end %>
                         <div class="pr-section soldionline">
                         </div>
                         <a href="#main-wrapper" data-turbolinks="false" class="back-on-top" title="Torna in alto"><i class="fa fa-chevron-up"></i>Torna in alto</a>
                     </div>
                 </div>
-            </div>
-            <div class="row section">
+            </section>
+            <section class="row section">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="keywords">
                         Keywords: trading <%= @stock.name %>, rassegna stampa e analisi con dati provenienti da Borsa Italiana, Milano Finanza, Il Sole 24 Ore, Investing.com, La Repubblica, Soldi On Line
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
         <%= render("shared/footer") %>
     </div>

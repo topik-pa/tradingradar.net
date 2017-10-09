@@ -17,9 +17,9 @@
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     </head>
     <body class="nav-md">
-        <div id="main-wrapper" class="<%= controller.controller_name %>">
+        <main id="main-wrapper" class="<%= controller.controller_name %>">
             <%= yield %>
-        </div> 
+        </main> 
 		
 		<input id="pageData" type="hidden" data-isin="<%= params[:isin] ? params[:isin] : '' %>" data-user="<%= $user %>" data-isadmin="<%= $isAdmin %>" data-islogged="<%= $isLogged %>"/>    
 		

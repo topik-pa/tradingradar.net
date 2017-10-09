@@ -5,8 +5,8 @@
             <span><%= @stock.last_price %>&euro;</span>&nbsp;/&nbsp;<span class="<%= colorClass(@stock.variation)%>"><%=@stock.variation %>%</span>
         </div>
 		<div class="content">
-			<h2>Titolo: <%= @stock.name %> - <%= @stock.cod %>.MI - analisi tecnica, notizie e suggerimenti di trading per il mercato italiano.</h2>
-            Analisi trading e rassegna stampa per il titolo <%= @stock.name %>. I dati sono ottenuti in tempo reale.
+			<h2>Titolo: <%= @stock.name %> - <%= @stock.cod %>.MI: rassegna stampa in tempo reale con dati provenienti dai principali media online del settore trading.</h2>
+            Analisi tecnica e rassegna stampa per il titolo <%= @stock.name %>. I dati sono ottenuti in tempo reale.
         </div>
 		<div class="return">
             <i class="fa fa-angle-left"></i>&nbsp;<%= link_to "Torna in Home page", root_path %>

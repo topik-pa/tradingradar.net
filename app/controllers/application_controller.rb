@@ -17,12 +17,14 @@ class ApplicationController < ActionController::Base
   $adminEmail = 'agendatrading@yahoo.com'
   $author = 'Marco Pavan'
   $authorMail = 'marcopavan.mp@gmail.com'
+  $lastUpdate = Time.at(0)
   
   $user = nil
   $user_id = nil
   $user_email = nil
   $isAdmin = false
   $isLogged = false
+  
   
   $maxRetryToGetUrl = 2
   $sleepTime = 2
@@ -626,17 +628,20 @@ class ApplicationController < ActionController::Base
     
     scheduler.cron '00 02 * * 1-5', :blocking => true do
       updateAnalysisTable
+      $lastUpdate = Time.now
     end
     
     scheduler.cron '00 06 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
       updateAnalysisTable
+      $lastUpdate = Time.now
     end
     
     scheduler.cron '20 07 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
+      $lastUpdate = Time.now
     end
     
     scheduler.cron '00 08 * * 1-5', :blocking => true do
@@ -647,52 +652,62 @@ class ApplicationController < ActionController::Base
     scheduler.cron '00 09 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
+      $lastUpdate = Time.now
     end
         
     scheduler.cron '00 10 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
       updateAnalysisTable
+      $lastUpdate = Time.now
     end
     
     scheduler.cron '00 11 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
+      $lastUpdate = Time.now
     end
     
     scheduler.cron '00 12 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
+      $lastUpdate = Time.now
     end
         
     scheduler.cron '00 13 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
+      $lastUpdate = Time.now
     end
     
     scheduler.cron '00 14 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
+      $lastUpdate = Time.now
     end
     
     scheduler.cron '00 15 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
+      $lastUpdate = Time.now
     end
     
     scheduler.cron '00 16 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
       updateAnalysisTable
+      $lastUpdate = Time.now
     end
     
     scheduler.cron '00 17 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
+      $lastUpdate = Time.now
     end
     
     scheduler.cron '00 08 * * 6-7', :blocking => true do
       updateAnalysisTable
+      $lastUpdate = Time.now
     end
         
 

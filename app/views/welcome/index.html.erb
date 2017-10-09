@@ -8,7 +8,7 @@
         <%= render("shared/left_col") %>
         <%= render("shared/top_nav") %>
         <div class="right_col" role="main"">
-            <div class="row section">
+            <section class="row section">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <h1>Trading Radar - 
                         <small>
@@ -24,15 +24,15 @@
 						Gli utenti registrati hanno la possibilit&agrave; di aggiungere analisi personalizzate e 3 ulteriori filtri.
                     </div>
                 </div>
-            </div>
-            <div class="row section">
+            </section>
+            <section class="row section">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="info">
-                        <i class="fa fa-info"></i>Ultimo aggiornamento dati: <span class="italic"><%= @stocks.first.updated_at.strftime("%d/%m - %H:%M") %></span>
+                        <i class="fa fa-info"></i>Ultimo aggiornamento dati: <span class="italic"><%= $lastUpdate.strftime("%d/%m - %H:%M") %></span>
                     </div>
                 </div>
-            </div>
-            <div class="row section">
+            </section>
+            <section class="row section">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="markets">
                         <%= render :partial => "markets", :object => @firstRowMarkets %>
@@ -40,10 +40,10 @@
                         <%= render :partial => "markets", :object => @thirdRowMarkets %>
                     </div>
                 </div>
-            </div>
+            </section>
             <%= render("stocks") %>
 			
-            <div class="row section filters">
+            <section class="row section filters">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="info">
                         <i class="fa fa-info"></i>I titoli in <span class="bold">grassetto</span>
@@ -76,15 +76,15 @@
                     <%= render("filter") %>
                     <%= render("filter") %>
                 </div>
-            </div>
+            </section>
 			
-            <div class="row section">
+            <section class="row section">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="keywords">
                         Keywords: analisi e suggerimenti di acquisto e vendita, spunti di trading e rassegna stampa dai mercati internazionali e dal FTSE MIB Italia MTA.
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
         <%= render("shared/footer") %>
     </div>
