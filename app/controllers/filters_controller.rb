@@ -23,36 +23,36 @@ class FiltersController < ApplicationController
   
   #Channels brakes Borsa Italiana
   def filter_overResistanceBorsaItaliana
-    @overResistanceStocksBorsaItaliana = @@SJA.select("stocks.isin, name, last_price, borsa_italiana_resistance").where("last_price > borsa_italiana_resistance")    
+    @overResistanceStocksBorsaItaliana = @@SJA.select("stocks.isin, name, last_price, borsa_italiana_resistance").where("borsa_italiana_resistance > 0 AND last_price > borsa_italiana_resistance")    
     render json: @overResistanceStocksBorsaItaliana
   end
     
   def filter_belowSupportBorsaItaliana
-    @belowSupportStocksBorsaItaliana = @@SJA.select("stocks.isin, name, last_price, borsa_italiana_support").where("last_price < borsa_italiana_support")    
+    @belowSupportStocksBorsaItaliana = @@SJA.select("stocks.isin, name, last_price, borsa_italiana_support").where("borsa_italiana_support > 0 AND last_price < borsa_italiana_support")    
     render json: @belowSupportStocksBorsaItaliana
   end 
   
   
   #Channels brakes Sole 24 Ore
   def filter_overResistanceSoleXXIVOre
-    @overResistanceStocksSolexxivore = @@SJA.select("stocks.isin, name, last_price, xxivore_resistance").where("last_price > xxivore_resistance")    
+    @overResistanceStocksSolexxivore = @@SJA.select("stocks.isin, name, last_price, xxivore_resistance").where("xxivore_resistance > 0 AND last_price > xxivore_resistance")    
     render json: @overResistanceStocksSolexxivore
   end
     
   def filter_belowSupportSoleXXIVOre
-    @belowSupportStocksSolexxivore = @@SJA.select("stocks.isin, name, last_price, xxivore_support").where("last_price < xxivore_support")    
+    @belowSupportStocksSolexxivore = @@SJA.select("stocks.isin, name, last_price, xxivore_support").where("xxivore_support > 0 AND last_price < xxivore_support")    
     render json: @belowSupportStocksSolexxivore
   end
     
     
   #Channels brakes Repubblica
   def filter_overResistanceRepubblica
-    @overResistanceStocksRepubblica = @@SJA.select("stocks.isin, name, last_price, repubblica_resistance").where("last_price > repubblica_resistance")    
+    @overResistanceStocksRepubblica = @@SJA.select("stocks.isin, name, last_price, repubblica_resistance").where("repubblica_resistance > 0 AND last_price > repubblica_resistance")    
     render json: @overResistanceStocksRepubblica
   end
   
   def filter_belowSupportRepubblica
-    @belowSupportStocksRepubblica = @@SJA.select("stocks.isin, name, last_price, repubblica_support").where("last_price < repubblica_support")    
+    @belowSupportStocksRepubblica = @@SJA.select("stocks.isin, name, last_price, repubblica_support").where("repubblica_support > 0 AND last_price < repubblica_support")    
     render json: @belowSupportStocksRepubblica
   end
     
@@ -87,16 +87,14 @@ class FiltersController < ApplicationController
       render json: @belowSupportStocksOnStudy     
   end 
   
-  
-
   def filter_trendReinforcement
-    @risingCrossingStocksOnStudy = @@SJS.select("isin, name, last_price").where("rsi_cross = ? OR stoch_cross = ? OR macd_cross = ?", "Rising", "Rising", "Rising")   
-    render json: @risingCrossingStocksOnStudy  
+    @trendReinforcement = @@SJS.select("isin, name, last_price, trading_position, continuation_chart_pattern, continuation_candlestick").where("continuation_chart_pattern <> ? OR continuation_candlestick <> ?", "", "")
+    render json: @trendReinforcement
   end
 
   def filter_trendChanging
-    @bullishDivergenceStocksOnStudy = @@SJS.select("isin, name, last_price").where("rsi_divergence = ? OR stoch_divergence = ?", "Bullish", "Bullish")
-    render json: @bullishDivergenceStocksOnStudy  
+    @trendChanging = @@SJS.select("isin, name, last_price, trading_position, reversal_chart_pattern, reversal_candlestick, rsi_divergence, stoch_divergence").where("reversal_chart_pattern <> ? OR reversal_candlestick <> ? OR rsi_divergence = ? OR stoch_divergence = ? OR rsi_divergence = ? OR stoch_divergence = ?", "", "", "Bullish", "Bullish", "Bearish", "Bearish")
+    render json: @trendChanging
   end
   
 

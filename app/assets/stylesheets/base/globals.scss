@@ -95,7 +95,7 @@ body {
 	
     h1 {
         @extend .title;
-        font-size: $font-verylarge;
+        font-size: $font-huge;
     }
 	
     h2 {
@@ -104,15 +104,22 @@ body {
 	
 
     .img-logo-small {
-        max-height: 30px;
+        max-height: 28px;
         vertical-align: middle;
         image-rendering: -webkit-optimize-contrast;
-        margin-left: 10px;
+        margin-left: 5px;
     }
 	
     .main-logo {
         height: $navSectionHeight;
         padding: 0 5px;
+        image-rendering: -webkit-optimize-contrast;
+    }
+
+    .logo {
+        height: 35px;
+        vertical-align: middle;
+        margin: 5px;
         image-rendering: -webkit-optimize-contrast;
     }
 	
@@ -216,4 +223,99 @@ body {
             line-height: 29px;
         }
     }
+}
+
+
+
+/*==========  Non-Mobile First Method  ==========*/
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1600px) {
+	#main-wrapper {
+		font-size: 11px;
+		width: 88%;
+		
+		.img-logo-small {
+			max-height: 25px;
+		    margin-left: 3px;
+		}
+		
+		/*.hp-filter {
+			font-size: 95%;
+			h2 {
+				font-size: 110%;
+			}
+		}
+		
+		.tile_count .tile_stats_count span {
+		    font-size: 125%;
+		}*/
+	}
+}
+@media only screen and (max-width : 1400px) {
+	#main-wrapper {
+		font-size: 10px;
+		
+		.img-logo-small {
+			max-height: 22px;
+		}
+	}
+}
+@media only screen and (max-width : 1300px) {
+	#main-wrapper {
+		font-size: 9px;	
+		
+		.img-logo-small {
+			display:block;
+		}
+		
+		.anchors .anchor-link img {
+			width: 90px;
+		}
+	}
+}
+@media only screen and (max-width : 1100px) {
+	#main-wrapper {
+		.anchors .anchor-link {
+			margin: 0 10px;
+			img {
+				width: 80px;
+			}
+		}
+	}
+}
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 991px) {
+	#main-wrapper {
+		.container.body .right_col {
+		    margin-left: 0;
+		}
+	}
+}
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	#main-wrapper {
+		.img-logo-small {
+			display:inline;
+		}
+		.anchors {
+			flex-wrap: wrap;
+			
+			.anchor-link {
+				display: inline;
+			}
+		}
+		 
+	}
+}
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+	#main-wrapper {
+		
+	}
+}
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+	#main-wrapper {
+		
+	}
 }

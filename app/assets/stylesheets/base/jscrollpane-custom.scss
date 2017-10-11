@@ -1,0 +1,29 @@
+.jspVerticalBar 
+{
+    width: 5px;
+    background: transparent;
+}
+
+.jspVerticalBar .jspTrack
+{
+    background: #DDD;
+}
+
+.jspVerticalBar .jspDrag
+{
+    background: transparent;
+    border-right: 5px solid #AAA;
+}
+
+.jspHorizontalBar {
+  height: 5px;
+  background: transparent;
+
+    .jspTrack {
+      background: #DDD;
+    }
+    .jspDrag {
+      background: transparent;
+      border-top: 5px solid #AAA;
+    }
+}

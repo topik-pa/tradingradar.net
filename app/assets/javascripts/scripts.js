@@ -1,4 +1,4 @@
-var tradingRadar = (function() {
+var tradingRadar = (function () {
 
     var _pageData = {};
     var $inputElem = $('#pageData');
@@ -8,7 +8,7 @@ var tradingRadar = (function() {
 
     return {
 
-        setPageData: function() {
+        setPageData: function () {
             if ($inputElem.length > 0) {
                 _pageData.isin = $inputElem.data('isin');
                 _pageData.user = $inputElem.data('user');
@@ -18,45 +18,45 @@ var tradingRadar = (function() {
         },
 
 
-        getPageData: function() {
+        getPageData: function () {
             return _pageData;
         },
 
-        getHPFilters: function() {
+        getHPFilters: function () {
             return HPFilters;
         },
 
 
-        manageWindowPosition: function() {
+        manageWindowPosition: function () {
 
             var active = true;
             var offset1 = 0;
             var offset2 = 0;
 
-            var checkPosition = utils.debounce(function() {
+            var checkPosition = utils.debounce(function () {
                 if (active && window.pageYOffset >= offset1) {
                     active = false;
                 }
-                if (window.pageYOffset >= offset2) {}
+                if (window.pageYOffset >= offset2) { }
             }, 50);
 
             checkPosition();
 
-            $(window).scroll(function() {
+            $(window).scroll(function () {
                 checkPosition();
             });
         },
 
 
-        scrollDown: function() {
-            $('#scrolldown').click(function(e) {
+        scrollInit: function () {
+            $('.back-on-top').click(function (e) {
                 e.preventDefault();
-                $('body').scrollTo($('#elem'), 800);
+                $.scrollTo($('#main-wrapper'), 600);
             });
         },
 
 
-        getParameterByName: function(name, url) {
+        getParameterByName: function (name, url) {
             if (!url) url = window.location.href;
             name = name.replace(/[\[\]]/g, "\\$&");
             var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
@@ -67,36 +67,43 @@ var tradingRadar = (function() {
         },
 
 
-        fixHREFs: function() {
+        fixHREFs: function () {
             var milanoFinanzaUrl = 'https://www.milanofinanza.it';
             $links = $mainContainer.find('.milano-finanza a');
             $linksToDisable = $mainContainer.find('.milano-finanza table a');
-            $links.each(function() {
+            $links.each(function () {
                 var actualHREF = $(this).attr('href');
                 var newHREF = milanoFinanzaUrl + actualHREF;
                 $(this).attr('href', newHREF);
             });
 
-            $linksToDisable.click(function(e) {
+            $linksToDisable.click(function (e) {
                 e.preventDefault();
             })
 
         },
 
 
-        initPopOvers: function() {
+        /*initScrollBars: function () {
+            $mainContainer.find('.hp-filter').each(function() {
+                $(this).find('.x_content.loaded').jScrollPane();
+            });
+        },*/
+
+
+        initPopOvers: function () {
             $('#main-wrapper').find('[data-toggle="popover"]').popover();
         },
 
 
-        loadSources: function() {
+        loadSources: function () {
 
-            var sourcesPromise = new Promise(function(resolve, reject) {
+            var sourcesPromise = new Promise(function (resolve, reject) {
                 var isin = tradingRadar.getPageData().isin;
                 var $destinations = $mainContainer.find('.ext-source .pr-section');
                 var count = 0;
 
-                $destinations.each(function(index, elem) {
+                $destinations.each(function (index, elem) {
                     var url = '/sources/source' + (index + 1) + '?isin=' + isin;
                     var currentSource = $(this).parents('.ext-source').attr('id');
                     var $currentImageAnchor = $('.anchors').find('img[data-refers="' + currentSource + '"]');
@@ -106,16 +113,16 @@ var tradingRadar = (function() {
                         url: url,
                         data: 'text/html',
                         type: 'get',
-                        success: function(data) {
+                        success: function (data) {
                             var content = $(data).html();
                             $target.html(content);
                         },
-                        error: function() {
+                        error: function () {
                             console.error('Unable to perform request');
                             $target.addClass('error');
                             $currentImageAnchor.addClass('error');
                         },
-                        complete: function() {
+                        complete: function () {
                             $target.addClass('loaded');
                             $currentImageAnchor.addClass('ready');
                             count++;
@@ -128,9 +135,9 @@ var tradingRadar = (function() {
 
                 });
 
-            }).then(function() {
+            }).then(function () {
                 tradingRadar.fixHREFs();
-            }).catch(function(err) {
+            }).catch(function (err) {
                 console.error(err);
             });
 
@@ -138,9 +145,9 @@ var tradingRadar = (function() {
         },
 
 
-        highlightStocks: function() {
+        highlightStocks: function () {
 
-            $('.suggestions table:first-child tr').each(function() {
+            $('.suggestions table:first-child tr').each(function () {
                 var isin = $(this).data('isin');
                 var $occurences = $('.suggestions tr[data-isin=' + isin + ']');
 
@@ -151,7 +158,7 @@ var tradingRadar = (function() {
             });
 
 
-            $('.break-outs table.Resistance').eq(0).find('tr').each(function() {
+            $('.break-outs table.Resistance').eq(0).find('tr').each(function () {
                 var isin = $(this).data('isin');
                 var $occurences = $('.break-outs table.Resistance tr[data-isin=' + isin + ']');
 
@@ -162,7 +169,7 @@ var tradingRadar = (function() {
             });
 
 
-            $('.break-outs table.Support').eq(0).find('tr').each(function() {
+            $('.break-outs table.Support').eq(0).find('tr').each(function () {
                 var isin = $(this).data('isin');
                 var $occurences = $('.break-outs table.Support tr[data-isin=' + isin + ']');
 
@@ -175,20 +182,22 @@ var tradingRadar = (function() {
 
 
 
-        loadHPFilters: function() {
+        loadHPFilters: function () {
 
             var filters = tradingRadar.getHPFilters();
 
-            var filtersCount = Object.keys(filters).length;
+            //var filtersCount = Object.keys(filters).filter(function(obj){debugger;return obj.active==true}).length;
+            var filtersCount = filters.filter(function(obj){return obj.active}).length;
+            
             var filtersWorked = 0;
 
-            var filtersPromise = new Promise(function(resolve, reject) {
+            var filtersPromise = new Promise(function (resolve, reject) {
                 for (var filter in filters) {
 
                     if (filters.hasOwnProperty(filter)) {
 
 
-                        var filterPromise = new Promise(function(resolve, reject) {
+                        var filterPromise = new Promise(function (resolve, reject) {
                             var obj = filters[filter];
 
 
@@ -209,18 +218,18 @@ var tradingRadar = (function() {
 
                                 var $placeholder = $('<div/>');
                                 $placeholder.html('Filtro non diponibile. <br/> Utente non loggato o dati non disponibili.');
-                                
-                                $placeholder.appendTo($contentElem);   
-                                
+
+                                $placeholder.appendTo($contentElem);
+
                                 $contentElem.addClass('disabled');
 
                                 resolve();
-                                
+
                                 return;
                             }
 
 
-                            obj.urls.forEach(function(url, index) {
+                            obj.urls.forEach(function (url, index) {
 
                                 var $table = $('<table/>', {
                                     class: 'tablesorter ' + obj.captions[index]
@@ -233,7 +242,7 @@ var tradingRadar = (function() {
 
                                 var thead = '';
                                 thead = '<thead><tr>';
-                                obj.table_headers[index].forEach(function(theader) {
+                                obj.table_headers[index].forEach(function (theader) {
                                     thead += '<th>' + theader + '</th>';
                                 });
                                 thead += '</tr></thead>';
@@ -243,16 +252,16 @@ var tradingRadar = (function() {
                                     url: url,
                                     data: 'text/json',
                                     type: 'get',
-                                    success: function(response) {
+                                    success: function (response) {
 
                                         var tbody = '<tbody>';
-                                        $.each(response, function(i, item) {
+                                        $.each(response, function (i, item) {
                                             var rowClass = i % 2 === 0 ? 'even' : 'odd';
 
                                             tbody += '<tr class="' + rowClass + '" data-isin="' + item.isin + '">';
                                             tbody += '<td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td>';
 
-                                            obj.attributes[index].forEach(function(attribute) {
+                                            obj.attributes[index].forEach(function (attribute) {
 
                                                 tbody += '<td>' + item[attribute] + '</td>';
                                             });
@@ -264,17 +273,18 @@ var tradingRadar = (function() {
                                         $table.append(tbody);
 
                                     },
-                                    error: function(err) {
+                                    error: function (err) {
                                         console.error(err);
 
                                     },
-                                    complete: function() {
+                                    complete: function () {
                                         count++;
                                         if (count === obj.urls.length) {
                                             $contentElem.addClass('loaded');
+                                            $contentElem.jScrollPane();
                                             filtersWorked++;
-                                            if (filtersCount == filtersWorked) {
-                                                resolve();
+                                            if (filtersCount == filtersWorked) {                                                
+                                                resolve();                                                
                                             }
                                         }
                                     }
@@ -282,24 +292,21 @@ var tradingRadar = (function() {
 
                             });
 
-                        }).then(function() {
+                        }).then(function () {
                             resolve();
-                        }).catch(function(err) {
+                        }).catch(function (err) {
                             console.error(err);
                             reject();
                         });
 
                     }
                 }
-            }).then(function() {
+            }).then(function () {
                 tradingRadar.highlightStocks();
                 tradingRadar.initPopOvers();
-            }).catch(function(err) {
+            }).catch(function (err) {
                 console.error(err);
             });
-
-
-
 
         }
 
@@ -313,27 +320,27 @@ var pageData = tradingRadar.getPageData();
 
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     $('#main-wrapper').find(".tablesorter:not(.nojs)").tablesorter();
 
 
     if ($('.stock_page').length) {
         tradingRadar.loadSources();
+        tradingRadar.scrollInit();
     }
 
 
     if ($('.welcome').length) {
-        tradingRadar.loadHPFilters();
-
+        tradingRadar.loadHPFilters();        
     }
 
 });
 
 
 
-var HPFilters = {
-    filter_1: {
+var HPFilters = [
+    {
         index: 0,
         active: true,
         title: 'Violazione trendline ',
@@ -346,8 +353,8 @@ var HPFilters = {
         },
         captions: ['Resistenza', 'Supporto'],
         table_headers: [
-            ['Nome', 'Ultimo prezzo', 'Borsa Italiana'],
-            ['Nome', 'Ultimo prezzo', 'Borsa Italiana']
+            ['Nome', 'Ultimo prezzo', 'Resistenza Borsa Italiana'],
+            ['Nome', 'Ultimo prezzo', 'Supporto Borsa Italiana']
         ],
         attributes: [
             ['last_price', 'borsa_italiana_resistance'],
@@ -356,7 +363,7 @@ var HPFilters = {
         info_title: 'Violazione trendline secondo "Borsa Italiana"',
         info_content: 'Violazione di resistenze e supporti secondo "Borsa Italiana"'
     },
-    filter_2: {
+    {
         index: 1,
         active: true,
         title: 'Violazione trendline ',
@@ -369,8 +376,8 @@ var HPFilters = {
         },
         captions: ['Resistenza', 'Supporto'],
         table_headers: [
-            ['Nome', 'Ultimo prezzo', 'Il sole 24 ore'],
-            ['Nome', 'Ultimo prezzo', 'Il Sole 24 Ore']
+            ['Nome', 'Ultimo prezzo', 'Resistenza Il sole 24 ore'],
+            ['Nome', 'Ultimo prezzo', 'Supporto Il Sole 24 Ore']
         ],
         attributes: [
             ['last_price', 'xxivore_resistance'],
@@ -379,7 +386,7 @@ var HPFilters = {
         info_title: 'Violazione trendline per "Il Sole 24 Ore"',
         info_content: 'Violazione di resistenze e supporti secondo "Il sole 24 ore"'
     },
-    filter_3: {
+    {
         index: 2,
         active: false,
         title: 'Violazione trendline ',
@@ -392,8 +399,8 @@ var HPFilters = {
         },
         captions: ['Resistenza', 'Supporto'],
         table_headers: [
-            ['Nome', 'Ultimo prezzo', 'La Repubblica'],
-            ['Nome', 'Ultimo prezzo', 'La Repubblica']
+            ['Nome', 'Ultimo prezzo', 'Resistenza La Repubblica'],
+            ['Nome', 'Ultimo prezzo', 'Supporto La Repubblica']
         ],
         attributes: [
             ['last_price', 'repubblica_resistance'],
@@ -403,7 +410,7 @@ var HPFilters = {
         info_content: 'Violazione di resistenze e supporti secondo "La Repubblica"'
     },
 
-    filter_4: {
+    {
         index: 3,
         active: true,
         title: 'Indicazioni da ',
@@ -425,7 +432,7 @@ var HPFilters = {
         info_content: 'Titoli con "MF Risk" minore di 25 e "MF Rating" almeno B secondo le analisi di "Milano Finanza"'
     },
 
-    filter_5: {
+    {
         index: 4,
         active: true,
         title: 'Indicazioni da  ',
@@ -447,7 +454,7 @@ var HPFilters = {
         info_content: 'Titoli con "Short trend" "Molto rialzista" e "FTA Index" di almeno 50 e "RSI" almeno 75 secondo le analisi de "Il Sole 24 Ore"'
     },
 
-    filter_6: {
+    {
         index: 5,
         active: true,
         title: 'Indicazioni da ',
@@ -472,7 +479,7 @@ var HPFilters = {
 
 
 
-    filter_7: {
+    {
         index: 6,
         active: pageData.isLogged,
         title: 'Violazione trendline',
@@ -491,7 +498,7 @@ var HPFilters = {
     },
 
 
-    filter_8: {
+    {
         index: 7,
         active: pageData.isLogged,
         title: 'Rafforzamento del trend in atto',
@@ -507,7 +514,7 @@ var HPFilters = {
         info_content: 'Rafforzamento del trend in atto secondo le tue Analisi personali'
     },
 
-    filter_9: {
+    {
         index: 8,
         active: pageData.isLogged,
         title: 'Cambiamento del trend in atto',
@@ -524,4 +531,4 @@ var HPFilters = {
     }
 
 
-}
+]

@@ -21,6 +21,10 @@
 
 //= require jquery.tablesorter.min
 
+//= require jquery.jscrollpane.min
+
+//= require jquery.scrollTo.min
+
 //= require scripts.js
 
 //= require statcounter.js
