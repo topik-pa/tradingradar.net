@@ -2,23 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import "base/utilities.scss";
-@import "base/variables.scss";
-@import "base/reset.scss";
 
-@import "base/globals.scss";
-@import "base/gentelella-custom.scss";
-@import "base/jscrollpane-custom.scss";
+
+
+@import "base/variables.scss";
+@import "base/dazzling.scss";
 @import "base/tablesorter-style.scss";
 @import "base/form-custom.scss";
 
-@import "base/animations.scss";
-@import "base/progress.scss";
-@import "base/bootstrap-overwrite.scss";
-
-@import "styles/genterella-overwrite.scss";
-@import "styles/tablesorter-overwrite.scss";
-@import "styles/welcome.scss";
+@import "styles/overwrites.scss";
+@import "styles/globals.scss";
 @import "styles/analyses.scss";
+@import "styles/welcome.scss";
 @import "styles/studies.scss";
-@import "styles/sessions.scss";

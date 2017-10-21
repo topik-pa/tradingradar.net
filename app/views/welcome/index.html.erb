@@ -1,91 +1,71 @@
-<% title 'Analisi, notizie e suggerimenti di trading per il mercato italiano | Home ' %>
+<% title $appDescription + ' | Home ' %>
 <% meta_tag :description, 'Trading Radar - Analisi, suggerimenti di acquisto e vendita, notizie sui titoli azionari del Mercato Italiano' %>
 <% meta_tag :keywords, 'analisi, spunti, suggerimenti, trading, acquisto, vendita, notizie, rassegna, stampa, mercato, italiano, MTA, FTSE, MIB' %>
 <% meta_tag :robots, 'index, follow' %>
 <% meta_tag :author, $author + ' - ' + $authorMail %>
-<div class="container body">
-    <div class="main_container">
-        <%= render("shared/left_col") %>
-        <%= render("shared/top_nav") %>
-        <div class="right_col" role="main"">
-            <section class="row section">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <h1><%= image_tag 'trading-radar-logo-small-alpha.png', class: 'logo', alt: 'Trading Radar logo' %></i>Trading Radar - 
-                        <small>
-                            Analisi, notizie e suggerimenti di trading per il mercato italiano
-                        </small>
-                    </h1>
-                    <div class="content">
-                        Titoli azionari Italia FTSE MIB e situazione Mercati internazionali. I dati provengono da <%= link_to 'Borsa Italiana', 'http://www.borsaitaliana.it', title: 'Vai al sito: Borsa Italiana' %>, <%= link_to 'Il Sole 24 Ore', 'http://www.ilsole24ore.com/', title: 'Vai al sito: Il Sole 24 Ore' %>, <%= link_to 'La Repubblica', 'http://finanza.repubblica.it', title: 'Vai al sito: La Repubblica' %>, <%= link_to 'Milano Finanza', 'https://www.milanofinanza.it/', title: 'Vai al sito: Milano Finanza' %>, <%= link_to 'Investing.com', 'https://it.investing.com', title: 'Vai al sito: Investing.com' %> e sono aggiornati ad intervalli regolari.
-                        <br/>
-                        Cliccando sul nome di un titolo &egrave; possibile visualizzare una rassegna stampa con analisi ottenute in tempo reale da diverse fonti web.
-                        <br/>
-                        In basso, una serie di filtri evidenziano dei suggerimenti e spunti di acquisto o vendita sui titoli di maggiore interesse e i parametri con i quali sono stati selezionati.<br/><br/>
-						Gli utenti registrati hanno la possibilit&agrave; di aggiungere analisi personalizzate e 3 ulteriori filtri.
-                    </div>
-                </div>
-            </section>
-            <section class="row section">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="info">
-                        <i class="fa fa-info"></i>Ultima scansione dati: <span class="italic"><%= $lastUpdate.strftime("%d/%m - %H:%M") %></span>
-                    </div>
-                </div>
-            </section>
-            <section class="row section">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="markets">
-                        <%= render :partial => "markets", :object => @firstRowMarkets %>
-                        <%= render :partial => "markets", :object => @secondRowMarkets %>
-                        <%= render :partial => "markets", :object => @thirdRowMarkets %>
-                    </div>
-                </div>
-            </section>
-            <%= render("stocks") %>
-			
-            <section class="row section filters">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="info">
-                        <i class="fa fa-info"></i>I titoli in <span class="bold">grassetto</span>
-                        compaiono in tutte e tre i filtri nelle rispettive tabelle &quot;Resistenza&quot; e &quot;Supporto&quot;
-                    </div>
-                </div>
-                <div class="break-outs">
-                    <%= render("filter") %>
-                    <%= render("filter") %>
-                    <%= render("filter") %>
-                </div>
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="info">
-                        <i class="fa fa-info"></i>I titoli in <span class="bold">grassetto</span>
-                        compaiono in tutte e tre i filtri
-                    </div>
-                </div>
-                <div class="suggestions">
-                    <%= render("filter") %>
-                    <%= render("filter") %>
-                    <%= render("filter") %>
-                </div>
-				<div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="info">
-                        <i class="fa fa-info"></i>Filtri basati sulle analisi personali. <% if not $isLogged %> Per visualizzarli occorre essere utenti loggati.<% end %>
-                    </div>
-                </div>
-                <div class="personals">
-                    <%= render("filter") %>
-                    <%= render("filter") %>
-                    <%= render("filter") %>
-                </div>
-            </section>
-			
-            <section class="row section">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="keywords">
-                        Keywords: analisi e suggerimenti di acquisto e vendita, spunti di trading e rassegna stampa dai mercati internazionali e dal FTSE MIB Italia MTA.
-                    </div>
-                </div>
-            </section>
-        </div>
-        <%= render("shared/footer") %>
-    </div>
+
+
+<div class="top-section">  
+	<div>
+	    <ul>
+	        <li>
+				<%= image_tag("front-image.jpg", size: "1920x430", alt: "Borsa italiana a Milano - Entrata principale") %>
+	            <div class="flex-caption">
+	                <h2 class="entry-title">Analisi, notizie e suggerimenti di trading per il mercato italiano</h2>
+	                <div class="excerpt">
+	                    Titoli azionari Italia FTSE MIB e situazione Mercati internazionali. I dati provengono da Borsa Italiana, Il Sole 24 Ore, La Repubblica, Milano Finanza, Investing.com e sono aggiornati ad intervalli regolari. 
+	                    Cliccando sul nome di un titolo è possibile visualizzare una rassegna stampa con analisi ottenute in tempo reale da diverse fonti web. 
+	                    In basso, una serie di filtri evidenziano dei suggerimenti e spunti di acquisto o vendita sui titoli di maggiore interesse e i parametri con i quali sono stati selezionati.
+	                </div>
+	            </div>
+	        </li>
+	    </ul>
+	</div>
 </div>
+			
+		
+<main id="main" class="site-main " role="main">
+    <div id="content" class="site-content container">
+	    <div class="container main-content-area">
+	        <div class="row pull-left">
+	        	
+	            <section id="primary" class="widget-area col-sm-12" role="complementary">
+	                <section class="col-md-9">
+	                    <%= render("stocks") %>
+	                </section>
+	                <section class="col-md-3">
+	                    <%= render :partial => "markets", :object => @markets %>
+	                    <%= render :partial => "filtersAnchorsInHP", :object => @markets %>
+	                </section>
+	            </section>
+				
+	            <section id="secondary" class="content-area col-sm-12">
+	                <section class="filters">
+	                    <section class="break-outs">
+	                        <%= render 'filter', { :id => 'one' } %>
+	                        <%= render 'filter', { :id => 'two' } %>
+	                        <%= render 'filter', { :id => 'three' } %>
+	                    </section>
+	                    <section class="suggestions">
+	                        <%= render 'filter', { :id => 'four' } %>
+	                        <%= render 'filter', { :id => 'five' } %>
+	                        <%= render 'filter', { :id => 'six' } %>
+	                    </section>
+	                    <section class="personals">
+	                        <%= render 'filter', { :id => 'seven' } %>
+	                        <%= render 'filter', { :id => 'eight' } %>
+	                        <%= render 'filter', { :id => 'nine' } %>
+	                    </section>
+	                </section>
+	            </section>
+				
+	            <section class="section">
+	                <div class="keywords">
+	                    Keywords: <%= yield_meta_tag(:keywords) %>
+	                </div>
+	            </section>
+				
+	        </div>
+	    </div>
+    </div>
+</main>

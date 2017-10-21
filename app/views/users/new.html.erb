@@ -1,10 +1,16 @@
-<div class="container body">
-    <div class="main_container">
-    	<%= render("shared/top_nav") %>
-        <div class="right_col" role="main">
-            <div class="login">
-                <div class="container">
-                    <div class="form">
+<% title $appDescription + ' | Sign up ' %>
+<% meta_tag :description, 'Trading Radar - Sign up page' %>
+<% meta_tag :keywords, 'trading, radar, sign, up' %>
+<% meta_tag :robots, 'index, follow' %>
+<% meta_tag :author, $author + ' - ' + $authorMail %>
+
+
+<main id="main" class="site-main" role="main">
+	<div id="content" class="site-content container">
+	    <div class="container main-content-area">
+	        <div class="row pull-left">
+	            <section id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">	                
+                    <div class="form form-style-8">
                         <h1>Sign up</h1>
                         <%= form_for(@user) do |f| %>
                         <%= f.text_field :first_name, :placeholder => "Nome", :required => "true" %>
@@ -13,10 +19,9 @@
                         <%= f.password_field :password, :placeholder => "Password", :required => "true" %>
                         <%= f.submit "Crea un account", class: "btn primary" %>
                         <% end %>
-                    </div>
-                </div>
-            </div>
-            <%= render("shared/footer") %>
-        </div>
-    </div>
-</div>
+                    </div>	                
+	            </section>
+	        </div>
+	    </div>
+	</div>
+</main>

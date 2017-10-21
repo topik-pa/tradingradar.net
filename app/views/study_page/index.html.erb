@@ -4,15 +4,17 @@
 <% meta_tag :robots, 'index, follow' %>
 <% meta_tag :author, $author + ' - ' + $authorMail %>
 
-<div class="container body">
-    <div class="main_container">
-        <%= render("shared/left_col") %>
-        <%= render("shared/top_nav") %>
-        <div class="right_col" role="main">
-            <%= render("shared/namePriceVariation") %>
-            <%= render("last_study") %>
-            <%= render("add_study") %>
-        </div>
-        <%= render("shared/footer") %>
-    </div>
-</div>
+
+<main id="main" class="site-main" role="main">
+	<div id="content" class="site-content container">
+	    <div class="container main-content-area">
+	        <div class="row pull-left">
+	            <section id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">	                
+                    <%= render("shared/namePriceVariation") %>
+		            <%= render("last_study") %>
+		            <%= render("add_study") %>                
+	            </section>
+	        </div>
+	    </div>
+	</div>
+</main>

@@ -75,15 +75,11 @@ class SourcesController < ApplicationController
       if !@urlLaRepubblica.blank?
         docLaRepubblica = Nokogiri::HTML(open(@urlLaRepubblica), nil, 'UTF-8')
         docLaRepubblica.encoding = 'UTF-8'
-        #docLaRepubblica.xpath('//@style', '//@onclick').remove  
         docLaRepubblica.search('script').each do |elem|
           elem.remove
         end
         @laRepubblicaElem1 = docLaRepubblica.at_xpath('/descendant::div[@class="box-bottom"]').to_s
         @laRepubblicaRangeValue = docLaRepubblica.at_xpath('/descendant::div[@class="TLB-range-indicator"]/@style').to_s.delete('rightleft:;').to_s
-        #@laRepubblicaElem2 = docLaRepubblica.at_xpath('/descendant::div[@class="TLB TLB-chart-container"]')    
-        #@laRepubblicaElem3 = docLaRepubblica.at_xpath('/descendant::div[@id="ctl00_ContentPlaceHolder1_ProfiloSocietario1_pnlContainer"]')
-        #@laRepubblicaElem4 = docLaRepubblica.at_xpath('/descendant::div[contains(@class, "TLB-analisi-container")]')
       end      
       rescue OpenURI::HTTPError => e
        puts 'Error retrieving url data: ' + e.message

@@ -1,70 +1,63 @@
-<div class="stocks">
-    <section class="row section">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
-                <div class="stocks_table">
-                	
-                    <table id="datatable" class="table table-striped table-bordered dataTable no-footer">
-                        <thead>
-                            <tr>
-                                <th>
-                                    Nome
-                                </th>
-                                <th>
-                                    Settore
-                                </th>
-                                <th>
-                                    Ultimo prezzo
-                                </th>
-                                <th>
-                                    Variazione
-                                </th>
-                                <th>
-                                    Ultimo aggiornamento
-                                </th>
-								<th>                                    
-									Fase di mercato
-                                </th>
-								<%if $user.present?%>
-									<th>
-	                                    Analisi personale
-	                                </th>
-								<%end%>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% @stocks.each do |stock| %>
-                            <tr class="<%= cycle('even', 'odd') -%>">
-                                <td class="bold">
-                                    <%= link_to stock.name, stock_page_index_path(isin: stock.isin), title: 'Rassegna stampa e analisi titolo: ' + stock.name %>
-                                </td>
-                                <td>
-                                    <%= stock.sector %>
-                                </td>
-                                <td>
-                                    <%= stock.last_price %>
-                                </td>
-                                <td class="<%= colorClass(stock.variation) %>">
-                                    <%= stock.variation %>
-                                </td>
-                                <td>
-                                    <%= stock.updated_at.strftime("%d/%m - %H:%M") %>
-                                </td>
-								<td>
-                                    <%= stock.market_phase %>
-                                </td>
-								<%if $user.present?%>
-									<td>
-	                                    <%= link_to 'Vedi/aggiungi analisi', study_page_index_path(isin: stock.isin) %>
-                                	</td>
-								<%end%>
-                            </tr>
-                            <% end %>
-                        </tbody>
-                    </table>
-					
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
+<section class="stocks">
+	<header class="entry-header page-header">
+		<h2 class="entry-title">Titoli del FTSE MIB ITALIA</h2>
+	</header>
+    <table id="stock-table" class="table table-striped table-bordered no-footer">
+        <thead>
+            <tr>
+                <th>
+                    Nome
+                </th>
+                <th>
+                    Settore
+                </th>
+                <th>
+                    Ultimo prezzo
+                </th>
+                <th>
+                    Variazione
+                </th>
+                <th>
+                    Ultimo aggiornamento
+                </th>
+                <th>
+                    Fase di mercato
+                </th>
+                <%if $user.present? %>
+                <th>
+                    Analisi personale
+                </th>
+                <%end %>
+            </tr>
+        </thead>
+        <tbody>
+            <% @stocks.each do |stock| %>
+            <tr class="<%= cycle('even', 'odd') -%>">
+                <td class="bold">
+                    <%= link_to stock.name, stock_page_index_path(isin: stock.isin), title: 'Rassegna stampa e analisi titolo: ' + stock.name %>
+                </td>
+                <td>
+                    <%= stock.sector %>
+                </td>
+                <td>
+                    <%= stock.last_price %>
+                </td>
+                <td class="<%= colorClass(stock.variation) %>">
+                    <%= stock.variation %>
+                </td>
+                <td>
+                    <%= stock.updated_at.strftime("%d/%m - %H:%M") %>
+                </td>
+                <td>
+                    <%= stock.market_phase %>
+                </td>
+                <%if $user.present? %>
+                <td>
+                    <%= link_to 'Vedi/aggiungi analisi', study_page_index_path(isin: stock.isin) %>
+                </td>
+            	<%end %>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</section>

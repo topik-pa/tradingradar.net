@@ -27,6 +27,21 @@ class WelcomeController < ApplicationController
       "EUR/USD" => "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!EURUS.FX",
       "EUR/GBP" => "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!GBPVS.FX"
     }
+    
+    @marketsFlagMap = { 
+          "FTSE MIB" => "italy",
+          "FTSE All Share" => "italy",
+          "S&P 100" => "usa",
+          "DAX 30" => "germany",
+          "CAC 40" => "france",
+          "NASDAQ 100" => "usa",
+          "GOLD" => "gold",
+          "Brent" => "oil",
+          "WTI" => "oil",
+          "EUR/USD" => "currencies",
+          "EUR/GBP" => "currencies"
+        }
+        
   end
   
   

@@ -48,14 +48,6 @@ var tradingRadar = (function () {
         },
 
 
-        scrollInit: function () {
-            $('.back-on-top').click(function (e) {
-                e.preventDefault();
-                $.scrollTo($('#main-wrapper'), 600);
-            });
-        },
-
-
         getParameterByName: function (name, url) {
             if (!url) url = window.location.href;
             name = name.replace(/[\[\]]/g, "\\$&");
@@ -81,18 +73,6 @@ var tradingRadar = (function () {
                 e.preventDefault();
             })
 
-        },
-
-
-        /*initScrollBars: function () {
-            $mainContainer.find('.hp-filter').each(function() {
-                $(this).find('.x_content.loaded').jScrollPane();
-            });
-        },*/
-
-
-        initPopOvers: function () {
-            $('#main-wrapper').find('[data-toggle="popover"]').popover();
         },
 
 
@@ -143,9 +123,39 @@ var tradingRadar = (function () {
 
 
         },
+        
+        
+        initDatatable: function () {
+        	$('#stock-table').DataTable( {
+        		"iDisplayLength": 50
+        	} );
+        },
+        
 
 
         highlightStocks: function () {
+
+
+
+			$('.break-outs .hp-filter').eq(0).find('table.Resistenza tbody tr').each(function () {
+			    var isin = $(this).data('isin');
+			    var $occurences = $('.break-outs table.Resistenza tbody tr[data-isin=' + isin + ']');
+			
+			    if ($occurences.length >= 2) {
+			        $occurences.addClass('repeated green');
+			    }
+			});
+
+
+			$('.break-outs .hp-filter').eq(0).find('table.Supporto tbody tr').each(function () {
+			    var isin = $(this).data('isin');
+			    var $occurences = $('.break-outs table.Supporto tbody tr[data-isin=' + isin + ']');
+			
+			    if ($occurences.length >= 2) {
+			        $occurences.addClass('repeated red');
+			    }
+			});
+
 
             $('.suggestions table:first-child tr').each(function () {
                 var isin = $(this).data('isin');
@@ -155,29 +165,8 @@ var tradingRadar = (function () {
                 if (count >= 3) {
                     $occurences.addClass('repeated');
                 }
-            });
+            });   
 
-
-            $('.break-outs table.Resistance').eq(0).find('tr').each(function () {
-                var isin = $(this).data('isin');
-                var $occurences = $('.break-outs table.Resistance tr[data-isin=' + isin + ']');
-
-                var count = $occurences.length
-                if (count >= 3) {
-                    $occurences.addClass('repeated red');
-                }
-            });
-
-
-            $('.break-outs table.Support').eq(0).find('tr').each(function () {
-                var isin = $(this).data('isin');
-                var $occurences = $('.break-outs table.Support tr[data-isin=' + isin + ']');
-
-                var count = $occurences.length
-                if (count >= 3) {
-                    $occurences.addClass('repeated green');
-                }
-            });
         },
 
 
@@ -185,14 +174,12 @@ var tradingRadar = (function () {
         loadHPFilters: function () {
 
             var filters = tradingRadar.getHPFilters();
-
-            //var filtersCount = Object.keys(filters).filter(function(obj){debugger;return obj.active==true}).length;
-            var filtersCount = filters.filter(function(obj){return obj.active}).length;
-            
+            var filtersToExecute = filters;//.filter(function(obj){return obj.active});
+            var filtersCount = filters.length;
             var filtersWorked = 0;
 
             var filtersPromise = new Promise(function (resolve, reject) {
-                for (var filter in filters) {
+                for (var filter in filtersToExecute) {
 
                     if (filters.hasOwnProperty(filter)) {
 
@@ -203,16 +190,17 @@ var tradingRadar = (function () {
 
                             var $filter = $mainContainer.find('.filters .hp-filter:eq(' + obj.index + ')');
                             var $titleElem = $filter.find('h2');
-                            var $contentElem = $filter.find('.x_content');
-                            var $infoPopOver = $filter.find('.info-pop-over');
+                            var $contentElem = $filter.find('.filter-content');
+                            var $infoFilter = $filter.find('.filter-info');
+                            var $iconFilter = $filter.find('.cat-links');
                             var count = 0;
-
+                            
                             $titleElem.html(obj.title);
 
-                            var $ico = $('<img/>', obj.icon).appendTo($titleElem);
-
-                            $infoPopOver.attr('data-title', obj.info_title);
-                            $infoPopOver.attr('data-content', obj.info_content);
+                            var $ico = $('<img/>', obj.icon).appendTo($iconFilter);
+                            
+                            $infoFilter.find('h3').html(obj.info_title);
+                            $infoFilter.find('p').html(obj.info_content);
 
                             if (!obj.active) {
 
@@ -275,17 +263,14 @@ var tradingRadar = (function () {
                                     },
                                     error: function (err) {
                                         console.error(err);
+                                        reject();
 
                                     },
                                     complete: function () {
                                         count++;
                                         if (count === obj.urls.length) {
                                             $contentElem.addClass('loaded');
-                                            $contentElem.jScrollPane();
-                                            filtersWorked++;
-                                            if (filtersCount == filtersWorked) {                                                
-                                                resolve();                                                
-                                            }
+                                            resolve(); 
                                         }
                                     }
                                 });
@@ -293,17 +278,18 @@ var tradingRadar = (function () {
                             });
 
                         }).then(function () {
-                            resolve();
+                        	filtersWorked++;
+                        	if (filtersCount == filtersWorked) {  
+                                resolve();                                                
+                            }
                         }).catch(function (err) {
                             console.error(err);
-                            reject();
                         });
 
                     }
                 }
             }).then(function () {
                 tradingRadar.highlightStocks();
-                tradingRadar.initPopOvers();
             }).catch(function (err) {
                 console.error(err);
             });
@@ -313,6 +299,8 @@ var tradingRadar = (function () {
     }
 
 }());
+
+
 
 
 tradingRadar.setPageData();
@@ -327,12 +315,12 @@ $(document).ready(function () {
 
     if ($('.stock_page').length) {
         tradingRadar.loadSources();
-        tradingRadar.scrollInit();
     }
 
 
     if ($('.welcome').length) {
-        tradingRadar.loadHPFilters();        
+        tradingRadar.loadHPFilters();
+        tradingRadar.initDatatable();
     }
 
 });
@@ -343,13 +331,13 @@ var HPFilters = [
     {
         index: 0,
         active: true,
-        title: 'Violazione trendline ',
+        title: 'Violazione trendline',
         urls: ['/filters/filter_overResistanceBorsaItaliana', '/filters/filter_belowSupportBorsaItaliana'],
         icon: {
             class: 'img-logo-small',
             src: '/images/borsa-italiana-logo-small.png',
-            title: 'Supporti e resistenze da Borsa Italiana',
-            alt: 'Supporti e resistenze da Borsa Italiana'
+            title: 'Superamento dei supporti o resistenze da Borsa Italiana',
+            alt: 'Superamento dei supporti o resistenze da Borsa Italiana'
         },
         captions: ['Resistenza', 'Supporto'],
         table_headers: [
@@ -360,13 +348,13 @@ var HPFilters = [
             ['last_price', 'borsa_italiana_resistance'],
             ['last_price', 'borsa_italiana_support']
         ],
-        info_title: 'Violazione trendline secondo "Borsa Italiana"',
-        info_content: 'Violazione di resistenze e supporti secondo "Borsa Italiana"'
+        info_title: 'Violazione trendline "Borsa Italiana"',
+        info_content: 'Violazione di resistenze e supporti secondo l\'analisi di "Borsa Italiana". <br/><br/>In evidenza i titoli che violano la trendline anche per altri media presi in esame.<br/><br/>Il <strong>supporto</strong> è un livello che si pone come ostacolo ad una ulteriore discesa del prezzo. Può essere il punto di svolta che precede un rimbalzo tecnico, ma se superato può implicare un deciso proseguimento nella direzione della rottura. <br/>La <strong>resistenza</strong> è un livello che si pone come ostacolo ad una salita del prezzo. Può essere il punto di svolta che precede un ritracciamento tecnico, ma, se superato, tale livello può implicare un deciso proseguimento nella direzione della rottura.'
     },
     {
         index: 1,
         active: true,
-        title: 'Violazione trendline ',
+        title: 'Violazione trendline',
         urls: ['/filters/filter_overResistanceSoleXXIVOre', '/filters/filter_belowSupportSoleXXIVOre'],
         icon: {
             class: 'img-logo-small',
@@ -376,7 +364,7 @@ var HPFilters = [
         },
         captions: ['Resistenza', 'Supporto'],
         table_headers: [
-            ['Nome', 'Ultimo prezzo', 'Resistenza Il sole 24 ore'],
+            ['Nome', 'Ultimo prezzo', 'Resistenza Il Sole 24 ore'],
             ['Nome', 'Ultimo prezzo', 'Supporto Il Sole 24 Ore']
         ],
         attributes: [
@@ -384,12 +372,12 @@ var HPFilters = [
             ['last_price', 'xxivore_support']
         ],
         info_title: 'Violazione trendline per "Il Sole 24 Ore"',
-        info_content: 'Violazione di resistenze e supporti secondo "Il sole 24 ore"'
+        info_content: 'Violazione di resistenze e supporti secondo l\'analisi de "Il Sole 24 Ore". <br/><br/>In evidenza i titoli che violano la trendline anche per altri media presi in esame.<br/><br/>Il <strong>supporto</strong> è un livello che si pone come ostacolo ad una ulteriore discesa del prezzo. Può essere il punto di svolta che precede un rimbalzo tecnico, ma se superato può implicare un deciso proseguimento nella direzione della rottura. <br/>La <strong>resistenza</strong> è un livello che si pone come ostacolo ad una salita del prezzo. Può essere il punto di svolta che precede un ritracciamento tecnico, ma, se superato, tale livello può implicare un deciso proseguimento nella direzione della rottura.'
     },
     {
         index: 2,
         active: false,
-        title: 'Violazione trendline ',
+        title: 'Violazione trendline',
         urls: ['/filters/filter_overResistanceRepubblica', '/filters/filter_belowSupportRepubblica'],
         icon: {
             class: 'img-logo-small',
@@ -407,13 +395,13 @@ var HPFilters = [
             ['last_price', 'repubblica_support']
         ],
         info_title: 'Violazione trendline per "La Repubblica"',
-        info_content: 'Violazione di resistenze e supporti secondo "La Repubblica"'
+        info_content: 'Violazione di resistenze e supporti secondo "La Repubblica" <br/><br/>"La Repubblica Finanza e Mercati" non rilascia più dati su analisi e resistenze.'
     },
 
     {
         index: 3,
         active: true,
-        title: 'Indicazioni da ',
+        title: 'Indicazioni dai media',
         urls: ['/filters/filter_suggestionsMilanoFinanza'],
         icon: {
             class: 'img-logo-small',
@@ -429,13 +417,13 @@ var HPFilters = [
             ['last_price', 'milano_finanza_risk', 'milano_finanza_rating']
         ],
         info_title: 'Indicazioni da "Milano Finanza"',
-        info_content: 'Titoli con "MF Risk" minore di 25 e "MF Rating" almeno B secondo le analisi di "Milano Finanza"'
+        info_content: 'Titoli con "MF Risk" minore di 25 e "MF Rating" con valore almeno B secondo le analisi di "Milano Finanza" <br/><br/> L\'indice <strong>MF Risk</strong> di Milano Finanza misura la perdita percentuale massima cui l\'attività può verosimilmente condurre nell\'arco temporale di un mese.<br/><br/><strong>MF Rating</strong> è il rating di appetibilità pubblicato da Milano Finanza. Sintetizza la situazione tecnico-quantitativa (rischio-rendimento) e il confronto internazionale dei multipli di borsa. (A+ = rating più elevato, E- = rating più basso).'
     },
 
     {
         index: 4,
         active: true,
-        title: 'Indicazioni da  ',
+        title: 'Indicazioni dai media',
         urls: ['/filters/filter_suggestionsSoleXXIVOre'],
         icon: {
             class: 'img-logo-small',
@@ -451,13 +439,13 @@ var HPFilters = [
             ['last_price', 'xxivore_shorttrend', 'xxivore_ftaindex', 'xxivore_rsi']
         ],
         info_title: 'Indicazioni da "Il Sole 24 Ore"',
-        info_content: 'Titoli con "Short trend" "Molto rialzista" e "FTA Index" di almeno 50 e "RSI" almeno 75 secondo le analisi de "Il Sole 24 Ore"'
+        info_content: 'Titoli con "Short trend" "Molto rialzista" e "FTA Index" di almeno 50 e "RSI" almeno 75 secondo le analisi de "Il Sole 24 Ore"<br/><br/>Lo <strong>short trend</strong> descrive lo stato della tendenza relativa al titolo nelle ultime settimane.<br/><br/>L\'<strong>FtaIndex</strong> è un indicatore creato da Financial Trend Analysis, il cui valore oscilla tra +100 e -100. Valori superiori a 30 sono indice di un quadro tecnico favorevolmente orientato, viceversa per valori inferiori a -30.<br/><br/>l\'<strong>RSI</strong> è il valore dell\'indice di forza relativa (0-100) calcolato ad 8 giorni. Il range 35-65 è definito neutrale: al di sopra di 65 si parla di una condizione di Ipercomprato, al di sotto di 30 di una condizione di Ipervenduto.'
     },
 
     {
         index: 5,
         active: true,
-        title: 'Indicazioni da ',
+        title: 'Indicazioni dai media',
         urls: ['/filters/filter_suggestionsInvestingDotCom'],
         icon: {
             class: 'img-logo-small',

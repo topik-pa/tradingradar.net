@@ -1,109 +1,105 @@
-<div class="container body">
-    <div class="main_container">
-        <%= render("shared/left_col") %>
-        <%= render("shared/top_nav") %>
-        <div class="right_col">
-            <div class="row  tile_count">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_panel">
-                        <p id="notice">
-                            <%= notice %>
-                        </p>
-                        <h1>Urls</h1>
-                        <table class="tablesorter">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        Isin
-                                    </th>
-                                    <th>
-                                        Url 1
-                                    </th>
-                                    <th>
-                                        Url 2
-                                    </th>
-                                    <th>
-                                        Url 3
-                                    </th>
-                                    <th>
-                                        Url 4
-                                    </th>
-                                    <th>
-                                        Url 5
-                                    </th>
-                                    <th>
-                                        Url 6
-                                    </th>
-                                    <th>
-                                        Url 7
-                                    </th>
-                                    <th>
-                                        Url 8
-                                    </th>
-                                    <th>
-                                        Url 9
-                                    </th>
-                                    <th>
-                                        Url 10
-                                    </th>
-                                    <th colspan="3">
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% @urls.each do |url| %>
-                                <tr class="<%= cycle('even', 'odd') -%>">
-                                    <td>
-                                        <%= url.isin %>
-                                    </td>
-                                    <td title="<%= url.url1 %>">
-                                        <%= url.url1 %>
-                                    </td>
-                                    <td title="<%= url.url2 %>">
-                                        <%= url.url2 %>
-                                    </td>
-                                    <td title="<%= url.url3 %>">
-                                        <%= url.url3 %>
-                                    </td>
-                                    <td title="<%= url.url4 %>">
-                                        <%= url.url4 %>
-                                    </td>
-                                    <td title="<%= url.url5 %>">
-                                        <%= url.url5 %>
-                                    </td>
-                                    <td title="<%= url.url6 %>">
-                                        <%= url.url6 %>
-                                    </td>
-                                    <td title="<%= url.url7 %>">
-                                        <%= url.url7 %>
-                                    </td>
-                                    <td title="<%= url.url8 %>">
-                                        <%= url.url8 %>
-                                    </td>
-                                    <td title="<%= url.url9 %>">
-                                        <%= url.url9 %>
-                                    </td>
-                                    <td title="<%= url.url10 %>">
-                                        <%= url.url10 %>
-                                    </td>
-                                    <td>
-                                        <%= link_to 'Show', url %>
-                                    </td>
-                                    <td>
-                                        <%= link_to 'Edit', edit_url_path(url) %>
-                                    </td>
-                                    <td>
-                                        <%= link_to 'Destroy', url, method: :delete, data: { confirm: 'Are you sure?' } %>
-                                    </td>
-                                </tr>
-                                <% end %>
-                            </tbody>
-                        </table>
-                        <br>
-                        <%= link_to 'New Url', new_url_path %>
-                    </div>
+<main id="main" class="site-main" role="main">
+    <div id="content" class="site-content container">
+        <div class="container main-content-area">
+            <div class="row pull-left">
+                <div id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">
+                    <p id="notice">
+                        <%= notice %>
+                    </p>
+                    <h1>Urls</h1>
+                    <table class="tablesorter">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Isin
+                                </th>
+                                <th>
+                                    Url 1
+                                </th>
+                                <th>
+                                    Url 2
+                                </th>
+                                <th>
+                                    Url 3
+                                </th>
+                                <th>
+                                    Url 4
+                                </th>
+                                <th>
+                                    Url 5
+                                </th>
+                                <th>
+                                    Url 6
+                                </th>
+                                <th>
+                                    Url 7
+                                </th>
+                                <th>
+                                    Url 8
+                                </th>
+                                <th>
+                                    Url 9
+                                </th>
+                                <th>
+                                    Url 10
+                                </th>
+                                <th colspan="3">
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @urls.each do |url| %>
+                            <tr class="<%= cycle('even', 'odd') -%>">
+                                <td>
+                                    <%= url.isin %>
+                                </td>
+                                <td title="<%= url.url1 %>">
+                                    <%= url.url1 %>
+                                </td>
+                                <td title="<%= url.url2 %>">
+                                    <%= url.url2 %>
+                                </td>
+                                <td title="<%= url.url3 %>">
+                                    <%= url.url3 %>
+                                </td>
+                                <td title="<%= url.url4 %>">
+                                    <%= url.url4 %>
+                                </td>
+                                <td title="<%= url.url5 %>">
+                                    <%= url.url5 %>
+                                </td>
+                                <td title="<%= url.url6 %>">
+                                    <%= url.url6 %>
+                                </td>
+                                <td title="<%= url.url7 %>">
+                                    <%= url.url7 %>
+                                </td>
+                                <td title="<%= url.url8 %>">
+                                    <%= url.url8 %>
+                                </td>
+                                <td title="<%= url.url9 %>">
+                                    <%= url.url9 %>
+                                </td>
+                                <td title="<%= url.url10 %>">
+                                    <%= url.url10 %>
+                                </td>
+                                <td>
+                                    <%= link_to 'Show', url %>
+                                </td>
+                                <td>
+                                    <%= link_to 'Edit', edit_url_path(url) %>
+                                </td>
+                                <td>
+                                    <%= link_to 'Destroy', url, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                </td>
+                            </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                    <br>
+                    <%= link_to 'New Url', new_url_path %>
                 </div>
             </div>
-            <%= render("shared/footer") %>
         </div>
     </div>
+</main>

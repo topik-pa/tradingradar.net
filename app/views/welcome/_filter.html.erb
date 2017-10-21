@@ -1,22 +1,25 @@
-<div class="col-md-4 col-sm-4 col-xs-12 hp-filter">
-    <div class="x_panel tile fixed_height_320 overflow_hidden">
-        <div class="x_title">
-            <h2></h2>
-            <ul class="nav navbar-right panel_toolbox">
-                <!--<li>
-                    <a class="close-link"><i class="fa fa-close"></i></a>
-                </li>
-                <li>
-                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                </li>-->
-                <li>
-                    <a class="info-pop-over" data-container="body" data-toggle="popover" data-placement="top" data-title="" data-content=""><i class="fa fa-info"></i></a>
-                </li>
-            </ul>
-            <div class="clearfix">
+<article id="<%= id %>" class="hp-filter post type-post">
+    <header class="entry-header page-header">
+        <h2 class="entry-title"></h2>
+        <div class="entry-meta">
+            <div class="uptaded-at"><i class="fa fa-calendar"></i><small>Ultimo aggiornamento:</small>
+                <time class="entry-date published" datetime="<%= $lastUpdate %>">
+                    <%= $lastUpdate.strftime("%d/%m - %H:%M") %>
+                </time>
             </div>
+            <div class="cat-links"><i class="fa fa-newspaper-o"></i><small>Fonte:</small>
+			
+			</div>
         </div>
-        <div class="x_content">
+    </header>
+    <div class="entry-content">
+        <div class="filter-content col-sm-7">
+        </div>
+        <div class="filter-info col-sm-5">
+            <h3></h3>
+            <p>
+            </p>
         </div>
     </div>
-</div>
+    <hr class="section-divider">
+</article>

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'chi_siamo/index'
+
+  get 'contatti/index'
+
   get 'sources/source1'
 
   get 'sources/source2'
@@ -32,8 +36,6 @@ Rails.application.routes.draw do
   get 'filters/filter_overResistanceStocksOnStudy'
   get 'filters/filter_belowSupportStocksOnStudy'
 
-  #get 'filters/filter_risingCrossingStocksOnStudy'
-  #get 'filters/filter_bullishDivergenceStocksOnStudy'
   
   get 'filters/filter_trendReinforcement'
   get 'filters/filter_trendChanging'
@@ -49,6 +51,7 @@ Rails.application.routes.draw do
   resources :analyses
   resources :stocks
   resources :urls
+  
   get 'welcome/index'
 
   root 'welcome#index'
@@ -61,11 +64,6 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
 
   delete 'logout' => 'sessions#destroy'
-  
-  #resources :stocks do
-   #resources :analysis
-  #end
-  #Da modificare anche il futuro analysis controller
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

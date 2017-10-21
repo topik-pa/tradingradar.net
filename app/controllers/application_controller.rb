@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
  
   $appName = 'Trading Radar'
   $appVersion = '1.0 Beta'
+  $appDescription = 'Analisi, notizie e suggerimenti di trading per il mercato italiano'
   $adminEmail = 'agendatrading@yahoo.com'
   $author = 'Marco Pavan'
   $authorMail = 'marcopavan.mp@gmail.com'
@@ -626,40 +627,27 @@ class ApplicationController < ActionController::Base
   #PRODUCTION
   if Rails.env.production?
     
-    scheduler.cron '00 02 * * 1-5', :blocking => true do
+    scheduler.cron '00 04 * * 1-5', :blocking => true do
       updateAnalysisTable
-      $lastUpdate = Time.zone.now
-    end
-    
-    scheduler.cron '00 06 * * 1-5', :blocking => true do
-      updateMarketTable
-      updateStockTable
-      updateAnalysisTable
-      $lastUpdate = Time.zone.now
-    end
-    
-    scheduler.cron '20 07 * * 1-5', :blocking => true do
-      updateMarketTable
-      updateStockTable
       $lastUpdate = Time.zone.now
     end
     
     scheduler.cron '00 08 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
+      updateAnalysisTable
       $lastUpdate = Time.zone.now
     end
     
-    scheduler.cron '00 09 * * 1-5', :blocking => true do
+    scheduler.cron '20 09 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
       $lastUpdate = Time.zone.now
     end
-        
+    
     scheduler.cron '00 10 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
-      updateAnalysisTable
       $lastUpdate = Time.zone.now
     end
     
@@ -668,13 +656,14 @@ class ApplicationController < ActionController::Base
       updateStockTable
       $lastUpdate = Time.zone.now
     end
-    
+        
     scheduler.cron '00 12 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
+      updateAnalysisTable
       $lastUpdate = Time.zone.now
     end
-        
+    
     scheduler.cron '00 13 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
@@ -686,8 +675,14 @@ class ApplicationController < ActionController::Base
       updateStockTable
       $lastUpdate = Time.zone.now
     end
-    
+        
     scheduler.cron '00 15 * * 1-5', :blocking => true do
+      updateMarketTable
+      updateStockTable
+      $lastUpdate = Time.zone.now
+    end
+    
+    scheduler.cron '30 15 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
       $lastUpdate = Time.zone.now
@@ -696,11 +691,23 @@ class ApplicationController < ActionController::Base
     scheduler.cron '00 16 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
-      updateAnalysisTable
       $lastUpdate = Time.zone.now
     end
     
     scheduler.cron '00 17 * * 1-5', :blocking => true do
+      updateMarketTable
+      updateStockTable
+      $lastUpdate = Time.zone.now
+    end
+    
+    scheduler.cron '00 18 * * 1-5', :blocking => true do
+      updateMarketTable
+      updateStockTable
+      updateAnalysisTable
+      $lastUpdate = Time.zone.now
+    end
+    
+    scheduler.cron '00 19 * * 1-5', :blocking => true do
       updateMarketTable
       updateStockTable
       $lastUpdate = Time.zone.now

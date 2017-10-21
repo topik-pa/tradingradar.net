@@ -1,15 +1,14 @@
-<div class="row section">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="custom-title">
-            <h1><%= @stock.name %></h1> - 
-            <span><%= @stock.last_price %>&euro;</span>&nbsp;/&nbsp;<span class="<%= colorClass(@stock.variation)%>"><%=@stock.variation %>%</span>
-        </div>
-		<div class="content">
-			<h2>Titolo: <%= @stock.name %> - <%= @stock.cod %>.MI: rassegna stampa in tempo reale con dati provenienti dai principali media online del settore trading.</h2>
-            Analisi tecnica e rassegna stampa per il titolo <%= @stock.name %>. I dati sono ottenuti in tempo reale.
-        </div>
-		<div class="return">
-            <i class="fa fa-angle-left"></i>&nbsp;<%= link_to "Torna in Home page", root_path %>
-        </div>
+<header class="entry-header page-header">
+    <h1 class="entry-title"><%= @stock.name %>
+        <small><%= @stock.last_price %>&euro;&nbsp;/&nbsp;
+			<span class="<%= colorClass(@stock.variation)%>"><%=@stock.variation %>%</span>
+    	</small>
+    </h1>
+    <div class="content">
+        <div>Titolo: <%= @stock.name %>- <%= @stock.cod %>.MI: rassegna stampa in tempo reale con dati provenienti dai principali media online del settore trading.</div>
+        Analisi tecnica e rassegna stampa per il titolo <%= @stock.name %>. I dati sono ottenuti in tempo reale.
     </div>
-</div>
+    <div class="return">
+        <i class="fa fa-angle-left"></i>&nbsp;<%= link_to "Torna in Home page", root_path %>
+    </div>
+</header>

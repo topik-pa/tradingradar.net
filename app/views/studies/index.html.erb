@@ -1,199 +1,195 @@
-<div class="container body">
-    <div class="main_container">
-        <%= render("shared/left_col") %>
-        <%= render("shared/top_nav") %>
-        <div class="right_col" role="main">
-            <div class="row  tile_count">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_panel">
-                        <p id="notice">
-                            <%= notice %>
-                        </p>
-                        <h1>Studies</h1>
-                        <table class="tablesorter">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        Resistance
-                                    </th>
-                                    <th>
-                                        Support
-                                    </th>
-                                    <th>
-                                        Direction
-                                    </th>
-                                    <th>
-                                        Mmp 1
-                                    </th>
-                                    <th>
-                                        Mmp 2
-                                    </th>
-                                    <th>
-                                        Gap
-                                    </th>
-                                    <th>
-                                        Trading Position
-                                    </th>
-                                    <th>
-                                        Reversal Chart Pattern
-                                    </th>
-                                    <th>
-                                        Continuation Chart Pattern
-                                    </th>
-                                    <th>
-                                        Reversal Candlestick
-                                    </th>
-                                    <th>
-                                        Continuation Candlestick
-                                    </th>
-                                    <th>
-                                        RSI
-                                    </th>
-                                    <th>
-                                        RSI Cross
-                                    </th>
-                                    <th>
-                                        RSI Divergence
-                                    </th>
-                                    <th>
-                                        Stochastic
-                                    </th>
-                                    <th>
-                                        Stochastic Cross
-                                    </th>
-                                    <th>
-                                        Stochastic Divergence
-                                    </th>
-                                    <th>
-                                        MACD
-                                    </th>
-                                    <th>
-                                        MACD Cross
-                                    </th>
-                                    <th>
-                                        B
-                                    </th>
-                                    <th>
-                                        Sell
-                                    </th>
-                                    <th>
-                                        Stoploss
-                                    </th>
-                                    <th>
-                                        Image url
-                                    </th>
-                                    <th>
-                                        Note
-                                    </th>
-                                    <th>
-                                        Stock
-                                    </th>
-                                    <th>
-                                        User
-                                    </th>
-                                    <th colspan="3">
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% @studies.each do |study| %>
-                                <tr class="<%= cycle('even', 'odd') -%>">
-                                    <td>
-                                        <%= study.resistance %>
-                                    </td>
-                                    <td>
-                                        <%= study.support %>
-                                    </td>
-                                    <td>
-                                        <%= study.direction %>
-                                    </td>
-                                    <td>
-                                        <%= study.mmp1 %>
-                                    </td>
-                                    <td>
-                                        <%= study.mmp2 %>
-                                    </td>
-                                    <td>
-                                        <%= study.gap %>
-                                    </td>
-                                    <td>
-                                        <%= study.trading_position %>
-                                    </td>
-                                    <td>
-                                        <%= study.reversal_chart_pattern %>
-                                    </td>
-                                    <td>
-                                        <%= study.continuation_chart_pattern %>
-                                    </td>
-                                    <td>
-                                        <%= study.reversal_candlestick %>
-                                    </td>
-                                    <td>
-                                        <%= study.continuation_candlestick %>
-                                    </td>
-                                    <td>
-                                        <%= study.rsi %>
-                                    </td>
-                                    <td>
-                                        <%= study.rsi_cross %>
-                                    </td>
-                                    <td>
-                                        <%= study.rsi_divergence %>
-                                    </td>
-                                    <td>
-                                        <%= study.stoch %>
-                                    </td>
-                                    <td>
-                                        <%= study.stoch_cross %>
-                                    </td>
-                                    <td>
-                                        <%= study.stoch_divergence %>
-                                    </td>
-                                    <td>
-                                        <%= study.macd %>
-                                    </td>
-                                    <td>
-                                        <%= study.macd_cross %>
-                                    </td>
-                                    <td>
-                                        <%= study.buy %>
-                                    </td>
-                                    <td>
-                                        <%= study.sell %>
-                                    </td>
-                                    <td>
-                                        <%= study.stop_loss %>
-                                    </td>
-                                    <td>
-                                        <%= study.image_usrl %>
-                                    </td>
-                                    <td>
-                                        <%= study.note %>
-                                    </td>
-                                    <td>
-                                        <%= study.stock %>
-                                    </td>
-                                    <td>
-                                        <%= study.user %>
-                                    </td>
-                                    <td>
-                                        <%= link_to 'Show', study %>
-                                    </td>
-                                    <td>
-                                        <%= link_to 'Edit', edit_study_path(study) %>
-                                    </td>
-                                    <td>
-                                        <%= link_to 'Destroy', study, method: :delete, data: { confirm: 'Are you sure?' } %>
-                                    </td>
-                                </tr>
-                                <% end %>
-                            </tbody>
-                        </table>
-                        <br>
-                        <%= link_to 'New Study', new_study_path %>
-                    </div>
+<main id="main" class="site-main" role="main">
+    <div id="content" class="site-content container">
+        <div class="container main-content-area">
+            <div class="row pull-left">
+                <div id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">
+                    <p id="notice">
+                        <%= notice %>
+                    </p>
+                    <h1>Studies</h1>
+                    <table class="tablesorter">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Resistance
+                                </th>
+                                <th>
+                                    Support
+                                </th>
+                                <th>
+                                    Direction
+                                </th>
+                                <th>
+                                    Mmp 1
+                                </th>
+                                <th>
+                                    Mmp 2
+                                </th>
+                                <th>
+                                    Gap
+                                </th>
+                                <th>
+                                    Trading Position
+                                </th>
+                                <th>
+                                    Reversal Chart Pattern
+                                </th>
+                                <th>
+                                    Continuation Chart Pattern
+                                </th>
+                                <th>
+                                    Reversal Candlestick
+                                </th>
+                                <th>
+                                    Continuation Candlestick
+                                </th>
+                                <th>
+                                    RSI
+                                </th>
+                                <th>
+                                    RSI Cross
+                                </th>
+                                <th>
+                                    RSI Divergence
+                                </th>
+                                <th>
+                                    Stochastic
+                                </th>
+                                <th>
+                                    Stochastic Cross
+                                </th>
+                                <th>
+                                    Stochastic Divergence
+                                </th>
+                                <th>
+                                    MACD
+                                </th>
+                                <th>
+                                    MACD Cross
+                                </th>
+                                <th>
+                                    B
+                                </th>
+                                <th>
+                                    Sell
+                                </th>
+                                <th>
+                                    Stoploss
+                                </th>
+                                <th>
+                                    Image url
+                                </th>
+                                <th>
+                                    Note
+                                </th>
+                                <th>
+                                    Stock
+                                </th>
+                                <th>
+                                    User
+                                </th>
+                                <th colspan="3">
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @studies.each do |study| %>
+                            <tr class="<%= cycle('even', 'odd') -%>">
+                                <td>
+                                    <%= study.resistance %>
+                                </td>
+                                <td>
+                                    <%= study.support %>
+                                </td>
+                                <td>
+                                    <%= study.direction %>
+                                </td>
+                                <td>
+                                    <%= study.mmp1 %>
+                                </td>
+                                <td>
+                                    <%= study.mmp2 %>
+                                </td>
+                                <td>
+                                    <%= study.gap %>
+                                </td>
+                                <td>
+                                    <%= study.trading_position %>
+                                </td>
+                                <td>
+                                    <%= study.reversal_chart_pattern %>
+                                </td>
+                                <td>
+                                    <%= study.continuation_chart_pattern %>
+                                </td>
+                                <td>
+                                    <%= study.reversal_candlestick %>
+                                </td>
+                                <td>
+                                    <%= study.continuation_candlestick %>
+                                </td>
+                                <td>
+                                    <%= study.rsi %>
+                                </td>
+                                <td>
+                                    <%= study.rsi_cross %>
+                                </td>
+                                <td>
+                                    <%= study.rsi_divergence %>
+                                </td>
+                                <td>
+                                    <%= study.stoch %>
+                                </td>
+                                <td>
+                                    <%= study.stoch_cross %>
+                                </td>
+                                <td>
+                                    <%= study.stoch_divergence %>
+                                </td>
+                                <td>
+                                    <%= study.macd %>
+                                </td>
+                                <td>
+                                    <%= study.macd_cross %>
+                                </td>
+                                <td>
+                                    <%= study.buy %>
+                                </td>
+                                <td>
+                                    <%= study.sell %>
+                                </td>
+                                <td>
+                                    <%= study.stop_loss %>
+                                </td>
+                                <td>
+                                    <%= study.image_usrl %>
+                                </td>
+                                <td>
+                                    <%= study.note %>
+                                </td>
+                                <td>
+                                    <%= study.stock %>
+                                </td>
+                                <td>
+                                    <%= study.user %>
+                                </td>
+                                <td>
+                                    <%= link_to 'Show', study %>
+                                </td>
+                                <td>
+                                    <%= link_to 'Edit', edit_study_path(study) %>
+                                </td>
+                                <td>
+                                    <%= link_to 'Destroy', study, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                </td>
+                            </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                    <br>
+                    <%= link_to 'New Study', new_study_path %>
                 </div>
             </div>
-            <%= render("shared/footer") %>
         </div>
     </div>
+</main>

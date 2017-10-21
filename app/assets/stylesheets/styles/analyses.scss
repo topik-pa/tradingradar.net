@@ -1,26 +1,32 @@
-.chart-image {
-    text-align: center;
-}
-.back-on-top {
-    i {
-        margin-right: 8px;
+.stock_page {
+	
+#primary {
+
+    > section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid #eee;
     }
+    
 }
+
+
+
 .anchors {
-    .x_panel {
-        .anchors {
+    .anchors {
         display: flex;
         justify-content: center;
-        }
+        flex-wrap: wrap;
+        margin-top: 20px;
     }
     .anchor-link {
-        margin: 0 15px;
+        margin: 5px 15px;
         img {
             padding: 3px;
             opacity: .6;
             cursor: auto;
             &:hover {
-                background-color: $firstBGColor;
+                background-color: #999;
             }
             &.ready {
                 opacity: 1;
@@ -33,12 +39,32 @@
         }
     }
 }
+
 .ext-source {
+	
+	.img-logo {
+	    margin-bottom: 5px;
+	    max-height: 50px;
+	}
+
     .pr-section {
+
+        table {
+            font-size: 85%;
+        }
+        
+
+    	margin: 30px 0;
+	    a, .-indice, a[href="/azioni/legenda.htm"], div.m-tabs, .dettaglio_container, .xpie6fix .xpmodule.twocolsleft .titolo-dati-box, .xpie6fix .xpmodule.twocolsleft .group, .xpcorG3, .realtime, a[href="/investimenti-personali/inserisci-alert?StockCodeRt=00c0&codiceStrumento=w2ae"], a[href="/investimenti-personali/aggiungi-titoli-portafoglio?codiceStrumento=w2ae&titolo=A2A"], a[href="/investimenti-personali/aggiungi-titoli-selezione?codiceStrumento=w2ae&titolo=A2A"], .spandata, .prezzo {
+	        display: none;
+	    }
+	    table {
+	        @extend .tablesorter;
+	    }
         background-image: image-url("loader.gif");
         background-repeat: no-repeat;
         background-position: 50%;
-        background-size: contain;
+        background-size: 10%;
         min-height: 200px;
         &.loaded {
             background-image: none;
@@ -49,47 +75,43 @@
         }
     }
 }
-.back-on-top {
-    float: right;
+
+
+.chart-image {
+    text-align: center;
 }
-.img-logo {
-    margin-bottom: 25px;
-    max-height: 75px;
-}
-.pr-title {
-    font-size: $font-huge;
-    margin: 10px 0;
-    width: 100%;
-    border-bottom: 1px solid #000;
-}
-.pr-section {
-    margin: 30px 0;
-    a, .-indice, a[href="/azioni/legenda.htm"], div.m-tabs, .dettaglio_container, .xpie6fix .xpmodule.twocolsleft .titolo-dati-box, .xpie6fix .xpmodule.twocolsleft .group, .xpcorG3, .realtime, a[href="/investimenti-personali/inserisci-alert?StockCodeRt=00c0&codiceStrumento=w2ae"], a[href="/investimenti-personali/aggiungi-titoli-portafoglio?codiceStrumento=w2ae&titolo=A2A"], a[href="/investimenti-personali/aggiungi-titoli-selezione?codiceStrumento=w2ae&titolo=A2A"], .spandata, .prezzo {
-        display: none;
-    }
-    h3 {
-        font-size: 120%;
-        margin: 10px 0;
-    }
-    table {
-        @extend .tablesorter;
-        width: auto;
-    }
-}
+
 .note {
     padding: 20px 10px;
     font-style: italic;
 }
+/*.back-on-top {
+	float: right;
+    i {
+        margin-right: 8px;
+    }
+}*/
+
+
+
+/*.pr-title {
+    font-size: $font-huge;
+    margin: 10px 0;
+    width: 100%;
+    border-bottom: 1px solid #000;
+}*/
+
+
 
 
 .borsa-italiana {
-    .t-text {
+    /*.t-text {
         font-size: 112%;
         line-height: 25px;
         display: block;
-    }
+    }*/
     h3 {
-        font-weight: bold;
+        text-transform: capitalize;
     }
     .m-table td {
         border: 1px solid #DDD;
@@ -105,12 +127,19 @@
     strong {
         font-weight: bold;
     }
+
+    table {
+        max-width: 50%
+    }
+    
+    
 }
 
 
 div.sole-24-ore {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 	
     table tbody td {
         max-width: 100%;
@@ -118,10 +147,6 @@ div.sole-24-ore {
     }
     .pr-content {
         margin: 0 10px;
-        h3 {
-            font-weight: bold;
-            text-transform: uppercase;
-        }
     }
     .xpF1, .xpF2 {
         font-weight: bold;
@@ -134,7 +159,11 @@ div.sole-24-ore {
 }
 
 
-div.larepubblica {
+div.la-repubblica {
+	
+	.titolo-scheda {
+		font-size: 150%;
+	}
     .TLB-clear {
         clear: both;
     }
@@ -157,7 +186,7 @@ div.larepubblica {
             border-bottom: 1px solid #999;
         }
     }
-    .JCF-analisi-container {
+    .JCF-analisi-container, nav {
         display: none;
     }
     .TLB-header-title {
@@ -197,14 +226,17 @@ div.larepubblica {
 
 
 .investing {
+    ul {
+        list-style-type: none;
+    }
     .left {
         float: none;
     }
-    .redFont {
-        color: $red;
+    table tbody td.redFont {
+        color: red;
     }
-    .greenFont {
-        color: $green;
+    table tbody td.greenFont {
+        color: green;
     }
     .noHover {
         font-weight: bold;
@@ -213,11 +245,8 @@ div.larepubblica {
         max-width: 100%;
         border: 1px solid #DDD;
     }
-    .pr-content {
-        float: left;
-        margin-right: 40px;
-    }
 }
+
 .investing-response {
     text-align: center;
     border: 1px solid #DDD;
@@ -226,15 +255,19 @@ div.larepubblica {
     color: #FFF;
     display: block;
     &.wait {
-        color: $red;
+        color: red;
     }
     &.buy {
-        color: $green;
+        color:green;
     }
 }
 
 
 .milano-finanza {
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
     .fleft {
         float: left;
     }
@@ -272,11 +305,17 @@ div.larepubblica {
     }
     .info.font22 {
         margin-left: 5px;
+        margin-right: 20px;
     }
 }
 
 
 .soldionline {
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
     .dati, .fond {
         float: left;
         margin-right: 40px;
@@ -305,4 +344,6 @@ div.larepubblica {
     }
 	
 	
+}
+
 }

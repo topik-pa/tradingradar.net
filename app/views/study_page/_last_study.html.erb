@@ -1,219 +1,219 @@
-<section class="row section">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Ultima analisi personale</h2>
-                <div class="clearfix">
+<section>
+    <div class="x_title">
+        <h2>Ultima analisi personale</h2>
+        <div class="clearfix">
+        </div>
+    </div>
+    <div class="x_content">
+        <% if @study %>
+        <section class="study-section">
+            <div class="study-data">
+                <div class="study-data-name">
+                    Resistenza:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.resistance %>
                 </div>
             </div>
-            <div class="x_content">
-                <% if @study %>
-                <section class="study-section">
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Resistenza:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.resistance %>
-                        </div>
-                    </div>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Supporto:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.support %>
-                        </div>
-                    </div>
-                    <div class="separator"/>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Direzione:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.direction %>
-                        </div>
-                    </div>
-                    <div class="separator"/>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            MMP 1:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.mmp1 %>
-                        </div>
-                    </div>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            MMP 2:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.mmp2 %>
-                        </div>
-                    </div>
-                    <div class="separator"/>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Gap:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.gap %>
-                        </div>
-                    </div>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Trading position:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.trading_position %>
-                        </div>
-                    </div>
-                    <div class="separator"/>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Reversal Chart Pattern:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.reversal_chart_pattern %>
-                        </div>
-                    </div>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Continuation Chart Pattern:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.continuation_chart_pattern %>
-                        </div>
-                    </div>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Reversal Candlestick:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.reversal_candlestick %>
-                        </div>
-                    </div>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Continuation Candlestick:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.continuation_candlestick %>
-                        </div>
-                    </div>
-                    <div class="separator"/>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            RSI:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.rsi %>
-                        </div>
-                    </div>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            RSI Cross:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.rsi_cross %>
-                        </div>
-                    </div>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            RSI Divergence:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.rsi_divergence %>
-                        </div>
-                    </div>
-                    <div class="separator"/>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Stochastic:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.stoch %>
-                        </div>
-                    </div>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Stochastic Cross:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.stoch_cross %>
-                        </div>
-                    </div>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Stochastic Divergence:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.stoch_divergence %>
-                        </div>
-                    </div>
-                    <div class="separator"/>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            MACD:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.macd %>
-                        </div>
-                    </div>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            MACD Cross:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.macd_cross %>
-                        </div>
-                    </div>
-                    <div class="separator"/>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Buy:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.buy %>
-                        </div>
-                    </div>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Sell:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.sell %>
-                        </div>
-                    </div>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Stop Loss:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.stop_loss %>
-                        </div>
-                    </div>
-                    <div class="separator"/>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Image:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.image_usrl %>
-                        </div>
-                    </div>
-                    <div class="separator"/>
-                    <div class="study-data">
-                        <div class="study-data-name">
-                            Note:
-                        </div>
-                        <div class="study-data-value">
-                            <%= @study.note %>
-                        </div>
-                    </div>
-                </section>
-                <% end %>
+            <div class="study-data">
+                <div class="study-data-name">
+                    Supporto:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.support %>
+                </div>
             </div>
-        </div>
+            <div class="separator"/>
+            <div class="study-data">
+                <div class="study-data-name">
+                    Direzione:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.direction %>
+                </div>
+            </div>
+            <div class="separator"/>
+            <div class="study-data">
+                <div class="study-data-name">
+                    MMP 1:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.mmp1 %>
+                </div>
+            </div>
+            <div class="study-data">
+                <div class="study-data-name">
+                    MMP 2:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.mmp2 %>
+                </div>
+            </div>
+            <div class="separator"/>
+            <div class="study-data">
+                <div class="study-data-name">
+                    Gap:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.gap %>
+                </div>
+            </div>
+            <div class="study-data">
+                <div class="study-data-name">
+                    Trading position:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.trading_position %>
+                </div>
+            </div>
+            <div class="separator"/>
+            <div class="study-data">
+                <div class="study-data-name">
+                    Reversal Chart Pattern:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.reversal_chart_pattern %>
+                </div>
+            </div>
+            <div class="study-data">
+                <div class="study-data-name">
+                    Continuation Chart Pattern:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.continuation_chart_pattern %>
+                </div>
+            </div>
+            <div class="study-data">
+                <div class="study-data-name">
+                    Reversal Candlestick:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.reversal_candlestick %>
+                </div>
+            </div>
+            <div class="study-data">
+                <div class="study-data-name">
+                    Continuation Candlestick:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.continuation_candlestick %>
+                </div>
+            </div>
+            <div class="separator"/>
+            <div class="study-data">
+                <div class="study-data-name">
+                    RSI:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.rsi %>
+                </div>
+            </div>
+            <div class="study-data">
+                <div class="study-data-name">
+                    RSI Cross:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.rsi_cross %>
+                </div>
+            </div>
+            <div class="study-data">
+                <div class="study-data-name">
+                    RSI Divergence:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.rsi_divergence %>
+                </div>
+            </div>
+            <div class="separator"/>
+            <div class="study-data">
+                <div class="study-data-name">
+                    Stochastic:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.stoch %>
+                </div>
+            </div>
+            <div class="study-data">
+                <div class="study-data-name">
+                    Stochastic Cross:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.stoch_cross %>
+                </div>
+            </div>
+            <div class="study-data">
+                <div class="study-data-name">
+                    Stochastic Divergence:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.stoch_divergence %>
+                </div>
+            </div>
+            <div class="separator"/>
+            <div class="study-data">
+                <div class="study-data-name">
+                    MACD:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.macd %>
+                </div>
+            </div>
+            <div class="study-data">
+                <div class="study-data-name">
+                    MACD Cross:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.macd_cross %>
+                </div>
+            </div>
+            <div class="separator"/>
+            <div class="study-data">
+                <div class="study-data-name">
+                    Buy:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.buy %>
+                </div>
+            </div>
+            <div class="study-data">
+                <div class="study-data-name">
+                    Sell:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.sell %>
+                </div>
+            </div>
+            <div class="study-data">
+                <div class="study-data-name">
+                    Stop Loss:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.stop_loss %>
+                </div>
+            </div>
+            <div class="separator"/>
+            <div class="study-data">
+                <div class="study-data-name">
+                    Image:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.image_usrl %>
+                </div>
+            </div>
+            <div class="separator"/>
+            <div class="study-data">
+                <div class="study-data-name">
+                    Note:
+                </div>
+                <div class="study-data-value">
+                    <%= @study.note %>
+                </div>
+            </div>
+        </section>
+		<% else %>
+		<section>
+			Nessuno studio presente
+		</section>
+        <% end %>
     </div>
 </section>

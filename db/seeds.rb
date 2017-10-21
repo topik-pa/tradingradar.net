@@ -10,7 +10,7 @@
 #Analysis.delete_all
 #Stock.delete_all
 
-Url.delete_all
+#Url.delete_all
 #Market.delete_all
 
 
@@ -58,8 +58,6 @@ stock_list = [
   [39, "IT0004827447", "", "Unipolsai", "", nil, "", ""],
   [40, "IT0003540470", "", "Yoox Net-A-Porter Group", "", nil, "", ""]
 ]
-
-#Stock.create(isin: "111", name: "qqqq", last_price: "10")
 
 stock_list.each do |id, isin, cod, name, sector, last_price, variation, market_phase|
   #Stock.create(id: id, isin: isin, cod: cod, name: name, sector: sector, last_price: last_price, variation: variation, market_phase: market_phase)
@@ -113,7 +111,7 @@ url_list = [
 ]
 
 url_list.each do |isin, url1, url2, url3, url4, url5, url6, url7, url8, url9, url10|
-  Url.create(isin: isin, url1: url1, url2: url2, url3: url3, url4: url4, url5: url5, url6: url6, url7: url7, url8: url8, url9: url9, url10: url10)
+  #Url.create(isin: isin, url1: url1, url2: url2, url3: url3, url4: url4, url5: url5, url6: url6, url7: url7, url8: url8, url9: url9, url10: url10)
 end
 ###Url###
 

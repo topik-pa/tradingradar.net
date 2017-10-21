@@ -1,11 +1,56 @@
-<div class="row  tile_count">
-    <% markets.each do |market| %>
-    <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count markets_baskets">
-        <span class="count_top"><i class="fa fa-line-chart"></i><a title="<%= market.name + ' - Analisi sul sito Il Sole 24 Ore' %>" href="<%= @marketsUrlMap[market.name] %>"><%= market.name %></a></span>
-        <div class="count">
-            <%= market.value %>&nbsp;/&nbsp;<i class="variation <%= colorClass(market.variation) %>"><%= market.variation %>% </i>
+<div class="widget tabbed">
+    <div class="tabs-wrapper">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#markets" data-toggle="tab">Mercati</a>
+            </li>
+            <li>
+                <a href="#raw-materials" data-toggle="tab">Materie</a>
+            </li>
+            <li>
+                <a href="#currencies" data-toggle="tab">Valute</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <ul id="markets" class="tab-pane active">
+                <% @firstRowMarkets.each do |market| %>
+                <li>
+                    <a href="<%= @marketsUrlMap[market.name] %>" class="tab-thumb thumbnail" title="<%= market.name + ' - Analisi sul sito Il Sole 24 Ore'%>"><%= image_tag(@marketsFlagMap[market.name] + ".png", size: "60x60", alt: "Bandiera") %></a>
+                    <div class="content">
+                        <%= market.name %>
+                        <div>
+                            <%= market.value %>&nbsp;/&nbsp;<i class="variation <%= colorClass(market.variation) %>"><%= market.variation %>% </i>
+                        </div>
+                    </div>
+                </li>
+                <% end %>
+            </ul>
+            <ul id="raw-materials" class="tab-pane">
+                <% @secondRowMarkets.each do |market| %>
+                <li>
+                    <a href="<%= @marketsUrlMap[market.name] %>" class="tab-thumb thumbnail" title="<%= market.name + ' - Analisi sul sito Il Sole 24 Ore'%>"><%= image_tag(@marketsFlagMap[market.name] + ".png", size: "60x60", alt: "Materia prima") %></a>
+                    <div class="content">
+                        <%= market.name %>
+                        <div>
+                            <%= market.value %>&nbsp;/&nbsp;<i class="variation <%= colorClass(market.variation) %>"><%= market.variation %>% </i>
+                        </div>
+                    </div>
+                </li>
+                <% end %>
+            </ul>
+            <ul id="currencies" class="tab-pane">
+                <% @thirdRowMarkets.each do |market| %>
+                <li>
+                    <a href="<%= @marketsUrlMap[market.name] %>" class="tab-thumb thumbnail" title="<%= market.name + ' - Analisi sul sito Il Sole 24 Ore'%>"><%= image_tag(@marketsFlagMap[market.name] + ".png", size: "60x60", alt: "Valuta") %></a>
+                    <div class="content">
+                        <%= market.name %>
+                        <div>
+                            <%= market.value %>&nbsp;/&nbsp;<i class="variation <%= colorClass(market.variation) %>"><%= market.variation %>% </i>
+                        </div>
+                    </div>
+                </li>
+                <% end %>
+            </ul>
         </div>
     </div>
-    <% end %>
 </div>
-

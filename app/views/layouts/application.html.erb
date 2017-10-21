@@ -1,28 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="it-IT">
     <head>
+    	
 		<title>
 		  <%= if content_for?(:title) then yield(:title) + ' | ' end %><%=$appName + ' ' + $appVersion%>
 		</title>
+		
         <%= csrf_meta_tags %>
+		
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		
 		<meta name='description' content='<%= yield_meta_tag(:description, 'A description of this project') %>' />
 		<meta name='keywords' content='<%= yield_meta_tag(:keywords, 'comma, separated, keywords') %>' />
 		<meta name='author' content='<%= yield_meta_tag(:author, 'Name Surname') %>' />
 		
 		<meta name="msvalidate.01" content="45EB28F9F855ED4A3A9904BC410CD169" />
-		<meta name="google-site-verification" content="hl74Eak8YodPVXxEm6CpfxpYUWsdNTIiW4FGPEUIKE8" />
+		<meta name="google-site-verification" content="hl74Eak8YodPVXxEm6CpfxpYUWsdNTIiW4FGPEUIKE8" />	
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="canonical" href="<%= request.original_url %>" />
+		
+		<meta property="og:locale" content="it_IT" />
+	    <meta property="og:type" content="website" />
+	    <meta property="og:title" content="<%=$appName + ' ' + $appVersion %>" />
+	    <meta property="og:description" content="<%= yield_meta_tag(:description, 'A description of this project') %>" />
+	    <meta property="og:url" content="<%= request.original_url %>" />
+		<meta property="og:image" content="/images/trading-radar-logo.png" />
+	    <meta property="og:site_name" content="<%= $appName %>" />
 
 		<%= favicon_link_tag 'favicon.ico' %>
+            
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	    <link rel='stylesheet' href='https://cdn.colorlib.com/dazzling/wp-content/themes/dazzling/inc/css/font-awesome.min.css' type='text/css' media='all' />
+
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        		
+	
+	    <style type="text/css">
+	        p.site-description {
+	            display: none;
+	        }
+	    </style>
+	
+	
     </head>
-    <body class="nav-md">
-        <main id="main-wrapper" class="<%= controller.controller_name %>">
-            <%= yield %>
-        </main> 
+	
+    <body>
+    		
 		
-		<input id="pageData" type="hidden" data-isin="<%= params[:isin] ? params[:isin] : '' %>" data-user="<%= $user %>" data-isadmin="<%= $isAdmin %>" data-islogged="<%= $isLogged %>"/>    
+		<main id="main-wrapper" class="<%= controller.controller_name %>">
+			<%= render("shared/navigation") %> 
+			
+	        <%= yield %>
+			
+			<%= render("shared/footer") %> 
+			
+			<input id="pageData" type="hidden" data-isin="<%= params[:isin] ? params[:isin] : '' %>" data-user="<%= $user %>" data-isadmin="<%= $isAdmin %>" data-islogged="<%= $isLogged %>"/>			
+	    </main> 
 		
+
 		<!-- Start of StatCounter Code for old browsers -->
 		<noscript><div class="statcounter"><a title="free web stats"
 		href="http://statcounter.com/" target="_blank"><img
@@ -32,6 +70,7 @@
 		<!-- End of StatCounter Code for old browsers -->
 		   
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+		
 
     </body>
 </html>

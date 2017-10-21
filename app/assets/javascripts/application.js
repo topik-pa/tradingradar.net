@@ -14,16 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 
+//= require bootstrap.min.js
 //= require bootstrap-sprockets
 
 //= require gentelella
-//= require gentelella-custom
 
-//= require jquery.tablesorter.min
+//= require jquery.tablesorter.min.js
 
-//= require jquery.jscrollpane.min
+//= require jquery.scrollTo.min.js
 
-//= require jquery.scrollTo.min
+//= require dazzling-main.min.js
 
 //= require scripts.js
 

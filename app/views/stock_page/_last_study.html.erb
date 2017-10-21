@@ -1,198 +1,197 @@
-<section class="row section">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <% if @lastStudy %>
-        <div class="x_panel">
-            <h2>Ultima analisi inserita</h2>
-            <table class="tablesorter nojs">
-                <thead>
-                    <tr>
-                        <th>
-                            Resistenza
-                        </th>
-                        <th>
-                            Supporto
-                        </th>
-                        <th>
-                            Direzione
-                        </th>
-                        <th>
-                            Media ponderata 1
-                        </th>
-                        <th>
-                            Media ponderata 2
-                        </th>
-                        <th>
-                            Gap
-                        </th>
-                        <th>
-                            Posizione (Long/Short)
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <%= @lastStudy.resistance %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.support %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.direction %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.mmp1 %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.mmp2 %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.gap %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.trading_position %>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="tablesorter nojs">
-                <thead>
-                    <tr>
-                        <th>
-                            Reversal Chart Pattern
-                        </th>
-                        <th>
-                            Continuation Chart Pattern
-                        </th>
-                        <th>
-                            Reversal Candlestick
-                        </th>
-                        <th>
-                            Continuation Candlestick
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <%= @lastStudy.reversal_chart_pattern %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.continuation_chart_pattern %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.reversal_candlestick %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.continuation_candlestick %>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="tablesorter nojs">
-                <thead>
-                    <tr>
-                        <th>
-                            RSI
-                        </th>
-                        <th>
-                            RSI Cross
-                        </th>
-                        <th>
-                            RSI Divergence
-                        </th>
-                        <th>
-                            Stoch
-                        </th>
-                        <th>
-                            Stoch Cross
-                        </th>
-                        <th>
-                            Stoch Divergence
-                        </th>
-                        <th>
-                            MACD
-                        </th>
-                        <th>
-                            MACD Cross
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <%= @lastStudy.rsi %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.rsi_cross %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.rsi_divergence %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.stoch %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.stoch_cross %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.stoch_divergence %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.macd %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.macd_cross %>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="tablesorter nojs">
-                <thead>
-                    <tr>
-                        <th>
-                            Buy
-                        </th>
-                        <th>
-                            Sell
-                        </th>
-                        <th>
-                            Stop Loss
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <%= @lastStudy.buy %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.sell %>
-                        </td>
-                        <td>
-                            <%= @lastStudy.stop_loss %>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div>
-                Ulteriori note:
-                <div class="note">
-                    <%= @lastStudy.note %>
-                </div>
-            </div>
-            <div>
-                Questo titolo ha <%= @studiesSize %> studio/i. 
-                Vai alla 
-                <%= link_to 'Pagina studi personalizzati', study_page_index_path(isin: @stock.isin, id: @lastStudy.id) %> &nbsp;per aggiungere/visualizzare nuovi studi.
-            </div>
-        </div>
-        <% else %>
-        <div>
-            Questo titolo ha <%= @studiesSize %> studio/i.
-            Vai alla 
-            <%= link_to 'Pagina studi personalizzati', study_page_index_path(isin: @stock.isin) %>&nbsp;per aggiungere/visualizzare nuovi studi.
-        </div>
-        <% end %>
-    </div>
+<section class="last-study">
+	<% if @lastStudy %>
+	<div>
+	    Ultima analisi inserita
+	</div>
+	<table class="tablesorter nojs">
+	    <thead>
+	        <tr>
+	            <th>
+	                Resistenza
+	            </th>
+	            <th>
+	                Supporto
+	            </th>
+	            <th>
+	                Direzione
+	            </th>
+	            <th>
+	                Media ponderata 1
+	            </th>
+	            <th>
+	                Media ponderata 2
+	            </th>
+	            <th>
+	                Gap
+	            </th>
+	            <th>
+	                Posizione (Long/Short)
+	            </th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr>
+	            <td>
+	                <%= @lastStudy.resistance %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.support %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.direction %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.mmp1 %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.mmp2 %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.gap %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.trading_position %>
+	            </td>
+	        </tr>
+	    </tbody>
+	</table>
+	<table class="tablesorter nojs">
+	    <thead>
+	        <tr>
+	            <th>
+	                Reversal Chart Pattern
+	            </th>
+	            <th>
+	                Continuation Chart Pattern
+	            </th>
+	            <th>
+	                Reversal Candlestick
+	            </th>
+	            <th>
+	                Continuation Candlestick
+	            </th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr>
+	            <td>
+	                <%= @lastStudy.reversal_chart_pattern %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.continuation_chart_pattern %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.reversal_candlestick %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.continuation_candlestick %>
+	            </td>
+	        </tr>
+	    </tbody>
+	</table>
+	<table class="tablesorter nojs">
+	    <thead>
+	        <tr>
+	            <th>
+	                RSI
+	            </th>
+	            <th>
+	                RSI Cross
+	            </th>
+	            <th>
+	                RSI Divergence
+	            </th>
+	            <th>
+	                Stoch
+	            </th>
+	            <th>
+	                Stoch Cross
+	            </th>
+	            <th>
+	                Stoch Divergence
+	            </th>
+	            <th>
+	                MACD
+	            </th>
+	            <th>
+	                MACD Cross
+	            </th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr>
+	            <td>
+	                <%= @lastStudy.rsi %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.rsi_cross %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.rsi_divergence %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.stoch %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.stoch_cross %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.stoch_divergence %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.macd %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.macd_cross %>
+	            </td>
+	        </tr>
+	    </tbody>
+	</table>
+	<table class="tablesorter nojs">
+	    <thead>
+	        <tr>
+	            <th>
+	                Buy
+	            </th>
+	            <th>
+	                Sell
+	            </th>
+	            <th>
+	                Stop Loss
+	            </th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr>
+	            <td>
+	                <%= @lastStudy.buy %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.sell %>
+	            </td>
+	            <td>
+	                <%= @lastStudy.stop_loss %>
+	            </td>
+	        </tr>
+	    </tbody>
+	</table>
+	<div>
+	    Ulteriori note:
+	    <div class="note">
+	        <%= @lastStudy.note %>
+	    </div>
+	</div>
+	<div>
+	    Questo titolo ha <%= @studiesSize %> studio/i. 
+	    Vai alla 
+	    <%= link_to 'Pagina studi personalizzati', study_page_index_path(isin: @stock.isin, id: @lastStudy.id) %>&nbsp;per aggiungere/visualizzare nuovi studi.
+	</div>
+	</div>
+	<% else %>
+	<div>
+	    Questo titolo ha <%= @studiesSize %> studio/i. 
+	    Vai alla 
+	    <%= link_to 'Pagina studi personalizzati', study_page_index_path(isin: @stock.isin) %>&nbsp;per aggiungere/visualizzare nuovi studi.
+	</div>
+	<% end %>
 </section>
