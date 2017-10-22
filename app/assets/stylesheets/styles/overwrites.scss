@@ -192,18 +192,25 @@ footer h3 {
 	}
 
 	#stock-table_filter {
-		float: right;
+		
 	}
 
 	#stock-table_filter {
+		float: right;
 		.input-sm {
 			height: 22px;
+			margin-left: 10px;
 		}
+		
 	}
 
 	.pagination {
 		margin: 0;
     	float: right;
+	}
+	
+	select.input-sm {
+		margin: 0 10px;
 	}
 	
 }

@@ -9,7 +9,12 @@
                 <span class="icon-bar"></span>
             </button>
             <div id="logo">
-                <h1 class="site-title"><a class="navbar-brand" href="/" title="<%= $appName %>" rel="home"><%= $appName %></a></h1>
+                <h1 class="site-title">
+                	<a class="navbar-brand" href="/" title="<%= $appName %>" rel="home">
+                		<%= image_tag 'trading-radar-logo-small-alpha.png', alt: $appName + ' logo', class: 'main-logo' %>
+                		<%= $appName %>
+					</a>
+				</h1>
             </div>
             <p class="site-description">
                 <%= $appDescription %>
@@ -19,13 +24,13 @@
         <div id="navbar" class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                 <li class="<%= 'active' if current_page?(controller: 'welcome', action: 'index') || current_page?(root_url) %>" >
-                    <a title="Home" href="/">Home</a>
+                    <%= link_to 'Home', welcome_index_path, title: 'Home page' %>
                 </li>
                 <li class="<%= 'active' if current_page?(controller: 'chi_siamo', action: 'index') %>">
-					<%= link_to 'Cos\'è Trading Radar', chi_siamo_index_path %>
+					<%= link_to 'Cos\'è Trading Radar', chi_siamo_index_path, title: 'Cos\'è Trading Radar' %>
                 </li>
                 <li class="<%= 'active' if current_page?(controller: 'contatti', action: 'index') %>">
-                    <%= link_to 'Contatti', contatti_index_path %>
+                    <%= link_to 'Contatti', contatti_index_path, title: 'Pagina contatti' %>
                 </li>
 				
 				<% if $isAdmin %>

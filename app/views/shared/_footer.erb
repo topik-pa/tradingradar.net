@@ -4,17 +4,17 @@
         	
             <div class="col-sm-6 col-md-4 footer-widget" role="complementary">
                 <div id="nav_menu-2" class="widget widget_nav_menu">
-                    <h3 class="widgettitle">Other Pages</h3>
+                    <h3 class="widgettitle">Altre pagine</h3>
                     <div class="menu-short-container">
                         <ul id="menu-short" class="menu">
                             <li class="menu-item">
-                                <a href="/">Home</a>
+                                <%= link_to 'Home', welcome_index_path, title: 'Home page' %>
                             </li>
                             <li class="menu-item">
-                                <a title="Cos&apos;&egrave; Trading Radar" href="#">Cos&apos;&egrave; Trading Radar</a>
+								<%= link_to 'Cos\'è Trading Radar', chi_siamo_index_path, title: 'Cos\'è Trading Radar' %>
                             </li>
                             <li class="menu-item">
-                                <a title="Contatti" href="#">Contatti</a>
+                                <%= link_to 'Contatti', contatti_index_path, title: 'Pagina contatti' %>
                             </li>
                         </ul>
                     </div>
@@ -27,8 +27,11 @@
                         <p>
                             <%= image_tag 'trading-radar-logo-small-alpha.png', alt: $appName + ' logo' %>
                         </p>
-                        <h3><%= $appName %>
+                        <h3>
+                        	<%= $appName %>
+							<small>Ver. <%= $appVersion%></small>
                         </h3>
+						
                         <p>
                             <%= $appDescription %>
                         </p>
