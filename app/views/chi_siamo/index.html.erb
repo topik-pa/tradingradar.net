@@ -1,6 +1,4 @@
 <% title $appDescription + ' | Cos\'è Trading Radar?' %>
-<% meta_tag :description, 'Trading Radar - Analisi, suggerimenti di acquisto e vendita, notizie sui titoli azionari del Mercato Italiano' %>
-<% meta_tag :keywords, 'analisi, spunti, suggerimenti, trading, acquisto, vendita, notizie, rassegna, stampa, mercato, italiano, MTA, FTSE, MIB' %>
 <% meta_tag :robots, 'index, follow' %>
 <% meta_tag :author, $author + ' - ' + $authorMail %>
 
@@ -11,13 +9,21 @@
 	    <div class="container main-content-area">
 	        <div class="row pull-left">
 	            <section id="primary" class="widget-area col-sm-12" role="complementary">
-	                
-	            </section>	            
-	            <section class="section">
-	                <div class="keywords">
-	                    Keywords: <%= yield_meta_tag(:keywords) %>
-	                </div>
-	            </section>
+	                <header class="entry-header page-header">
+					    <h1 class="entry-title">
+					    	<%= $appName %>					        
+					    </h1>
+						<small>
+							<%= $appDescription %>	
+						</small>
+					</header>
+					<div>
+						Trading Radar filtra i titoli azionari della Borsa italiana in base alle valutazioni e alle informazioni trovate sui principali media on-line del settore.<br/>
+						Vengono mostrati segnali operativi di acquisto o vendita sui titoli che raggiungono livelli sensibili per quello che riguarda l'analisi tecnica.<br/><br/>
+						
+						Per ogni titolo è presente una breve rassegna stampa con ulteriori notizie, analisi, target price e strategie, ottenute in tempo reale da siti come: Borsa Italiana, Il Sole 24 Ore, La Repubblica, Milano Finanza, Investing.com.
+					</div>
+	            </section>	            	            
 	        </div>
 	    </div>
     </div>

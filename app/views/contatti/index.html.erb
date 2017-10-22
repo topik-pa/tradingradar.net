@@ -1,4 +1,4 @@
-<% title $appDescription + ' | Cos\'è Trading Radar?' %>
+<% title $appDescription + ' | Contatti' %>
 <% meta_tag :robots, 'index, follow' %>
 <% meta_tag :author, $author + ' - ' + $authorMail %>
 
@@ -9,13 +9,17 @@
 	    <div class="container main-content-area">
 	        <div class="row pull-left">
 	            <section id="primary" class="widget-area col-sm-12" role="complementary">
-	                
-	            </section>	            
-	            <section class="section">
-	                <div class="keywords">
-	                    Keywords: <%= yield_meta_tag(:keywords) %>
-	                </div>
-	            </section>
+	            	<header class="entry-header page-header">
+					    <h1 class="entry-title">
+					    	Contatti					        
+					    </h1>
+					</header>
+					<div>
+						Questa pagina conterrà presto un form per poter contattare chi amministra il sito. <br/><br/>
+					
+						Nel frattempo è possibile inviare una mail a: <%= mail_to "info@tradingradar.net", "info@tradingradar.net" %>
+					</div>	                
+	            </section>	            	            
 	        </div>
 	    </div>
     </div>

@@ -247,7 +247,7 @@ var tradingRadar = (function () {
                                             var rowClass = i % 2 === 0 ? 'even' : 'odd';
 
                                             tbody += '<tr class="' + rowClass + '" data-isin="' + item.isin + '">';
-                                            tbody += '<td><a href="' + '/stock_page/index?isin=' + item.isin + '">' + item.name + '</a></td>';
+                                            tbody += '<td><a href="' + '/analisi_tecnica_titolo/index?' + item.name + '&isin=' + item.isin + '">' + item.name + '</a></td>';
 
                                             obj.attributes[index].forEach(function (attribute) {
 
@@ -313,7 +313,7 @@ $(document).ready(function () {
     $('#main-wrapper').find(".tablesorter:not(.nojs)").tablesorter();
 
 
-    if ($('.stock_page').length) {
+    if ($('.stock_page').length || $('.analisi_tecnica_titolo').length) {
         tradingRadar.loadSources();
     }
 
@@ -439,7 +439,7 @@ var HPFilters = [
             ['last_price', 'xxivore_shorttrend', 'xxivore_ftaindex', 'xxivore_rsi']
         ],
         info_title: 'Indicazioni da "Il Sole 24 Ore"',
-        info_content: 'Titoli con "Short trend" "Molto rialzista" e "FTA Index" di almeno 50 e "RSI" almeno 75 secondo le analisi de "Il Sole 24 Ore"<br/><br/>Lo <strong>short trend</strong> descrive lo stato della tendenza relativa al titolo nelle ultime settimane.<br/><br/>L\'<strong>FtaIndex</strong> è un indicatore creato da Financial Trend Analysis, il cui valore oscilla tra +100 e -100. Valori superiori a 30 sono indice di un quadro tecnico favorevolmente orientato, viceversa per valori inferiori a -30.<br/><br/>l\'<strong>RSI</strong> è il valore dell\'indice di forza relativa (0-100) calcolato ad 8 giorni. Il range 35-65 è definito neutrale: al di sopra di 65 si parla di una condizione di Ipercomprato, al di sotto di 30 di una condizione di Ipervenduto.'
+        info_content: 'Titoli con "Short trend" "Molto rialzista" e "FTA Index" di almeno 50 e "RSI" almeno 75 secondo le analisi de "Il Sole 24 Ore"<br/><br/>Lo <strong>short trend</strong> descrive lo stato della tendenza relativa al titolo nelle ultime settimane.<br/><br/>L\'<strong>Fta Index</strong> è un indicatore creato da Financial Trend Analysis, il cui valore oscilla tra +100 e -100. Valori superiori a 30 sono indice di un quadro tecnico favorevolmente orientato, viceversa per valori inferiori a -30.<br/><br/>l\'<strong>RSI</strong> è il valore dell\'indice di forza relativa (0-100) calcolato ad 8 giorni. Il range 35-65 è definito neutrale: al di sopra di 65 si parla di una condizione di Ipercomprato, al di sotto di 30 di una condizione di Ipervenduto.'
     },
 
     {

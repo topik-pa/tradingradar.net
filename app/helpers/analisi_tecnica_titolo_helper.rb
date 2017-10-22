@@ -1,0 +1,2 @@
+module AnalisiTecnicaTitoloHelper
+end

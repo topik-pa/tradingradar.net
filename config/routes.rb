@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   post 'study_page/index'  => 'study_page#create' 
 
   get 'stock_page/index'
+  
 
   resources :markets
   resources :studies
@@ -64,6 +65,49 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
 
   delete 'logout' => 'sessions#destroy'
+  
+  
+  get 'analisi_tecnica_titolo/index'
+  get 'analisi_tecnica_titolo/a2a'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/atlantia'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/azimut_holding'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/banca_generali'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/banca_mediolanum'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/banco_bpm'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/bper_banca'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/brembo'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/buzzi_unicem'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/campari'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/cnh_industrial'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/enel'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/eni'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/exor'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/ferrari'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/fiat_chrysler_automobiles'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/finecobank'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/generali'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/intesa_sanpaolo'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/italgas'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/leonardo'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/luxottica'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/mediaset'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/mediobanca'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/moncler'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/poste_italiane'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/prysmian'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/recordati'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/saipem'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/salvatore_ferragamo'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/snam'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/stmicroelectronics'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/telecom_italia'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/tenaris'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/terna_rete_elettrica_nazionale'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/ubi_banca'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/unicredit'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/unipol'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/unipolsai'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/yoox_net_a_porter_group'  => 'analisi_tecnica_titolo#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
