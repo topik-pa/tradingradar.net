@@ -349,7 +349,7 @@ var HPFilters = [
             ['last_price', 'borsa_italiana_support']
         ],
         info_title: 'Violazione trendline "Borsa Italiana"',
-        info_content: 'Violazione di resistenze e supporti secondo l\'analisi di "Borsa Italiana". <br/><br/>In evidenza i titoli che violano la trendline anche per altri media presi in esame.<br/><br/>Il <strong>supporto</strong> è un livello che si pone come ostacolo ad una ulteriore discesa del prezzo. Può essere il punto di svolta che precede un rimbalzo tecnico, ma se superato può implicare un deciso proseguimento nella direzione della rottura. <br/>La <strong>resistenza</strong> è un livello che si pone come ostacolo ad una salita del prezzo. Può essere il punto di svolta che precede un ritracciamento tecnico, ma, se superato, tale livello può implicare un deciso proseguimento nella direzione della rottura.'
+        info_content: 'Violazione di resistenze e supporti secondo l\'analisi di "Borsa Italiana". <br/><br/><i>In evidenza i titoli che violano la trendline anche per altri media presi in esame.</i><br/><br/>Il <strong>supporto</strong> è un livello che si pone come ostacolo ad una ulteriore discesa del prezzo. Può essere il punto di svolta che precede un rimbalzo tecnico, ma se superato può implicare un deciso proseguimento nella direzione della rottura. <br/>La <strong>resistenza</strong> è un livello che si pone come ostacolo ad una salita del prezzo. Può essere il punto di svolta che precede un ritracciamento tecnico, ma, se superato, tale livello può implicare un deciso proseguimento nella direzione della rottura.'
     },
     {
         index: 1,
@@ -372,7 +372,7 @@ var HPFilters = [
             ['last_price', 'xxivore_support']
         ],
         info_title: 'Violazione trendline per "Il Sole 24 Ore"',
-        info_content: 'Violazione di resistenze e supporti secondo l\'analisi de "Il Sole 24 Ore". <br/><br/>In evidenza i titoli che violano la trendline anche per altri media presi in esame.<br/><br/>Il <strong>supporto</strong> è un livello che si pone come ostacolo ad una ulteriore discesa del prezzo. Può essere il punto di svolta che precede un rimbalzo tecnico, ma se superato può implicare un deciso proseguimento nella direzione della rottura. <br/>La <strong>resistenza</strong> è un livello che si pone come ostacolo ad una salita del prezzo. Può essere il punto di svolta che precede un ritracciamento tecnico, ma, se superato, tale livello può implicare un deciso proseguimento nella direzione della rottura.'
+        info_content: 'Violazione di resistenze e supporti secondo l\'analisi de "Il Sole 24 Ore". <br/><br/><i>In evidenza i titoli che violano la trendline anche per altri media presi in esame.</i><br/><br/>Il <strong>supporto</strong> è un livello che si pone come ostacolo ad una ulteriore discesa del prezzo. Può essere il punto di svolta che precede un rimbalzo tecnico, ma se superato può implicare un deciso proseguimento nella direzione della rottura. <br/>La <strong>resistenza</strong> è un livello che si pone come ostacolo ad una salita del prezzo. Può essere il punto di svolta che precede un ritracciamento tecnico, ma, se superato, tale livello può implicare un deciso proseguimento nella direzione della rottura.'
     },
     {
         index: 2,

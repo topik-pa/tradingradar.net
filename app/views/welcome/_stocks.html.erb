@@ -34,7 +34,7 @@
             <% @stocks.each do |stock| %>
             <tr class="<%= cycle('even', 'odd') -%>">
                 <td class="bold">
-                    <%= link_to stock.name, stock_page_index_path(isin: stock.isin), title: 'Rassegna stampa e analisi titolo: ' + stock.name %>
+                    <%= link_to stock.name, stock_page_index_path(isin: stock.isin), title: 'Analisi tecnica e rassegna stampa in tempo reale del titolo: ' + stock.name %>
                 </td>
                 <td>
                     <%= stock.sector %>

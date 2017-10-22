@@ -25,6 +25,10 @@
 	  color: #ddd;
 	  max-width: 600px;
 	  padding: 12px 20px;
+	  
+	  a:hover {
+	  	color: #ddd;
+	  }
 	}
 	.flex-caption h2 {
 	  font-weight: 400;
@@ -48,6 +52,8 @@
 	    display: none;
 	  }
 	}
+	
+	
 
 }
 
@@ -113,7 +119,8 @@ h3 {
     padding: 0;
 	}
 	.flex-caption {
-		font-size: 12px;
+		font-size: 14px;
+		line-height: 18px;
 		h2 {
 			font-size: 20px;
 		}
@@ -138,9 +145,6 @@ aside.widget {
 	margin-top: 50px;
 }
 
-.page-header { 
-	margin-bottom: 0;
-}
 .entry-content {
 	margin-top: 0;
 }
@@ -203,7 +207,26 @@ footer h3 {
 
 /* Smartphones (portrait) ----------- */
 
+@media (max-width: 1024px) {
+	.top-section {
+		.flex-caption .excerpt {
+	  		font-size: 12px;
+			max-width: 700px;
+			padding: 8px 10px;
+	  	}
+		.flex-caption h2 {
+			font-size: 16px;
+			padding: 8px 11px;
+
+		}
+	}	  
+}
+
+
 @media only screen and (max-width : 768px) {
+	.flex-caption {
+    display: none;
+  }
 	.stocks {
 			.col-sm-12 {
 				overflow-x: scroll;
@@ -227,5 +250,4 @@ footer h3 {
 		font-size: 85%;
 	}
 }
-
 

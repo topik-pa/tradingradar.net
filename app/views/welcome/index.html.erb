@@ -1,6 +1,6 @@
 <% title $appDescription + ' | Home ' %>
-<% meta_tag :description, 'Trading Radar - Analisi, suggerimenti di acquisto e vendita, notizie sui titoli azionari del Mercato Italiano' %>
-<% meta_tag :keywords, 'analisi, spunti, suggerimenti, trading, acquisto, vendita, notizie, rassegna, stampa, mercato, italiano, MTA, FTSE, MIB' %>
+<% meta_tag :description, 'Trading Radar - Analisi tecnica, segnali e notizie sui titoli azionari della Borsa di Milano' %>
+<% meta_tag :keywords, 'analisi, segnali, titoli, azioni, trading, notizie, mercato, italiano, borsa, milano, FTSE, MIB' %>
 <% meta_tag :robots, 'index, follow' %>
 <% meta_tag :author, $author + ' - ' + $authorMail %>
 
@@ -11,11 +11,14 @@
 	        <li>
 				<%= image_tag("front-image.jpg", size: "1920x430", alt: "Borsa italiana a Milano - Entrata principale") %>
 	            <div class="flex-caption">
-	                <h2 class="entry-title">Analisi, notizie e suggerimenti di trading per il mercato italiano</h2>
+	                <h2 class="entry-title"><%= $appDescription %></h2>
 	                <div class="excerpt">
-	                    Titoli azionari Italia FTSE MIB e situazione Mercati internazionali. I dati provengono da Borsa Italiana, Il Sole 24 Ore, La Repubblica, Milano Finanza, Investing.com e sono aggiornati ad intervalli regolari. 
-	                    Cliccando sul nome di un titolo è possibile visualizzare una rassegna stampa con analisi ottenute in tempo reale da diverse fonti web. 
-	                    In basso, una serie di filtri evidenziano dei suggerimenti e spunti di acquisto o vendita sui titoli di maggiore interesse e i parametri con i quali sono stati selezionati.
+	                	
+						Trading Radar <a href="#secondary" data-turbolinks="false" title="Vai ai titoli filtrati">filtra</a> i titoli azionari della Borsa italiana in base alle valutazioni e alle informazioni trovate sui principali media on-line del settore.<br/>
+						Vengono mostrati segnali operativi di acquisto o vendita sui titoli che raggiungono livelli sensibili per quello che riguarda l'<strong>analisi tecnica</strong>.<br/><br/>
+						
+						Per ogni titolo è presente una breve <strong>rassegna stampa</strong> con ulteriori notizie, analisi, target price e strategie, ottenute in tempo reale da siti come: <%= link_to("Borsa Italiana", "http://www.borsaitaliana.it") %>, <%= link_to("Il Sole 24 Ore", "http://www.ilsole24ore.com/finanza-e-mercati.shtml") %>, <%= link_to("La Repubblica", "http://www.repubblica.it/economia/affari-e-finanza") %>, <%= link_to("Milano Finanza", "https://www.milanofinanza.it") %>, <%= link_to("Investing.com", "https://it.investing.com/") %>.
+						
 	                </div>
 	            </div>
 	        </li>

@@ -2,20 +2,20 @@
     <div class="tabs-wrapper">
         <ul class="nav nav-tabs">
             <li class="active">
-                <a href="#markets" data-toggle="tab">Mercati</a>
+                <a href="#markets" data-toggle="tab" title="Quotazioni principali mercati azionari">Mercati</a>
             </li>
             <li>
-                <a href="#raw-materials" data-toggle="tab">Materie</a>
+                <a href="#raw-materials" data-toggle="tab" title="Quotazioni delle principali materie prime">Materie</a>
             </li>
             <li>
-                <a href="#currencies" data-toggle="tab">Valute</a>
+                <a href="#currencies" data-toggle="tab" title="Quotazioni delle principali valute internazionali">Valute</a>
             </li>
         </ul>
         <div class="tab-content">
             <ul id="markets" class="tab-pane active">
                 <% @firstRowMarkets.each do |market| %>
                 <li>
-                    <a href="<%= @marketsUrlMap[market.name] %>" class="tab-thumb thumbnail" title="<%= market.name + ' - Analisi sul sito Il Sole 24 Ore'%>"><%= image_tag(@marketsFlagMap[market.name] + ".png", size: "60x60", alt: "Bandiera") %></a>
+                    <a href="<%= @marketsUrlMap[market.name] %>" class="tab-thumb thumbnail" title="<%= market.name + ' - Analisi sul sito "Il Sole 24 Ore"'%>"><%= image_tag(@marketsFlagMap[market.name] + ".png", size: "60x60", alt: "Bandiera") %></a>
                     <div class="content">
                         <%= market.name %>
                         <div>
@@ -28,7 +28,7 @@
             <ul id="raw-materials" class="tab-pane">
                 <% @secondRowMarkets.each do |market| %>
                 <li>
-                    <a href="<%= @marketsUrlMap[market.name] %>" class="tab-thumb thumbnail" title="<%= market.name + ' - Analisi sul sito Il Sole 24 Ore'%>"><%= image_tag(@marketsFlagMap[market.name] + ".png", size: "60x60", alt: "Materia prima") %></a>
+                    <a href="<%= @marketsUrlMap[market.name] %>" class="tab-thumb thumbnail" title="<%= market.name + ' - Analisi sul sito "Il Sole 24 Ore"'%>"><%= image_tag(@marketsFlagMap[market.name] + ".png", size: "60x60", alt: "Materia prima") %></a>
                     <div class="content">
                         <%= market.name %>
                         <div>
@@ -41,7 +41,7 @@
             <ul id="currencies" class="tab-pane">
                 <% @thirdRowMarkets.each do |market| %>
                 <li>
-                    <a href="<%= @marketsUrlMap[market.name] %>" class="tab-thumb thumbnail" title="<%= market.name + ' - Analisi sul sito Il Sole 24 Ore'%>"><%= image_tag(@marketsFlagMap[market.name] + ".png", size: "60x60", alt: "Valuta") %></a>
+                    <a href="<%= @marketsUrlMap[market.name] %>" class="tab-thumb thumbnail" title="<%= market.name + ' - Analisi sul sito "Il Sole 24 Ore"'%>"><%= image_tag(@marketsFlagMap[market.name] + ".png", size: "60x60", alt: "Valuta") %></a>
                     <div class="content">
                         <%= market.name %>
                         <div>

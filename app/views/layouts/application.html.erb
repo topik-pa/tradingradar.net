@@ -11,9 +11,10 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		
-		<meta name='description' content='<%= yield_meta_tag(:description, 'A description of this project') %>' />
-		<meta name='keywords' content='<%= yield_meta_tag(:keywords, 'comma, separated, keywords') %>' />
-		<meta name='author' content='<%= yield_meta_tag(:author, 'Name Surname') %>' />
+		<meta name='description' content='<%= yield_meta_tag(:description, 'Trading Radar - segnali di acquisto o vendita e valutazioni sui titoli finanziari della Borsa di Milano') %>' /> 
+		<meta name='keywords' content='<%= yield_meta_tag(:keywords, 'titolo, milano, finanza, borsa, trading, online, valutazioni, segnali, acquisto, vendita') %>' />
+		<meta name='author' content='<%= yield_meta_tag(:author, 'Marco Pavan') %>' />
+		<meta name='robots' content='<%= yield_meta_tag(:robots, 'index, follow') %>' />
 		
 		<meta name="msvalidate.01" content="45EB28F9F855ED4A3A9904BC410CD169" />
 		<meta name="google-site-verification" content="hl74Eak8YodPVXxEm6CpfxpYUWsdNTIiW4FGPEUIKE8" />	
@@ -25,7 +26,7 @@
 		<meta property="og:locale" content="it_IT" />
 	    <meta property="og:type" content="website" />
 	    <meta property="og:title" content="<%=$appName + ' ' + $appVersion %>" />
-	    <meta property="og:description" content="<%= yield_meta_tag(:description, 'A description of this project') %>" />
+	    <meta property="og:description" content="<%= yield_meta_tag(:description, 'Trading Radar - segnali di acquisto o vendita e valutazioni sui titoli finanziari della Borsa di Milano') %>" />
 	    <meta property="og:url" content="<%= request.original_url %>" />
 		<meta property="og:image" content="/images/trading-radar-logo.png" />
 	    <meta property="og:site_name" content="<%= $appName %>" />
