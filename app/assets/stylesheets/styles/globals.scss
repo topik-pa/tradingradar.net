@@ -76,10 +76,12 @@ body {
         }
     }
 
-    .keywords {
-        text-align: center;
-	    font-style: italic;
+    .keywords, .disclaimer {
+        text-align: center;	    
     }
+	.keywords {
+		font-style: italic;
+	}
 	
 	.error {
         font-style: bold;
