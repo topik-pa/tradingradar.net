@@ -61,9 +61,9 @@ var tradingRadar = (function () {
 
         fixHREFs: function () {
             var milanoFinanzaUrl = 'https://www.milanofinanza.it';
-            $links = $mainContainer.find('.milano-finanza a');
+            $linksToChange = $mainContainer.find('.milano-finanza .news a');
             $linksToDisable = $mainContainer.find('.milano-finanza table a');
-            $links.each(function () {
+            $linksToChange.each(function () {
                 var actualHREF = $(this).attr('href');
                 var newHREF = milanoFinanzaUrl + actualHREF;
                 $(this).attr('href', newHREF);
@@ -71,6 +71,7 @@ var tradingRadar = (function () {
 
             $linksToDisable.click(function (e) {
                 e.preventDefault();
+                $(this).removeAttr('href');
             })
 
         },

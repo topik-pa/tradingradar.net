@@ -12,7 +12,7 @@ class SourcesController < ApplicationController
       begin
         docBorsaItaliana = Nokogiri::HTML(open(@urlBorsaItaliana), nil, 'UTF-8')
         docBorsaItaliana.encoding = 'UTF-8'
-        docBorsaItaliana.search('script', 'img').each do |elem|
+        docBorsaItaliana.search('script', 'img', 'a').each do |elem|
           elem.remove
         end
         @borsaItalianaElem1 = docBorsaItaliana.at_xpath('/descendant::article[@class="l-grid__cell"][3]').to_s
@@ -20,7 +20,7 @@ class SourcesController < ApplicationController
         if @urlBorsaItaliana2
           docBorsaItaliana2 = Nokogiri::HTML(open(@urlBorsaItaliana2), nil, 'UTF-8')
           docBorsaItaliana2.encoding = 'UTF-8'
-          docBorsaItaliana2.search('script', 'img').each do |src|
+          docBorsaItaliana2.search('script', 'img', 'a').each do |src|
             src.remove
           end
           @borsaItalianaElem3 = docBorsaItaliana2.at_xpath('/descendant::div[@class="l-grid__row"][4]').to_s
@@ -46,7 +46,7 @@ class SourcesController < ApplicationController
       if !@urlSole24Ore.blank?
         docSole24Ore = Nokogiri::HTML(open(@urlSole24Ore), nil, 'UTF-8')
         docSole24Ore.encoding = 'UTF-8'
-        docSole24Ore.search('script').each do |elem|
+        docSole24Ore.search('script', 'a').each do |elem|
           elem.remove
         end
         docSole24Ore.xpath('//img[contains(@src,"images2010")]').remove  
@@ -75,7 +75,7 @@ class SourcesController < ApplicationController
       if !@urlLaRepubblica.blank?
         docLaRepubblica = Nokogiri::HTML(open(@urlLaRepubblica), nil, 'UTF-8')
         docLaRepubblica.encoding = 'UTF-8'
-        docLaRepubblica.search('script').each do |elem|
+        docLaRepubblica.search('script', 'a').each do |elem|
           elem.remove
         end
         @laRepubblicaElem1 = docLaRepubblica.at_xpath('/descendant::div[@class="box-bottom"]').to_s

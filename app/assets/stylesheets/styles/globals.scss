@@ -22,11 +22,12 @@ body {
 #main-wrapper {
 	
 	.main-logo {
+		image-rendering: -webkit-optimize-contrast;
 	    height: 55px;
 	    float: left;
-	    top: -16px;
+	    top: -17px;
 	    position: relative;
-	    margin-right: 5px;
+	    margin-right: 8px;
 	}
 
 
