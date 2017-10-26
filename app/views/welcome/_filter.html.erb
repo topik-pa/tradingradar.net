@@ -3,7 +3,7 @@
         <h2 class="entry-title"></h2>
         <div class="entry-meta">
             <div class="uptaded-at"><i class="fa fa-calendar"></i><small>Ultimo aggiornamento:</small>
-                <time class="entry-date published" datetime="<%= $lastUpdate %>">
+                <time class="entry-date published" datetime="<%= $lastUpdate.strftime("%Y-%m-%dT%H:%M") %>">
                     <%= $lastUpdate.strftime("%d/%m - %H:%M") %>
                 </time>
             </div>

@@ -3,7 +3,7 @@
     <head>
     	
 		<title>
-		  <%= if content_for?(:title) then yield(:title) + ' | ' end %><%=$appName + ' ' + $appVersion%>
+		  <%= if content_for?(:title) then yield(:title) + ' | ' end %><%= $appName %>
 		</title>
 		
         <%= csrf_meta_tags %>
@@ -51,7 +51,7 @@
     <body>
     		
 		
-		<main id="main-wrapper" class="<%= controller.controller_name %>">
+		<div id="main-wrapper" class="<%= controller.controller_name %>">
 			<%= render("shared/navigation") %> 
 			
 	        <%= yield %>
@@ -59,7 +59,7 @@
 			<%= render("shared/footer") %> 
 			
 			<input id="pageData" type="hidden" data-isin="<%= params[:isin] ? params[:isin] : '' %>" data-user="<%= $user %>" data-isadmin="<%= $isAdmin %>" data-islogged="<%= $isLogged %>"/>			
-	    </main> 
+	    </div> 
 		
 
 		<!-- Start of StatCounter Code for old browsers -->

@@ -1,5 +1,6 @@
 class AnalysesController < ApplicationController
   before_action :set_analysis, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, only: [:index, :show]
 
   # GET /analyses
   # GET /analyses.json

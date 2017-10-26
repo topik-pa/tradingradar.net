@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
+  before_filter :add_www_subdomain
   protect_from_forgery with: :exception
+  
     
   
   require 'rufus-scheduler'
@@ -14,7 +16,7 @@ class ApplicationController < ActionController::Base
  
   $appName = 'Trading Radar'
   $appVersion = '1.1 Beta'
-  $appDescription = 'Analisi tecnica, notizie e segnali di trading sui titoli finanziari del Mercato italiano'
+  $appDescription = 'Analisi tecnica e segnali di trading su azioni MTA'
   $adminEmail = 'agendatrading@yahoo.com'
   $author = 'Marco Pavan'
   $authorMail = 'marcopavan.mp@gmail.com'
@@ -726,6 +728,14 @@ class ApplicationController < ActionController::Base
       #updateStockTable
       #updateAnalysisTable    
     end   
+  end
+
+
+  private
+  def add_www_subdomain
+    unless /^www/.match(request.host)
+      redirect_to("#{request.protocol}www.#{request.host_with_port}",status: 301)
+    end
   end
   
     

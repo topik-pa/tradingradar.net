@@ -1,5 +1,6 @@
 class StudiesController < ApplicationController
   before_action :set_study, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, only: [:index, :show]
 
   # GET /studies
   # GET /studies.json
