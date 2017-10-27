@@ -1,6 +1,13 @@
-<% title @stock.name + ': trading, analisi tecnica, dividendi e strategie' %>
-<% meta_tag :description, 'Analisi tecnica, notizie, dividenti, rating e strategie per il titolo ' +  @stock.name %>
-<% meta_tag :keywords, @stock.name + ', titolo, analisi, tecnica, trading, dividendo, rating, strategie, Borsa, Milano' %>
+<% if @isin %>
+	<% title @stock.name + ': trading, analisi tecnica, dividendi e strategie' %>
+	<% meta_tag :description, 'Analisi tecnica, notizie, dividenti, rating e strategie per il titolo ' +  @stock.name %>
+	<% meta_tag :keywords, @stock.name + ', titolo, analisi, tecnica, trading, dividendo, rating, strategie, Borsa, Milano' %>
+	
+<% else %>	
+	<% title 'Trading, analisi tecnica, dividendi e strategie - Milano Borsa' %>
+	<% meta_tag :description, 'Analisi tecnica, notizie, dividenti, rating e strategie per i titoli della Borsa di Milano ' %>
+	<% meta_tag :keywords, 'analisi, tecnica, trading, dividendo, rating, strategie, Borsa, Milano' %>
+<% end %>
 <% meta_tag :robots, 'index, follow' %>
 <% meta_tag :author, $author + ' - ' + $authorMail %>
 
@@ -8,7 +15,9 @@
 <main id="main" class="site-main">
     <div id="content" class="site-content container">
         <div class="container main-content-area">
-            <div class="row pull-left">
+			<div class="row pull-left">
+			
+				<%if @isin %>
             	
                 <section id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">
                 	
@@ -263,7 +272,26 @@
 	                </section>
 										
 				
-            	</section>
+				</section>
+				<% else %>
+				<section id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">
+					<header class="entry-header page-header">
+						<h1 class="entry-title">
+							<%= $appDescription %><br/>
+							<small>
+								<%= $appDescription %>
+							</small>
+						</h1>
+						<div class="content">
+							<p>Rassegna stampa in tempo reale con dati provenienti dai principali media online del settore trading.</p>
+							<p>Lo scopo di questa sezione è fornire <strong>notizie aggiornate</strong> sui titoli in esame, date e valore dei <strong>dividendi</strong> distribuiti, informazioni sui <strong>rating</strong> e ottenere una idea di massima per formulare una corretta <strong>strategia</strong> di trading.</p>
+
+							<%= render("welcome/stocks") %>
+
+						</div>
+					</header>
+				</section>
+				<% end %>
 				
 				<section class="section">
 					<div class="disclaimer">

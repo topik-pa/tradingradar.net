@@ -7,32 +7,30 @@ class AnalisiTecnicaTitoloController < ApplicationController
     def index
       @user = User.find_by_email($user_email)
               
-      isin = params[:isin] ? params[:isin] : ''     
-      @stock = Stock.find_by isin: isin  
-      @urls = Url.find_by isin: isin
+      @isin = params[:isin] ? params[:isin] : nil 
       
-      @analisis = Analysis.find_by isin: isin  
-      @studiesSize = @stock.studies.size 
-      @lastStudy = @stock.studies.last
+      if @isin    
+        @stock = Stock.find_by isin: @isin  
+        @urls = Url.find_by isin: @isin
+        
+        @urlBorsaItaliana = @urls.url1
+        @urlBorsaItaliana2 = @urls.url2           
+        @urlSole24Ore = @urls.url3         
+        @urlLaRepubblica = @urls.url6         
+        @urlInvesting = @urls.url7         
+        @urlMilanoFinanza = @urls.url9
+        @urlMilanoFinanza2 = @urls.url10        
+        @urlSoldiOnLine = @urls.url5
       
-      #Chart image
-      @urlchartImage = 'http://indici.soldionline.it/ComboChart.aspx?Codice=' + isin + '&TimeRange=360&ChartSize=M&Volume=1&VGrid=1&HGrid=1&ChartType=0&Band=-1&avgType1=N&movAvg1=10&avgType2=N&movAvg2=25&Indicator1=CCI&Indicator2=None&Indicator3=None&Indicator4=None&MID=&SymbolName=' + @stock.name + '&TenYears=0'
-            
-      @urlBorsaItaliana = @urls.url1
-      @urlBorsaItaliana2 = @urls.url2   
+        @analisis = Analysis.find_by isin: @isin   
+        @studiesSize = @stock.studies.size 
+        @lastStudy = @stock.studies.last
       
-      @urlSole24Ore = @urls.url3 
-      
-      @urlLaRepubblica = @urls.url6 
-      
-      @urlInvesting = @urls.url7 
-      
-      @urlMilanoFinanza = @urls.url9
-      @urlMilanoFinanza2 = @urls.url10
-      
-      @urlSoldiOnLine = @urls.url5
-
-    end
+        #Chart image
+        @urlchartImage = 'http://indici.soldionline.it/ComboChart.aspx?Codice=' + @isin  + '&TimeRange=360&ChartSize=M&Volume=1&VGrid=1&HGrid=1&ChartType=0&Band=-1&avgType1=N&movAvg1=10&avgType2=N&movAvg2=25&Indicator1=CCI&Indicator2=None&Indicator3=None&Indicator4=None&MID=&SymbolName=' + @stock.name + '&TenYears=0'
+      else 
+        @stocks = Stock.order(:name)
+      end
     
     def a2a
     end
@@ -153,17 +151,17 @@ class AnalisiTecnicaTitoloController < ApplicationController
     
     def yoox_net_a_porter_group
     end
-    
-    
-    private
-    def colorClass(value)
-      if value.to_s.include?("-")
-              'red'
-            else
-              'green'
-            end
-    end
-    helper_method :colorClass
-      
-    
+
+  end
+
+  private
+  def colorClass(value)
+    if value.to_s.include?("-")
+            'red'
+          else
+            'green'
+          end
+  end
+  helper_method :colorClass
+
 end

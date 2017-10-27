@@ -733,7 +733,7 @@ class ApplicationController < ActionController::Base
 
   private
   def add_www_subdomain
-    unless /^www/.match(request.host)
+    unless /^www/.match(request.host) or /herokuapp/.match(request.host)
       redirect_to("#{request.protocol}www.#{request.host_with_port}",status: 301)
     end
   end

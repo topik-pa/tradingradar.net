@@ -67,7 +67,8 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   
   
-  get 'analisi_tecnica_titolo/index'
+  get 'analisi_tecnica_titolo/' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/index' => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/a2a'  => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/atlantia'  => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/azimut_holding'  => 'analisi_tecnica_titolo#index'
