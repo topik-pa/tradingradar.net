@@ -6,8 +6,9 @@
 
 
 @import "base/variables.scss";
-@import "base/dazzling.scss";
+@import "base/dazzling.min.css";
 @import "base/tablesorter-style.scss";
+@import "base/datatables.min.css";
 @import "base/form-custom.scss";
 
 @import "styles/overwrites.scss";

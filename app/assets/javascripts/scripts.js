@@ -128,7 +128,8 @@ var tradingRadar = (function () {
         
         initDatatable: function () {
         	$('#stock-table').DataTable( {
-        		"iDisplayLength": 50
+        		"ordering": false,
+        		"paging":   false
         	} );
         },
         

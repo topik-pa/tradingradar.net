@@ -11,20 +11,18 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require turbolinks
 
 //= require bootstrap.min.js
-//= require bootstrap-sprockets
-
-//= require gentelella
 
 //= require jquery.tablesorter.min.js
 
-//= require jquery.scrollTo.min.js
-
 //= require dazzling-main.min.js
+
+//= require datatables.min.js
 
 //= require scripts.js
 
 //= require statcounter.js
+
+
