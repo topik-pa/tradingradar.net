@@ -127,9 +127,19 @@ var tradingRadar = (function () {
         
         
         initDatatable: function () {
-        	$('#stock-table').DataTable( {
+        	var dataTable = null;
+
+        	document.addEventListener("turbolinks:before-cache", function() {
+        	  if (dataTable !== null) {
+        	   dataTable.destroy();
+        	   dataTable = null;
+        	  }
+        	})
+        	
+        	dataTable = $('#stock-table').DataTable( {
         		"ordering": false,
-        		"paging":   false
+        		"paging":   false,
+        		"stateSave": true
         	} );
         },
         
@@ -191,18 +201,18 @@ var tradingRadar = (function () {
 
 
                             var $filter = $mainContainer.find('.filters .hp-filter:eq(' + obj.index + ')');
-                            var $titleElem = $filter.find('h2');
+                            //var $titleElem = $filter.find('h2');
                             var $contentElem = $filter.find('.filter-content');
-                            var $infoFilter = $filter.find('.filter-info');
+                            //var $infoFilter = $filter.find('.filter-info');
                             var $iconFilter = $filter.find('.cat-links');
                             var count = 0;
                             
-                            $titleElem.html(obj.title);
+                            //$titleElem.html(obj.title);
 
                             var $ico = $('<img/>', obj.icon).appendTo($iconFilter);
                             
-                            $infoFilter.find('h3').html(obj.info_title);
-                            $infoFilter.find('p').html(obj.info_content);
+                            //$infoFilter.find('h3').html(obj.info_title);
+                            //$infoFilter.find('p').html(obj.info_content);
 
                             if (!obj.active) {
 
@@ -376,7 +386,7 @@ var HPFilters = [
         info_title: 'Violazione trendline per "Il Sole 24 Ore"',
         info_content: 'Violazione di resistenze e supporti secondo l\'analisi de "Il Sole 24 Ore". <br/><br/><i>In evidenza i titoli che violano la trendline anche per altri media presi in esame.</i><br/><br/>Il <strong>supporto</strong> è un livello che si pone come ostacolo ad una ulteriore discesa del prezzo. Può essere il punto di svolta che precede un rimbalzo tecnico, ma se superato può implicare un deciso proseguimento nella direzione della rottura. <br/>La <strong>resistenza</strong> è un livello che si pone come ostacolo ad una salita del prezzo. Può essere il punto di svolta che precede un ritracciamento tecnico, ma, se superato, tale livello può implicare un deciso proseguimento nella direzione della rottura.'
     },
-    {
+    /*{
         index: 2,
         active: false,
         title: 'Violazione trendline',
@@ -398,10 +408,10 @@ var HPFilters = [
         ],
         info_title: 'Violazione trendline per "La Repubblica"',
         info_content: 'Violazione di resistenze e supporti secondo "La Repubblica" <br/><br/>"La Repubblica Finanza e Mercati" non rilascia più dati su analisi e resistenze.'
-    },
+    },*/
 
     {
-        index: 3,
+        index: 2,
         active: true,
         title: 'Indicazioni dai media',
         urls: ['/filters/filter_suggestionsMilanoFinanza'],
@@ -423,7 +433,7 @@ var HPFilters = [
     },
 
     {
-        index: 4,
+        index: 3,
         active: true,
         title: 'Indicazioni dai media',
         urls: ['/filters/filter_suggestionsSoleXXIVOre'],
@@ -445,7 +455,7 @@ var HPFilters = [
     },
 
     {
-        index: 5,
+        index: 4,
         active: true,
         title: 'Indicazioni dai media',
         urls: ['/filters/filter_suggestionsInvestingDotCom'],
@@ -464,12 +474,12 @@ var HPFilters = [
         ],
         info_title: 'Indicazioni da Investing.com',
         info_content: 'Titoli con valutazione "Compra ora" nel frame temporale giornaliero e mensile secondo le analisi di "Investing.com"'
-    },
+    }
 
 
 
 
-    {
+    /*{
         index: 6,
         active: pageData.isLogged,
         title: 'Violazione trendline',
@@ -518,7 +528,7 @@ var HPFilters = [
         ],
         info_title: 'Rafforzamento del trend in atto',
         info_content: 'Rafforzamento del trend in atto secondo le tue Analisi personali'
-    }
+    }*/
 
 
 ]

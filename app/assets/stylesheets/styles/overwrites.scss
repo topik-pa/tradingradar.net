@@ -147,6 +147,7 @@ aside.widget {
 
 .entry-content {
 	margin-top: 0;
+	display: flex;
 }
 
 .navbar > .container .navbar-brand {
@@ -217,13 +218,6 @@ footer h3 {
 	}
 	
 }
-
-/*table.dataTable thead .sorting {
-	background-image: none;
-}
-table.dataTable thead .sorting_asc {
-	background-image: none;
-}*/
 
 
 /* Smartphones (portrait) ----------- */
