@@ -321,7 +321,7 @@ var pageData = tradingRadar.getPageData();
 
 
 $(document).ready(function () {
-
+	
     $('#main-wrapper').find(".tablesorter:not(.nojs)").tablesorter();
 
 
@@ -334,6 +334,13 @@ $(document).ready(function () {
         tradingRadar.loadHPFilters();
         tradingRadar.initDatatable();
     }
+    
+    
+    document.addEventListener("turbolinks:before-cache", function() {
+    	var $filtersWrapper = $('#main-wrapper .filters');
+    	$filtersWrapper.find('.hp-filter .filter-content').html('').removeClass('loaded').removeClass('disabled');
+    	$filtersWrapper.find('.hp-filter .cat-links img').remove();
+  	})
 
 });
 
