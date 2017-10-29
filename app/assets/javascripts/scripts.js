@@ -259,7 +259,7 @@ var tradingRadar = (function () {
                                             var rowClass = i % 2 === 0 ? 'even' : 'odd';
 
                                             tbody += '<tr class="' + rowClass + '" data-isin="' + item.isin + '">';
-                                            tbody += '<td><a href="' + '/analisi_tecnica_titolo/index?' + item.name + '&isin=' + item.isin + '">' + item.name + '</a></td>';
+                                            tbody += '<td><a title="Rassegna stampa del titolo: ' + item.name + '" href="' + '/analisi_tecnica_titolo/index?' + item.name + '&isin=' + item.isin + '">' + item.name + '</a></td>';
 
                                             obj.attributes[index].forEach(function (attribute) {
 
