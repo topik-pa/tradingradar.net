@@ -23,7 +23,7 @@ class SourcesController < ApplicationController
           docBorsaItaliana2.search('script', 'img', 'a').each do |src|
             src.remove
           end
-          @borsaItalianaElem3 = docBorsaItaliana2.at_xpath('/descendant::div[@class="l-grid__row"][4]').to_s
+          @borsaItalianaElem3 = docBorsaItaliana2.at_xpath('//article[contains(@class,"l-grid")][2]/div[contains(@class,"-pfull")]').to_s
         end
         rescue OpenURI::HTTPError => e
          puts 'Error retrieving url data: ' + e.message

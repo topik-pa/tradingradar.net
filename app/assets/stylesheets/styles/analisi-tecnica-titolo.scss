@@ -109,6 +109,9 @@
     table {
         max-width: 50%
     }
+	.-md-9 {
+		display:none;
+	}
     
     
 }
@@ -285,6 +288,9 @@ div.la-repubblica {
         margin-left: 5px;
         margin-right: 20px;
     }
+	.pr-content h3 {
+		font-size: 19px;
+	}
 }
 
 
@@ -294,8 +300,8 @@ div.la-repubblica {
         padding: 0;
     }
 
-    .dati, .fond {
-        float: left;
+    .f-left, .f-right {
+        display:inline-block;
         margin-right: 40px;
         margin-bottom: 20px;
         b {
@@ -316,10 +322,7 @@ div.la-repubblica {
         text-transform: uppercase;
         font-weight: bold;
     }
-    .second, .third {
-        float: left;
-        margin-right: 40px;
-    }
+    
 	
 	
 }

@@ -1,11 +1,11 @@
 <% if @isin %>
-	<% title @stock.name + ': trading, analisi, dividendi e strategie' %>
-	<% meta_tag :description, 'Analisi tecnica, notizie, dividenti, rating e strategie per il titolo ' +  @stock.name %>
+	<% title @stock.name + ': notizie, analisi, dividendi, target price' %>
+	<% meta_tag :description, 'Rassegna stampa, notizie, dividenti, rating, target e strategie per il titolo ' +  @stock.name %>
 	<% meta_tag :keywords, @stock.name + ', titolo, analisi, tecnica, trading, dividendo, rating, strategie, Borsa, Milano' %>
 	
 <% else %>	
-	<% title 'Trading, analisi tecnica, dividendi e strategie - Milano Borsa' %>
-	<% meta_tag :description, 'Analisi tecnica, notizie, dividenti, rating e strategie per i titoli della Borsa di Milano ' %>
+	<% title 'Trading, analisi tecnica, dividendi, target e target price' %>
+	<% meta_tag :description, 'Rassegna stampa tecnica, notizie, dividenti, rating e strategie per i titoli della Borsa di Milano ' %>
 	<% meta_tag :keywords, 'analisi, tecnica, trading, dividendo, rating, strategie, Borsa, Milano' %>
 <% end %>
 <% meta_tag :robots, 'index, follow' %>
@@ -158,7 +158,7 @@
 	                    <% else %>
 	                    Dati mancanti, saranno visualizzati solo in dati salvati nel database. <% end %>
 	                    <% if @analisis %>
-	                    <table class="tablesorter nojs">
+	                    <!--<table class="tablesorter nojs">
 	                        <thead>
 	                            <tr>
 	                                <th class="repubblica">
@@ -179,7 +179,7 @@
 	                                </td>
 	                            </tr>
 	                        </tbody>
-	                    </table>
+	                    </table>-->
 	                    <% else %>
 	                    Missing analysis data.<% end %>
 	                    <div class="pr-section la-repubblica">
