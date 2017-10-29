@@ -4,7 +4,7 @@
 	<% meta_tag :keywords, @stock.name + ', titolo, analisi, tecnica, trading, dividendo, rating, strategie, Borsa, Milano' %>
 	
 <% else %>	
-	<% title 'Trading, analisi tecnica, dividendi, target e target price' %>
+	<% title 'Trading, analisi tecnica, dividendi, rating e target price' %>
 	<% meta_tag :description, 'Rassegna stampa tecnica, notizie, dividenti, rating e strategie per i titoli della Borsa di Milano ' %>
 	<% meta_tag :keywords, 'analisi, tecnica, trading, dividendo, rating, strategie, Borsa, Milano' %>
 <% end %>
@@ -279,13 +279,11 @@
 						<h1 class="entry-title">
 							<%= $appDescription %><br/>
 							<small>
-								<%= $appDescription %>
+								Rassegna stampa in tempo reale con dati provenienti dai principali media online del settore trading.
 							</small>
 						</h1>
 						<div class="content">
-							<p>Rassegna stampa in tempo reale con dati provenienti dai principali media online del settore trading.</p>
 							<p>Lo scopo di questa sezione è fornire <strong>notizie aggiornate</strong> sui titoli in esame, date e valore dei <strong>dividendi</strong> distribuiti, informazioni sui <strong>rating</strong> e ottenere una idea di massima per formulare una corretta <strong>strategia</strong> di trading.</p>
-
 							<%= render("welcome/stocks") %>
 
 						</div>
