@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'chi_siamo/index'
+  get 'chi_siamo/' => 'chi_siamo#index'
 
   get 'contatti/index'
+  get 'contatti/' => 'contatti#index'
 
   get 'sources/source1'
 
@@ -42,9 +44,11 @@ Rails.application.routes.draw do
   
   
   get 'study_page/index'
+  get 'study_page/' => 'study_page#index'
   post 'study_page/index'  => 'study_page#create' 
 
   get 'stock_page/index'
+  get 'stock_page/' => 'stock_page#index'
   
 
   resources :markets
@@ -54,6 +58,7 @@ Rails.application.routes.draw do
   resources :urls
   
   get 'welcome/index'
+  get 'welcome/' => 'welcome#index'
 
   root 'welcome#index'
 
