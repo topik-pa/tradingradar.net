@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
  
   $appName = 'Trading Radar'
   $appVersion = '1.1 Beta'
-  $appDescription = 'Analisi tecnica e segnali di trading su azioni MTA'
+  $appDescription = 'Analisi tecnica e segnali sui titoli di Milano Borsa'
   $adminEmail = 'agendatrading@yahoo.com'
   $author = 'Marco Pavan'
   $authorMail = 'marcopavan.mp@gmail.com'
