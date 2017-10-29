@@ -57,8 +57,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #Bootstrap
 gem 'bootstrap-sass', '~> 3.3.7'
 
-#Gentella template
-gem 'gentelella-rails'
 
 #Use Rufus for job scheduling
 gem "rufus-scheduler"
+
+
+#Heroku deflater
+gem 'heroku-deflater', :group => :production
