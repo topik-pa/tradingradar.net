@@ -3,7 +3,7 @@
 <% meta_tag :keywords, 'analisi, segnali, titoli, azioni, trading, notizie, mercato, italiano, borsa, milano, FTSE, MIB' %>
 <% meta_tag :robots, 'index, follow' %>
 <% meta_tag :author, $author + ' - ' + $authorMail %>
-<% meta_tag :canonical, 'www.tradingradar.net' %>
+<% meta_tag :canonical, 'http://www.tradingradar.net' %>
 
 
 <div class="top-section">  
@@ -34,18 +34,16 @@
 	        <div class="row pull-left">
 	        	
 	            <section id="primary" class="widget-area col-sm-12" role="complementary">
-	                <section class="col-md-9">
-	                    <%= render("stocks") %>
-	                </section>
-	                <section class="col-md-3">
-	                    <%= render :partial => "markets", :object => @markets %>
-	                    <%= render :partial => "filtersAnchorsInHP", :object => @markets %>
-	                </section>
+                    <%= render("stocks") %>
 	            </section>
 				
 	            <section id="secondary" class="content-area col-sm-12">
 	            	<%= render 'filters' %>
 	            </section>
+				
+				<section id="tertiary"
+					<%= render :partial => "markets", :object => @markets %>
+				</section>
 				
 				<section class="section">
 					<div class="disclaimer">

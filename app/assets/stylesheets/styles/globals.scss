@@ -110,9 +110,17 @@ body {
 	.green {
 		color: green;
     }
+	
+	.bold {
+		font-weight:bold;
+	}
     
     div, p {
         @include moreReadable;
+    }
+	
+	.section {
+        margin: 20px 0;
     }
    
    /*

@@ -1,3 +1,48 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#search-form {
+	.btn {
+	    display: inline-block;
+	    width: initial;
+	    padding: 0 10px;
+	    margin: 0;
+	    font-size: 100%;
+	    border: 0;
+	    vertical-align: baseline;
+	}
+	#search {
+	    width: 20%;
+	}
+} 
+
+#search-by-name {
+	div {
+		display: flex;
+	    justify-content: flex-start;
+		font-weight: bold;
+		flex-wrap: wrap;
+	}
+	a {
+		margin: 5px 15px;
+		&.disabled {
+		   pointer-events: none;
+		   cursor: default;
+		   font-weight: normal;
+		}
+		&.current {
+			text-decoration:underline;
+		}
+	}
+}
+
+
+@media only screen and (max-width : 1024px) {
+	#search-by-name {
+		a {
+			margin: 5px 20px;
+		}
+	}
+}

@@ -1,0 +1,55 @@
+<section class="stocks">
+	
+	<% if @stocks %>
+		<div id="stock-table_wrapper">
+		    <table id="stock-table" class="table table-striped table-bordered no-footer">
+		        <thead>
+		            <tr>
+		                <th>
+		                    Nome
+		                </th>
+		                <th>
+		                    Settore
+		                </th>
+		                <th>
+		                    Ultimo prezzo
+		                </th>
+		                <th>
+		                    Variazione
+		                </th>
+		                <th>
+		                    Ultimo aggiornamento
+		                </th>
+		                <th>
+		                    Valutazione &quot;Sole 24 Ore&quot;
+		                </th>
+		            </tr>
+		        </thead>
+		        <tbody>
+		            <% @stocks.each do |stock| %>
+		            <tr class="<%= cycle('even', 'odd') -%>">
+		                <td class="stock-name">
+							<a href="<%= '/analisi_tecnica_titolo/' + stock.name.downcase.gsub("-", "_").parameterize('_') + '?isin=' +  stock.isin %>" title="<%= 'Analisi tecnica e rassegna stampa in tempo reale del titolo: ' + stock.name %>"><%= stock.name %></a>
+		                </td>
+		                <td>
+		                    <%= stock.sector %>
+		                </td>
+		                <td>
+		                    <%= stock.last_price %>
+		                </td>
+		                <td class="<%= colorClass(stock.variation) %>">
+		                    <%= stock.variation %>
+		                </td>
+		                <td>
+		                    <%= stock.updated_at.strftime("%d/%m - %H:%M") %>
+		                </td>
+		                <td class="green">
+		                    <%= stock.xxivore_shorttrend %>
+		                </td>
+		            </tr>
+		            <% end %>
+		        </tbody>
+		    </table>
+		</div>
+	<% end %>
+</section>

@@ -25,19 +25,35 @@ var tradingRadar = (function () {
         getHPFilters: function () {
             return HPFilters;
         },
-
+        
+        debounce: function(func, wait, immediate) {
+            var timeout;
+            return function() {
+                var context = this,
+                    args = arguments;
+                var later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        },
 
         manageWindowPosition: function () {
 
-            var active = true;
-            var offset1 = 0;
-            var offset2 = 0;
+            var offset = 110;
+            var $title = $mainContainer.find('.entry-title');
 
-            var checkPosition = utils.debounce(function () {
-                if (active && window.pageYOffset >= offset1) {
-                    active = false;
+            var checkPosition = tradingRadar.debounce(function () {
+                if (window.pageYOffset >= offset) {                  
+                	$title.addClass('fixed');
                 }
-                if (window.pageYOffset >= offset2) { }
+                else {
+                	$title.removeClass('fixed');
+                }
             }, 50);
 
             checkPosition();
@@ -139,6 +155,7 @@ var tradingRadar = (function () {
         	dataTable = $('#stock-table').DataTable( {
         		"ordering": false,
         		"paging":   false,
+        		"searching": false,
         		"stateSave": true
         	} );
         },
@@ -253,22 +270,59 @@ var tradingRadar = (function () {
                                     data: 'text/json',
                                     type: 'get',
                                     success: function (response) {
+                                    	
+                                    	var tbody = '';
+                                    	
+                                    	
+                                    	if(response.length === 0) {
+                                        	tbody += '<tbody><tr><td class="no-entry" colspan="' + obj.table_headers[0].length + '">Non ci sono titoli da mostrare in questa tabella</td></tr></tbody>';
+                                        }
+                                    	else {
+                                    		
+                                    		$.each(response, function (i, item) {
+                                                var rowClass = i % 2 === 0 ? 'even' : 'odd';
 
-                                        var tbody = '<tbody>';
-                                        $.each(response, function (i, item) {
-                                            var rowClass = i % 2 === 0 ? 'even' : 'odd';
+                                                tbody += '<tbody><tr class="' + rowClass + '" data-isin="' + item.isin + '">';
+                                                tbody += '<td><a title="Rassegna stampa del titolo: ' + item.name + '" href="' + '/analisi_tecnica_titolo/index?' + item.name + '&isin=' + item.isin + '">' + item.name + '</a></td>';                                              
+                                                
+                                                var price, variation, delta;
+                                                
+                                                obj.attributes[index].forEach(function (attribute, i) {
+                                                	
+                                                	var attrLength = obj.attributes[index].length-1;                                                	                                               
+                                                	
+                                                	if(obj.attributes[index][attrLength] == 'delta') {
+                                                		
+                                                		if(i===0) {
+                                                    		price = item[attribute];
+                                                    		tbody += '<td>' + item[attribute] + '</td>';
+                                                    	}
+                                                    		
+                                                    	if(i===1) {
+                                                    		variation = item[attribute];
+                                                    		tbody += '<td>' + item[attribute] + '</td>';
+                                                    	}
+                                                    	
+                                                    	if(i===attrLength) {
+                                                    		delta = (Math.abs(price - variation)/(price/100)).toFixed(2);
+                                                    		tbody += '<td>' + delta + '</td>';
+                                                    		price = null;
+                                                    		variation = null;
+                                                    		delta = null;
+                                                    	}
+                                                    	
+                                                    }
+                                                	else {
+                                                		tbody += '<td>' + item[attribute] + '</td>';
+                                                	}
+                                                	
+           
+                                                });
+                                                tbody += '</tr>';
+                                                tbody += '</tbody>';
 
-                                            tbody += '<tr class="' + rowClass + '" data-isin="' + item.isin + '">';
-                                            tbody += '<td><a title="Rassegna stampa del titolo: ' + item.name + '" href="' + '/analisi_tecnica_titolo/index?' + item.name + '&isin=' + item.isin + '">' + item.name + '</a></td>';
-
-                                            obj.attributes[index].forEach(function (attribute) {
-
-                                                tbody += '<td>' + item[attribute] + '</td>';
                                             });
-                                            tbody += '</tr>';
-                                            tbody += '</tbody>';
-
-                                        });
+                                    	};
 
                                         $table.append(tbody);
 
@@ -326,7 +380,8 @@ $(document).ready(function () {
 
 
     if ($('.stock_page').length || $('.analisi_tecnica_titolo').length) {
-        tradingRadar.loadSources();
+        //tradingRadar.loadSources();
+        tradingRadar.manageWindowPosition();
     }
 
 
@@ -360,12 +415,12 @@ var HPFilters = [
         },
         captions: ['Resistenza', 'Supporto'],
         table_headers: [
-            ['Nome', 'Ultimo prezzo', 'Resistenza Borsa Italiana'],
-            ['Nome', 'Ultimo prezzo', 'Supporto Borsa Italiana']
+            ['Nome', 'Ultimo prezzo', 'Resistenza Borsa Italiana', 'Differenza in %'],
+            ['Nome', 'Ultimo prezzo', 'Supporto Borsa Italiana', 'Differenza in %']
         ],
         attributes: [
-            ['last_price', 'borsa_italiana_resistance'],
-            ['last_price', 'borsa_italiana_support']
+            ['last_price', 'borsa_italiana_resistance', 'delta'],
+            ['last_price', 'borsa_italiana_support', 'delta']
         ],
         info_title: 'Violazione trendline "Borsa Italiana"',
         info_content: 'Violazione di resistenze e supporti secondo l\'analisi di "Borsa Italiana". <br/><br/><i>In evidenza i titoli che violano la trendline anche per altri media presi in esame.</i><br/><br/>Il <strong>supporto</strong> è un livello che si pone come ostacolo ad una ulteriore discesa del prezzo. Può essere il punto di svolta che precede un rimbalzo tecnico, ma se superato può implicare un deciso proseguimento nella direzione della rottura. <br/>La <strong>resistenza</strong> è un livello che si pone come ostacolo ad una salita del prezzo. Può essere il punto di svolta che precede un ritracciamento tecnico, ma, se superato, tale livello può implicare un deciso proseguimento nella direzione della rottura.'
@@ -383,12 +438,12 @@ var HPFilters = [
         },
         captions: ['Resistenza', 'Supporto'],
         table_headers: [
-            ['Nome', 'Ultimo prezzo', 'Resistenza Il Sole 24 ore'],
-            ['Nome', 'Ultimo prezzo', 'Supporto Il Sole 24 Ore']
+            ['Nome', 'Ultimo prezzo', 'Resistenza Il Sole 24 ore', 'Differenza in %'],
+            ['Nome', 'Ultimo prezzo', 'Supporto Il Sole 24 Ore', 'Differenza in %']
         ],
         attributes: [
-            ['last_price', 'xxivore_resistance'],
-            ['last_price', 'xxivore_support']
+            ['last_price', 'xxivore_resistance', 'delta'],
+            ['last_price', 'xxivore_support', 'delta']
         ],
         info_title: 'Violazione trendline per "Il Sole 24 Ore"',
         info_content: 'Violazione di resistenze e supporti secondo l\'analisi de "Il Sole 24 Ore". <br/><br/><i>In evidenza i titoli che violano la trendline anche per altri media presi in esame.</i><br/><br/>Il <strong>supporto</strong> è un livello che si pone come ostacolo ad una ulteriore discesa del prezzo. Può essere il punto di svolta che precede un rimbalzo tecnico, ma se superato può implicare un deciso proseguimento nella direzione della rottura. <br/>La <strong>resistenza</strong> è un livello che si pone come ostacolo ad una salita del prezzo. Può essere il punto di svolta che precede un ritracciamento tecnico, ma, se superato, tale livello può implicare un deciso proseguimento nella direzione della rottura.'

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" >
 	
 	<url>
-		<loc>http://www.tradingradar.net/</loc>
+		<loc>http://www.tradingradar.net</loc>
 		<image:image>
 			<image:loc>http://www.tradingradar.net/images/front-image.jpg</image:loc>
 			<image:caption>Borsa italiana - immagine frontale della sede di Milano</image:caption>
@@ -11,50 +11,44 @@
 		<changefreq>hourly</changefreq>
 		<priority>1.0</priority>
 	</url>
-	<url>
-		<loc>http://www.tradingradar.net/welcome</loc>
-		<lastmod>2017-10-10</lastmod>
-		<changefreq>hourly</changefreq>
-		<priority>1.0</priority>
-	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/chi_siamo/index/</loc>
+		<loc>http://www.tradingradar.net/chi_siamo</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.8</priority>
 	</url>
 		
 	<url>
-		<loc>http://www.tradingradar.net/contatti/index/</loc>
+		<loc>http://www.tradingradar.net/contatti</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.1</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/login/</loc>
+		<loc>http://www.tradingradar.net/login</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.3</priority>
 	</url>
 
 	<url>
-		<loc>http://www.tradingradar.net/signup/</loc>
+		<loc>http://www.tradingradar.net/signup</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/</loc>
+		<loc>http://www.tradingradar.net/analisi_tecnica_titolo</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.8</priority>
 	</url>
 
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/a2a?isin=IT0001233417/</loc>
+		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/a2a?isin=IT0001233417</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>

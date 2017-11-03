@@ -96,6 +96,10 @@ table.tablesorter {
 		&.green {
 			color: #0f0;
 		}
+		
+		&.no-entry {
+			text-align: center;
+		}
 	}
 	
 }
@@ -128,9 +132,9 @@ h3 {
 }
 
 .tabs-wrapper {
-	.nav>li>a {
-		padding: 10px 8px;
-		font-size: 85%;
+	.tab-thumb.thumbnail {
+	    margin-bottom: 10px;
+	    margin-right: 20px;
 	}
 }
 
@@ -194,9 +198,10 @@ footer h3 {
 		max-width: 130px;
 		padding: 6px 6px;
 	}
-
-	#stock-table_filter {
-		
+	
+	.stock-name {
+		font-weight:bold;
+		font-size:110%;
 	}
 
 	#stock-table_filter {

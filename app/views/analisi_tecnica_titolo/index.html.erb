@@ -5,9 +5,9 @@
 	<% meta_tag :canonical, request.original_url %>
 	
 <% else %>	
-	<% title 'Trading, analisi tecnica, dividendi, rating e target price' %>
-	<% meta_tag :description, 'Rassegna stampa tecnica, notizie, dividenti, rating e strategie per i titoli della Borsa di Milano ' %>
-	<% meta_tag :keywords, 'analisi, tecnica, trading, dividendo, rating, strategie, Borsa, Milano' %>
+	<% title 'Le migliori azioni della Borsa di Milano' %>
+	<% meta_tag :description, 'Azioni sicure, vincenti e raccomandate secondo le principali analisi online' %>
+	<% meta_tag :keywords, 'azioni, vincenti, migliori, sicure, raccomandate, Borsa, Milano' %>
 	<% meta_tag :canonical, request.base_url + '/' + controller_name %>
 <% end %>
 <% meta_tag :robots, 'index, follow' %>
@@ -48,7 +48,7 @@
                     <%end %>
 					
 	                <section class="ext-source" id="borsa-italiana">
-	                    <h2><%= image_tag 'borsa-italiana-logo-big.png', class: 'img-logo', alt: 'Logo Borsa Italiana', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Borsa Italiana"' %></h2>
+	                    <h2>Analisi da: <%= image_tag 'borsa-italiana-logo-big.png', class: 'img-logo', alt: 'Logo Borsa Italiana', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Borsa Italiana"' %></h2>
 	                    <% if @urlBorsaItaliana and @urlBorsaItaliana2 %>
 	                    <div>
 	                        Fonte: <a href="<%= @urlBorsaItaliana %>" title="Vai alla analisi titolo su &quot;Borsa Italiana&quot;">Borsa italiana scheda titolo</a>
@@ -92,7 +92,7 @@
 	                </section>
 					
 	                <section class="ext-source" id="il-sole-24-ore">
-	                    <h2><%= image_tag 'il-sole-24-ore-logo-big.png', class: 'img-logo', alt: 'Logo Il Sole 24 Ore', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Il Sole 24 Ore"' %></h2>
+	                    <h2>Analisi da: <%= image_tag 'il-sole-24-ore-logo-big.png', class: 'img-logo', alt: 'Logo Il Sole 24 Ore', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Il Sole 24 Ore"' %></h2>
 	                    <% if @urlSole24Ore %>
 	                    <div>
 	                        Fonte: <a href="<%= @urlSole24Ore %>" title="Vai alla analisi titolo su &quot;Il Sole 24 Ore&quot;">Il Sole 24 Ore</a>
@@ -153,7 +153,7 @@
 	                </section>
 					
 	                <section class="ext-source" id="la-repubblica">
-	                    <h2><%= image_tag 'la-repubblica-logo-big.png', class: 'img-logo', alt: 'Logo La Repubblica', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "La Repubblica"' %></h2>
+	                    <h2>Analisi da: <%= image_tag 'la-repubblica-logo-big.png', class: 'img-logo', alt: 'Logo La Repubblica', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "La Repubblica"' %></h2>
 	                    <% if @urlLaRepubblica %>
 	                    <div>
 	                        Fonte: <a href="<%= @urlLaRepubblica %>" title="Vai alla analisi titolo su &quot;La Repubblica&quot;">La Repubblica</a>
@@ -190,7 +190,7 @@
 	                </section>
 					
 	                <section class="ext-source" id="investing">
-	                    <h2><%= image_tag 'investing-logo-big.png', class: 'img-logo', alt: 'Logo Investing', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Investing.com"' %></h2>
+	                    <h2>Analisi da: <%= image_tag 'investing-logo-big.png', class: 'img-logo', alt: 'Logo Investing', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Investing.com"' %></h2>
 	                    <% if @urlInvesting %>
 	                    <div>
 	                        Fonte: <a href="<%= @urlInvesting %>" title="Vai alla analisi titolo su &quot;Investing.com&quot;">Investing.com</a>
@@ -225,7 +225,7 @@
 	                </section>
 					
 	                <section class="ext-source" id="milano-finanza">
-	                    <h2><%= image_tag 'milano-finanza-logo-big.png', class: 'img-logo', alt: 'Logo Milano Finanza', title: 'Analisi tecnica del titolo da "Milano Finanza"' %></h2>
+	                    <h2>Analisi da: <%= image_tag 'milano-finanza-logo-big.png', class: 'img-logo', alt: 'Logo Milano Finanza', title: 'Analisi tecnica del titolo da "Milano Finanza"' %></h2>
 	                    <% if @urlMilanoFinanza and @urlMilanoFinanza2 %>
 	                    <div>
 	                        Fonte: <a href="<%= @urlMilanoFinanza %>" title="Vai alla analisi titolo su &quot;Milano Finanza&quot;">Milano Finanza</a>
@@ -263,7 +263,7 @@
 	                </section>
 					
 	                <section class="ext-source" id="soldi-on-line">
-	                    <h2><%= image_tag 'soldi-on-line-logo-big.png', class: 'img-logo', alt: 'Logo Soldi On Line', title: 'Analisi tecnica del titolo da "Soldi On Line"' %></h2>
+	                    <h2>Analisi da: <%= image_tag 'soldi-on-line-logo-big.png', class: 'img-logo', alt: 'Logo Soldi On Line', title: 'Analisi tecnica del titolo da "Soldi On Line"' %></h2>
 	                    <% if @urlSoldiOnLine %>
 	                    <div>
 	                        Fonte: <a href="<%= @urlSoldiOnLine %>" title="Vai alla analisi titolo su &quot;Soldi On Line&quot;">Soldi On Line</a>
@@ -276,19 +276,20 @@
 										
 				
 				</section>
+				
 				<% else %>
+				
 				<section id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">
 					<header class="entry-header page-header">
 						<h1 class="entry-title">
 							<%= $appDescription %><br/>
 							<small>
-								Rassegna stampa in tempo reale con dati provenienti dai principali media online del settore trading.
+								Lista delle migliori azioni di Borsa secondo le analisi dei principali esperti online.
 							</small>
 						</h1>
 						<div class="content">
-							<p>Lo scopo di questa sezione è fornire <strong>notizie aggiornate</strong> sui titoli in esame, date e valore dei <strong>dividendi</strong> distribuiti, informazioni sui <strong>rating</strong> e ottenere una idea di massima per formulare una corretta <strong>strategia</strong> di trading.</p>
-							<%= render("welcome/stocks") %>
-
+							<p><br/>Di seguito una lista delle <strong>azioni raccomandate</strong> e più <strong>redditizie</strong> secondo le analisi de <i>&quot;Il Sole 24 Ore&quot;</i><br/>Cliccando sul nome del titolo si aprir&agrave; una rassegna stampa con una analisi completa.</br></br></p>
+							<%= render("stocks") %>
 						</div>
 					</header>
 				</section>

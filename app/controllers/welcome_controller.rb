@@ -5,7 +5,20 @@ class WelcomeController < ApplicationController
   before_action :current_user, only: [:index, :show]
   
   def index
-    @stocks = Stock.order(:name)
+    
+    @stocks = nil
+    @alphaQuery = params[:alpha] ? params[:alpha] : nil
+    @searchQuery = params[:search] ? params[:search] : nil 
+    
+    if @alphaQuery    
+      @stocks = Stock.where("name LIKE :prefix", prefix: "#{@alphaQuery}%").order(:name)
+    else if @searchQuery and  @searchQuery.present?    
+      @stocks = Stock.where("name ILIKE :prefix", prefix: "#{@searchQuery}%").order(:name)
+    else
+      @stocks = nil
+    end 
+  end
+      
     @markets = Market.order(:id)
     
     @firstRowMarkets = @markets.select("*").where("name = ? OR name = ? OR name = ? OR name = ? OR name = ? OR name = ?", "FTSE MIB", "FTSE All Share", "S&P 100", "DAX 30", "CAC 40", "NASDAQ 100")
