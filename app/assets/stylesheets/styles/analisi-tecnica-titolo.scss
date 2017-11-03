@@ -20,11 +20,13 @@
 	    top: 0;
 	    transform: translateX(-50%);
 	    margin: 0;
-	    width: 70%;
+	    width: 100%;
 	    text-align: center;
 	    padding: 10px 0;
 	    z-index: 999;
-	    border-bottom: 1px solid #eee;
+	    border-bottom: 1px solid #ccc;
+	    background-color: #f3f3f3;
+	    text-align: center;
 	}		
 }
 
