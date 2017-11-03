@@ -380,7 +380,7 @@ $(document).ready(function () {
 
 
     if ($('.stock_page').length || $('.analisi_tecnica_titolo').length) {
-        //tradingRadar.loadSources();
+        tradingRadar.loadSources();
         tradingRadar.manageWindowPosition();
     }
 
