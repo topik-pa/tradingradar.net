@@ -1,134 +1,118 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Resistance:</strong>
-  <%= @study.resistance %>
-</p>
-
-<p>
-  <strong>Support:</strong>
-  <%= @study.support %>
-</p>
-
-<p>
-  <strong>Direction:</strong>
-  <%= @study.direction %>
-</p>
-
-<p>
-  <strong>Mmp1:</strong>
-  <%= @study.mmp1 %>
-</p>
-
-<p>
-  <strong>Mmp2:</strong>
-  <%= @study.mmp2 %>
-</p>
-
-<p>
-  <strong>Gap:</strong>
-  <%= @study.gap %>
-</p>
-
-<p>
-  <strong>Tradingposition:</strong>
-  <%= @study.trading_position %>
-</p>
-
-<p>
-  <strong>Reversalchartpattern:</strong>
-  <%= @study.reversal_chart_pattern %>
-</p>
-
-<p>
-  <strong>Continuationchartpattern:</strong>
-  <%= @study.continuation_chart_pattern %>
-</p>
-
-<p>
-  <strong>Reversalcandlestick:</strong>
-  <%= @study.reversal_candlestick %>
-</p>
-
-<p>
-  <strong>Continuationcandlestick:</strong>
-  <%= @study.continuation_candlestick %>
-</p>
-
-<p>
-  <strong>Rsi:</strong>
-  <%= @study.rsi %>
-</p>
-
-<p>
-  <strong>Rsicross:</strong>
-  <%= @study.rsi_cross %>
-</p>
-
-<p>
-  <strong>Rsidivergence:</strong>
-  <%= @study.rsi_divergence %>
-</p>
-
-<p>
-  <strong>Stoch:</strong>
-  <%= @study.stoch %>
-</p>
-
-<p>
-  <strong>Stochcross:</strong>
-  <%= @study.stoch_cross %>
-</p>
-
-<p>
-  <strong>Stochdivergence:</strong>
-  <%= @study.stoch_divergence %>
-</p>
-
-<p>
-  <strong>Macd:</strong>
-  <%= @study.macd %>
-</p>
-
-<p>
-  <strong>Macdcross:</strong>
-  <%= @study.macd_cross %>
-</p>
-
-<p>
-  <strong>Buy:</strong>
-  <%= @study.buy %>
-</p>
-
-<p>
-  <strong>Sell:</strong>
-  <%= @study.sell %>
-</p>
-
-<p>
-  <strong>Stoploss:</strong>
-  <%= @study.stop_loss %>
-</p>
-
-<p>
-  <strong>Imageurl:</strong>
-  <%= @study.image_usrl %>
-</p>
-
-<p>
-  <strong>Note:</strong>
-  <%= @study.note %>
-</p>
-
-<p>
-  <strong>Stock:</strong>
-  <%= @study.stock %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @study.user %>
-</p>
-
-<%= link_to 'Edit', edit_study_path(@study) %> |
-<%= link_to 'Back', studies_path %>
+<main id="main" class="site-main" role="main">
+    <div id="content" class="site-content container">
+        <div class="container main-content-area">
+            <div class="row">
+                <section id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">
+                    <p id="notice">
+                        <%= notice %>
+                    </p>
+                    <p>
+                        <strong>Resistance:</strong>
+                        <%= @study.resistance %>
+                    </p>
+                    <p>
+                        <strong>Support:</strong>
+                        <%= @study.support %>
+                    </p>
+                    <p>
+                        <strong>Direction:</strong>
+                        <%= @study.direction %>
+                    </p>
+                    <p>
+                        <strong>Mmp1:</strong>
+                        <%= @study.mmp1 %>
+                    </p>
+                    <p>
+                        <strong>Mmp2:</strong>
+                        <%= @study.mmp2 %>
+                    </p>
+                    <p>
+                        <strong>Gap:</strong>
+                        <%= @study.gap %>
+                    </p>
+                    <p>
+                        <strong>Tradingposition:</strong>
+                        <%= @study.trading_position %>
+                    </p>
+                    <p>
+                        <strong>Reversalchartpattern:</strong>
+                        <%= @study.reversal_chart_pattern %>
+                    </p>
+                    <p>
+                        <strong>Continuationchartpattern:</strong>
+                        <%= @study.continuation_chart_pattern %>
+                    </p>
+                    <p>
+                        <strong>Reversalcandlestick:</strong>
+                        <%= @study.reversal_candlestick %>
+                    </p>
+                    <p>
+                        <strong>Continuationcandlestick:</strong>
+                        <%= @study.continuation_candlestick %>
+                    </p>
+                    <p>
+                        <strong>Rsi:</strong>
+                        <%= @study.rsi %>
+                    </p>
+                    <p>
+                        <strong>Rsicross:</strong>
+                        <%= @study.rsi_cross %>
+                    </p>
+                    <p>
+                        <strong>Rsidivergence:</strong>
+                        <%= @study.rsi_divergence %>
+                    </p>
+                    <p>
+                        <strong>Stoch:</strong>
+                        <%= @study.stoch %>
+                    </p>
+                    <p>
+                        <strong>Stochcross:</strong>
+                        <%= @study.stoch_cross %>
+                    </p>
+                    <p>
+                        <strong>Stochdivergence:</strong>
+                        <%= @study.stoch_divergence %>
+                    </p>
+                    <p>
+                        <strong>Macd:</strong>
+                        <%= @study.macd %>
+                    </p>
+                    <p>
+                        <strong>Macdcross:</strong>
+                        <%= @study.macd_cross %>
+                    </p>
+                    <p>
+                        <strong>Buy:</strong>
+                        <%= @study.buy %>
+                    </p>
+                    <p>
+                        <strong>Sell:</strong>
+                        <%= @study.sell %>
+                    </p>
+                    <p>
+                        <strong>Stoploss:</strong>
+                        <%= @study.stop_loss %>
+                    </p>
+                    <p>
+                        <strong>Imageurl:</strong>
+                        <%= @study.image_usrl %>
+                    </p>
+                    <p>
+                        <strong>Note:</strong>
+                        <%= @study.note %>
+                    </p>
+                    <p>
+                        <strong>Stock:</strong>
+                        <%= @study.stock %>
+                    </p>
+                    <p>
+                        <strong>User:</strong>
+                        <%= @study.user %>
+                    </p>
+                    <%= link_to 'Edit', edit_study_path(@study) %> |<%= link_to 'Back', studies_path %>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>

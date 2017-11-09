@@ -1,19 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @market.name %>
-</p>
-
-<p>
-  <strong>Value:</strong>
-  <%= @market.value %>
-</p>
-
-<p>
-  <strong>Variation:</strong>
-  <%= @market.variation %>
-</p>
-
-<%= link_to 'Edit', edit_market_path(@market) %> |
-<%= link_to 'Back', markets_path %>
+<main id="main" class="site-main" role="main">
+    <div id="content" class="site-content container">
+        <div class="container main-content-area">
+            <div class="row">
+                <section id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">
+                    <p id="notice">
+                        <%= notice %>
+                    </p>
+                    <p>
+                        <strong>Name:</strong>
+                        <%= @market.name %>
+                    </p>
+                    <p>
+                        <strong>Value:</strong>
+                        <%= @market.value %>
+                    </p>
+                    <p>
+                        <strong>Variation:</strong>
+                        <%= @market.variation %>
+                    </p>
+                    <%= link_to 'Edit', edit_market_path(@market) %> |<%= link_to 'Back', markets_path %>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>

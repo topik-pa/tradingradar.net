@@ -237,6 +237,21 @@ div.la-repubblica {
     .linear-range {
         margin-top: 20px;
     }
+	
+	.news-scheda {
+		padding: 0;
+	}
+	
+	.news-item {
+		
+    	list-style-type: none;
+		margin: 10px;
+		
+		a {
+			display:inline;
+		}
+	}
+	
 }
 
 

@@ -1,39 +1,42 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Isin:</strong>
-  <%= @stock.isin %>
-</p>
-
-<p>
-  <strong>Cod:</strong>
-  <%= @stock.cod %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @stock.name %>
-</p>
-
-<p>
-  <strong>Sector:</strong>
-  <%= @stock.sector %>
-</p>
-
-<p>
-  <strong>Lastprice:</strong>
-  <%= @stock.last_price %>
-</p>
-
-<p>
-  <strong>Variation:</strong>
-  <%= @stock.variation %>
-</p>
-
-<p>
-  <strong>Marketphase:</strong>
-  <%= @stock.market_phase %>
-</p>
-
-<%= link_to 'Edit', edit_stock_path(@stock) %> |
-<%= link_to 'Back', stocks_path %>
+<main id="main" class="site-main" role="main">
+    <div id="content" class="site-content container">
+        <div class="container main-content-area">
+            <div class="row">
+                <section id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">
+                    <p id="notice">
+                        <%= notice %>
+                    </p>
+                    <p>
+                        <strong>Isin:</strong>
+                        <%= @stock.isin %>
+                    </p>
+                    <p>
+                        <strong>Cod:</strong>
+                        <%= @stock.cod %>
+                    </p>
+                    <p>
+                        <strong>Name:</strong>
+                        <%= @stock.name %>
+                    </p>
+                    <p>
+                        <strong>Sector:</strong>
+                        <%= @stock.sector %>
+                    </p>
+                    <p>
+                        <strong>Lastprice:</strong>
+                        <%= @stock.last_price %>
+                    </p>
+                    <p>
+                        <strong>Variation:</strong>
+                        <%= @stock.variation %>
+                    </p>
+                    <p>
+                        <strong>Marketphase:</strong>
+                        <%= @stock.market_phase %>
+                    </p>
+                    <%= link_to 'Edit', edit_stock_path(@stock) %> |<%= link_to 'Back', stocks_path %>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>

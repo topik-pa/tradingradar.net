@@ -17,6 +17,7 @@ class SourcesController < ApplicationController
         end
         @borsaItalianaElem1 = docBorsaItaliana.at_xpath('/descendant::article[@class="l-grid__cell"][3]').to_s
         @borsaItalianaElem2 = docBorsaItaliana.at_xpath('/descendant::article[@class="l-grid__cell"][2]').to_s
+        @borsaItalianaElem4 = docBorsaItaliana.at_xpath('/descendant::article[@class="l-grid__cell"][4]').to_s
         if @urlBorsaItaliana2
           docBorsaItaliana2 = Nokogiri::HTML(open(@urlBorsaItaliana2), nil, 'UTF-8')
           docBorsaItaliana2.encoding = 'UTF-8'
@@ -24,13 +25,14 @@ class SourcesController < ApplicationController
             src.remove
           end
           @borsaItalianaElem3 = docBorsaItaliana2.at_xpath('//article[contains(@class,"l-grid")][2]/div[contains(@class,"-pfull")]').to_s
+          
         end
         rescue OpenURI::HTTPError => e
          puts 'Error retrieving url data: ' + e.message
       end
       #Borsa Italiana
       
-    render html: ('<div id="source-container">' + @borsaItalianaElem1 + @borsaItalianaElem2 + @borsaItalianaElem3 + '</div>').html_safe
+    render html: ('<div id="source-container">' + @borsaItalianaElem1 + @borsaItalianaElem2 + @borsaItalianaElem3 + @borsaItalianaElem4 + '</div>').html_safe
       
   end
 
@@ -71,6 +73,7 @@ class SourcesController < ApplicationController
     
     #La Repubblica
     @urlLaRepubblica = urls.url6 
+    @urlLaRepubblica2 = urls.url8
     begin
       if !@urlLaRepubblica.blank?
         docLaRepubblica = Nokogiri::HTML(open(@urlLaRepubblica), nil, 'UTF-8')
@@ -80,13 +83,24 @@ class SourcesController < ApplicationController
         end
         @laRepubblicaElem1 = docLaRepubblica.at_xpath('/descendant::div[@class="box-bottom"]').to_s
         @laRepubblicaRangeValue = docLaRepubblica.at_xpath('/descendant::div[@class="TLB-range-indicator"]/@style').to_s.delete('rightleft:;').to_s
-      end      
+      end 
+      
+      if @urlLaRepubblica2
+        docLaRepubblica2 = Nokogiri::HTML(open(@urlLaRepubblica2), nil, 'UTF-8')
+        docLaRepubblica2.encoding = 'UTF-8'
+        docLaRepubblica2.search('script').each do |src|
+          src.remove
+        end
+        @laRepubblicaElem2 = docLaRepubblica2.at_xpath('/descendant::div[@class="boxes-container"]').to_s
+        
+      end
+                   
       rescue OpenURI::HTTPError => e
        puts 'Error retrieving url data: ' + e.message
     end
     #La Repubblica 
     
-    render html: ('<div id="source-container">' + @laRepubblicaElem1  + '<span>Range value di oggi: </span><span class="bold">' + @laRepubblicaRangeValue + '</span></div>').html_safe
+    render html: ('<div id="source-container">' + @laRepubblicaElem1  + '<span>Range value di oggi: </span><span class="bold">' + @laRepubblicaRangeValue + @laRepubblicaElem2 + '</span></div>').html_safe
     
   end
 
@@ -137,7 +151,8 @@ class SourcesController < ApplicationController
         docMilanoFinanza2.search('script', 'img').each do |elem|
           elem.remove
         end       
-        @milanoFinanzaElem1 = docMilanoFinanza.at_xpath('/descendant::div[contains(@class, "wborsa-box")]').to_s
+        #@milanoFinanzaElem1 = docMilanoFinanza.at_xpath('/descendant::div[contains(@class, "wborsa-box")]/div[@class="wdett-mfbox"]').to_s
+        #@milanoFinanzaElem1b = docMilanoFinanza.at_xpath('/descendant::div[contains(@class, "wborsa-box")]/div[@class="fleft"]').to_s
         @milanoFinanzaElem2 = docMilanoFinanza.at_xpath('//descendant::div[@class="news"][1]').to_s
         @milanoFinanzaElem3 = docMilanoFinanza.at_xpath('//descendant::div[@class="news"][2]').to_s
         @milanoFinanzaElem4 = docMilanoFinanza.at_xpath('//descendant::div[@class="news"][3]').to_s
@@ -152,7 +167,7 @@ class SourcesController < ApplicationController
     end
     #Milano Finanza    
     
-    render html: ('<div id="source-container">' + '<div class="pr-content">' + @milanoFinanzaElem1 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem2 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem3 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem4 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem5 + '</div>'  + '<div class="pr-content">' + @milanoFinanzaElem6 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem7 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem8 + '</div>' + '</div>').html_safe 
+    render html: ('<div id="source-container">' + '<div class="pr-content">' + @milanoFinanzaElem2 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem3 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem4 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem5 + '</div>'  + '<div class="pr-content">' + @milanoFinanzaElem6 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem7 + '</div>' + '<div class="pr-content">' + @milanoFinanzaElem8 + '</div>' + '</div>').html_safe 
   end
 
   def source6
