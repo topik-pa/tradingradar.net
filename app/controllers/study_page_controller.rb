@@ -7,16 +7,17 @@ class StudyPageController < ApplicationController
       
     #@user = User.find_by_email(current_user.email)
     
-    isin = params[:isin] ? params[:isin] : nil   
-    if isin
-      @stock = Stock.find_by isin: isin 
+    @isin = params[:isin] ? params[:isin] : nil   
+    if @isin
+      @stock = Stock.find_by isin: @isin 
     else
       last_study_stock_id = Study.where(:user_id => $user_id).last().stock_id
       @stock = Stock.find(last_study_stock_id)
     end
     
 
-    @study = Study.where(:stock_id => @stock.id, :user_id => $user_id).last()
+    @lastStudy = Study.where(:stock_id => @stock.id, :user_id => $user_id).last()
+    @studiesSize = @stock.studies.size 
 
       
   end

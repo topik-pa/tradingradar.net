@@ -17,14 +17,30 @@
 
 <main id="main" class="site-main">
     <div id="content" class="site-content container">
+    	
         <div class="container main-content-area">
-			<div class="row pull-left">
+        	
+			<div class="row">
+				<div class="breadcrumbs col-sm-12 col-md-12">
+					<%= link_to url: welcome_index_path do %>
+					    <i class="fa fa-chevron-left" aria-hidden="true"></i>Torna in Home page
+					<% end %>
+				</div>
+			</div>
+			
+			<div class="row">
 			
 				<%if @isin %>
             	
                 <section id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">
                 	
                     <%= render("shared/namePriceVariation") %>
+					
+					    <div class="sub-header">
+					        <h2>Analisi tecnica e notizie sul titolo: <%= @stock.name %> - <%= @stock.cod %>.MI</h2>
+							<p><strong>Rassegna stampa in tempo reale</strong> con dati provenienti dai principali media online del settore trading. Lo scopo di questa sezione è fornire <strong>notizie aggiornate</strong> sul titolo in esame, date e valore dei <strong>dividendi</strong> distribuiti, informazioni sui <strong>rating</strong> o sui <strong>target price</strong> e ottenere una idea di massima per formulare una corretta <strong>strategia</strong> di trading.</p>
+					        <p>I riferimenti alla fonte originaria delle informazioni qui riprodotte permettono di accedere alla pagina originaria e approfondire l'analisi.</p>
+					    </div>
 					
                     <section class="anchors">
                         <p>
@@ -44,11 +60,16 @@
                     </section>
 					
 					<%if $user.present? %>
-                    	<%= render("last_study") %>
+						<section class="last-study">
+                    		<%= render("shared/last_study") %>
+							<div>
+								<%= link_to 'Aggiungi nuovo studio', study_page_index_path(isin: @stock.isin), class: 'btn primary' %>
+							</div>
+						</section>
                     <%end %>
 					
 	                <section class="ext-source" id="borsa-italiana">
-	                    <h2>Analisi da: <%= image_tag 'borsa-italiana-logo-big.png', class: 'img-logo', alt: 'Logo Borsa Italiana', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Borsa Italiana"' %></h2>
+	                    <h3>Analisi da: <%= image_tag 'borsa-italiana-logo-big.png', class: 'img-logo', alt: 'Logo Borsa Italiana', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Borsa Italiana"' %></h3>
 	                    <% if @urlBorsaItaliana and @urlBorsaItaliana2 %>
 	                    <div>
 	                        Fonte: <a href="<%= @urlBorsaItaliana %>" title="Vai alla analisi titolo su &quot;Borsa Italiana&quot;">Borsa italiana scheda titolo</a>
@@ -92,7 +113,7 @@
 	                </section>
 					
 	                <section class="ext-source" id="il-sole-24-ore">
-	                    <h2>Analisi da: <%= image_tag 'il-sole-24-ore-logo-big.png', class: 'img-logo', alt: 'Logo Il Sole 24 Ore', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Il Sole 24 Ore"' %></h2>
+	                    <h3>Analisi da: <%= image_tag 'il-sole-24-ore-logo-big.png', class: 'img-logo', alt: 'Logo Il Sole 24 Ore', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Il Sole 24 Ore"' %></h3>
 	                    <% if @urlSole24Ore %>
 	                    <div>
 	                        Fonte: <a href="<%= @urlSole24Ore %>" title="Vai alla analisi titolo su &quot;Il Sole 24 Ore&quot;">Il Sole 24 Ore</a>
@@ -153,7 +174,7 @@
 	                </section>
 					
 	                <section class="ext-source" id="la-repubblica">
-	                    <h2>Analisi da: <%= image_tag 'la-repubblica-logo-big.png', class: 'img-logo', alt: 'Logo La Repubblica', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "La Repubblica"' %></h2>
+	                    <h3>Analisi da: <%= image_tag 'la-repubblica-logo-big.png', class: 'img-logo', alt: 'Logo La Repubblica', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "La Repubblica"' %></h3>
 	                    <% if @urlLaRepubblica %>
 	                    <div>
 	                        Fonte: <a href="<%= @urlLaRepubblica %>" title="Vai alla analisi titolo su &quot;La Repubblica&quot;">La Repubblica</a>
@@ -190,7 +211,7 @@
 	                </section>
 					
 	                <section class="ext-source" id="investing">
-	                    <h2>Analisi da: <%= image_tag 'investing-logo-big.png', class: 'img-logo', alt: 'Logo Investing', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Investing.com"' %></h2>
+	                    <h3>Analisi da: <%= image_tag 'investing-logo-big.png', class: 'img-logo', alt: 'Logo Investing', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Investing.com"' %></h3>
 	                    <% if @urlInvesting %>
 	                    <div>
 	                        Fonte: <a href="<%= @urlInvesting %>" title="Vai alla analisi titolo su &quot;Investing.com&quot;">Investing.com</a>
@@ -225,7 +246,7 @@
 	                </section>
 					
 	                <section class="ext-source" id="milano-finanza">
-	                    <h2>Analisi da: <%= image_tag 'milano-finanza-logo-big.png', class: 'img-logo', alt: 'Logo Milano Finanza', title: 'Analisi tecnica del titolo da "Milano Finanza"' %></h2>
+	                    <h3>Analisi da: <%= image_tag 'milano-finanza-logo-big.png', class: 'img-logo', alt: 'Logo Milano Finanza', title: 'Analisi tecnica del titolo da "Milano Finanza"' %></h3>
 	                    <% if @urlMilanoFinanza and @urlMilanoFinanza2 %>
 	                    <div>
 	                        Fonte: <a href="<%= @urlMilanoFinanza %>" title="Vai alla analisi titolo su &quot;Milano Finanza&quot;">Milano Finanza</a>
@@ -263,7 +284,7 @@
 	                </section>
 					
 	                <section class="ext-source" id="soldi-on-line">
-	                    <h2>Analisi da: <%= image_tag 'soldi-on-line-logo-big.png', class: 'img-logo', alt: 'Logo Soldi On Line', title: 'Analisi tecnica del titolo da "Soldi On Line"' %></h2>
+	                    <h3>Analisi da: <%= image_tag 'soldi-on-line-logo-big.png', class: 'img-logo', alt: 'Logo Soldi On Line', title: 'Analisi tecnica del titolo da "Soldi On Line"' %></h3>
 	                    <% if @urlSoldiOnLine %>
 	                    <div>
 	                        Fonte: <a href="<%= @urlSoldiOnLine %>" title="Vai alla analisi titolo su &quot;Soldi On Line&quot;">Soldi On Line</a>

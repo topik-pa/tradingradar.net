@@ -1,8 +1,7 @@
-<section class="last-study">
 	<% if @lastStudy %>
-	<div>
+	<h3>
 	    Ultima analisi inserita
-	</div>
+	</h3>
 	<table class="tablesorter nojs">
 	    <thead>
 	        <tr>
@@ -183,15 +182,5 @@
 	</div>
 	<div>
 	    Questo titolo ha <%= @studiesSize %> studio/i. 
-	    Vai alla 
-	    <%= link_to 'Pagina studi personalizzati', study_page_index_path(isin: @stock.isin, id: @lastStudy.id) %>&nbsp;per aggiungere/visualizzare nuovi studi.
-	</div>
-	</div>
-	<% else %>
-	<div>
-	    Questo titolo ha <%= @studiesSize %> studio/i. 
-	    Vai alla 
-	    <%= link_to 'Pagina studi personalizzati', study_page_index_path(isin: @stock.isin) %>&nbsp;per aggiungere/visualizzare nuovi studi.
 	</div>
 	<% end %>
-</section>
