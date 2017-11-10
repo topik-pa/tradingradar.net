@@ -78,12 +78,12 @@ class FiltersController < ApplicationController
 
   #Filter based on Studies
   def filter_overResistanceStocksOnStudy
-    @overResistanceStocksOnStudy = @@SJS.select("isin, name, last_price, resistance").where("last_price > resistance").order(:name)
+    @overResistanceStocksOnStudy = @@SJS.select("isin, name, last_price, resistance").where("last_price > resistance").order(:updated_at).reverse
     render json: @overResistanceStocksOnStudy
   end
   
   def filter_belowSupportStocksOnStudy      
-      @belowSupportStocksOnStudy = @@SJS.select("isin, name, last_price, resistance").where("last_price < support").order(:name)        
+      @belowSupportStocksOnStudy = @@SJS.select("isin, name, last_price, resistance").where("last_price < support").order(:updated_at).reverse        
       render json: @belowSupportStocksOnStudy     
   end 
   

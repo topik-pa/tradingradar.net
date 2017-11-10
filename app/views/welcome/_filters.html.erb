@@ -139,32 +139,29 @@
     </div>
 	
 	<% if $isLogged%>
-	<div class="personals">
-		<article id="seven" class="hp-filter post type-post">
-	        <h3>Violazioni della trendline secondo le analisi personali</h3>
-	        <div class="entry-meta">
-	            <div class="uptaded-at"><i class="fa fa-calendar"></i><small>Ultimo aggiornamento:</small>
-	                <time class="entry-date published" datetime="<%= $lastUpdate.strftime("%Y-%m-%dT%H:%M") %>">
-	                    <%= $lastUpdate.strftime("%d/%m - %H:%M") %>
-	                </time>
-	            </div>
-	            <div class="cat-links"><i class="fa fa-user"></i><small>Fonte:</small>
-				
-				</div>
-	        </div>
-		    <div class="entry-content">
-		        <div class="filter-content col-sm-7">
+		<div class="personals">
+			<article id="seven" class="hp-filter post type-post">
+		        <h3>Violazioni della trendline secondo le analisi personali</h3>
+		        <div class="entry-meta">
+		            <div class="uptaded-at"><i class="fa fa-calendar"></i><small>Ultimo aggiornamento:</small>
+		                <time class="entry-date published" datetime="<%= $lastUpdate.strftime("%Y-%m-%dT%H:%M") %>">
+		                    <%= $lastUpdate.strftime("%d/%m - %H:%M") %>
+		                </time>
+		            </div>
 		        </div>
-		        <div class="filter-info col-sm-5">
-		            <h4>Violazioni della trendline secondo le analisi personali</h4>
-		            <p>
-		            	Titoli che violano la trendline secondo le tue analisi inserite in questo sito.
-		            </p>
-		        </div>
-		    </div>
-		    <hr class="section-divider">
-		</article>
-	</div>
+			    <div class="entry-content">
+			        <div class="filter-content col-sm-7">
+			        </div>
+			        <div class="filter-info col-sm-5">
+			            <h4>Violazioni della trendline secondo le analisi personali</h4>
+			            <p>
+			            	Titoli che violano la trendline secondo le tue analisi inserite in questo sito.
+			            </p>
+			        </div>
+			    </div>
+			    <hr class="section-divider">
+			</article>
+		</div>
 	<% end%>
 	
 </section>

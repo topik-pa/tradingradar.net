@@ -295,6 +295,10 @@ var tradingRadar = (function () {
                                                 	
                                                 	var currentValue = item[attribute] ? item[attribute] : 'nd';
                                                 	
+                                                	if(attribute==='updated_at') {
+                                                		currentValue = new Date(Date.parse(item[attribute])).toLocaleString();
+                                                	}
+                                                	
                                                 	if(obj.attributes[index][attrLength] == 'delta') {                                                		                                              		
                                                 		
                                                 		if(i===0) {
@@ -553,12 +557,12 @@ var HPFilters = [
         urls: ['/filters/filter_overResistanceStocksOnStudy', '/filters/filter_belowSupportStocksOnStudy'],
         captions: ['Resistenza', 'Supporto'],
         table_headers: [
-            ['Nome', 'Ultimo prezzo', 'Resistenza'],
-            ['Nome', 'Ultimo prezzo', 'Supporto']
+            ['Nome', 'Ultimo prezzo', 'Resistenza', 'Data creazione'],
+            ['Nome', 'Ultimo prezzo', 'Supporto', 'Data creazione']
         ],
         attributes: [
-            ['last_price', 'resistance'],
-            ['last_price', 'support']
+            ['last_price', 'resistance', 'updated_at'],
+            ['last_price', 'support', 'updated_at']
         ],
         info_title: 'Violazione trendline',
         info_content: 'Violazione di resistenze e supporti secondo le tue Analisi personali'
