@@ -36,12 +36,12 @@ $background-color: #F7F7F7;
   overflow: hidden;
   text-transform: uppercase;
   cursor: pointer;
-  display: block;
-  width: 100%;
+  display: inline-block;
   margin: 20px auto;
   transition: all .5s ease;
-  font-size:$font-verylarge;
+  font-size:$font-larger;
   line-height: 30px;
+  padding: 5px 25px;
 
   &:hover {
     .right_arrow {

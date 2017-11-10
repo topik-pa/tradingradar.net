@@ -113,15 +113,15 @@ var tradingRadar = (function () {
                         success: function (data) {
                             var content = $(data).html();
                             $target.html(content);
+                            $target.addClass('loaded');
+                            $currentImageAnchor.addClass('ready');
                         },
                         error: function () {
                             console.error('Unable to perform request');
                             $target.addClass('error');
                             $currentImageAnchor.addClass('error');
                         },
-                        complete: function () {
-                            $target.addClass('loaded');
-                            $currentImageAnchor.addClass('ready');
+                        complete: function () {                            
                             count++;
                             if (count == $destinations.length) {
                                 resolve();
@@ -279,28 +279,32 @@ var tradingRadar = (function () {
                                         }
                                     	else {
                                     		
+                                    		tbody += '<tbody>';
+                                    		
                                     		$.each(response, function (i, item) {
                                                 var rowClass = i % 2 === 0 ? 'even' : 'odd';
 
-                                                tbody += '<tbody><tr class="' + rowClass + '" data-isin="' + item.isin + '">';
+                                                tbody += '<tr class="' + rowClass + '" data-isin="' + item.isin + '">';
                                                 tbody += '<td><a title="Rassegna stampa del titolo: ' + item.name + '" href="' + '/analisi_tecnica_titolo/index?' + item.name + '&isin=' + item.isin + '">' + item.name + '</a></td>';                                              
                                                 
                                                 var price, variation, delta;
                                                 
                                                 obj.attributes[index].forEach(function (attribute, i) {
                                                 	
-                                                	var attrLength = obj.attributes[index].length-1;                                                	                                               
+                                                	var attrLength = obj.attributes[index].length-1;  
                                                 	
-                                                	if(obj.attributes[index][attrLength] == 'delta') {
+                                                	var currentValue = item[attribute] ? item[attribute] : 'nd';
+                                                	
+                                                	if(obj.attributes[index][attrLength] == 'delta') {                                                		                                              		
                                                 		
                                                 		if(i===0) {
-                                                    		price = item[attribute];
-                                                    		tbody += '<td>' + item[attribute] + '</td>';
+                                                    		price = currentValue;
+                                                    		tbody += '<td>' + price + '</td>';
                                                     	}
                                                     		
                                                     	if(i===1) {
-                                                    		variation = item[attribute];
-                                                    		tbody += '<td>' + item[attribute] + '</td>';
+                                                    		variation = currentValue;
+                                                    		tbody += '<td>' + currentValue + '</td>';
                                                     	}
                                                     	
                                                     	if(i===attrLength) {
@@ -313,15 +317,16 @@ var tradingRadar = (function () {
                                                     	
                                                     }
                                                 	else {
-                                                		tbody += '<td>' + item[attribute] + '</td>';
+                                                		tbody += '<td>' + currentValue + '</td>';
                                                 	}
                                                 	
            
                                                 });
                                                 tbody += '</tr>';
-                                                tbody += '</tbody>';
+                                                
 
                                             });
+                                    		tbody += '</tbody>';
                                     	};
 
                                         $table.append(tbody);

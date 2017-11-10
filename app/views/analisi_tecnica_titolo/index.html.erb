@@ -62,7 +62,7 @@
 					<%if $user.present? %>
 						<section class="last-study">
                     		<%= render("shared/last_study") %>
-							<div>
+							<div class="btn-wrapper">
 								<%= link_to 'Aggiungi nuovo studio', study_page_index_path(isin: @stock.isin), class: 'btn primary' %>
 							</div>
 						</section>

@@ -184,7 +184,11 @@
 				
                 <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                        <input type="hidden" name="study[stock_id]" id="study_stock_id" value="<%=@stock.id%>"/><input type="hidden" name="study[user_id]" id="study_user_id" value="<%=$user_id%>"/><%= submit_tag("Aggiungi analisi", :class => 'btn btn-primary') %>
+                    	
+                        <input type="hidden" name="study[stock_id]" id="study_stock_id" value="<%=@stock.id%>"/><input type="hidden" name="study[user_id]" id="study_user_id" value="<%=$user_id%>"/>
+						<div class="btn-wrapper">
+							<%= submit_tag("Aggiungi analisi", :class => 'btn btn-primary') %>
+						</div>
                     </div>
                 </div>
             </div>
