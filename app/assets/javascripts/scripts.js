@@ -206,6 +206,7 @@ var tradingRadar = (function () {
             var filtersToExecute = filters;//.filter(function(obj){return obj.active});
             var filtersCount = filters.length;
             var filtersWorked = 0;
+            
 
             var filtersPromise = new Promise(function (resolve, reject) {
                 for (var filter in filtersToExecute) {
@@ -215,7 +216,6 @@ var tradingRadar = (function () {
 
                         var filterPromise = new Promise(function (resolve, reject) {
                             var obj = filters[filter];
-
 
                             var $filter = $mainContainer.find('.filters .hp-filter:eq(' + obj.index + ')');
                             //var $titleElem = $filter.find('h2');
@@ -282,7 +282,7 @@ var tradingRadar = (function () {
                                     		tbody += '<tbody>';
                                     		
                                     		$.each(response, function (i, item) {
-                                                var rowClass = i % 2 === 0 ? 'even' : 'odd';
+                                                var rowClass = i % 2 === 0 ? 'even' : 'odd';                                                
 
                                                 tbody += '<tr class="' + rowClass + '" data-isin="' + item.isin + '">';
                                                 tbody += '<td><a title="Rassegna stampa del titolo: ' + item.name + '" href="' + '/analisi_tecnica_titolo/index?' + item.name + '&isin=' + item.isin + '">' + item.name + '</a></td>';                                              
@@ -541,13 +541,13 @@ var HPFilters = [
         ],
         info_title: 'Indicazioni da Investing.com',
         info_content: 'Titoli con valutazione "Compra ora" nel frame temporale giornaliero e mensile secondo le analisi di "Investing.com"'
-    }
+    },
 
 
 
 
-    /*{
-        index: 6,
+    {
+        index: 5,
         active: pageData.isLogged,
         title: 'Violazione trendline',
         urls: ['/filters/filter_overResistanceStocksOnStudy', '/filters/filter_belowSupportStocksOnStudy'],
@@ -562,9 +562,9 @@ var HPFilters = [
         ],
         info_title: 'Violazione trendline',
         info_content: 'Violazione di resistenze e supporti secondo le tue Analisi personali'
-    },
+    }
 
-
+/*
     {
         index: 7,
         active: pageData.isLogged,
