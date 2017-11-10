@@ -1,6 +1,6 @@
 class StocksController < ApplicationController
   before_action :set_stock, only: [:show, :edit, :update, :destroy]
-  before_action :require_user, only: [:index, :show]
+  before_action :require_user
 
   # GET /stocks
   # GET /stocks.json

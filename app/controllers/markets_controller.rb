@@ -1,5 +1,6 @@
 class MarketsController < ApplicationController
   before_action :set_market, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
 
   # GET /markets
   # GET /markets.json
