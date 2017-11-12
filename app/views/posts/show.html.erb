@@ -1,0 +1,37 @@
+<% title 'Valutazioni e segnali su azioni | Analisi tecnica titoli' %>
+<% meta_tag :description, '' %>
+<% meta_tag :keywords, 'analisi, tecnica, azioni, Borsa, Italiana, Milano, Finanza' %>
+<% meta_tag :robots, 'index, follow' %>
+<% meta_tag :author, $author + ' - ' + $authorMail %>
+
+<main id="main" class="site-main" role="main">
+	<div id="content" class="site-content container">
+	    <div class="container main-content-area">
+	        <div class="row">
+	            <section id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">	 
+
+                    <div class="row">
+				        <div class="breadcrumbs col-sm-12 col-md-12">
+                            <%= link_to welcome_index_path do %>
+					            <i class="fa fa-chevron-left" aria-hidden="true"></i>Torna in Home page
+					        <% end %>
+					    </div>
+			        </div>                
+                    
+                    <h2 class="text-center"><%= @post.title %></h2>
+                    <h5 class="text-center"><%= @post.created_at.strftime('%b %d, %Y') %></h5>
+                    <div><%= raw(@post.body) %></div>
+
+                    <div class="text-center">
+                        <%= link_to "Vedi tutti i post", posts_path, class: "btn btn-primary" %>
+                        <% if $isAdmin %>
+                            <%= link_to "Edit", edit_post_path(@post), class: "btn btn-default" %>
+                            <%= link_to "Delete", post_path(@post), class: "btn btn-danger", data: {:confirm => "Are you sure?"}, method: :delete %>
+                        <% end %>
+                    </div>
+                
+	            </section>
+	        </div>
+	    </div>
+	</div>
+</main>

@@ -15,6 +15,9 @@
 //= require turbolinks
 
 //= require bootstrap.min.js
+//= require bootstrap-sprockets
+
+//= require ckeditor/init
 
 //= require jquery.tablesorter.min.js
 

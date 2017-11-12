@@ -64,3 +64,14 @@ gem "rufus-scheduler"
 
 #Heroku deflater
 gem 'heroku-deflater', :group => :production
+
+
+
+#Forms
+gem 'simple_form', '~> 3.2'
+
+
+#CKEditor
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'ckeditor', '~> 4.1'

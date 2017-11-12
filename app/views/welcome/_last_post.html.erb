@@ -1,0 +1,35 @@
+<div class="post">
+	<header class="entry-header page-header">
+		<h2 class="entry-title">Analisi del giorno</h2>
+	</header>
+	
+	
+	<div class="section">
+		<% if not @lastPost %>
+		<div class="col-sm-12">		
+			<div class="body">
+				Non ci sono analisi da mostrare
+			</div>
+		</div>
+		<%else%>
+		<h3><%= @lastPost.title %></h3>
+		
+		<div class="entry-meta">
+            <div class="uptaded-at"><i class="fa fa-calendar"></i><small>Data inserimento:</small>
+                <time class="published" datetime="<%= @lastPost.created_at.strftime("%Y-%m-%dT%H:%M") %>">
+		            <%= @lastPost.created_at.strftime("%d/%m - %H:%M") %>
+		        </time>
+            </div>
+        </div>
+		<div class="col-sm-12">		
+			<div class="body">
+				<%= raw(@lastPost.body.truncate(358)) %>
+			</div>
+			<div class="more">
+				<%= link_to "Leggi tutto...", controller: "posts", action: "show", id: @lastPost.id %>
+			</div>
+		</div>
+		<%end%>
+	</div>
+
+</div>

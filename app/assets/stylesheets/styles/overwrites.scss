@@ -145,8 +145,8 @@ aside.widget {
 		margin-bottom: 0px;
 	}
 }
-#secondary {
-	margin-top: 50px;
+#secondary, #primary, #post {
+	margin-bottom: 50px;
 }
 
 .entry-content {
@@ -185,6 +185,26 @@ footer h3 {
 .navbar > .container .navbar-brand {
   margin: 8px 0;
 }
+
+hr {
+	border:none;
+}
+
+.tab-content {
+	ul {
+		li {
+			width: 49%;
+    		display: inline-block;
+			
+			&:last-child {
+				border-bottom: inherit;
+			    margin-bottom: 8px;
+			    padding-bottom: inherit;
+			}
+		}
+	}
+	
+} 
 
 
 /*Datatable*/

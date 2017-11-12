@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   get 'chi_siamo/index'
   get 'chi_siamo/' => 'chi_siamo#index'
 
@@ -71,7 +72,13 @@ Rails.application.routes.draw do
 
   delete 'logout' => 'sessions#destroy'
   
+  Rails.application.routes.draw do
+    #mount Ckeditor::Engine => '/ckeditor'
+    #root to: "posts#index"
   
+    resources :posts
+  end
+   
   get 'analisi_tecnica_titolo/' => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/index' => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/a2a'  => 'analisi_tecnica_titolo#index'

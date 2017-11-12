@@ -26,6 +26,9 @@
                 <li class="<%= 'active' if current_page?(controller: 'welcome', action: 'index') || current_page?(root_url) %>" >
                     <%= link_to 'Home', welcome_index_path, title: 'Home page' %>
                 </li>
+				<li class="<%= 'active' if current_page?(controller: 'posts', action: 'index') %>" >
+                    <%= link_to 'Analisi titoli', posts_path, title: 'Analisi tecnica titoli' %>
+                </li>
                 <li class="<%= 'active' if current_page?(controller: 'chi_siamo', action: 'index') %>">
 					<%= link_to 'Cos\'è Trading Radar', chi_siamo_index_path, title: 'Cos\'è Trading Radar' %>
                 </li>

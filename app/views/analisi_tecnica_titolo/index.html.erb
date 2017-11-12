@@ -37,7 +37,7 @@
                     <%= render("shared/namePriceVariation") %>
 					
 					    <div class="sub-header">
-					        <h2>Analisi tecnica e notizie sul titolo: <%= @stock.name %> - <%= @stock.cod %>.MI</h2>
+					        <h2>Rassegna stampa con analisi e notizie sul titolo: <%= @stock.name %> - <%= @stock.cod %>.MI</h2>
 							<p><strong>Rassegna stampa in tempo reale</strong> con dati provenienti dai principali media online del settore trading. Lo scopo di questa sezione è fornire <strong>notizie aggiornate</strong> sul titolo in esame, date e valore dei <strong>dividendi</strong> distribuiti, informazioni sui <strong>rating</strong> o sui <strong>target price</strong> e ottenere una idea di massima per formulare una corretta <strong>strategia</strong> di trading.</p>
 					        <p>I riferimenti alla fonte originaria delle informazioni qui riprodotte permettono di accedere alla pagina originaria e approfondire l'analisi.</p>
 					    </div>
@@ -63,7 +63,7 @@
 						<section class="last-study">
                     		<%= render("shared/last_study") %>
 							<div class="btn-wrapper">
-								<%= link_to 'Aggiungi analisi', study_page_index_path(isin: @stock.isin), class: 'btn primary' %>
+								<%= link_to 'Imposta nuovi livelli', study_page_index_path(isin: @stock.isin), class: 'btn primary' %>
 							</div>
 						</section>
                     <%end %>

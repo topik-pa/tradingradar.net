@@ -1,0 +1,54 @@
+<% title 'Valutazioni e segnali su azioni | Analisi tecnica titoli' %>
+<% meta_tag :description, '' %>
+<% meta_tag :keywords, 'analisi, tecnica, azioni, Borsa, Italiana, Milano, Finanza' %>
+<% meta_tag :robots, 'index, follow' %>
+<% meta_tag :author, $author + ' - ' + $authorMail %>
+
+<main id="main" class="site-main" role="main">
+	<div id="content" class="site-content container">
+	    <div class="container main-content-area">
+	        <div class="row">
+	            <section id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">	
+
+                    <div class="row">
+				        <div class="breadcrumbs col-sm-12 col-md-12">
+                            <%= link_to welcome_index_path do %>
+					            <i class="fa fa-chevron-left" aria-hidden="true"></i>Torna in Home page
+					        <% end %>
+					    </div>
+			        </div> 
+
+                    <% if $isAdmin %>
+                        <div>
+                            <%= link_to "Create post", new_post_path(@post), class: "btn btn-primary" %>
+                        </div>
+                    <% end %>
+
+                    <% if @posts.empty? %>
+                        <h2>Non ci sono analisi da visualizzare</h2>
+                    <% else %>
+                        <h2>Analisi attualmente pubblicate:</h2>
+                    <% end %>
+
+                    <% @posts.each do |post| %>
+                        <div class="blog-post">
+                          <div class="blog-header">
+                            <h3><%= post.title %></h3>
+                            <h6><%= post.created_at.strftime('%b %d, %Y') %></h6>
+                          </div>
+
+                          <div class="blog-body">
+                            <%= raw(post.body.truncate(358)) %>
+                          </div>
+
+                          <div class="blog-continue">
+                            <%= link_to "Continua la lettura...", post_path(post) %>
+                          </div>
+                        </div>
+                    <% end %>
+                
+	            </section>
+	        </div>
+	    </div>
+	</div>
+</main>

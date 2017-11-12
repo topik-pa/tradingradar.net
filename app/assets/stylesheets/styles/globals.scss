@@ -29,27 +29,27 @@ body {
 	    position: relative;
 	    margin-right: 8px;
 	}
+	
+	.entry-meta {
+        img {
+            height: 25px;
+            vertical-align: middle;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        small {
+            margin-right: 5px;
+                          
+        }
+
+        time {
+            font-style: italic;
+            font-size: 80%;  
+        }
+    }
 
 
     .hp-filter {
-        .entry-meta {
-            img {
-                height: 25px;
-                vertical-align: middle;
-                image-rendering: -webkit-optimize-contrast;
-            }
-
-            small {
-                margin-right: 5px;
-                              
-            }
-
-            time {
-                font-style: italic;
-                font-size: 80%;  
-            }
-        }
-
 
         .filter-content {
             text-align: center;

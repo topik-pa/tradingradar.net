@@ -85,14 +85,15 @@ class SourcesController < ApplicationController
         @laRepubblicaRangeValue = docLaRepubblica.at_xpath('/descendant::div[@class="TLB-range-indicator"]/@style').to_s.delete('rightleft:;').to_s
       end 
       
-      if @urlLaRepubblica2
+      if !@urlLaRepubblica2.blank?
         docLaRepubblica2 = Nokogiri::HTML(open(@urlLaRepubblica2), nil, 'UTF-8')
         docLaRepubblica2.encoding = 'UTF-8'
         docLaRepubblica2.search('script').each do |src|
           src.remove
         end
-        @laRepubblicaElem2 = docLaRepubblica2.at_xpath('/descendant::div[@class="boxes-container"]').to_s
-        
+        @laRepubblicaElem2 = docLaRepubblica2.at_xpath('/descendant::div[@class="boxes-container"]').to_s             
+      else 
+      @laRepubblicaElem2 = ''
       end
                    
       rescue OpenURI::HTTPError => e

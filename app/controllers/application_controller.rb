@@ -53,6 +53,7 @@ class ApplicationController < ActionController::Base
         $isLogged = true
       end
   end
+
   
   helper_method :reset_user    
   def reset_user 
@@ -67,6 +68,10 @@ class ApplicationController < ActionController::Base
 
   def require_user 
     redirect_to '/login' unless current_user 
+  end
+  
+  def require_admin
+    redirect_to '/login' unless $isAdmin
   end
   #Session related stuff
   
@@ -143,11 +148,7 @@ class ApplicationController < ActionController::Base
           when "!NDX.X.USD"
             market = 'NASDAQ 100'
             value = obj["DATA"][2]["VALUE"]
-            variation = obj["DATA"][3]["VALUE"] + '%'        
-          when "!NI225.IND"
-            market ='NIKKEI 225'
-            value = obj["DATA"][2]["VALUE"]
-            variation = obj["DATA"][3]["VALUE"] + '%'        
+            variation = obj["DATA"][3]["VALUE"] + '%'               
           when "GLD"
             market ='GOLD'
             value = obj["DATA"][1]["VALUE"]
@@ -167,7 +168,39 @@ class ApplicationController < ActionController::Base
           when "!WBSV7.IPE"
             market = 'WTI'
             value = obj["DATA"][2]["VALUE"]
-            variation = obj["DATA"][4]["VALUE"] + '%'               
+            variation = obj["DATA"][4]["VALUE"] + '%'  
+          when "UKX.LSE"
+            market = 'FTSE 100'
+            value = obj["DATA"][2]["VALUE"]
+            variation = obj["DATA"][3]["VALUE"] + '%'    
+          when "!NI225.IND"
+            market = 'NIKKEI 225'
+            value = obj["DATA"][2]["VALUE"]
+            variation = obj["DATA"][3]["VALUE"] + '%'  
+          when "!SSEA.IND"
+            market = 'SHANGHAI STOCK EXCHANGE'
+            value = obj["DATA"][2]["VALUE"]
+            variation = obj["DATA"][4]["VALUE"] + '%'  
+          when "!HSI.IND"
+            market = 'HANG SENG'
+            value = obj["DATA"][2]["VALUE"]
+            variation = obj["DATA"][4]["VALUE"] + '%'    
+          when "!JPYVS.FX"
+            market = 'EUR/JPY'
+            value = obj["DATA"][1]["VALUE"]
+            variation = obj["DATA"][3]["VALUE"] + '%' 
+          when "!CHFVS.FX"
+            market = 'EUR/CHF'
+            value = obj["DATA"][1]["VALUE"]
+            variation = obj["DATA"][3]["VALUE"] + '%' 
+          when "!AUDVS.FX"
+            market = 'EUR/AUD'
+            value = obj["DATA"][1]["VALUE"]
+            variation = obj["DATA"][3]["VALUE"] + '%' 
+          when "!CADVS.FX"
+            market = 'EUR/CAD'
+            value = obj["DATA"][1]["VALUE"]
+            variation = obj["DATA"][3]["VALUE"] + '%'         
         end        
         writeInMarketTableValues(market, value, variation)
       end
@@ -723,7 +756,7 @@ class ApplicationController < ActionController::Base
 
   #DEVELOPMENT
   else
-    scheduler.every '3m' do 
+    scheduler.every '10s' do 
       #updateMarketTable
       #updateStockTable
       #updateAnalysisTable    
