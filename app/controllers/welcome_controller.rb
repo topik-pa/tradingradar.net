@@ -17,9 +17,10 @@ class WelcomeController < ApplicationController
     else
       @stocks = nil
     end 
-    
-    @lastPost = Post.last
+      
   end
+  
+    @lastPost = Post.last
       
     @markets = Market.order(:id)
     

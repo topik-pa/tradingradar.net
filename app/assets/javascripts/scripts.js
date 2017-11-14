@@ -388,7 +388,7 @@ $(document).ready(function () {
     $('#main-wrapper').find(".tablesorter:not(.nojs)").tablesorter();
 
 
-    if ($('.stock_page').length || $('.analisi_tecnica_titolo').length) {
+    if ($('.analisi_tecnica_titolo').length) {
         tradingRadar.loadSources();
         tradingRadar.manageWindowPosition();
     }

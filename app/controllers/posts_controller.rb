@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   # Index action to render all posts
   def index
-    @posts = Post.all
+    @posts = Post.all.reverse
   end
 
   # New action for creating post

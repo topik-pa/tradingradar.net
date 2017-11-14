@@ -21,12 +21,12 @@
 		        </time>
             </div>
         </div>
-		<div class="col-sm-12">		
+		<div class="last-post">		
 			<div class="body">
-				<%= raw(@lastPost.body.truncate(358)) %>
+				<%= raw(@lastPost.body.truncate(800)) %>
 			</div>
 			<div class="more">
-				<%= link_to "Leggi tutto...", controller: "posts", action: "show", id: @lastPost.id %>
+				<%= link_to "Leggi tutto >", controller: "posts", action: "show", id: @lastPost.id %>
 			</div>
 		</div>
 		<%end%>
