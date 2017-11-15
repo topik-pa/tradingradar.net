@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" >
-	
 	<url>
-		<loc>http://www.tradingradar.net</loc>
+		
+		<loc>http://www.tradingradar.net/</loc>
 		<image:image>
-			<image:loc>http://www.tradingradar.net/images/front-image.jpg</image:loc>
+			<image:loc>http://tradingradar.net/images/front-image.jpg</image:loc>
 			<image:caption>Borsa italiana - immagine frontale della sede di Milano</image:caption>
 		</image:image>
 		<lastmod>2017-10-10</lastmod>
@@ -13,322 +13,427 @@
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/posts</loc>
-		<lastmod>2017-10-10</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>0.9</priority>
-	</url>
-	
-	<url>
-		<loc>http://www.tradingradar.net/chi_siamo</loc>
+		<loc>http://tradingradar.net/chi_siamo/index/</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.8</priority>
 	</url>
 		
 	<url>
-		<loc>http://www.tradingradar.net/contatti</loc>
+		<loc>http://tradingradar.net/contatti/index/</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.1</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/login</loc>
+		<loc>http://tradingradar.net/login/</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.3</priority>
 	</url>
 
 	<url>
-		<loc>http://www.tradingradar.net/signup</loc>
+		<loc>http://tradingradar.net/signup/</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.3</priority>
 	</url>
-	
-	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo</loc>
-		<lastmod>2017-10-10</lastmod>
-		<changefreq>hourly</changefreq>
-		<priority>0.8</priority>
-	</url>
 
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/a2a?isin=IT0001233417</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/a2a?isin=IT0001233417/</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/atlantia?isin=IT0003506190</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/atlantia?isin=IT0003506190</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/azimut_holding?isin=IT0003261697</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/azimut_holding?isin=IT0003261697</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/banca_generali?isin=IT0001031084</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/banca_generali?isin=IT0001031084</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/banca_mediolanum?isin=IT0004776628</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/banca_mediolanum?isin=IT0004776628</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/banco_bpm?isin=IT0005218380</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/banco_bpm?isin=IT0005218380</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/bper_banca?isin=IT0000066123</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/bper_banca?isin=IT0000066123</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/brembo?isin=IT0005252728</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/brembo?isin=IT0005252728</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/buzzi_unicem?isin=IT0001347308</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/buzzi_unicem?isin=IT0001347308</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/campari?isin=IT0005252207</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/campari?isin=IT0005252207</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/cnh_industrial?isin=NL0010545661</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/cnh_industrial?isin=NL0010545661</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/enel?isin=IT0003128367</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/enel?isin=IT0003128367</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/eni?isin=IT0003132476</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/eni?isin=IT0003132476</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/exor?isin=NL0012059018</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/exor?isin=NL0012059018</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/ferrari?isin=NL0011585146</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/ferrari?isin=NL0011585146</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/fiat_chrysler_automobiles?isin=NL0010877643</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/fiat_chrysler_automobiles?isin=NL0010877643</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/finecobank?isin=IT0000072170</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/finecobank?isin=IT0000072170</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/generali?isin=IT0000062072</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/generali?isin=IT0000062072</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/intesa_sanpaolo?isin=IT0000072618</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/intesa_sanpaolo?isin=IT0000072618</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/italgas?isin=IT0005211237</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/italgas?isin=IT0005211237</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/leonardo?isin=IT0003856405</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/leonardo?isin=IT0003856405</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/luxottica?isin=IT0001479374</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/luxottica?isin=IT0001479374</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/mediaset?isin=IT0001063210</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/mediaset?isin=IT0001063210</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/mediobanca?isin=IT0000062957</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/mediobanca?isin=IT0000062957</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/moncler?isin=IT0004965148</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/moncler?isin=IT0004965148</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/poste_italiane?isin=IT0003796171</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/poste_italiane?isin=IT0003796171</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/prysmian?isin=IT0004176001</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/prysmian?isin=IT0004176001</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/recordati?isin=IT0003828271</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/recordati?isin=IT0003828271</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/saipem?isin=IT0005252140</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/saipem?isin=IT0005252140</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/salvatore_ferragamo?isin=IT0004712375</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/salvatore_ferragamo?isin=IT0004712375</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/snam?isin=IT0003153415</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/snam?isin=IT0003153415</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/stmicroelectronics?isin=NL0000226223</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/stmicroelectronics?isin=NL0000226223</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/telecom_italia?isin=IT0003497168</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/telecom_italia?isin=IT0003497168</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/tenaris?isin=LU0156801721</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/tenaris?isin=LU0156801721</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/terna_rete_elettrica_nazionale?isin=IT0003242622</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/terna_rete_elettrica_nazionale?isin=IT0003242622</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/ubi_banca?isin=IT0003487029</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/ubi_banca?isin=IT0003487029</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/unicredit?isin=IT0005239360</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/unicredit?isin=IT0005239360</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/unipol?isin=IT0004810054</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/unipol?isin=IT0004810054</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/unipolsai?isin=IT0004827447</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/unipolsai?isin=IT0004827447</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	
 	<url>
-		<loc>http://www.tradingradar.net/analisi_tecnica_titolo/yoox_net_a_porter_group?isin=IT0003540470</loc>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/yoox_net_a_porter_group?isin=IT0003540470</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/acea?isin=IT0001207098</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/acotel_group?isin=IT0001469953</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+		
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/acsm_agam?isin=IT0001382024</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+			
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/aedes?isin=IT0005065849</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/aeffe?isin=IT0001384590</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/aeroporto_guglielmo_marconi?isin=IT0001006128</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/alerion_cleanpower?isin=IT0004720733</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/ambienthesis?isin=IT0001042297</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/amplifon?isin=IT0004056880</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/anima_holding?isin=IT0004998065</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/ansaldo_sts?isin=IT0003977540</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/ascopiave?isin=IT0004093263</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/astaldi?isin=IT0003261069</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/astm?isin=IT0000084027</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/autogrill?isin=IT0001137345</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/autostrade_meridionali?isin=IT0000084043</loc>
+		<lastmod>2017-10-10</lastmod>
+		<changefreq>hourly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	
+	<url>
+		<loc>http://tradingradar.net/analisi_tecnica_titolo/avio?isin=IT0005119810</loc>
 		<lastmod>2017-10-10</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.9</priority>

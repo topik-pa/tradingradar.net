@@ -8,9 +8,9 @@
 
 #Study.delete_all
 #Analysis.delete_all
-#Stock.delete_all
+Stock.delete_all
 
-#Url.delete_all
+Url.delete_all
 #Market.delete_all
 
 
@@ -57,10 +57,29 @@ stock_list = [
   [38, "IT0004810054", "", "Unipol", "", nil, "", ""],
   [39, "IT0004827447", "", "Unipolsai", "", nil, "", ""],
   [40, "IT0003540470", "", "Yoox Net-A-Porter Group", "", nil, "", ""]
+  
+  [41, "IT0001207098", "", "Acea", "", nil, "", ""],
+  [42, "IT0001469953", "", "Acotel Group", "", nil, "", ""],
+  [43, "IT0001382024", "", "Acsm-Agam", "", nil, "", ""],
+  [44, "IT0005065849", "", "Aedes", "", nil, "", ""],
+  [45, "IT0001384590", "", "Aeffe", "", nil, "", ""],
+  [46, "IT0001006128", "", "Aeroporto Guglielmo Marconi", "", nil, "", ""],
+  [47, "IT0004720733", "", "Alerion Cleanpower", "", nil, "", ""],
+  [48, "IT0001042297", "", "Ambienthesis", "", nil, "", ""],
+  [49, "IT0004056880", "", "Amplifon", "", nil, "", ""],
+  [50, "IT0004998065", "", "Anima Holding", "", nil, "", ""],
+  [51, "IT0003977540", "", "Ansaldo Sts", "", nil, "", ""],
+  [52, "IT0004093263", "", "Ascopiave", "", nil, "", ""],
+  [53, "IT0003261069", "", "Astaldi", "", nil, "", ""],
+  [54, "IT0000084027", "", "Astm", "", nil, "", ""],
+  [55, "IT0001137345", "", "Autogrill", "", nil, "", ""],
+  [56, "IT0000084043", "", "Autostrade Meridionali", "", nil, "", ""],
+  [57, "IT0005119810", "", "Avio", "", nil, "", ""]
+
 ]
 
 stock_list.each do |id, isin, cod, name, sector, last_price, variation, market_phase|
-  #Stock.create(id: id, isin: isin, cod: cod, name: name, sector: sector, last_price: last_price, variation: variation, market_phase: market_phase)
+  Stock.create(id: id, isin: isin, cod: cod, name: name, sector: sector, last_price: last_price, variation: variation, market_phase: market_phase)
 end
 ###Stock###
 
@@ -107,86 +126,122 @@ url_list = [
   [ "IT0005239360", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0005239360.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0005239360&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!UCG.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0005239360&Lettera=U&QUOTE=%21UCG.MI", "http://www.soldionline.it/quotazioni/azioni/IT0005239360.html", "https://finanza.repubblica.it/Company/Advanced?symbol=UCG:IM", "https://it.investing.com/equities/unicredito", "", "https://www.milanofinanza.it/quotazioni/dettaglio/unicredit-2ae0096", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=0096&codicestrumento=w2ae&DBCOD=UCG"],
   [ "IT0004810054", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0004810054.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0004810054&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!UNI.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0004810054&Lettera=U&QUOTE=%21UNI.MI", "http://www.soldionline.it/quotazioni/azioni/IT0004810054.html", "https://finanza.repubblica.it/Company/Advanced?symbol=UNI:IM", "https://it.investing.com/equities/unipol", "", "https://www.milanofinanza.it/quotazioni/dettaglio/unipol-2ae002b", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=002b&codicestrumento=w2ae&DBCOD=UNI"],
   [ "IT0004827447", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0004827447.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0004827447&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!US.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0004827447&Lettera=U&QUOTE=%21US.MI", "http://www.soldionline.it/quotazioni/azioni/IT0004827447.html", "https://finanza.repubblica.it/Company/Advanced?symbol=US:IM", "https://it.investing.com/equities/fondiaria-sai", "", "https://www.milanofinanza.it/quotazioni/dettaglio/unipolsai-2ae0126", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=0126&codicestrumento=w2ae&DBCOD=US"],
-  [ "IT0003540470", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0003540470.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0003540470&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!YNAP.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0003540470&Lettera=Y&QUOTE=%21YNAP.MI", "http://www.soldionline.it/quotazioni/azioni/IT0003540470.html", "https://finanza.repubblica.it/Company/Advanced?symbol=YNAP:IM", "https://it.investing.com/equities/yoox-spa", "", "https://www.milanofinanza.it/quotazioni/dettaglio/yoox-net-a-porter-group-2ae06a0", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=06a0&codicestrumento=w2ae&DBCOD=YNAP"]
+  [ "IT0003540470", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0003540470.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0003540470&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!YNAP.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0003540470&Lettera=Y&QUOTE=%21YNAP.MI", "http://www.soldionline.it/quotazioni/azioni/IT0003540470.html", "https://finanza.repubblica.it/Company/Advanced?symbol=YNAP:IM", "https://it.investing.com/equities/yoox-spa", "", "https://www.milanofinanza.it/quotazioni/dettaglio/yoox-net-a-porter-group-2ae06a0", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=06a0&codicestrumento=w2ae&DBCOD=YNAP"],
+  
+  [ "IT0001207098", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0001207098.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0001207098&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!ACE.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0003540470&Lettera=A&QUOTE=%21ACE.MI", "http://www.soldionline.it/quotazioni/azioni/IT0001207098.html", "https://finanza.repubblica.it/Company/Advanced?symbol=ACE:IM", "https://it.investing.com/equities/acea", "", "https://www.milanofinanza.it/quotazioni/dettaglio/acea-2ae00f8", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=00f8&codicestrumento=w2ae&DBCOD=ACE"],
+  [ "IT0001469953", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0001469953.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0001469953&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!ACO.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0001469953&Lettera=A&QUOTE=%21ACO.MI", "http://www.soldionline.it/quotazioni/azioni/IT0001469953.html", "https://finanza.repubblica.it/Company/Advanced?symbol=ACO:IM", "https://it.investing.com/equities/acotel-group", "", "https://www.milanofinanza.it/quotazioni/dettaglio/acotel-group-2ae0176", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=0176&codicestrumento=w2ae&DBCOD=ACO"],
+  [ "IT0001382024", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0001382024.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0001382024&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!ACS.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0001382024&Lettera=A&QUOTE=%21ACS.MI", "http://www.soldionline.it/quotazioni/azioni/IT0001382024.html", "https://finanza.repubblica.it/Company/Advanced?symbol=ACS:IM", "https://it.investing.com/equities/acsm-agam-spa", "", "https://www.milanofinanza.it/quotazioni/dettaglio/acsm-agam-2ae006a", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=006a&codicestrumento=w2ae&DBCOD=ACS"],
+  [ "IT0005065849", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0005065849.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0005065849&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!AE.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0005065849&Lettera=A&QUOTE=%21AE.MI", "http://www.soldionline.it/quotazioni/azioni/IT0005065849.html", "https://finanza.repubblica.it/Company/Advanced?symbol=AE:IM", "https://it.investing.com/equities/aedes", "", "https://www.milanofinanza.it/quotazioni/dettaglio/aedes-2ae0040", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=0040&codicestrumento=w2ae&DBCOD=AE"],
+  [ "IT0001384590", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0001384590.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0001384590&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!AEF.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0001384590&Lettera=A&QUOTE=%21AEF.MI", "http://www.soldionline.it/quotazioni/azioni/IT0001384590.html", "https://finanza.repubblica.it/Company/Advanced?symbol=AEF:IM", "https://it.investing.com/equities/aeffe-spa", "", "https://www.milanofinanza.it/quotazioni/dettaglio/aeffe-2ae0442", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=0442&codicestrumento=w2ae&DBCOD=AEF"],
+  [ "IT0001006128", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0001006128.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0001006128&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!ADB.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0001006128&Lettera=A&QUOTE=%21ADB.MI", "http://www.soldionline.it/quotazioni/azioni/IT0001006128.html", "https://finanza.repubblica.it/Company/Advanced?symbol=ADB:IM", "https://it.investing.com/equities/aeroporto-guglielmo-marconi-di-bolo", "", "https://www.milanofinanza.it/quotazioni/dettaglio/aeroporto-guglielmo-marconi-di-bologna-2ae105e", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=105e&codicestrumento=w2ae&DBCOD=ADB"],
+  [ "IT0004720733", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0004720733.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0004720733&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!ARN.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0004720733&Lettera=A&QUOTE=%21ARN.MI", "http://www.soldionline.it/quotazioni/azioni/IT0004720733.html", "https://finanza.repubblica.it/Company/Advanced?symbol=ARN:IM", "https://it.investing.com/equities/alerion-clean-power-spa", "", "https://www.milanofinanza.it/quotazioni/dettaglio/alerion-2ae00c2", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=00c2&codicestrumento=w2ae&DBCOD=ARN"],
+  [ "IT0001042297", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0001042297.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0001042297&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!ATH.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0001042297&Lettera=A&QUOTE=%21ATH.MI", "http://www.soldionline.it/quotazioni/azioni/IT0001042297.html", "https://finanza.repubblica.it/Company/Advanced?symbol=ATH:IM", "https://it.investing.com/equities/ambienthesis", "", "https://www.milanofinanza.it/quotazioni/dettaglio/ambienthesis-2ae0035", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=0035&codicestrumento=w2ae&DBCOD=ATH"],
+  [ "IT0004056880", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0004056880.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0004056880&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!AMP.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0004056880&Lettera=A&QUOTE=%21AMP.MI", "http://www.soldionline.it/quotazioni/azioni/IT0004056880.html", "https://finanza.repubblica.it/Company/Advanced?symbol=AMP:IM", "https://it.investing.com/equities/amplifon", "", "https://www.milanofinanza.it/quotazioni/dettaglio/amplifon-2ae01ef", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=01ef&codicestrumento=w2ae&DBCOD=AMP"],
+  [ "IT0004998065", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0004998065.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0004998065&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!ANIM.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0004998065&Lettera=A&QUOTE=%21ANIM.MI", "http://www.soldionline.it/quotazioni/azioni/IT0004998065.html", "https://finanza.repubblica.it/Company/Advanced?symbol=ANIM:IM", "https://it.investing.com/equities/anima-holding-spa", "", "https://www.milanofinanza.it/quotazioni/dettaglio/anima-holding-2ae1035", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=1035&codicestrumento=w2ae&DBCOD=ANIM"],
+  [ "IT0003977540", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0003977540.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0003977540&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!STS.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0003977540&Lettera=A&QUOTE=%21STS.MI", "http://www.soldionline.it/quotazioni/azioni/IT0003977540.html", "https://finanza.repubblica.it/Company/Advanced?symbol=STS:IM", "https://it.investing.com/equities/ansaldo-sts", "", "https://www.milanofinanza.it/quotazioni/dettaglio/ansaldo-sts-2ae03ea", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=03ea&codicestrumento=w2ae&DBCOD=STS"],
+  [ "IT0004093263", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0004093263.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0004093263&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!ASC.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0004093263&Lettera=A&QUOTE=%21ASC.MI", "http://www.soldionline.it/quotazioni/azioni/IT0004093263.html", "https://finanza.repubblica.it/Company/Advanced?symbol=ASC:IM", "https://it.investing.com/equities/ascopiave", "", "https://www.milanofinanza.it/quotazioni/dettaglio/ascopiave-2ae040c", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=040c&codicestrumento=w2ae&DBCOD=ASC"],
+  [ "IT0003261069", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0003261069.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0003261069&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!AST.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0003261069&Lettera=A&QUOTE=%21AST.MI", "http://www.soldionline.it/quotazioni/azioni/IT0003261069.html", "https://finanza.repubblica.it/Company/Advanced?symbol=AST:IM", "https://it.investing.com/equities/astaldi", "", "https://www.milanofinanza.it/quotazioni/dettaglio/astaldi-2ae0370", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=0370&codicestrumento=w2ae&DBCOD=AST"],
+  [ "IT0000084027", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0000084027.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0000084027&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!AT.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0000084027&Lettera=A&QUOTE=%21AT.MI", "http://www.soldionline.it/quotazioni/azioni/IT0000084027.html", "https://finanza.repubblica.it/Company/Advanced?symbol=AT:IM", "https://it.investing.com/equities/autostrada-torino-milano", "", "https://www.milanofinanza.it/quotazioni/dettaglio/astm-2ae004a", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=004a&codicestrumento=w2ae&DBCOD=AT"],
+  [ "IT0001137345", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0001137345.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0001137345&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!AGL.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0001137345&Lettera=A&QUOTE=%21AGL.MI", "http://www.soldionline.it/quotazioni/azioni/IT0001137345.html", "https://finanza.repubblica.it/Company/Advanced?symbol=AGL:IM", "https://it.investing.com/equities/autogrill", "", "https://www.milanofinanza.it/quotazioni/dettaglio/autogrill-spa-2ae00a6", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=00a6&codicestrumento=w2ae&DBCOD=AGL"],
+  [ "IT0000084043", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0000084043.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0000084043&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!AUTME.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0000084043&Lettera=A&QUOTE=%21AUTME.MI", "http://www.soldionline.it/quotazioni/azioni/IT0000084043.html", "https://finanza.repubblica.it/Company/Advanced?symbol=AUTME:IM", "https://it.investing.com/equities/autostrade-meridionali-spa", "", "https://www.milanofinanza.it/quotazioni/dettaglio/autostrade-merid-2ae004d", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=004d&codicestrumento=w2ae&DBCOD=AUTME"],
+  [ "IT0005119810", "http://www.borsaitaliana.it/borsa/azioni/scheda/IT0005119810.html?lang=it", "http://www.borsaitaliana.it/borsa/azioni/analisi-tecnica.html?isin=IT0005119810&lang=it", "http://finanza-mercati.ilsole24ore.com/quotazioni.php?QUOTE=!AVIO.MI", "http://finanza-mercati.ilsole24ore.com/fcxp?page=Dettaglio_FTA_Sommario&cmd=framexplane&chId=70&FILTER_VALUE=IT0005119810&Lettera=A&QUOTE=%21AVIO.MI", "http://www.soldionline.it/quotazioni/azioni/IT0005119810.html", "https://finanza.repubblica.it/Company/Advanced?symbol=AVIO:IM", "https://it.investing.com/equities/space2-spa", "", "https://www.milanofinanza.it/quotazioni/dettaglio/avio-2ae1060", "https://www.milanofinanza.it/mercati/analisi-tecnica?mercato=italiano&stockcodert=1060&codicestrumento=w2ae&DBCOD=AVIO"]
 ]
 
 url_list.each do |isin, url1, url2, url3, url4, url5, url6, url7, url8, url9, url10|
-  #Url.create(isin: isin, url1: url1, url2: url2, url3: url3, url4: url4, url5: url5, url6: url6, url7: url7, url8: url8, url9: url9, url10: url10)
+  Url.create(isin: isin, url1: url1, url2: url2, url3: url3, url4: url4, url5: url5, url6: url6, url7: url7, url8: url8, url9: url9, url10: url10)
 end
 ###Url###
 
 
 
 ###Market###
-market_list = [ 
-  [ "FTSE MIB", "", ""],
-  [ "FTSE All Share", "", ""],
-  [ "S&P 100", "", ""],
-  [ "NASDAQ 100", "", ""],
-  [ "DAX 30", "", ""],
-  [ "CAC 40", "", ""],
-  [ "NIKKEI 225", "", ""],
-  [ "GOLD", "", ""],
-  [ "Brent", "", ""],
-  [ "WTI", "", ""],
-  [ "EUR/USD", "", ""],
-  [ "EUR/GBP", "", ""]
-]
+#market_list = [ 
+#  [ "FTSE MIB", "", ""],
+#  [ "FTSE All Share", "", ""],
+#  [ "S&P 100", "", ""],
+#  [ "NASDAQ 100", "", ""],
+#  [ "DAX 30", "", ""],
+#  [ "CAC 40", "", ""],
+#  [ "NIKKEI 225", "", ""],
+#  [ "GOLD", "", ""],
+#  [ "Brent", "", ""],
+#  [ "WTI", "", ""],
+#  [ "EUR/USD", "", ""],
+#  [ "EUR/GBP", "", ""]
+#]
 
-market_list.each do |name, value, variation|
+#market_list.each do |name, value, variation|
   #Market.create(name: name, value: value, variation: variation)
-end
+#end
 ###Market###
 
 
 
 ###Analysis###
-analysis_list = [
-  [1, "IT0001233417", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [2, "IT0003506190", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [3, "IT0003261697", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [4, "IT0001031084", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [5, "IT0004776628", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [6, "IT0005218380", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [7, "IT0000066123", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [8, "IT0005252728", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [9, "IT0001347308", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [10, "IT0005252207", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [11, "NL0010545661", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [12, "IT0003128367", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [13, "IT0003132476", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],  
-  [14, "NL0012059018", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [15, "NL0011585146", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [16, "NL0010877643", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [17, "IT0000072170", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [18, "IT0000062072", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [19, "IT0000072618", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [20, "IT0005211237", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [21, "IT0003856405", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [22, "IT0001479374", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [23, "IT0001063210", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],  
-  [24, "IT0000062957", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [25, "IT0004965148", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [26, "IT0003796171", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [27, "IT0004176001", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [28, "IT0003828271", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [29, "IT0005252140", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [30, "IT0004712375", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [31, "IT0003153415", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [32, "NL0000226223", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [33, "IT0003497168", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil], 
-  [34, "LU0156801721", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [35, "IT0003242622", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [36, "IT0003487029", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [37, "IT0005239360", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [38, "IT0004810054", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [39, "IT0004827447", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-  [40, "IT0003540470", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil]
-]
+#analysis_list = [
+# [1, "IT0001233417", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [2, "IT0003506190", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [3, "IT0003261697", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [4, "IT0001031084", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [5, "IT0004776628", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [6, "IT0005218380", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [7, "IT0000066123", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [8, "IT0005252728", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [9, "IT0001347308", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [10, "IT0005252207", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [11, "NL0010545661", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [12, "IT0003128367", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [13, "IT0003132476", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],  
+# [14, "NL0012059018", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [15, "NL0011585146", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [16, "NL0010877643", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [17, "IT0000072170", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [18, "IT0000062072", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [19, "IT0000072618", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [20, "IT0005211237", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [21, "IT0003856405", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [22, "IT0001479374", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [23, "IT0001063210", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],  
+# [24, "IT0000062957", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [25, "IT0004965148", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [26, "IT0003796171", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [27, "IT0004176001", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [28, "IT0003828271", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [29, "IT0005252140", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [30, "IT0004712375", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [31, "IT0003153415", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [32, "NL0000226223", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [33, "IT0003497168", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil], 
+# [34, "LU0156801721", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [35, "IT0003242622", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [36, "IT0003487029", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [37, "IT0005239360", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [38, "IT0004810054", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [39, "IT0004827447", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [40, "IT0003540470", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+  
+# [41, "IT0001207098", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [42, "IT0001469953", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [43, "IT0001382024", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [44, "IT0005065849", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [45, "IT0001384590", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [46, "IT0001006128", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [47, "IT0004720733", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [48, "IT0001042297", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [49, "IT0004056880", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [50, "IT0004998065", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [51, "IT0003977540", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [52, "IT0004093263", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [53, "IT0003261069", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [54, "IT0000084027", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [55, "IT0001137345", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [56, "IT0000084043", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+# [57, "IT0005119810", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+#]
 
-analysis_list.each do |stock_id, isin, borsa_italiana_support, borsa_italiana_resistance, borsa_italiana_fta, xxivore_support, xxivore_resistance, xxivore_shorttrend, xxivore_ftaindex, xxivore_rsi, xxivore_rsidiv, repubblica_support, repubblica_resistance, milano_finanza_risk, milano_finanza_rating, investing_dotcomrating|
+#analysis_list.each do |stock_id, isin, borsa_italiana_support, borsa_italiana_resistance, borsa_italiana_fta, xxivore_support, xxivore_resistance, xxivore_shorttrend, xxivore_ftaindex, xxivore_rsi, xxivore_rsidiv, repubblica_support, repubblica_resistance, milano_finanza_risk, milano_finanza_rating, investing_dotcomrating|
   #Analysis.create(stock_id: stock_id, isin: isin, borsa_italiana_support: borsa_italiana_support, borsa_italiana_resistance: borsa_italiana_resistance, borsa_italiana_fta: borsa_italiana_fta, xxivore_support: xxivore_support, xxivore_resistance: xxivore_resistance, xxivore_shorttrend: xxivore_shorttrend, xxivore_ftaindex: xxivore_ftaindex, xxivore_rsi: xxivore_rsi, xxivore_rsidiv: xxivore_rsidiv, repubblica_support: repubblica_support, repubblica_resistance: repubblica_resistance, milano_finanza_risk: milano_finanza_risk, milano_finanza_rating: milano_finanza_rating, investing_dotcomrating: investing_dotcomrating)
-end
+#end
 ###Analysis setup###
 
 

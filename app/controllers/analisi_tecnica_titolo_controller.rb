@@ -152,6 +152,58 @@ class AnalisiTecnicaTitoloController < ApplicationController
     
     def yoox_net_a_porter_group
     end
+    
+    #A
+    def acea
+    end
+    
+    def acotel_group
+    end
+    
+    def acsm_agam
+    end
+    
+    def aedes
+    end
+    
+    def aeffe
+    end
+    
+    def aeroporto_guglielmo_marconi
+    end
+    
+    def alerion_cleanpower
+    end
+    
+    def ambienthesis
+    end
+    
+    def amplifon
+    end
+    
+    def anima_holding
+    end
+    
+    def ansaldo_sts
+    end
+    
+    def ascopiave
+    end
+    
+    def astaldi
+    end
+    
+    def astm
+    end
+    
+    def autogrill
+    end
+    
+    def autostrade_meridionali
+    end
+    
+    def avio
+    end    
 
   end
 
