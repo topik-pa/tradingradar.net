@@ -56,7 +56,7 @@ stock_list = [
   [37, "IT0005239360", "", "Unicredit", "", nil, "", ""],
   [38, "IT0004810054", "", "Unipol", "", nil, "", ""],
   [39, "IT0004827447", "", "Unipolsai", "", nil, "", ""],
-  [40, "IT0003540470", "", "Yoox Net-A-Porter Group", "", nil, "", ""]
+  [40, "IT0003540470", "", "Yoox Net-A-Porter Group", "", nil, "", ""],
   
   [41, "IT0001207098", "", "Acea", "", nil, "", ""],
   [42, "IT0001469953", "", "Acotel Group", "", nil, "", ""],
