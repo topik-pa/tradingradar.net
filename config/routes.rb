@@ -121,6 +121,24 @@ Rails.application.routes.draw do
   get 'analisi_tecnica_titolo/unipol'  => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/unipolsai'  => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/yoox_net_a_porter_group'  => 'analisi_tecnica_titolo#index'
+  
+  get 'analisi_tecnica_titolo/acea'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/acotel_group'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/acsm_agam'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/aedes'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/aeffe'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/aeroporto_guglielmo_marconi'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/alerion_cleanpower'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/ambienthesis'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/amplifon'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/anima_holding'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/ansaldo_sts'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/ascopiave'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/astaldi'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/astm'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/autogrill'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/autostrade_meridionali'  => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/avio'  => 'analisi_tecnica_titolo#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

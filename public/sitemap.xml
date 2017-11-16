@@ -40,6 +40,8 @@
 		<priority>0.3</priority>
 	</url>
 
+
+	<!--FTSE MIB-->
 	<url>
 		<loc>http://tradingradar.net/analisi_tecnica_titolo/a2a?isin=IT0001233417/</loc>
 		<lastmod>2017-10-10</lastmod>
@@ -320,6 +322,8 @@
 		<priority>0.9</priority>
 	</url>
 	
+	
+	<!--A-->
 	<url>
 		<loc>http://tradingradar.net/analisi_tecnica_titolo/acea?isin=IT0001207098</loc>
 		<lastmod>2017-10-10</lastmod>
