@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#Study.delete_all
-#Analysis.delete_all
+Study.delete_all
+Analysis.delete_all
 Stock.delete_all
-
 Url.delete_all
+
 #Market.delete_all
 
 
@@ -178,70 +178,70 @@ end
 
 
 ###Analysis###
-#analysis_list = [
-# [1, "IT0001233417", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [2, "IT0003506190", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [3, "IT0003261697", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [4, "IT0001031084", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [5, "IT0004776628", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [6, "IT0005218380", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [7, "IT0000066123", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [8, "IT0005252728", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [9, "IT0001347308", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [10, "IT0005252207", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [11, "NL0010545661", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [12, "IT0003128367", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [13, "IT0003132476", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],  
-# [14, "NL0012059018", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [15, "NL0011585146", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [16, "NL0010877643", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [17, "IT0000072170", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [18, "IT0000062072", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [19, "IT0000072618", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [20, "IT0005211237", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [21, "IT0003856405", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [22, "IT0001479374", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [23, "IT0001063210", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],  
-# [24, "IT0000062957", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [25, "IT0004965148", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [26, "IT0003796171", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [27, "IT0004176001", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [28, "IT0003828271", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [29, "IT0005252140", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [30, "IT0004712375", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [31, "IT0003153415", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [32, "NL0000226223", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [33, "IT0003497168", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil], 
-# [34, "LU0156801721", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [35, "IT0003242622", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [36, "IT0003487029", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [37, "IT0005239360", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [38, "IT0004810054", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [39, "IT0004827447", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [40, "IT0003540470", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+analysis_list = [
+ [1, "IT0001233417", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [2, "IT0003506190", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [3, "IT0003261697", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [4, "IT0001031084", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [5, "IT0004776628", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [6, "IT0005218380", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [7, "IT0000066123", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [8, "IT0005252728", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [9, "IT0001347308", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [10, "IT0005252207", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [11, "NL0010545661", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [12, "IT0003128367", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [13, "IT0003132476", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],  
+ [14, "NL0012059018", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [15, "NL0011585146", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [16, "NL0010877643", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [17, "IT0000072170", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [18, "IT0000062072", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [19, "IT0000072618", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [20, "IT0005211237", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [21, "IT0003856405", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [22, "IT0001479374", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [23, "IT0001063210", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],  
+ [24, "IT0000062957", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [25, "IT0004965148", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [26, "IT0003796171", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [27, "IT0004176001", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [28, "IT0003828271", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [29, "IT0005252140", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [30, "IT0004712375", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [31, "IT0003153415", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [32, "NL0000226223", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [33, "IT0003497168", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil], 
+ [34, "LU0156801721", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [35, "IT0003242622", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [36, "IT0003487029", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [37, "IT0005239360", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [38, "IT0004810054", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [39, "IT0004827447", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [40, "IT0003540470", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
   
-# [41, "IT0001207098", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [42, "IT0001469953", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [43, "IT0001382024", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [44, "IT0005065849", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [45, "IT0001384590", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [46, "IT0001006128", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [47, "IT0004720733", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [48, "IT0001042297", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [49, "IT0004056880", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [50, "IT0004998065", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [51, "IT0003977540", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [52, "IT0004093263", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [53, "IT0003261069", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [54, "IT0000084027", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [55, "IT0001137345", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [56, "IT0000084043", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-# [57, "IT0005119810", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
-#]
+ [41, "IT0001207098", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [42, "IT0001469953", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [43, "IT0001382024", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [44, "IT0005065849", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [45, "IT0001384590", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [46, "IT0001006128", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [47, "IT0004720733", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [48, "IT0001042297", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [49, "IT0004056880", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [50, "IT0004998065", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [51, "IT0003977540", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [52, "IT0004093263", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [53, "IT0003261069", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [54, "IT0000084027", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [55, "IT0001137345", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [56, "IT0000084043", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil],
+ [57, "IT0005119810", nil, nil, "", nil, nil, "", "", "", "", nil, nil, nil, "", nil]
+]
 
-#analysis_list.each do |stock_id, isin, borsa_italiana_support, borsa_italiana_resistance, borsa_italiana_fta, xxivore_support, xxivore_resistance, xxivore_shorttrend, xxivore_ftaindex, xxivore_rsi, xxivore_rsidiv, repubblica_support, repubblica_resistance, milano_finanza_risk, milano_finanza_rating, investing_dotcomrating|
-  #Analysis.create(stock_id: stock_id, isin: isin, borsa_italiana_support: borsa_italiana_support, borsa_italiana_resistance: borsa_italiana_resistance, borsa_italiana_fta: borsa_italiana_fta, xxivore_support: xxivore_support, xxivore_resistance: xxivore_resistance, xxivore_shorttrend: xxivore_shorttrend, xxivore_ftaindex: xxivore_ftaindex, xxivore_rsi: xxivore_rsi, xxivore_rsidiv: xxivore_rsidiv, repubblica_support: repubblica_support, repubblica_resistance: repubblica_resistance, milano_finanza_risk: milano_finanza_risk, milano_finanza_rating: milano_finanza_rating, investing_dotcomrating: investing_dotcomrating)
-#end
+analysis_list.each do |stock_id, isin, borsa_italiana_support, borsa_italiana_resistance, borsa_italiana_fta, xxivore_support, xxivore_resistance, xxivore_shorttrend, xxivore_ftaindex, xxivore_rsi, xxivore_rsidiv, repubblica_support, repubblica_resistance, milano_finanza_risk, milano_finanza_rating, investing_dotcomrating|
+  Analysis.create(stock_id: stock_id, isin: isin, borsa_italiana_support: borsa_italiana_support, borsa_italiana_resistance: borsa_italiana_resistance, borsa_italiana_fta: borsa_italiana_fta, xxivore_support: xxivore_support, xxivore_resistance: xxivore_resistance, xxivore_shorttrend: xxivore_shorttrend, xxivore_ftaindex: xxivore_ftaindex, xxivore_rsi: xxivore_rsi, xxivore_rsidiv: xxivore_rsidiv, repubblica_support: repubblica_support, repubblica_resistance: repubblica_resistance, milano_finanza_risk: milano_finanza_risk, milano_finanza_rating: milano_finanza_rating, investing_dotcomrating: investing_dotcomrating)
+end
 ###Analysis setup###
 
 

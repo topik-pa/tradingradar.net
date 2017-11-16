@@ -74,4 +74,4 @@ gem 'simple_form', '~> 3.2'
 #CKEditor
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'ckeditor', '~> 4.1'
+gem 'ckeditor', '~> 4.2'

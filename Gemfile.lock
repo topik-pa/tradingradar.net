@@ -185,7 +185,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.7)
   byebug
   carrierwave
-  ckeditor (~> 4.1)
+  ckeditor (~> 4.2)
   coffee-rails (~> 4.2)
   heroku-deflater
   jbuilder (~> 2.5)
