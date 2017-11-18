@@ -33,6 +33,9 @@ class AnalisiTecnicaTitoloController < ApplicationController
         @stocks = @stocksJoint.select("name, last_price, variation, xxivore_shorttrend").where("xxivore_shorttrend = ?", "molto rialzista").order(:name)
       end
     
+      
+      
+    #FTSE MIB
     def a2a
     end
     
@@ -153,6 +156,7 @@ class AnalisiTecnicaTitoloController < ApplicationController
     def yoox_net_a_porter_group
     end
     
+    
     #A
     def acea
     end
@@ -203,7 +207,81 @@ class AnalisiTecnicaTitoloController < ApplicationController
     end
     
     def avio
-    end    
+    end  
+    
+    
+    #B
+    def bec_speakers
+    end
+    
+    def banca_carige
+    end
+    
+    def banca_farmafactoring
+    end
+    
+    def banca_finnat
+    end
+    
+    def banca_ifis
+    end
+    
+    def banca_intermobiliare
+    end
+    
+    def banca_pop_sondrio
+    end
+    
+    def banca_profilo
+    end
+    
+    def banca_sistema
+    end
+    
+    def banco_di_desio_e_brianza
+    end
+    
+    def banco_di_sardegna_rsp
+    end
+    
+    def basicnet
+    end
+    
+    def bastogi
+    end
+    
+    def be
+    end
+    
+    def beghelli
+    end
+        
+    def beni_stabili
+    end
+    
+    def best_union_company
+    end
+    
+    def bialetti_industrie
+    end
+    
+    def biancamano
+    end
+    
+    def biesse
+    end
+    
+    def bioera
+    end
+    
+    def brioschi
+    end
+    
+    def brunello_cucinelli
+    end
+    
+    def buzzi_unicem
+    end  
 
   end
 

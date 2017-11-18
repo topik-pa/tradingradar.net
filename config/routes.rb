@@ -79,6 +79,8 @@ Rails.application.routes.draw do
     resources :posts
   end
    
+  
+  #FTSE MIB
   get 'analisi_tecnica_titolo/' => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/index' => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/a2a'  => 'analisi_tecnica_titolo#index'
@@ -122,6 +124,8 @@ Rails.application.routes.draw do
   get 'analisi_tecnica_titolo/unipolsai'  => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/yoox_net_a_porter_group'  => 'analisi_tecnica_titolo#index'
   
+  
+  #A
   get 'analisi_tecnica_titolo/acea'  => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/acotel_group'  => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/acsm_agam'  => 'analisi_tecnica_titolo#index'
@@ -139,6 +143,33 @@ Rails.application.routes.draw do
   get 'analisi_tecnica_titolo/autogrill'  => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/autostrade_meridionali'  => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/avio'  => 'analisi_tecnica_titolo#index'
+  
+  
+  #B
+  get 'analisi_tecnica_titolo/bec_speakers' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/banca_carige' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/banca_farmafactoring' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/banca_finnat' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/banca_ifis' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/banca_intermobiliare' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/banca_pop_sondrio' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/banca_profilo' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/banca_sistema' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/banco_di_desio_e_brianza' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/banco_di_sardegna_rsp' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/basicnet' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/bastogi' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/be' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/beghelli' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/beni_stabili' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/best_union_company' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/bialetti_industrie' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/biancamano' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/biesse' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/bioera' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/brioschi' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/brunello_cucinelli' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/buzzi_unicem' => 'analisi_tecnica_titolo#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
