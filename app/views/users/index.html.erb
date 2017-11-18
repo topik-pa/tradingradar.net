@@ -1,0 +1,53 @@
+<% meta_tag :robots, 'noindex, nofollow' %>
+
+<main id="main" class="site-main" role="main">
+    <div id="content" class="site-content container">
+        <div class="container main-content-area">
+            <div class="row pull-left">
+                <div id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">
+                    <p id="notice">
+                        <%= notice %>
+                    </p>
+                    <h1>Users</h1>
+                    <table class="tablesorter">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Surname
+                                </th>
+                                <th>
+                                    Email
+                                </th>
+                                <th>
+                                    Password
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @users.each do |user| %>
+                            <tr class="<%= cycle('even', 'odd') -%>">
+                                <td>
+                                    <%= user.first_name %>
+                                </td>
+                                <td>
+                                    <%= user.last_name %>
+                                </td>
+                                <td>
+                                    <%= user.email %>
+                                </td>
+                                <td>
+                                    <%= user.password_digest %>
+                                </td>                             
+                            </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
