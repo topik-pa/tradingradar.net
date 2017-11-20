@@ -79,7 +79,7 @@
 		            <% @stocks.each do |stock| %>
 		            <tr class="<%= cycle('even', 'odd') -%>">
 		                <td class="stock-name">
-							<a href="<%= '/analisi_tecnica_titolo/' + stock.name.downcase.gsub("-", "_").parameterize('_') + '?isin=' +  stock.isin %>" title="<%= 'Analisi tecnica e rassegna stampa in tempo reale del titolo: ' + stock.name %>"><%= stock.name %></a>
+							<a href="<%= '/analisi_tecnica_titolo/' + stock.name.downcase.gsub("-", "_").gsub("&", "e").parameterize('_') + '?isin=' +  stock.isin %>" title="<%= 'Analisi tecnica e rassegna stampa in tempo reale del titolo: ' + stock.name %>"><%= stock.name %></a>
 		                </td>
 		                <td>
 		                    <%= stock.sector %>

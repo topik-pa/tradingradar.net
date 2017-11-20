@@ -1,6 +1,12 @@
-<% title 'Valutazioni e segnali su azioni | Analisi tecnica titoli' %>
-<% meta_tag :description, '' %>
-<% meta_tag :keywords, 'analisi, tecnica, azioni, Borsa, Italiana, Milano, Finanza' %>
+<% title @post.stock + ': analisi, strategie e segnali di acquisto' %>
+<% meta_tag :description, 'Analisi tecnica e strategie operative per il titolo: ' + @post.stock %>
+<% meta_tag :keywords, @post.stock + ', analisi, tecnica, strategie, segnali, azioni, Borsa, Italiana, Milano' %>
+
+<% meta_tag :ogtitle, @post.stock + ': analisi, strategie e segnali di acquisto' %>
+<% meta_tag :ogdescription, 'Analisi tecnica e strategie operative per il titolo: ' + @post.stock + ' - Milano MTA'%>
+<% meta_tag :ogimage, request.base_url + '/images/logos/' + @post.stock.downcase + '.png' %>
+
+
 <% meta_tag :robots, 'index, follow' %>
 <% meta_tag :author, $author + ' - ' + $authorMail %>
 

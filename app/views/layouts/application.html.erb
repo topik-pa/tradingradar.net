@@ -25,10 +25,10 @@
 		
 		<meta property="og:locale" content="it_IT" />
 	    <meta property="og:type" content="website" />
-	    <meta property="og:title" content="<%=$appName + ' ' + $appVersion %>" />
-	    <meta property="og:description" content="<%= yield_meta_tag(:description, 'Trading Radar - segnali di acquisto o vendita e valutazioni sui titoli finanziari della Borsa di Milano') %>" />
+	    <meta property="og:title" content='<%= yield_meta_tag(:ogtitle, 'Marco Pavan') %>' />
+	    <meta property="og:description" content="<%= yield_meta_tag(:ogdescription, 'Trading Radar - segnali di acquisto o vendita e valutazioni sui titoli finanziari della Borsa di Milano') %>" />
 	    <meta property="og:url" content="<%= request.original_url %>" />
-		<meta property="og:image" content="http://www.tradingradar.net/images/trading-radar-logo.png" />
+		<meta property="og:image" content="<%= yield_meta_tag(:ogimage, request.base_url + '/images/trading-radar-logo.png') %>" />
 	    <meta property="og:site_name" content="<%= $appName %>" />
 
 		<%= favicon_link_tag 'favicon.ico' %>
