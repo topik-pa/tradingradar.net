@@ -23,7 +23,7 @@
         </div>
 		<div class="last-post">		
 			<div class="body">
-				<%= raw(@lastPost.body.truncate(760)) %>
+				<%= truncate(@lastPost.body, :length =>580, :omission => "..." , :escape => false) %>
 			</div>
 			<div class="more">
 				<%= link_to "Leggi tutto >", controller: "posts", action: "show", id: @lastPost.id %>

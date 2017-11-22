@@ -38,7 +38,7 @@
                           </div>
 
                           <div class="blog-body">
-                            <%= raw(post.body.truncate(358)) %>
+							<%= truncate(post.body, :length =>380, :omission => "..." , :escape => false) %>
                           </div>
 
                           <div class="blog-continue">
