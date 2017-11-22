@@ -171,5 +171,28 @@ Rails.application.routes.draw do
   get 'analisi_tecnica_titolo/brunello_cucinelli' => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/buzzi_unicem' => 'analisi_tecnica_titolo#index'
 
+
+  #C
+  get 'analisi_tecnica_titolo/cad_it' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/cairo_communication' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/caleffi' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/caltagirone' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/caltagirone_edit' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/carraro' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/cattolica_ass' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/cembre' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/cementir_holding' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/centrale_del_latte_italia' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/cerved_information_solutions' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/cir' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/class_editori' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/cofide' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/coima_res' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/cia' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/conafi_prestito' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/credem' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/credito_valtellinese' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/csp_international' => 'analisi_tecnica_titolo#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

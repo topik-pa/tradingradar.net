@@ -7,34 +7,33 @@ class AnalisiTecnicaTitoloController < ApplicationController
     def index
       @user = User.find_by_email($user_email)
               
-      @isin = params[:isin] ? params[:isin] : nil 
+      isin = params[:isin] ? params[:isin] : ''     
+      @stock = Stock.find_by isin: isin  
+      @urls = Url.find_by isin: isin
       
-      if @isin    
-        @stock = Stock.find_by isin: @isin  
-        @urls = Url.find_by isin: @isin
-        
-        @urlBorsaItaliana = @urls.url1
-        @urlBorsaItaliana2 = @urls.url2           
-        @urlSole24Ore = @urls.url3         
-        @urlLaRepubblica = @urls.url6         
-        @urlInvesting = @urls.url7         
-        @urlMilanoFinanza = @urls.url9
-        @urlMilanoFinanza2 = @urls.url10        
-        @urlSoldiOnLine = @urls.url5
+      @analisis = Analysis.find_by isin: isin  
+      @studiesSize = @stock.studies.size 
+      @lastStudy = @stock.studies.last
       
-        @analisis = Analysis.find_by isin: @isin   
-        @studiesSize = @stock.studies.size 
-        @lastStudy = @stock.studies.last
+      #Chart image
+      @urlchartImage = 'http://indici.soldionline.it/ComboChart.aspx?Codice=' + isin + '&TimeRange=360&ChartSize=M&Volume=1&VGrid=1&HGrid=1&ChartType=0&Band=-1&avgType1=N&movAvg1=10&avgType2=N&movAvg2=25&Indicator1=CCI&Indicator2=None&Indicator3=None&Indicator4=None&MID=&SymbolName=' + @stock.name + '&TenYears=0'
+            
+      @urlBorsaItaliana = @urls.url1
+      @urlBorsaItaliana2 = @urls.url2   
       
-        #Chart image
-        @urlchartImage = 'http://indici.soldionline.it/ComboChart.aspx?Codice=' + @isin  + '&TimeRange=360&ChartSize=M&Volume=1&VGrid=1&HGrid=1&ChartType=0&Band=-1&avgType1=N&movAvg1=10&avgType2=N&movAvg2=25&Indicator1=CCI&Indicator2=None&Indicator3=None&Indicator4=None&MID=&SymbolName=' + @stock.name + '&TenYears=0'
-      else 
-        @stocksJoint = Stock.select("stocks.*, analyses.*").joins(:analysis)
-        @stocks = @stocksJoint.select("name, last_price, variation, xxivore_shorttrend").where("xxivore_shorttrend = ?", "molto rialzista").order(:name)
-      end
+      @urlSole24Ore = @urls.url3 
+      
+      @urlLaRepubblica = @urls.url6 
+      
+      @urlInvesting = @urls.url7 
+      
+      @urlMilanoFinanza = @urls.url9
+      @urlMilanoFinanza2 = @urls.url10
+      
+      @urlSoldiOnLine = @urls.url5
+
+    end
     
-      
-      
     #FTSE MIB
     def a2a
     end
@@ -156,7 +155,6 @@ class AnalisiTecnicaTitoloController < ApplicationController
     def yoox_net_a_porter_group
     end
     
-    
     #A
     def acea
     end
@@ -207,7 +205,7 @@ class AnalisiTecnicaTitoloController < ApplicationController
     end
     
     def avio
-    end  
+    end
     
     
     #B
@@ -281,18 +279,81 @@ class AnalisiTecnicaTitoloController < ApplicationController
     end
     
     def buzzi_unicem
-    end  
-
-  end
-
-  private
-  def colorClass(value)
-    if value.to_s.include?("-")
-            'red'
-          else
-            'green'
-          end
-  end
-  helper_method :colorClass
-
+    end
+    
+    
+    #C
+    def cad_it
+    end
+    
+    def cairo_communication
+    end
+    
+    def caleffi
+    end
+    
+    def caltagirone
+    end
+    
+    def caltagirone_edit
+    end
+    
+    def carraro
+    end
+    
+    def cattolica_ass
+    end
+    
+    def cembre
+    end
+    
+    def cementir_holding
+    end
+    
+    def centrale_del_latte_italia
+    end
+    
+    def cerved_information_solutions
+    end
+    
+    def cir
+    end
+    
+    def class_editori
+    end
+    
+    def cofide
+    end
+    
+    def coima_res
+    end
+    
+    def cia
+    end
+    
+    def conafi_prestito
+    end
+    
+    def credem
+    end
+    
+    def credito_valtellinese
+    end
+    
+    def csp_international
+    end
+    
+    
+    
+    private
+    def colorClass(value)
+      if value.to_s.include?("-")
+              'red'
+            else
+              'green'
+            end
+    end
+    helper_method :colorClass
+      
+    
 end
