@@ -360,7 +360,7 @@ class AnalisiTecnicaTitoloController < ApplicationController
     def datalogic
     end
     
-    def de__longhi
+    def de_longhi
     end
     
     def dea_capital

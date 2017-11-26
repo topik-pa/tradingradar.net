@@ -201,7 +201,7 @@ Rails.application.routes.draw do
   get 'analisi_tecnica_titolo/damiani' => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/danieli_e_c' => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/datalogic' => 'analisi_tecnica_titolo#index'
-  get 'analisi_tecnica_titolo/de__longhi' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/de_longhi' => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/dea_capital' => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/diasorin' => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/digital_bros' => 'analisi_tecnica_titolo#index'
