@@ -1,13 +1,11 @@
-<main id="main" class="site-main" role="main">
-    <div id="content" class="site-content container">
-        <div class="container main-content-area">
-            <div class="row">
-                <section id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">
-                    <h1>Editing Analysis</h1>
-                    <%= render 'form', analysis: @analysis %>
-                    <%= link_to 'Show', @analysis %> |<%= link_to 'Back', analyses_path %>
-                </section>
-            </div>
+<main id="main">
+    <div id="content" class="container">
+        <div class="row">
+            <section id="primary" class="col-sm-12">
+                <h1>Editing Analysis</h1>
+                <%= render 'form', analysis: @analysis %>
+                <%= link_to 'Show', @analysis %> |<%= link_to 'Back', analyses_path %>
+            </section>
         </div>
     </div>
 </main>

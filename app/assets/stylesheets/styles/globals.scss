@@ -17,7 +17,12 @@ $fontSizeMobile: 12px;*/
 
 
 body {
-    
+    font-size:14px;
+	background-color:#DCDCDC;
+}
+
+#main {
+	background-color:#FFFFFF;
 }
 #main-wrapper {
 	
@@ -124,9 +129,14 @@ body {
     }
 	
 	.breadcrumbs {
+		margin-top:10px;
 		i {
 			margin-right:5px;
 		}
+	}
+	
+	.row {
+		margin-bottom: 15px;
 	}
    
    /*

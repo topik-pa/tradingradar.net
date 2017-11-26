@@ -1,74 +1,72 @@
-<main id="main" class="site-main" role="main">
-    <div id="content" class="site-content container">
-        <div class="container main-content-area">
-            <div class="row">
-                <section id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">
-                    <p id="notice">
-                        <%= notice %>
-                    </p>
-                    <p>
-                        <strong>Isin:</strong>
-                        <%= @analysis.isin %>
-                    </p>
-                    <p>
-                        <strong>Borsaitalianasupport:</strong>
-                        <%= @analysis.borsa_italiana_support %>
-                    </p>
-                    <p>
-                        <strong>Borsaitalianaresistance:</strong>
-                        <%= @analysis.borsa_italiana_resistance %>
-                    </p>
-                    <p>
-                        <strong>Borsaitalianafta:</strong>
-                        <%= @analysis.borsa_italiana_fta %>
-                    </p>
-                    <p>
-                        <strong>Xxivoresupport:</strong>
-                        <%= @analysis.xxivore_support %>
-                    </p>
-                    <p>
-                        <strong>Xxivoreresistance:</strong>
-                        <%= @analysis.xxivore_resistance %>
-                    </p>
-                    <p>
-                        <strong>Xxivoreshorttrend:</strong>
-                        <%= @analysis.xxivore_shorttrend %>
-                    </p>
-                    <p>
-                        <strong>Xxivoreftaindex:</strong>
-                        <%= @analysis.xxivore_ftaindex %>
-                    </p>
-                    <p>
-                        <strong>Xxivorersi:</strong>
-                        <%= @analysis.xxivore_rsi %>
-                    </p>
-                    <p>
-                        <strong>Xxivorersidiv:</strong>
-                        <%= @analysis.xxivore_rsidiv %>
-                    </p>
-                    <p>
-                        <strong>Repubblicasupport:</strong>
-                        <%= @analysis.repubblica_support %>
-                    </p>
-                    <p>
-                        <strong>Repubblicaresistance:</strong>
-                        <%= @analysis.repubblica_resistance %>
-                    </p>
-                    <p>
-                        <strong>MilanoFinanzaRisk:</strong>
-                        <%= @analysis.milano_finanza_risk %>
-                    </p>
-                    <p>
-                        <strong>MilanoFinanzaRating:</strong>
-                        <%= @analysis.milano_finanza_rating %>
-                    </p>
-                    <p>
-                        <strong>Investingdotcomrating:</strong>
-                        <%= @analysis.investing_dotcomrating %>
-                    </p>
-                    <%= link_to 'Edit', edit_analysis_path(@analysis) %> |<%= link_to 'Back', analyses_path %>
-                </section>
-            </div>
+<main id="main">
+    <div id="content" class="container">
+        <div class="row">
+            <section id="primary" class="col-sm-12">
+                <p id="notice">
+                    <%= notice %>
+                </p>
+                <p>
+                    <strong>Isin:</strong>
+                    <%= @analysis.isin %>
+                </p>
+                <p>
+                    <strong>Borsaitalianasupport:</strong>
+                    <%= @analysis.borsa_italiana_support %>
+                </p>
+                <p>
+                    <strong>Borsaitalianaresistance:</strong>
+                    <%= @analysis.borsa_italiana_resistance %>
+                </p>
+                <p>
+                    <strong>Borsaitalianafta:</strong>
+                    <%= @analysis.borsa_italiana_fta %>
+                </p>
+                <p>
+                    <strong>Xxivoresupport:</strong>
+                    <%= @analysis.xxivore_support %>
+                </p>
+                <p>
+                    <strong>Xxivoreresistance:</strong>
+                    <%= @analysis.xxivore_resistance %>
+                </p>
+                <p>
+                    <strong>Xxivoreshorttrend:</strong>
+                    <%= @analysis.xxivore_shorttrend %>
+                </p>
+                <p>
+                    <strong>Xxivoreftaindex:</strong>
+                    <%= @analysis.xxivore_ftaindex %>
+                </p>
+                <p>
+                    <strong>Xxivorersi:</strong>
+                    <%= @analysis.xxivore_rsi %>
+                </p>
+                <p>
+                    <strong>Xxivorersidiv:</strong>
+                    <%= @analysis.xxivore_rsidiv %>
+                </p>
+                <p>
+                    <strong>Repubblicasupport:</strong>
+                    <%= @analysis.repubblica_support %>
+                </p>
+                <p>
+                    <strong>Repubblicaresistance:</strong>
+                    <%= @analysis.repubblica_resistance %>
+                </p>
+                <p>
+                    <strong>MilanoFinanzaRisk:</strong>
+                    <%= @analysis.milano_finanza_risk %>
+                </p>
+                <p>
+                    <strong>MilanoFinanzaRating:</strong>
+                    <%= @analysis.milano_finanza_rating %>
+                </p>
+                <p>
+                    <strong>Investingdotcomrating:</strong>
+                    <%= @analysis.investing_dotcomrating %>
+                </p>
+                <%= link_to 'Edit', edit_analysis_path(@analysis) %> |<%= link_to 'Back', analyses_path %>
+            </section>
         </div>
     </div>
 </main>

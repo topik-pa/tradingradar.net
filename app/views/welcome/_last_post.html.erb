@@ -1,35 +1,38 @@
-<div class="post">
-	<header class="entry-header page-header">
+<section id="last-post">
+	
+	<header class="page-header">
 		<h2 class="entry-title">Analisi del giorno</h2>
 	</header>
-	
-	
+		
 	<div class="section">
 		<% if not @lastPost %>
-		<div class="col-sm-12">		
-			<div class="body">
-				Non ci sono analisi da mostrare
+			<div class="col-sm-12">		
+				<div class="body">
+					Non ci sono analisi da mostrare
+				</div>
 			</div>
-		</div>
 		<%else%>
-		<h3><%= @lastPost.title %></h3>
-		
-		<div class="entry-meta">
-            <div class="uptaded-at"><i class="fa fa-calendar"></i><small>Data inserimento:</small>
-                <time class="published" datetime="<%= @lastPost.created_at.strftime("%Y-%m-%dT%H:%M") %>">
-		            <%= @lastPost.created_at.strftime("%d/%m - %H:%M") %>
-		        </time>
-            </div>
-        </div>
-		<div class="last-post">		
-			<div class="body">
-				<%= truncate(@lastPost.body, :length =>580, :omission => "..." , :escape => false) %>
+			<h3><%= @lastPost.title %></h3>
+			
+			<div class="entry-meta">
+	            <div><i class="fa fa-calendar"></i><small>Data inserimento:</small>
+	                <time datetime="<%= @lastPost.created_at.strftime("%Y-%m-%dT%H:%M") %>">
+			            <%= @lastPost.created_at.strftime("%d/%m - %H:%M") %>
+			        </time>
+	            </div>
+	        </div>
+			
+			<div class="content">		
+				<div class="body">
+					<%= truncate(@lastPost.body, :length =>550, :omission => "..." , :escape => false) %>
+				</div>
+				<div class="more">
+					<%= link_to controller: "posts", action: "show", id: @lastPost.id do %>
+					    Leggi tutto&nbsp;<i class="fa fa-chevron-right"></i>
+					<% end %>
+				</div>
 			</div>
-			<div class="more">
-				<%= link_to "Leggi tutto >", controller: "posts", action: "show", id: @lastPost.id %>
-			</div>
-		</div>
 		<%end%>
 	</div>
 
-</div>
+</section>

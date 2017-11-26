@@ -1,7 +1,7 @@
 <section class="markets">
 	
-	<header class="entry-header page-header">
-	    <h4 class="entry-title">Uno sguardo ai mercati</h4>
+	<header class="page-header">
+	    <h2 class="entry-title">I mercati</h2>
 	</header>
 	
 	<div class="widget tabbed">
@@ -20,12 +20,12 @@
 	        <div class="tab-content">
 	            <ul id="markets" class="tab-pane active">
 	                <% @firstRowMarkets.each do |market| %>
-	                <li>
+	                <li title="<%=market.name%>">
 	                    <%= image_tag(@marketsFlagMap[market.name] + ".png", size: "60x60", alt: "Bandiera", class: "tab-thumb thumbnail") %>
 	                    <div class="content">
-	                        <%= market.name %>
+	                        <%= market.name.truncate(8) %>
 	                        <div>
-	                            <%= market.value %>&nbsp;/&nbsp;<i class="variation <%= colorClass(market.variation) %>"><%= market.variation %>% </i>
+	                            <i><%= market.value %><br/><span class="variation <%= colorClass(market.variation) %>"><%= market.variation %>%</span></i>
 	                        </div>
 	                    </div>
 	                </li>
@@ -33,12 +33,12 @@
 	            </ul>
 	            <ul id="raw-materials" class="tab-pane">
 	                <% @secondRowMarkets.each do |market| %>
-	                <li>
+	                <li title="<%=market.name%>">
 	                    <%= image_tag(@marketsFlagMap[market.name] + ".png", size: "60x60", alt: "Materia prima", class: "tab-thumb thumbnail") %>
 	                    <div class="content">
-	                        <%= market.name %>
+	                        <%= market.name.truncate(9) %>
 	                        <div>
-	                            <%= market.value %>&nbsp;/&nbsp;<i class="variation <%= colorClass(market.variation) %>"><%= market.variation %>% </i>
+	                            <i><%= market.value %><br/><span class="variation <%= colorClass(market.variation) %>"><%= market.variation %>%</span></i>
 	                        </div>
 	                    </div>
 	                </li>
@@ -46,12 +46,12 @@
 	            </ul>
 	            <ul id="currencies" class="tab-pane">
 	                <% @thirdRowMarkets.each do |market| %>
-	                <li>
+	                <li title="<%=market.name%>">
 	                    <%= image_tag(@marketsFlagMap[market.name] + ".png", size: "60x60", alt: "Valuta", class: "tab-thumb thumbnail") %>
 	                    <div class="content">
-	                        <%= market.name %>
+	                        <%= market.name.truncate(8) %>
 	                        <div>
-	                            <%= market.value %>&nbsp;/&nbsp;<i class="variation <%= colorClass(market.variation) %>"><%= market.variation %>% </i>
+	                            <i><%= market.value %><br/><span class="variation <%= colorClass(market.variation) %>"><%= market.variation %>%</span></i>
 	                        </div>
 	                    </div>
 	                </li>

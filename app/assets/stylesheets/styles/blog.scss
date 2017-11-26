@@ -2,10 +2,68 @@
 	padding: 20px 0;
     margin: 20px 0;
     border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
 	
 	.blog-continue {
 		margin-left:10px;
 		padding: 10px 0;
+	}
+}
+
+.posts {
+	#primary {
+		img {
+			image-rendering: -webkit-optimize-contrast;
+		}
+		
+		table {
+			@extend .tablesorter;
+			
+			th, td {
+				padding: 3px;
+			}
+		}
+		
+		ul {
+			padding: 0;
+			li {
+				list-style-type:none;
+			}
+		}
+		
+		.borsait {
+			background-image: url(/images/borsa-italiana-logo-small.png);
+		    background-repeat: no-repeat;
+		    background-position: 100%;
+		}
+		
+		.sol24 {
+			background-image: url(/images/il-sole-24-ore-logo-small.png);
+		    background-repeat: no-repeat;
+		    background-position: 100%;
+		}
+		
+		.rep {
+			background-image: url(/images/la-repubblica-logo-small.png);
+		    background-repeat: no-repeat;
+		    background-position: 100%;
+		}
+		
+		.mf {
+			background-image: url(/images/milano-finanza-logo-small.png);
+		    background-repeat: no-repeat;
+		    background-position: 100%;
+		}
+		
+		.inv {
+			background-image: url(/images/investing-logo-small.png);
+		    background-repeat: no-repeat;
+		    background-position: 100%;
+		}
+		
+		.sol {
+			background-image: url(/images/soldi-on-line-logo-small.png);
+		    background-repeat: no-repeat;
+		    background-position: 100%;
+		}
 	}
 }

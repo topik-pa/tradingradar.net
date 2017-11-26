@@ -1,26 +1,21 @@
 <% title $appDescription %>
-<% meta_tag :robots, 'index, follow' %>
-<% meta_tag :author, $author + ' - ' + $authorMail %>
-
 	
 		
-<main id="main" class="site-main " role="main">
-    <div id="content" class="site-content container">
-	    <div class="container main-content-area">
-	        <div class="row pull-left">
-	            <section id="primary" class="widget-area col-sm-12" role="complementary">
-	            	<header class="entry-header page-header">
-					    <h1 class="entry-title">
-					    	Contatti					        
-					    </h1>
-					</header>
-					<div>
-						Questa pagina conterrà presto un form per poter contattare chi amministra il sito. <br/><br/>
-					
-						Nel frattempo è possibile inviare una mail a: <%= mail_to "info@tradingradar.net", "info@tradingradar.net" %>
-					</div>	                
-	            </section>	            	            
-	        </div>
-	    </div>
+<main id="main">
+    <div id="content" class="container">
+        <div class="row">
+            <section id="primary" class="col-sm-12">
+            	<header class="page-header">
+				    <h1 class="entry-title">
+				    	Contatti					        
+				    </h1>
+				</header>
+				<div>
+					Questa pagina conterrà presto un form per poter contattare chi amministra il sito. <br/><br/>
+				
+					Nel frattempo è possibile inviare una mail a: <%= mail_to "info@tradingradar.net", "info@tradingradar.net" %>
+				</div>	                
+            </section>	            	            
+        </div>
     </div>
 </main>

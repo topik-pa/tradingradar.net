@@ -1,58 +1,56 @@
 <% meta_tag :robots, 'noindex, nofollow' %>
 
-<main id="main" class="site-main" role="main">
-    <div id="content" class="site-content container">
-        <div class="container main-content-area">
-            <div class="row pull-left">
-                <div id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">
-                    <p id="notice">
-                        <%= notice %>
-                    </p>
-                    <h1>Markets</h1>
-                    <table class="tablesorter">
-                        <thead>
-                            <tr>
-                                <th>
-                                    Name
-                                </th>
-                                <th>
-                                    Value
-                                </th>
-                                <th>
-                                    Variation
-                                </th>
-                                <th colspan="3">
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% @markets.each do |market| %>
-                            <tr class="<%= cycle('even', 'odd') -%>">
-                                <td title="market.name">
-                                    <%= market.name %>
-                                </td>
-                                <td title="market.value">
-                                    <%= market.value %>
-                                </td>
-                                <td title="market.variation">
-                                    <%= market.variation %>
-                                </td>
-                                <td>
-                                    <%= link_to 'Show', market %>
-                                </td>
-                                <td>
-                                    <%= link_to 'Edit', edit_market_path(market) %>
-                                </td>
-                                <td>
-                                    <%= link_to 'Destroy', market, method: :delete, data: { confirm: 'Are you sure?' } %>
-                                </td>
-                            </tr>
-                            <% end %>
-                        </tbody>
-                    </table>
-                    <br>
-                    <%= link_to 'New Market', new_market_path %>
-                </div>
+<main id="main">
+    <div id="content" class="container">
+        <div class="row">
+            <div id="primary" class="col-sm-12">
+                <p id="notice">
+                    <%= notice %>
+                </p>
+                <h1>Markets</h1>
+                <table class="tablesorter">
+                    <thead>
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Value
+                            </th>
+                            <th>
+                                Variation
+                            </th>
+                            <th colspan="3">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @markets.each do |market| %>
+                        <tr class="<%= cycle('even', 'odd') -%>">
+                            <td title="market.name">
+                                <%= market.name %>
+                            </td>
+                            <td title="market.value">
+                                <%= market.value %>
+                            </td>
+                            <td title="market.variation">
+                                <%= market.variation %>
+                            </td>
+                            <td>
+                                <%= link_to 'Show', market %>
+                            </td>
+                            <td>
+                                <%= link_to 'Edit', edit_market_path(market) %>
+                            </td>
+                            <td>
+                                <%= link_to 'Destroy', market, method: :delete, data: { confirm: 'Are you sure?' } %>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+                <br>
+                <%= link_to 'New Market', new_market_path %>
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 <section class="stocks">
-	<header class="entry-header page-header">
+	<header class="page-header">
 		<h2 class="entry-title">Rassegna stampa sui titoli del FTSE MIB ITALIA</h2>
 	</header>
 	
@@ -37,7 +37,7 @@
 	
 	<div id="search-by-input" class="section">
 		<h3>Cerca azioni per nome</h3>
-		<%= form_tag(welcome_index_path, :method => "get", id: "search-form") do %>
+		<%= form_tag("#primary", :method => "get", id: "search-form") do %>
 		  <p>
 		    <%= text_field_tag :search, params[:search], placeholder: 'Nome titolo', value: @searchQuery %>
 		    <%= submit_tag "Cerca", :name => nil %>

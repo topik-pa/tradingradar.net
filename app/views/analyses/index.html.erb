@@ -1,130 +1,128 @@
 <% meta_tag :robots, 'noindex, nofollow' %>
 
-<main id="main" class="site-main" role="main">
-    <div id="content" class="site-content container">
-        <div class="container main-content-area">
-            <div class="row pull-left">
-                <div id="primary" class="widget-area col-sm-12 col-md-12" role="complementary">
-                    <p id="notice">
-                        <%= notice %>
-                    </p>
-                    <h1>Analyses</h1>
-                    <table class="tablesorter">
-                        <thead>
-                            <tr>
-                                <th title="<%='Isin'%>">
-                                    Isin
-                                </th>
-                                <th title="<%='Borsa Italiana Support'%>">
-                                    Borsa Italiana Support
-                                </th>
-                                <th title="<%='Borsa Italiana Resistance'%>">
-                                    Borsa Italiana Resistance
-                                </th>
-                                <th title="<%='Borsa Italiana FTA'%>">
-                                    Borsa Italiana FTA
-                                </th>
-                                <th title="<%='Sole 24 Ore Support'%>">
-                                    Sole 24 Ore Support
-                                </th>
-                                <th title="<%='Sole 24 Ore Resistance'%>">
-                                    Sole 24 Ore Resistance
-                                </th>
-                                <th title="<%='Sole 24 Ore Short trend'%>">
-                                    Sole 24 Ore Short trend
-                                </th>
-                                <th title="<%='Sole 24 Ore FTA Index'%>">
-                                    Sole 24 Ore FTA Index
-                                </th>
-                                <th title="<%='Sole 24 Ore RSI'%>">
-                                    Sole 24 Ore RSI
-                                </th>
-                                <th title="<%='Sole 24 Ore RSI Divergence'%>">
-                                    Sole 24 Ore RSI Divergence
-                                </th>
-                                <th title="<%='Repubblica Support'%>">
-                                    Repubblica Support
-                                </th>
-                                <th title="<%='Repubblica Resistance'%>">
-                                    Repubblica Resistance
-                                </th>
-                                <th title="<%='MF Risk'%>">
-                                    MF Risk
-                                </th>
-                                <th title="<%='MF Rating'%>">
-                                    MF Rating
-                                </th>
-                                <th title="<%='Investing Dot Com Rating'%>">
-                                    Investing Dot Com Rating
-                                </th>
-                                <th colspan="3">
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% @analyses.each do |analysis| %>
-                            <tr class="<%= cycle('even', 'odd') -%>">
-                                <td title="<%= analysis.isin %>">
-                                    <%= analysis.isin %>
-                                </td>
-                                <td title="<%= analysis.borsa_italiana_support %>">
-                                    <%= analysis.borsa_italiana_support %>
-                                </td>
-                                <td title="<%= analysis.borsa_italiana_resistance%>">
-                                    <%= analysis.borsa_italiana_resistance %>
-                                </td>
-                                <td title="<%= analysis.borsa_italiana_fta %>">
-                                    <%= analysis.borsa_italiana_fta %>
-                                </td>
-                                <td title="<%= analysis.xxivore_support %>">
-                                    <%= analysis.xxivore_support %>
-                                </td>
-                                <td title="<%= analysis.xxivore_resistance %>">
-                                    <%= analysis.xxivore_resistance %>
-                                </td>
-                                <td title="<%= analysis.xxivore_shorttrend %>">
-                                    <%= analysis.xxivore_shorttrend %>
-                                </td>
-                                <td title="<%= analysis.xxivore_ftaindex %>">
-                                    <%= analysis.xxivore_ftaindex %>
-                                </td>
-                                <td title="<%= analysis.xxivore_rsi %>">
-                                    <%= analysis.xxivore_rsi %>
-                                </td>
-                                <td title="<%= analysis.xxivore_rsidiv %>">
-                                    <%= analysis.xxivore_rsidiv %>
-                                </td>
-                                <td title="<%= analysis.repubblica_support %>">
-                                    <%= analysis.repubblica_support %>
-                                </td>
-                                <td title="<%= analysis.repubblica_resistance %>">
-                                    <%= analysis.repubblica_resistance %>
-                                </td>
-                                <td title="<%= analysis.milano_finanza_risk %>">
-                                    <%= analysis.milano_finanza_risk %>
-                                </td>
-                                <td title="<%= analysis.milano_finanza_rating %>">
-                                    <%= analysis.milano_finanza_rating %>
-                                </td>
-                                <td title="<%= analysis.investing_dotcomrating %>">
-                                    <%= analysis.investing_dotcomrating %>
-                                </td>
-                                <td>
-                                    <%= link_to 'Show', analysis %>
-                                </td>
-                                <td>
-                                    <%= link_to 'Edit', edit_analysis_path(analysis) %>
-                                </td>
-                                <td>
-                                    <%= link_to 'Destroy', analysis, method: :delete, data: { confirm: 'Are you sure?' } %>
-                                </td>
-                            </tr>
-                            <% end %>
-                        </tbody>
-                    </table>
-                    <br>
-                    <%= link_to 'New Analysis', new_analysis_path %>
-                </div>
+<main id="main">
+    <div id="content" class="container">
+        <div class="row">
+            <div id="primary" class="col-sm-12">
+                <p id="notice">
+                    <%= notice %>
+                </p>
+                <h1>Analyses</h1>
+                <table class="tablesorter">
+                    <thead>
+                        <tr>
+                            <th title="<%='Isin'%>">
+                                Isin
+                            </th>
+                            <th title="<%='Borsa Italiana Support'%>">
+                                Borsa Italiana Support
+                            </th>
+                            <th title="<%='Borsa Italiana Resistance'%>">
+                                Borsa Italiana Resistance
+                            </th>
+                            <th title="<%='Borsa Italiana FTA'%>">
+                                Borsa Italiana FTA
+                            </th>
+                            <th title="<%='Sole 24 Ore Support'%>">
+                                Sole 24 Ore Support
+                            </th>
+                            <th title="<%='Sole 24 Ore Resistance'%>">
+                                Sole 24 Ore Resistance
+                            </th>
+                            <th title="<%='Sole 24 Ore Short trend'%>">
+                                Sole 24 Ore Short trend
+                            </th>
+                            <th title="<%='Sole 24 Ore FTA Index'%>">
+                                Sole 24 Ore FTA Index
+                            </th>
+                            <th title="<%='Sole 24 Ore RSI'%>">
+                                Sole 24 Ore RSI
+                            </th>
+                            <th title="<%='Sole 24 Ore RSI Divergence'%>">
+                                Sole 24 Ore RSI Divergence
+                            </th>
+                            <th title="<%='Repubblica Support'%>">
+                                Repubblica Support
+                            </th>
+                            <th title="<%='Repubblica Resistance'%>">
+                                Repubblica Resistance
+                            </th>
+                            <th title="<%='MF Risk'%>">
+                                MF Risk
+                            </th>
+                            <th title="<%='MF Rating'%>">
+                                MF Rating
+                            </th>
+                            <th title="<%='Investing Dot Com Rating'%>">
+                                Investing Dot Com Rating
+                            </th>
+                            <th colspan="3">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @analyses.each do |analysis| %>
+                        <tr class="<%= cycle('even', 'odd') -%>">
+                            <td title="<%= analysis.isin %>">
+                                <%= analysis.isin %>
+                            </td>
+                            <td title="<%= analysis.borsa_italiana_support %>">
+                                <%= analysis.borsa_italiana_support %>
+                            </td>
+                            <td title="<%= analysis.borsa_italiana_resistance%>">
+                                <%= analysis.borsa_italiana_resistance %>
+                            </td>
+                            <td title="<%= analysis.borsa_italiana_fta %>">
+                                <%= analysis.borsa_italiana_fta %>
+                            </td>
+                            <td title="<%= analysis.xxivore_support %>">
+                                <%= analysis.xxivore_support %>
+                            </td>
+                            <td title="<%= analysis.xxivore_resistance %>">
+                                <%= analysis.xxivore_resistance %>
+                            </td>
+                            <td title="<%= analysis.xxivore_shorttrend %>">
+                                <%= analysis.xxivore_shorttrend %>
+                            </td>
+                            <td title="<%= analysis.xxivore_ftaindex %>">
+                                <%= analysis.xxivore_ftaindex %>
+                            </td>
+                            <td title="<%= analysis.xxivore_rsi %>">
+                                <%= analysis.xxivore_rsi %>
+                            </td>
+                            <td title="<%= analysis.xxivore_rsidiv %>">
+                                <%= analysis.xxivore_rsidiv %>
+                            </td>
+                            <td title="<%= analysis.repubblica_support %>">
+                                <%= analysis.repubblica_support %>
+                            </td>
+                            <td title="<%= analysis.repubblica_resistance %>">
+                                <%= analysis.repubblica_resistance %>
+                            </td>
+                            <td title="<%= analysis.milano_finanza_risk %>">
+                                <%= analysis.milano_finanza_risk %>
+                            </td>
+                            <td title="<%= analysis.milano_finanza_rating %>">
+                                <%= analysis.milano_finanza_rating %>
+                            </td>
+                            <td title="<%= analysis.investing_dotcomrating %>">
+                                <%= analysis.investing_dotcomrating %>
+                            </td>
+                            <td>
+                                <%= link_to 'Show', analysis %>
+                            </td>
+                            <td>
+                                <%= link_to 'Edit', edit_analysis_path(analysis) %>
+                            </td>
+                            <td>
+                                <%= link_to 'Destroy', analysis, method: :delete, data: { confirm: 'Are you sure?' } %>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+                <br>
+                <%= link_to 'New Analysis', new_analysis_path %>
             </div>
         </div>
     </div>

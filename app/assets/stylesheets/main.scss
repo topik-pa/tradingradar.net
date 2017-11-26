@@ -6,6 +6,7 @@
 
 
 @import "base/variables.scss";
+@import "base/open-sans.scss";
 @import "base/dazzling.min.scss";
 @import "base/tablesorter-style.scss";
 @import "base/datatables.min.scss";
@@ -13,7 +14,6 @@
 
 @import "styles/overwrites.scss";
 @import "styles/globals.scss";
-
 
 @import "styles/welcome.scss";
 @import "styles/analyses.scss";  //deprecated

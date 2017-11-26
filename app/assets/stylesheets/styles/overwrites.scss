@@ -20,10 +20,10 @@
 	}
 	.flex-caption .excerpt {
 	  background: rgb(59, 59, 59);
-	  background: rgba(59, 59, 59, 0.8);
+	  background: rgba(59, 59, 59, 0.9);
 	  display: block;
 	  color: #ddd;
-	  max-width: 600px;
+	  max-width: 500px;
 	  padding: 12px 20px;
 	  
 	  a:hover {
@@ -33,7 +33,7 @@
 	.flex-caption h2 {
 	  font-weight: 400;
 	  font-size: 24px;
-	  max-width: 640px;
+	  max-width: 520px;
 	  display: inline-block;
 	  padding: 12px 20px;
 	  margin-bottom: 0;
@@ -61,7 +61,7 @@
 
 /*Tablesorter*/
 table.tablesorter {
-	font-size: 85%;
+	
 	table-layout:fixed;
 	
 	caption {
@@ -71,12 +71,13 @@ table.tablesorter {
 	thead {
 		tr th {
 			border-color: #CCC;
+			font-size: 90%;
 		}
 	}
 	
 	th {
 		font-weight:bold;
-		font-size: 90%;
+		
 		border: 1px solid #CCC;
 		white-space: nowrap;
 		overflow: hidden;
@@ -89,6 +90,7 @@ table.tablesorter {
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		border: 1px solid #CCC;
+		font-size: 90%;
 		
 		&.red {
 			color: #f00;;
@@ -111,7 +113,7 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 h3 {
-	font-size: 21px;
+	font-size: 20px;
 }
 
 .copyright {
@@ -122,13 +124,7 @@ h3 {
 		list-style: none;
     padding: 0;
 	}
-	.flex-caption {
-		font-size: 14px;
-		line-height: 18px;
-		h2 {
-			font-size: 20px;
-		}
-	}
+
 }
 
 .tabs-wrapper {
@@ -144,14 +140,20 @@ aside.widget {
 		margin-bottom: 0px;
 	}
 }
-#secondary, #primary, #post {
-	margin-bottom: 50px;
-}
+
 
 .entry-content {
 	margin-top: 0;
-	display: flex;
 }
+
+.entry-title {
+  font-size: 26px;
+}
+
+.navbar {
+	font-size:15px;
+}
+
 
 .navbar > .container .navbar-brand {
 	margin: 5px 0;
@@ -166,7 +168,7 @@ aside.widget {
     background-color: #4682b4;
 }
 .flex-caption h2 {
-	background-color: rgba(70, 130, 180, 0.7)
+	background-color: rgba(70, 130, 180, 0.9)
 }
 a {
 	color: #4682b4;
@@ -180,9 +182,20 @@ footer h3 {
 
 #content {
   min-height: 200px;
+  margin-top: 0;
+  margin-bottom: 0;
+
 }
 .navbar > .container .navbar-brand {
   margin: 8px 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+    line-height: 52px; 
+}
+
+.nav > li > a {
+	padding: 7px 7px;
 }
 
 hr {
@@ -204,6 +217,17 @@ hr {
 	}
 	
 } 
+
+.tabbed {
+	.thumbnail {
+	 border:none;
+	}
+}
+
+.tab-content .tab-thumb {
+	width: 50px;
+  height: 50px;
+	}
 
 
 /*Datatable*/
@@ -249,16 +273,36 @@ hr {
 @media (max-width: 1024px) {
 	.top-section {
 		.flex-caption .excerpt {
-	  		font-size: 12px;
-			max-width: 700px;
+			max-width: 680px;
 			padding: 8px 10px;
+			line-height: 120%;
 	  	}
 		.flex-caption h2 {
-			font-size: 16px;
 			padding: 8px 11px;
-
+			max-width: 680px;
+			font-size: 120%;
 		}
 	}	  
+}
+
+@media (min-width: 1024px) {
+	.top-section {
+		.flex-caption .excerpt {
+			max-width: 680px;
+			padding: 8px 10px;
+		    font-size: 100%;
+			line-height: 130%;
+	  	}
+		.flex-caption h2 {
+			padding: 8px 11px;
+			max-width: 680px;
+			font-size: 130%;
+		}
+	}	 
+	
+	.nav > li > a {
+	    padding: 10px 10px;
+	} 
 }
 
 
@@ -287,6 +331,17 @@ hr {
 	}
 	table.tablesorter {
 		font-size: 85%;
+	}
+	
+	.nav > li > a {
+	  padding: 7px 10px;
+	}
+	
+	.tab-content .tab-thumb {
+		width: 50px;
+    	height: 50px;
+	    margin-right: 5px;
+    	padding-top: 5px;
 	}
 }
 

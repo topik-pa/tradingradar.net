@@ -11,9 +11,9 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		
-		<meta name='description' content='<%= yield_meta_tag(:description, 'Trading Radar - segnali di acquisto o vendita e valutazioni sui titoli finanziari della Borsa di Milano') %>' /> 
+		<meta name='description' content='<%= yield_meta_tag(:description, $appDescription) %>' /> 
 		<meta name='keywords' content='<%= yield_meta_tag(:keywords, 'trading, titolo, milano, finanza, borsa, online, valutazioni, segnali, acquisto, vendita') %>' />
-		<meta name='author' content='<%= yield_meta_tag(:author, 'Marco Pavan') %>' />
+		<meta name='author' content='<%= yield_meta_tag(:author, $author) %>' />
 		<meta name='robots' content='<%= yield_meta_tag(:robots, 'index, follow') %>' />
 		
 		<meta name="msvalidate.01" content="45EB28F9F855ED4A3A9904BC410CD169" />
@@ -25,35 +25,18 @@
 		
 		<meta property="og:locale" content="it_IT" />
 	    <meta property="og:type" content="website" />
-	    <meta property="og:title" content='<%= yield_meta_tag(:ogtitle, 'Marco Pavan') %>' />
-	    <meta property="og:description" content="<%= yield_meta_tag(:ogdescription, 'Trading Radar - segnali di acquisto o vendita e valutazioni sui titoli finanziari della Borsa di Milano') %>" />
+	    <meta property="og:title" content='<%= yield_meta_tag(:ogtitle, $appName) %>' />
+	    <meta property="og:description" content="<%= yield_meta_tag(:ogdescription, $appDescription) %>" />
 	    <meta property="og:url" content="<%= request.original_url %>" />
 		<meta property="og:image" content="<%= yield_meta_tag(:ogimage, request.base_url + '/images/trading-radar-logo.png') %>" />
 	    <meta property="og:site_name" content="<%= $appName %>" />
 
 		<%= favicon_link_tag 'favicon.ico' %>
             
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	    <link rel='stylesheet' href='https://cdn.colorlib.com/dazzling/wp-content/themes/dazzling/inc/css/font-awesome.min.css' type='text/css' media='all' />
 
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-        		
-	
-	    <style type="text/css">
-	        p.site-description {
-	            display: none;
-	        }
-	    </style>
-		
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109143172-1"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-		
-		  gtag('config', 'UA-109143172-1');
-		</script>
+        			
 	
     </head>
 	
@@ -69,6 +52,17 @@
 			
 			<input id="pageData" type="hidden" data-isin="<%= params[:isin] ? params[:isin] : '' %>" data-user="<%= $user %>" data-isadmin="<%= $isAdmin %>" data-islogged="<%= $isLogged %>"/>			
 	    </div> 
+		
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109143172-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		
+		  gtag('config', 'UA-109143172-1');
+		</script>
 		
 
 		<!-- Start of StatCounter Code for old browsers -->

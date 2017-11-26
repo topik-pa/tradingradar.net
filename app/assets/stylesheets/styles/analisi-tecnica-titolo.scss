@@ -42,11 +42,12 @@
 .anchors {
 	text-align: center;
 	display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    .anchors {
-        
-    }
+    justify-content: center;
+    flex-wrap: wrap;
+
+	h3 {
+		margin-top:0;
+	}
     .anchor-link {
         margin: 5px 15px;
         img {

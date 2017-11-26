@@ -1,5 +1,5 @@
 <% title $appDescription %>
-<% meta_tag :description, 'Trading Radar - Analisi tecnica, segnali e notizie sui titoli azionari della Borsa di Milano' %>
+<% meta_tag :description, 'Trading Radar - ' + $appDescription %>
 <% meta_tag :keywords, 'analisi, segnali, titoli, azioni, trading, notizie, mercato, italiano, borsa, milano, FTSE, MIB' %>
 <% meta_tag :robots, 'index, follow' %>
 <% meta_tag :author, $author + ' - ' + $authorMail %>
@@ -13,13 +13,10 @@
 				<%= image_tag("front-image.jpg", size: "1920x430", alt: "Borsa italiana a Milano - Entrata principale") %>
 	            <div class="flex-caption">
 	                <h2 class="entry-title"><%= $mission %></h2>
-	                <div class="excerpt">
-	                	
-						Trading Radar <a href="#secondary" data-turbolinks="false" title="Vai ai titoli filtrati">filtra</a> i titoli azionari della Borsa italiana in base alle valutazioni e alle informazioni trovate sui principali media on-line del settore.<br/>
+	                <div class="excerpt">        	
+						Trading Radar <a href="#filters" data-turbolinks="false" title="Vai ai titoli filtrati">filtra</a> i titoli azionari della Borsa italiana in base alle valutazioni e alle informazioni trovate sui principali media on-line del settore.<br/>
 						Vengono mostrati <strong>segnali operativi</strong> di acquisto o vendita sui titoli che raggiungono livelli sensibili per quello che riguarda l&apos;<strong>analisi tecnica</strong>.<br/><br/>
-						
-						Per ogni titolo è presente una breve <strong>rassegna stampa</strong> con ulteriori notizie, analisi, target price, rating e strategie, ottenute in tempo reale da siti come: <%= link_to("Borsa Italiana", "http://www.borsaitaliana.it") %>, <%= link_to("Il Sole 24 Ore", "http://www.ilsole24ore.com/finanza-e-mercati.shtml") %>, <%= link_to("La Repubblica", "http://www.repubblica.it/economia/affari-e-finanza") %>, <%= link_to("Milano Finanza", "https://www.milanofinanza.it") %>, <%= link_to("Investing.com", "https://it.investing.com/") %>.
-						
+						Per ogni titolo è presente una breve <strong>rassegna stampa</strong> con ulteriori notizie, analisi, target price, rating e strategie, ottenute in tempo reale da siti come: <%= link_to("Borsa Italiana", "http://www.borsaitaliana.it") %>, <%= link_to("Il Sole 24 Ore", "http://www.ilsole24ore.com/finanza-e-mercati.shtml") %>, <%= link_to("La Repubblica", "http://www.repubblica.it/economia/affari-e-finanza") %>, <%= link_to("Milano Finanza", "https://www.milanofinanza.it") %>, <%= link_to("Investing.com", "https://it.investing.com/") %>.				
 	                </div>
 	            </div>
 	        </li>
@@ -28,28 +25,25 @@
 </div>
 			
 		
-<main id="main" class="site-main">
-    <div id="content" class="site-content container">
-	    <div class="container main-content-area">
+<main id="main">
+    <div id="content" class="container"> 
+	 	
 	        <div class="row">
-	        	
-				<section id="post" class="widget-area col-sm-12" role="complementary">
-                    <%= render("last_post") %>
-	            </section>
-	        	
-	            <section id="primary" class="widget-area col-sm-12" role="complementary">
-                    <%= render("stocks") %>
-	            </section>
+				<div id="primary" class="col-sm-7 col-md-8" role="complementary">
+	                <%= render("last_post") %>
+					
+					<%= render("stocks") %>
+					
+					<%= render 'filters' %>
+	            </div>
 				
-	            <section id="secondary" class="content-area col-sm-12">
-	            	<%= render 'filters' %>
-	            </section>
-				
-				<section id="tertiary">
+				<div id="secondary" class="col-sm-5 col-md-4">
 					<%= render :partial => "markets", :object => @markets %>
-				</section>
-				
-				<section class="section">
+				</div>	        					
+	        </div>
+			
+			<div class="row">
+				<div id="tertiary">
 					<div class="disclaimer">
 	                    <p>Operare in Borsa e fare trading costituiscono azioni ad alto rischio: le informazioni qui presentate non costituiscono una sollecitazione all&apos;acquisto o alla vendita di titoli azionari.<br/>
 						Il proprietario del presente sito non si dichiara responsabile di un utilizzo improprio delle informazioni qui ottenute.
@@ -58,9 +52,8 @@
 					<div class="keywords">
 	                    Keywords: <%= yield_meta_tag(:keywords) %>
 	                </div>	                
-	            </section>					
-				
-	        </div>
-	    </div>
+	            </div>
+			</div>
+			
     </div>
 </main>

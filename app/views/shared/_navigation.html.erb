@@ -31,10 +31,7 @@
                 </li>
                 <li class="<%= 'active' if current_page?(controller: 'chi_siamo', action: 'index') %>">
 					<%= link_to 'Cos\'è Trading Radar', chi_siamo_index_path, title: 'Cos\'è Trading Radar' %>
-                </li>
-                <li class="<%= 'active' if current_page?(controller: 'contatti', action: 'index') %>">
-                    <%= link_to 'Contatti', contatti_index_path, title: 'Pagina contatti' %>
-                </li>
+                </li>                
 				
 				<% if $isAdmin %>
 				<li>
