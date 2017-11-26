@@ -12,7 +12,7 @@
 	  right: 0;
 	  bottom: 0;
 	  z-index: 1;
-	  padding: 0 30px;
+	  padding: 0;
 	  display: inline-block;
 	  max-width: 1170px;
 	  margin: auto;
@@ -213,6 +213,12 @@ hr {
 			    margin-bottom: 8px;
 			    padding-bottom: inherit;
 			}
+			
+			.content {
+				overflow: hidden;
+			    text-overflow: ellipsis;
+			    white-space: nowrap;
+			}
 		}
 	}
 	
@@ -232,7 +238,7 @@ hr {
 
 /*Datatable*/
 #stock-table_wrapper {
-	font-size: 85%;
+	font-size: 90%;
 	
 	td, th {
 		white-space: nowrap;

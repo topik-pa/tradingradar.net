@@ -11,7 +11,7 @@
 	    <ul>
 	        <li>
 				<%= image_tag("front-image.jpg", size: "1920x430", alt: "Borsa italiana a Milano - Entrata principale") %>
-	            <div class="flex-caption">
+	            <div class="flex-caption container">
 	                <h2 class="entry-title"><%= $mission %></h2>
 	                <div class="excerpt">        	
 						Trading Radar <a href="#filters" data-turbolinks="false" title="Vai ai titoli filtrati">filtra</a> i titoli azionari della Borsa italiana in base alle valutazioni e alle informazioni trovate sui principali media on-line del settore.<br/>
@@ -29,8 +29,11 @@
     <div id="content" class="container"> 
 	 	
 	        <div class="row">
+	        	
+				<%= render("last_post") %>
+				
 				<div id="primary" class="col-sm-7 col-md-8" role="complementary">
-	                <%= render("last_post") %>
+	                
 					
 					<%= render("stocks") %>
 					

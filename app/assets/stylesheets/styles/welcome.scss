@@ -41,6 +41,9 @@
 
 #last-post {
 	
+	background-color: #F8F8F8;
+    padding: 10px 20px;
+	
 	.content {
 	    margin: 20px 0;
 	}
@@ -79,6 +82,9 @@ p.site-description {
 	        }
 
 
+#content {
+	position:relative;
+}
 
 
 
@@ -108,14 +114,14 @@ p.site-description {
 @media only screen and (min-width : 1366px) {
 	
 	.large-screen-last-post {
-		background: rgba(59, 59, 59, 0.9);
+		background-color: rgba(59, 59, 59, 0.9);
 	    display: block;
 	    color: #DDD;
 	    width: 450px;
 	    padding: 0px 20px;
 	    position: absolute;
 	    top: -330px;
-	    right: -340px;
+	    right: 0;
 	    height: 336px;
 	    overflow: hidden;
 		z-index: 999;

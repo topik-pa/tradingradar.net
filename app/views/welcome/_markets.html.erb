@@ -23,7 +23,7 @@
 	                <li title="<%=market.name%>">
 	                    <%= image_tag(@marketsFlagMap[market.name] + ".png", size: "60x60", alt: "Bandiera", class: "tab-thumb thumbnail") %>
 	                    <div class="content">
-	                        <%= market.name.truncate(8) %>
+	                        <%= market.name %>
 	                        <div>
 	                            <i><%= market.value %><br/><span class="variation <%= colorClass(market.variation) %>"><%= market.variation %>%</span></i>
 	                        </div>
@@ -36,7 +36,7 @@
 	                <li title="<%=market.name%>">
 	                    <%= image_tag(@marketsFlagMap[market.name] + ".png", size: "60x60", alt: "Materia prima", class: "tab-thumb thumbnail") %>
 	                    <div class="content">
-	                        <%= market.name.truncate(9) %>
+	                        <%= market.name %>
 	                        <div>
 	                            <i><%= market.value %><br/><span class="variation <%= colorClass(market.variation) %>"><%= market.variation %>%</span></i>
 	                        </div>
@@ -49,7 +49,7 @@
 	                <li title="<%=market.name%>">
 	                    <%= image_tag(@marketsFlagMap[market.name] + ".png", size: "60x60", alt: "Valuta", class: "tab-thumb thumbnail") %>
 	                    <div class="content">
-	                        <%= market.name.truncate(8) %>
+	                        <%= market.name %>
 	                        <div>
 	                            <i><%= market.value %><br/><span class="variation <%= colorClass(market.variation) %>"><%= market.variation %>%</span></i>
 	                        </div>
