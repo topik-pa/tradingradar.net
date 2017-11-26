@@ -344,6 +344,136 @@ class AnalisiTecnicaTitoloController < ApplicationController
     end
     
     
+    #D
+    def d_amico
+    end
+    
+    def dada
+    end
+    
+    def damiani
+    end
+    
+    def danieli_e_c
+    end
+    
+    def datalogic
+    end
+    
+    def de__longhi
+    end
+    
+    def dea_capital
+    end
+    
+    def diasorin
+    end
+    
+    def digital_bros
+    end
+    
+    def dobank
+    end
+    
+    
+    #E
+    def edison_rsp
+    end
+    
+    def eems
+    end
+    
+    def ei_towers
+    end
+    
+    def el_en_
+    end
+    
+    def elica
+    end
+    
+    def emak
+    end
+    
+    def enav
+    end
+    
+    def enervit
+    end
+    
+    def eprice
+    end
+    
+    def erg
+    end
+    
+    def ergycapital
+    end
+    
+    def esprinet
+    end
+    
+    def eukedos
+    end
+    
+    def eurotech
+    end
+    
+    def exprivia
+    end
+    
+    
+    #F
+    def falk_renewables
+    end
+    
+    def fidia
+    end
+    
+    def fiera_milano
+    end
+    
+    def fila
+    end
+    
+    def fincantieri
+    end
+    
+    def fnm
+    end
+    
+    
+    #G
+    def gabetti
+    end
+    
+    def gas_plus
+    end
+    
+    def gedi_gruppo_editoriale
+    end
+    
+    def gefran
+    end
+    
+    def geox
+    end
+    
+    def gequity
+    end
+    
+    def gruppo_ceramiche_ricchetti
+    end
+    
+    def gruppo_waste_italia
+    end
+    
+    
+    #H
+    def hera
+    end  
+    
+    
     
     private
     def colorClass(value)

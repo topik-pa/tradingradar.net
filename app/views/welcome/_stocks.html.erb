@@ -9,11 +9,11 @@
 			<%= link_to 'A', {controller: "welcome", alpha: 'A', anchor: 'primary'}, class: "#{'current' if @alphaQuery == 'A'}" %>
 			<%= link_to 'B', {controller: "welcome", alpha: 'B', anchor: 'primary'}, class: "#{'current' if @alphaQuery == 'B'}" %>
 			<%= link_to 'C', {controller: "welcome", alpha: 'C', anchor: 'primary'}, class: "#{'current' if @alphaQuery == 'C'}" %>
-			<%= link_to 'D', {controller: "welcome", alpha: 'D', anchor: 'primary'}, class: "disabled #{'current' if @alphaQuery == 'D'}" %>
+			<%= link_to 'D', {controller: "welcome", alpha: 'D', anchor: 'primary'}, class: "#{'current' if @alphaQuery == 'D'}" %>
 			<%= link_to 'E', {controller: "welcome", alpha: 'E', anchor: 'primary'}, class: "#{'current' if @alphaQuery == 'E'}" %>
 			<%= link_to 'F', {controller: "welcome", alpha: 'F', anchor: 'primary'}, class: "#{'current' if @alphaQuery == 'F'}" %>
 			<%= link_to 'G', {controller: "welcome", alpha: 'G', anchor: 'primary'}, class: "#{'current' if @alphaQuery == 'G'}" %>
-			<%= link_to 'H', {controller: "welcome", alpha: 'H', anchor: 'primary'}, class: "disabled #{'current' if @alphaQuery == 'H'}" %>
+			<%= link_to 'H', {controller: "welcome", alpha: 'H', anchor: 'primary'}, class: "#{'current' if @alphaQuery == 'H'}" %>
 			<%= link_to 'I', {controller: "welcome", alpha: 'I', anchor: 'primary'}, class: "#{'current' if @alphaQuery == 'I'}" %>
 			<%= link_to 'J', {controller: "welcome", alpha: 'J', anchor: 'primary'}, class: "disabled #{'current' if @alphaQuery == 'J'}" %>
 			<%= link_to 'L', {controller: "welcome", alpha: 'L', anchor: 'primary'}, class: "#{'current' if @alphaQuery == 'L'}" %>
@@ -79,7 +79,7 @@
 		            <% @stocks.each do |stock| %>
 		            <tr class="<%= cycle('even', 'odd') -%>">
 		                <td class="stock-name">
-							<a href="<%= '/analisi_tecnica_titolo/' + stock.name.downcase.gsub("-", "_").gsub("&", "e").parameterize('_') + '?isin=' +  stock.isin %>" title="<%= 'Analisi tecnica e rassegna stampa in tempo reale del titolo: ' + stock.name %>"><%= stock.name %></a>
+							<a href="<%= '/analisi_tecnica_titolo/' + stock.name.downcase.gsub("-", "_").gsub("&", "e").gsub("\'", "_").parameterize('_') + '?isin=' +  stock.isin %>" title="<%= 'Analisi tecnica e rassegna stampa in tempo reale del titolo: ' + stock.name %>"><%= stock.name %></a>
 		                </td>
 		                <td>
 		                    <%= stock.sector %>

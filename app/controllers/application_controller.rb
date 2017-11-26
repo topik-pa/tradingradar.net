@@ -757,7 +757,7 @@ class ApplicationController < ActionController::Base
 
   #DEVELOPMENT
   else
-    scheduler.every '10s' do 
+    scheduler.every '1m' do 
       #updateMarketTable
       #updateStockTable
       #updateAnalysisTable    

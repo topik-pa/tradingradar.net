@@ -193,6 +193,61 @@ Rails.application.routes.draw do
   get 'analisi_tecnica_titolo/credem' => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/credito_valtellinese' => 'analisi_tecnica_titolo#index'
   get 'analisi_tecnica_titolo/csp_international' => 'analisi_tecnica_titolo#index'
+  
+  
+  #D
+  get 'analisi_tecnica_titolo/d_amico' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/dada' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/damiani' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/danieli_e_c' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/datalogic' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/de__longhi' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/dea_capital' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/diasorin' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/digital_bros' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/dobank' => 'analisi_tecnica_titolo#index'
+  
+  
+  #E
+  get 'analisi_tecnica_titolo/edison_rsp' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/eems' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/ei_towers' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/el_en_' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/elica' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/emak' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/enav' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/enervit' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/eprice' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/erg' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/ergycapital' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/esprinet' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/eukedos' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/eurotech' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/exprivia' => 'analisi_tecnica_titolo#index'
+  
+  
+  #F
+  get 'analisi_tecnica_titolo/falk_renewables' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/fidia' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/fiera_milano' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/fila' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/fincantieri' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/fnm' => 'analisi_tecnica_titolo#index'
+  
+  
+  #G
+  get 'analisi_tecnica_titolo/gabetti' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/gas_plus' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/gedi_gruppo_editoriale' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/gefran' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/geox' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/gequity' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/gruppo_ceramiche_ricchetti' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/gruppo_waste_italia' => 'analisi_tecnica_titolo#index'
+  
+  
+  #H
+  get 'analisi_tecnica_titolo/hera' => 'analisi_tecnica_titolo#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
