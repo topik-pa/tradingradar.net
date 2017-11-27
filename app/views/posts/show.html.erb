@@ -27,13 +27,24 @@
                 <h5 class="text-center"><%= @post.created_at.strftime('%b %d, %Y') %></h5>
                 <div><%= raw(@post.body) %></div>
 
-                <div class="text-center">
+
+				<% if @nextPost != nil %>
+					<div class="post-next"><a href="/posts/<%= @nextPost.id %>" ><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;Post successivo: <%= @nextPost.title %></a></div>					
+				<% end %>
+
+				<% if @prevPost != nil %>				
+					<div class="post-prev"><a href="/posts/<%= @prevPost.id %>">Post precedente: <%= @prevPost.title %>&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a></div>
+				<% end %>	
+				
+				<div class="clear"></div>
+				
+				<div class="text-center">
                     <%= link_to "Vedi tutti i post", posts_path, class: "btn btn-primary" %>
                     <% if $isAdmin %>
                         <%= link_to "Edit", edit_post_path(@post), class: "btn btn-default" %>
                         <%= link_to "Delete", post_path(@post), class: "btn btn-danger", data: {:confirm => "Are you sure?"}, method: :delete %>
                     <% end %>
-                </div>
+                </div>			
             
             </section>
         </div>

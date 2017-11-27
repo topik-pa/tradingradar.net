@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   # Index action to render all posts
   def index
-    @posts = Post.all.reverse
+    @posts = Post.all.reverse       
   end
 
   # New action for creating post
@@ -41,6 +41,11 @@ class PostsController < ApplicationController
 
   # The show action renders the individual post after retrieving the the id
   def show
+    currentPostId = @post.id
+    
+    @nextPost = Post.where('id > ?', currentPostId).first
+    @prevPost = Post.where('id < ?', currentPostId).last
+    
   end
 
   # The destroy action removes the post permanently from the database

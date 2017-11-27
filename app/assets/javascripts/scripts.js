@@ -160,6 +160,19 @@ var tradingRadar = (function () {
         	} );
         },
         
+        
+        makePostDescrClickable: function () {
+        	var $lastPost = $mainContainer.find('#last-post');
+        	var lastPostUrl = $lastPost.find('.more a').attr('href');
+        	var $postTitle = $lastPost.find('h2');
+        	var $postSubTitle = $lastPost.find('h3');
+        	$postTitle.click(function() {
+        		window.location.href = lastPostUrl;
+        	});
+        	$postSubTitle.click(function() {
+        		window.location.href = lastPostUrl;
+        	});
+        },        
 
 
         highlightStocks: function () {
@@ -397,6 +410,7 @@ $(document).ready(function () {
     if ($('.welcome').length) {
         tradingRadar.loadHPFilters();
         tradingRadar.initDatatable();
+        tradingRadar.makePostDescrClickable();
     }
     
     
