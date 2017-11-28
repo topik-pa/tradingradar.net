@@ -209,7 +209,7 @@ stock_list = [
   
 ]
 
-stock_list.take(5).each do |id, isin, cod, name, sector, last_price, variation, market_phase|
+stock_list.each do |id, isin, cod, name, sector, last_price, variation, market_phase|
   Stock.create(id: id, isin: isin, cod: cod, name: name, sector: sector, last_price: last_price, variation: variation, market_phase: market_phase)
 end
 ###Stock###
@@ -411,7 +411,7 @@ url_list = [
   
 ]
 
-url_list.take(5).each do |isin, url1, url2, url3, url4, url5, url6, url7, url8, url9, url10|
+url_list.each do |isin, url1, url2, url3, url4, url5, url6, url7, url8, url9, url10|
   Url.create(isin: isin, url1: url1, url2: url2, url3: url3, url4: url4, url5: url5, url6: url6, url7: url7, url8: url8, url9: url9, url10: url10)
 end
 ###Url###
@@ -614,7 +614,7 @@ analysis_list = [
 ]
 
 
-analysis_list.take(5).each do |stock_id, isin, borsa_italiana_support, borsa_italiana_resistance, borsa_italiana_fta, xxivore_support, xxivore_resistance, xxivore_shorttrend, xxivore_ftaindex, xxivore_rsi, xxivore_rsidiv, repubblica_support, repubblica_resistance, milano_finanza_risk, milano_finanza_rating, investing_dotcomrating|
+analysis_list.each do |stock_id, isin, borsa_italiana_support, borsa_italiana_resistance, borsa_italiana_fta, xxivore_support, xxivore_resistance, xxivore_shorttrend, xxivore_ftaindex, xxivore_rsi, xxivore_rsidiv, repubblica_support, repubblica_resistance, milano_finanza_risk, milano_finanza_rating, investing_dotcomrating|
   Analysis.create(stock_id: stock_id, isin: isin, borsa_italiana_support: borsa_italiana_support, borsa_italiana_resistance: borsa_italiana_resistance, borsa_italiana_fta: borsa_italiana_fta, xxivore_support: xxivore_support, xxivore_resistance: xxivore_resistance, xxivore_shorttrend: xxivore_shorttrend, xxivore_ftaindex: xxivore_ftaindex, xxivore_rsi: xxivore_rsi, xxivore_rsidiv: xxivore_rsidiv, repubblica_support: repubblica_support, repubblica_resistance: repubblica_resistance, milano_finanza_risk: milano_finanza_risk, milano_finanza_rating: milano_finanza_rating, investing_dotcomrating: investing_dotcomrating)
 end
 ###Analysis setup###
