@@ -466,6 +466,123 @@ class AnalisiTecnicaTitoloController < ApplicationController
     end  
     
     
+    #I
+    def i_grandi_viaggi
+    end
+    
+    def igd_siiq
+    end
+    
+    def il_sole_24_ore
+    end
+    
+    def ima
+    end
+    
+    def immsi
+    end
+    
+    def indel_b
+    end
+    
+    def industria_e_innovazione
+    end
+    
+    def intek_group
+    end
+    
+    def interpump_group
+    end
+    
+    def inwit
+    end
+    
+    def irce
+    end
+    
+    def iren
+    end
+    
+    def isagro
+    end
+    
+    def it_way
+    end
+    
+    def italiaonline
+    end
+    
+    def italmobiliare
+    end
+    
+    
+    #J
+    def juventus_football_club
+    end
+    
+    
+    #K
+    def k_r_energy
+    end
+    
+    
+    #L
+    def la_doria
+    end
+    
+    def landi_renzo
+    end
+    
+    def lazio
+    end
+    
+    def luve
+    end
+    
+    def lventure_group
+    end
+
+    
+    #M
+    def m_e_c
+    end
+    
+    def maire_tecnimont
+    end
+    
+    def marr
+    end
+    
+    def massimo_zanetti_beverage
+    end
+    
+    def madiacontech
+    end
+    
+    def mittel
+    end
+    
+    def molmed
+    end
+    
+    def mondadori_editore
+    end
+    
+    def mondo_tv
+    end
+    
+    def monrif
+    end
+    
+    def mutuionline
+    end
+    
+    
+    #N
+    def netweek
+    end
+    
+    
     
     private
     def colorClass(value)

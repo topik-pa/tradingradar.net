@@ -248,6 +248,61 @@ Rails.application.routes.draw do
   
   #H
   get 'analisi_tecnica_titolo/hera' => 'analisi_tecnica_titolo#index'
+  
+  
+  #I
+  get 'analisi_tecnica_titolo/i_grandi_viaggi' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/igd_siiq' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/il_sole_24_ore' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/ima' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/immsi' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/indel_b' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/industria_e_innovazione' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/intek_group' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/interpump_group' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/inwit' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/irce' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/iren' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/isagro' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/it_way' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/italiaonline' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/italmobiliare' => 'analisi_tecnica_titolo#index'
+  
+  
+  #J
+  get 'analisi_tecnica_titolo/juventus_football_club' => 'analisi_tecnica_titolo#index'
+  
+  
+  #K
+  get 'analisi_tecnica_titolo/k_r_energy' => 'analisi_tecnica_titolo#index'
+  
+  
+  #L
+  get 'analisi_tecnica_titolo/la_doria' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/landi_renzo' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/lazio' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/luve' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/lventure_group' => 'analisi_tecnica_titolo#index'
+  
+  
+  #M
+  get 'analisi_tecnica_titolo/m_e_c' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/maire_tecnimont' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/marr' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/massimo_zanetti_beverage' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/madiacontech' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/mittel' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/molmed' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/mondadori_editore' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/mondo_tv' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/monrif' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/mutuionline' => 'analisi_tecnica_titolo#index'
+  
+  
+  #N
+  get 'analisi_tecnica_titolo/netweek' => 'analisi_tecnica_titolo#index'
+  
+  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
