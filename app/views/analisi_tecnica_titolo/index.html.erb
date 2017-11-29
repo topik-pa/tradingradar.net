@@ -46,15 +46,15 @@
 	                    <%= render("anchors") %>
 	                </section>
 					
-	                <section class="chart">
+	                <!--<section class="chart">
 	                    <h3>
-	                        Analisi grafica titolo: <%= @stock.name %>
+	                        Analisi grafica titolo: < @stock.name >
 	                    </h3>
-	                    Fonte: <a href="<%= @urlSoldiOnLine %>" title="Vai alla analisi titolo su Soldi On Line">Soldi On Line</a>
+	                    Fonte: <a href="< @urlSoldiOnLine >" title="Vai alla analisi titolo su Soldi On Line">Soldi On Line</a>
 	                    <div class="chart-image">
-	                        <img src="<%= @urlchartImage %>" title="Analisi grafica del titolo: <%= @stock.name %>" alt="Analisi grafica del titolo: <%= @stock.name %>" />
+	                        <img src="< #@urlchartImage >" title="Analisi grafica del titolo: < @stock.name >" alt="Analisi grafica del titolo: < @stock.name >" />
 	                    </div>
-	                </section>
+	                </section>-->
 					
 					<% if $user.present? %>
 						<section class="last-study">
@@ -71,14 +71,10 @@
 	                <section class="ext-source" id="borsa-italiana">
 	                    <h3>Analisi da: <%= image_tag 'borsa-italiana-logo-big.png', class: 'img-logo', alt: 'Logo Borsa Italiana', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Borsa Italiana"' %></h3>
 	                    <div>
-						<% if @urlBorsaItaliana and @urlBorsaItaliana2 %>
-		                    
+							<% if @urlBorsaItaliana and @urlBorsaItaliana2 %>	                    
 		                        Fonte: <a href="<%= @urlBorsaItaliana %>" title="Vai alla analisi titolo su &quot;Borsa Italiana&quot;">Borsa italiana scheda titolo</a>
-		                        e <a href="<%= @urlBorsaItaliana2 %>" title="Vai alla analisi titolo su &quot;Borsa Italiana&quot;">Borsa italiana analisi tecnica</a>
-		                    
-	                    <% else %>
-	                    	Dati mancanti, saranno visualizzati solo in dati salvati nel database. 
-						<% end %>
+		                        e <a href="<%= @urlBorsaItaliana2 %>" title="Vai alla analisi titolo su &quot;Borsa Italiana&quot;">Borsa italiana analisi tecnica</a>		                   
+							<% end %>
 						</div>
 	                    <% if @analisis %>
 		                    <table class="tablesorter nojs">
@@ -109,23 +105,18 @@
 		                            </tr>
 		                        </tbody>
 		                    </table>
-	                    <% else %>
-	                    	Missing analysis data.
 						<% end %>
 	                    <div class="pr-section borsa-italiana">
 	                    </div>
 	                </section>
 					
 	                <section class="ext-source" id="il-sole-24-ore">
-	                    <h3>Analisi da: <%= image_tag 'il-sole-24-ore-logo-big.png', class: 'img-logo', alt: 'Logo Il Sole 24 Ore', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Il Sole 24 Ore"' %></h3>
-	                    
+	                    <h3>Analisi da: <%= image_tag 'il-sole-24-ore-logo-big.png', class: 'img-logo', alt: 'Logo Il Sole 24 Ore', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Il Sole 24 Ore"' %></h3>                  
 						<div>
-						<% if @urlSole24Ore %>
-	                        Fonte: <a href="<%= @urlSole24Ore %>" title="Vai alla analisi titolo su &quot;Il Sole 24 Ore&quot;">Il Sole 24 Ore</a>	                    
-	                    <% else %>
+							<% if @urlSole24Ore %>
+		                        Fonte: <a href="<%= @urlSole24Ore %>" title="Vai alla analisi titolo su &quot;Il Sole 24 Ore&quot;">Il Sole 24 Ore</a>	                    
+							<% end %>
 						</div>
-	                    	Dati mancanti, saranno visualizzati solo in dati salvati nel database. 
-						<% end %>
 	                    <% if @analisis %>
 		                    <table class="tablesorter nojs">
 		                        <thead>
@@ -173,8 +164,6 @@
 		                            </tr>
 		                        </tbody>
 		                    </table>
-	                    <% else %>
-	                    	Missing analysis data.
 						<% end %>
 	                    <div class="pr-section sole-24-ore">
 	                    </div>
@@ -183,16 +172,12 @@
 	                <section class="ext-source" id="la-repubblica">
 	                    <h3>Analisi da: <%= image_tag 'la-repubblica-logo-big.png', class: 'img-logo', alt: 'Logo La Repubblica', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "La Repubblica"' %></h3>
 	                    <div>
-						<% if @urlLaRepubblica %>	                    
-	                        Fonte: <a href="<%= @urlLaRepubblica %>" title="Vai alla analisi titolo su &quot;La Repubblica&quot;">La Repubblica</a>	                    
-	                    <% else %>
-		                    Dati mancanti, saranno visualizzati solo in dati salvati nel database. 
-						<% end %>
+							<% if @urlLaRepubblica and @urlLaRepubblica2 %>	                    
+		                        Fonte: <a href="<%= @urlLaRepubblica %>" title="Vai alla analisi titolo su &quot;La Repubblica&quot;">La Repubblica</a>	                     
+							<% end %>
 						</div>
 	                    <% if @analisis %>
 	                    <!--Nessun dato su supporto e resistenza da Repubblica-->
-	                    <% else %>
-	                    	Missing analysis data.
 						<% end %>
 	                    <div class="pr-section la-repubblica">
 	                    </div>
@@ -201,11 +186,9 @@
 	                <section class="ext-source" id="investing">
 	                    <h3>Analisi da: <%= image_tag 'investing-logo-big.png', class: 'img-logo', alt: 'Logo Investing', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Investing.com"' %></h3>
 	                    <div>
-						<% if @urlInvesting %>                    
-	                        Fonte: <a href="<%= @urlInvesting %>" title="Vai alla analisi titolo su &quot;Investing.com&quot;">Investing.com</a>
-	                    <% else %>
-	                    	Dati mancanti, saranno visualizzati solo in dati salvati nel database. 
-						<% end %>
+							<% if @urlInvesting %>                    
+		                        Fonte: <a href="<%= @urlInvesting %>" title="Vai alla analisi titolo su &quot;Investing.com&quot;">Investing.com</a>
+							<% end %>
 						</div>
 	                    <% if @analisis %>
 		                    <table class="tablesorter nojs">
@@ -228,8 +211,6 @@
 		                            </tr>
 		                        </tbody>
 		                    </table>
-	                    <% else %>
-	                    	Missing analysis data.
 						<% end %>
 	                    <div class="pr-section investing">
 	                    </div>
@@ -238,12 +219,10 @@
 	                <section class="ext-source" id="milano-finanza">
 	                    <h3>Analisi da: <%= image_tag 'milano-finanza-logo-big.png', class: 'img-logo', alt: 'Logo Milano Finanza', title: 'Analisi tecnica del titolo da "Milano Finanza"' %></h3>
 	                    <div>
-						<% if @urlMilanoFinanza and @urlMilanoFinanza2 %>
-	                        Fonte: <a href="<%= @urlMilanoFinanza %>" title="Vai alla analisi titolo su &quot;Milano Finanza&quot;">Milano Finanza</a>
-	                        and <a href="<%= @urlMilanoFinanza2 %>" title="Vai alla analisi titolo su &quot;Milano Finanza&quot;">Milano Finanza</a>                    
-	                    <% else %>
-	                    	Dati mancanti, saranno visualizzati solo in dati salvati nel database. 
-						<% end %>
+							<% if @urlMilanoFinanza and @urlMilanoFinanza2 %>
+		                        Fonte: <a href="<%= @urlMilanoFinanza %>" title="Vai alla analisi titolo su &quot;Milano Finanza&quot;">Milano Finanza</a>
+		                        and <a href="<%= @urlMilanoFinanza2 %>" title="Vai alla analisi titolo su &quot;Milano Finanza&quot;">Milano Finanza</a>                    
+							<% end %>
 						</div>
 	                    <% if @analisis %>
 		                    <table class="tablesorter nojs">
@@ -268,8 +247,6 @@
 		                            </tr>
 		                        </tbody>
 		                    </table>
-	                    <% else %>
-	                    	Missing analysis data.
 						<% end %>
 	                    <div class="pr-section milano-finanza">
 	                    </div>
@@ -278,11 +255,9 @@
 	                <section class="ext-source" id="soldi-on-line">
 	                    <h3>Analisi da: <%= image_tag 'soldi-on-line-logo-big.png', class: 'img-logo', alt: 'Logo Soldi On Line', title: 'Analisi tecnica del titolo da "Soldi On Line"' %></h3>
 	                    <div>
-						<% if @urlSoldiOnLine %>	                    
-	                        Fonte: <a href="<%= @urlSoldiOnLine %>" title="Vai alla analisi titolo su &quot;Soldi On Line&quot;">Soldi On Line</a>	                    
-	                    <% else %>
-	                    	Dati mancanti, saranno visualizzati solo in dati salvati nel database. 
-						<% end %>
+							<% if @urlSoldiOnLine %>	                    
+		                        Fonte: <a href="<%= @urlSoldiOnLine %>" title="Vai alla analisi titolo su &quot;Soldi On Line&quot;">Soldi On Line</a>	                    
+							<% end %>
 						</div>
 	                    <div class="pr-section soldionline">
 	                    </div>

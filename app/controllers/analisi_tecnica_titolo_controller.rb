@@ -17,8 +17,24 @@ class AnalisiTecnicaTitoloController < ApplicationController
         @lastStudy = @stock.studies.last
         
         
+        @urlBorsaItaliana = @urls.url1
+        @urlBorsaItaliana2 = @urls.url2   
+              
+        @urlSole24Ore = @urls.url3 
+              
+        @urlLaRepubblica = @urls.url6 
+        @urlLaRepubblica2 = @urls.url8 
+             
+        @urlInvesting = @urls.url7 
+             
+        @urlMilanoFinanza = @urls.url9
+        @urlMilanoFinanza2 = @urls.url10
+              
+        @urlSoldiOnLine = @urls.url5
+        
+        
         #Chart image
-        @urlchartImage = 'http://indici.soldionline.it/ComboChart.aspx?Codice=' + @isin  + '&TimeRange=360&ChartSize=M&Volume=1&VGrid=1&HGrid=1&ChartType=0&Band=-1&avgType1=N&movAvg1=10&avgType2=N&movAvg2=25&Indicator1=CCI&Indicator2=None&Indicator3=None&Indicator4=None&MID=&SymbolName=' + @stock.name + '&TenYears=0'
+        #@urlchartImage = 'http://indici.soldionline.it/ComboChart.aspx?Codice=' + @isin  + '&TimeRange=360&ChartSize=M&Volume=1&VGrid=1&HGrid=1&ChartType=0&Band=-1&avgType1=N&movAvg1=10&avgType2=N&movAvg2=25&Indicator1=CCI&Indicator2=None&Indicator3=None&Indicator4=None&MID=&SymbolName=' + @stock.name + '&TenYears=0'
       else 
         @stocksJoint = Stock.select("stocks.*, analyses.*").joins(:analysis)
         @stocks = @stocksJoint.select("name, last_price, variation, xxivore_shorttrend").where("xxivore_shorttrend = ?", "molto rialzista").order(:name)

@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   # Index action to render all posts
   def index
-    @posts = Post.all.reverse       
+    @posts = Post.last(60).reverse       
   end
 
   # New action for creating post
