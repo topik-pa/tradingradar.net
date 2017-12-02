@@ -75,5 +75,20 @@
 			float:left;
 			margin-top: 20px;
 		}
+		
+		.study-image {
+			display:block;
+			margin: 0 auto;
+			cursor:pointer;
+		}
+		
+		
 	}
+}
+
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 100%;
+  }
 }

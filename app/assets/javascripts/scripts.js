@@ -172,7 +172,15 @@ var tradingRadar = (function () {
         	$postSubTitle.click(function() {
         		window.location.href = lastPostUrl;
         	});
-        },        
+        },   
+        
+        
+        modalChartImage: function () {
+        	$('.study-image').on('click', function() {
+    			$('.imagepreview').attr('src', $(this).attr('src'));
+    			$('#imagemodal').modal('show');   
+    		});	
+        },
 
 
         highlightStocks: function () {
@@ -411,6 +419,11 @@ $(document).ready(function () {
         tradingRadar.loadHPFilters();
         tradingRadar.initDatatable();
         tradingRadar.makePostDescrClickable();
+    }
+    
+    
+    if ($('.posts').length) {
+        tradingRadar.modalChartImage();
     }
     
     
