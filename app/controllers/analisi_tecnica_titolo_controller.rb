@@ -599,6 +599,169 @@ class AnalisiTecnicaTitoloController < ApplicationController
     end
     
     
+    #O
+    def openjobmetis
+    end
+    
+    def ovs
+    end
+    
+    
+    #P
+    def panariagroup_industrie_ceramiche
+    end
+    
+    def parmalat
+    end
+    
+    def piaggio_e_c
+    end
+    
+    def pierrel
+    end
+    
+    def pininfarina
+    end
+    
+    def piquadro
+    end
+    
+    def poligrafica_s_faustino
+    end
+    
+    def poligrafici_editoriale
+    end
+    
+    def prelios
+    end
+    
+    def prima_industrie
+    end
+    
+    
+    #R
+    def rai_way
+    end
+    
+    def ratti
+    end
+    
+    def rcs_mediagroup
+    end
+    
+    def reno_de_medici
+    end
+    
+    def reply
+    end
+    
+    def retelit
+    end
+    
+    def risanamento
+    end
+    
+    def roma
+    end
+    
+    def rosss
+    end
+    
+    
+    #S
+    def sabaf
+    end
+    
+    def saes_getters
+    end
+    
+    def safilo_group
+    end
+    
+    def salini_impregilo
+    end
+    
+    def saras
+    end
+    
+    def servizi_italia
+    end
+    
+    def sesa
+    end
+    
+    def sias
+    end
+    
+    def sintesi
+    end
+    
+    def snaitech
+    end
+    
+    def sogefi
+    end
+    
+    def stefanel
+    end
+    
+    
+    #T
+    def tamburi_investment_partners
+    end
+    
+    def tas
+    end
+    
+    def tachnogym
+    end
+    
+    def tecnoinvestimenti
+    end
+    
+    def ternienergia
+    end
+    
+    def tesmec
+    end
+    
+    def tiscali
+    end
+    
+    def tod_s
+    end
+    
+    def trevi_fin_industriale
+    end
+    
+    def txt
+    end
+    
+    
+    #U
+    def unieuro
+    end
+    
+    
+    #V
+    def valsoia
+    end
+    
+    def vianini
+    end
+    
+    def vittoria_assicurazioni
+    end
+    
+    
+    #Z
+    def zignano_vetro
+    end
+    
+    def zucchi
+    end
+    
+    
     
     private
     def colorClass(value)

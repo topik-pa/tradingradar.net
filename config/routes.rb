@@ -303,6 +303,78 @@ Rails.application.routes.draw do
   get 'analisi_tecnica_titolo/netweek' => 'analisi_tecnica_titolo#index'
   
   
+  #O
+  get 'analisi_tecnica_titolo/openjobmetis' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/ovs' => 'analisi_tecnica_titolo#index'
+  
+  
+  #P
+  get 'analisi_tecnica_titolo/panariagroup_industrie_ceramiche' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/parmalat' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/piaggio_e_c' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/pierrel' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/pininfarina' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/piquadro' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/poligrafica_s_faustino' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/poligrafici_editoriale' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/prelios' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/prima_industrie' => 'analisi_tecnica_titolo#index'
+  
+  
+  #R
+  get 'analisi_tecnica_titolo/rai_way' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/ratti' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/rcs_mediagroup' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/reno_de_medici' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/reply' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/retelit' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/risanamento' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/roma' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/rosss' => 'analisi_tecnica_titolo#index'
+  
+  
+  #S
+  get 'analisi_tecnica_titolo/sabaf' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/saes_getters' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/safilo_group' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/salini_impregilo' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/saras' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/servizi_italia' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/sesa' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/sias' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/sintesi' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/snaitech' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/sogefi' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/stefanel' => 'analisi_tecnica_titolo#index'
+  
+  
+  #T
+  get 'analisi_tecnica_titolo/tamburi_investment_partners' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/tas' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/tachnogym' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/tecnoinvestimenti' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/ternienergia' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/tesmec' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/tiscali' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/tod_s' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/trevi_fin_industriale' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/txt' => 'analisi_tecnica_titolo#index'
+  
+  
+  #U
+  get 'analisi_tecnica_titolo/unieuro' => 'analisi_tecnica_titolo#index'
+  
+  
+  #V
+  get 'analisi_tecnica_titolo/valsoia' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/vianini' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/vittoria_assicurazioni' => 'analisi_tecnica_titolo#index'
+  
+  
+  #Z
+  get 'analisi_tecnica_titolo/zignano_vetro' => 'analisi_tecnica_titolo#index'
+  get 'analisi_tecnica_titolo/zucchi' => 'analisi_tecnica_titolo#index'
+  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
