@@ -15,9 +15,10 @@ class SourcesController < ApplicationController
         docBorsaItaliana.search('script', 'img', 'a').each do |elem|
           elem.remove
         end
-        @borsaItalianaElem1 = docBorsaItaliana.at_xpath('/descendant::article[@class="l-grid__cell"][3]').to_s
-        @borsaItalianaElem2 = docBorsaItaliana.at_xpath('/descendant::article[@class="l-grid__cell"][2]').to_s
-        @borsaItalianaElem4 = docBorsaItaliana.at_xpath('/descendant::article[@class="l-grid__cell"][4]').to_s
+        @borsaItalianaElem1 = docBorsaItaliana.at_xpath('/descendant::article[@class="l-grid__cell"][3]//span[contains(@class, "t-text")][1]').to_s
+        @borsaItalianaElem2 = docBorsaItaliana.at_xpath('/descendant::article[@class="l-grid__cell"][2]//div[contains(@class, "-sm-half")][1]').to_s
+        @borsaItalianaElem2_1 = docBorsaItaliana.at_xpath('/descendant::article[@class="l-grid__cell"][2]//div[contains(@class, "-sm-half")][2]').to_s
+        @borsaItalianaElem4 = docBorsaItaliana.at_xpath('/descendant::article[@class="l-grid__cell"][4]//div[contains(@class, "l-box")][3]').to_s
         if @urlBorsaItaliana2
           docBorsaItaliana2 = Nokogiri::HTML(open(@urlBorsaItaliana2), nil, 'UTF-8')
           docBorsaItaliana2.encoding = 'UTF-8'
@@ -32,7 +33,7 @@ class SourcesController < ApplicationController
       end
       #Borsa Italiana
       
-    render html: ('<div id="source-container">' + @borsaItalianaElem1 + @borsaItalianaElem2 + @borsaItalianaElem3 + @borsaItalianaElem4 + '</div>').html_safe
+    render html: ('<div id="source-container">' + @borsaItalianaElem1 + @borsaItalianaElem2 + @borsaItalianaElem2_1 + @borsaItalianaElem3 + @borsaItalianaElem4 + '</div>').html_safe
       
   end
 
@@ -54,8 +55,8 @@ class SourcesController < ApplicationController
         docSole24Ore.xpath('//img[contains(@src,"images2010")]').remove  
         @sole24OreElem1 = '<h3>Anagrafica</h3>' + docSole24Ore.at_xpath('/descendant::table[@class="boxDati_G3"][4]').to_s.html_safe
         @sole24OreElem2 = '<h3>Indici borsistici e redditivit&agrave;</h3>' + docSole24Ore.at_xpath('/descendant::table[@class="boxDati_G3"][6]').to_s.html_safe   
-        @sole24OreElem3 = '<h3>Sintesi bilancio</h3>' + docSole24Ore.at_xpath('/descendant::div[@class="xpie6fix"][3]').to_s.html_safe
-        @sole24OreElem4 = '<h3>Sintesi analisi tecnica</h3>' + docSole24Ore.at_xpath('/descendant::div[@class="xpie6fix"][4]').to_s.html_safe
+        @sole24OreElem3 = '<h3>Sintesi bilancio</h3>' + docSole24Ore.at_xpath('/descendant::div[@class="xpmodule twocolsleft"][3]/div[@class="titolo-dati-box-b"]/following-sibling::table[1]').to_s.html_safe
+        @sole24OreElem4 = '<h3>Sintesi analisi tecnica</h3>' + docSole24Ore.at_xpath('//div[@class="floating_box sintesi"]/div/table').to_s.html_safe
       end      
       rescue OpenURI::HTTPError => e
        puts 'Error retrieving url data: ' + e.message
@@ -72,18 +73,18 @@ class SourcesController < ApplicationController
     @analisis = Analysis.find_by isin: isin
     
     #La Repubblica
-    @urlLaRepubblica = urls.url6 
+    #@urlLaRepubblica = urls.url6 
     @urlLaRepubblica2 = urls.url8
     begin
-      if !@urlLaRepubblica.blank?
-        docLaRepubblica = Nokogiri::HTML(open(@urlLaRepubblica), nil, 'UTF-8')
-        docLaRepubblica.encoding = 'UTF-8'
-        docLaRepubblica.search('script', 'a').each do |elem|
-          elem.remove
-        end
-        @laRepubblicaElem1 = docLaRepubblica.at_xpath('/descendant::div[@class="box-bottom"]').to_s
-        @laRepubblicaRangeValue = docLaRepubblica.at_xpath('/descendant::div[@class="TLB-range-indicator"]/@style').to_s.delete('rightleft:;').to_s
-      end 
+      #if !@urlLaRepubblica.blank?
+      #  docLaRepubblica = Nokogiri::HTML(open(@urlLaRepubblica), nil, 'UTF-8')
+      #  docLaRepubblica.encoding = 'UTF-8'
+      #  docLaRepubblica.search('script', 'a').each do |elem|
+      #    elem.remove
+      #  end
+      #  @laRepubblicaElem1 = docLaRepubblica.at_xpath('/descendant::div[@class="box-bottom"]').to_s
+      #  @laRepubblicaRangeValue = docLaRepubblica.at_xpath('/descendant::div[@class="TLB-range-indicator"]/@style').to_s.delete('rightleft:;').to_s
+      #end 
       
       if !@urlLaRepubblica2.blank?
         docLaRepubblica2 = Nokogiri::HTML(open(@urlLaRepubblica2), nil, 'UTF-8')
@@ -101,7 +102,8 @@ class SourcesController < ApplicationController
     end
     #La Repubblica 
     
-    render html: ('<div id="source-container">' + @laRepubblicaElem1  + '<span>Range value di oggi: </span><span class="bold">' + @laRepubblicaRangeValue + @laRepubblicaElem2 + '</span></div>').html_safe
+    #render html: ('<div id="source-container">' + @laRepubblicaElem1  + '<span>Range value di oggi: </span><span class="bold">' + @laRepubblicaRangeValue + @laRepubblicaElem2 + '</span></div>').html_safe
+    render html: ('<div id="source-container">' + @laRepubblicaElem2 + '</div>').html_safe
     
   end
 
