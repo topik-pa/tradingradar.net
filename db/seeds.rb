@@ -207,7 +207,7 @@ stock_list = [
   
   [176, "IT0004819030", "", "Netweek", "", nil, "", ""],
   
-  [177, "IT0003683528", "", "Openjobmetis", "", nil, "", ""]
+  [177, "IT0003683528", "", "Openjobmetis", "", nil, "", ""],
   [178, "IT0005043507", "", "Ovs", "", nil, "", ""],
   
   [179, "IT0001467577", "", "Panariagroup Industrie Ceramiche", "", nil, "", ""],
