@@ -82,6 +82,35 @@
 			cursor:pointer;
 		}
 		
+		.ref {
+			background-color: #ffe7a3;
+		    padding: 1px 3px;
+		    border: 1px solid #ddd;
+		}
+		
+		.fb-like {
+		    margin: 60px 0 30px;
+			display: block;
+		}
+		
+		#fb-comments-wrapper {
+			display: block;
+		    text-align: center;
+		    border-top: 1px solid #DDD;
+		    border-bottom: 1px solid #ddd;
+		    padding: 10px 0;
+		    margin-bottom: 30px;
+			
+			.fb-comments {
+				display: block;
+			}
+
+		}
+		
+		.not-my-fault {
+			text-align: center;
+		}
+		
 		
 	}
 }

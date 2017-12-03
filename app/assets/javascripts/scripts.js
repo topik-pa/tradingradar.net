@@ -181,6 +181,17 @@ var tradingRadar = (function () {
     			$('#imagemodal').modal('show');   
     		});	
         },
+        
+        
+        initFBOnPosts: function () {
+        	(function(d, s, id) {
+  			  var js, fjs = d.getElementsByTagName(s)[0];
+  			  if (d.getElementById(id)) return;
+  			  js = d.createElement(s); js.id = id;
+  			  js.src = 'https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v2.11';
+  			  fjs.parentNode.insertBefore(js, fjs);
+  			}(document, 'script', 'facebook-jssdk'));
+        },
 
 
         highlightStocks: function () {
@@ -424,6 +435,7 @@ $(document).ready(function () {
     
     if ($('.posts').length) {
         tradingRadar.modalChartImage();
+        tradingRadar.initFBOnPosts();
     }
     
     
