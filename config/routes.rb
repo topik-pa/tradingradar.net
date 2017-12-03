@@ -78,6 +78,10 @@ Rails.application.routes.draw do
   
     resources :posts
   end
+  
+  
+  get 'contact', to: 'messages#new', as: 'contact'
+  post 'contact', to: 'messages#create'
    
   
   #FTSE MIB

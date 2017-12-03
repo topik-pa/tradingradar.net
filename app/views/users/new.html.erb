@@ -9,12 +9,12 @@
             <section id="primary" class="col-sm-12">	                
                 <div class="form form-style-8">
                     <h1>Sign up</h1>
-                    <%= form_for(@user) do |f| %>
-                    <%= f.text_field :first_name, :placeholder => "Nome", :required => "true" %>
-                    <%= f.text_field :last_name, :placeholder => "Cognome", :required => "true" %>
-                    <%= f.email_field :email, :placeholder => "Email", :required => "true" %>
-                    <%= f.password_field :password, :placeholder => "Password", :required => "true" %>
-                    <%= f.submit "Crea un account", class: "btn primary" %>
+	                    <%= form_for(@user) do |f| %>
+	                    <%= f.text_field :first_name, :placeholder => "Nome", :required => "true" %>
+	                    <%= f.text_field :last_name, :placeholder => "Cognome", :required => "true" %>
+	                    <%= f.email_field :email, :placeholder => "Email", :required => "true" %>
+	                    <%= f.password_field :password, :placeholder => "Password", :required => "true" %>
+	                    <%= f.submit "Crea un account", class: "btn primary" %>
                     <% end %>
                 </div>	                
             </section>

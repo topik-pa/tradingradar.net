@@ -19,5 +19,21 @@ module AgendaTrading
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     
     
+    
+    
+    config.action_mailer.smtp_settings = {
+      address: "authsmtp.securemail.pro",
+      port: 465,
+      user_name: "marco@tradingradar.net",
+      password: "IsMPsd80",
+      authentication: :plain,
+      enable_starttls_auto: true
+    }
+    
+    config.action_mailer.default_url_options = {
+      host: "tradingradar.net"
+    }
+    
+    
   end
 end
