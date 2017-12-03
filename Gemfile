@@ -75,3 +75,6 @@ gem 'simple_form', '~> 3.2'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ckeditor', '~> 4.2'
+
+#Others turbolinks
+gem 'jquery-turbolinks'

@@ -29,11 +29,19 @@
 
 
 				<% if @nextPost != nil %>
-					<div class="post-next"><a href="/posts/<%= @nextPost.id %>" ><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;Post successivo: <%= @nextPost.title %></a></div>					
+					<div class="post-next">
+						<%= link_to controller: "posts", action: "show", id: @nextPost.id, data: { turbolinks: false } do %>
+					    	<i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;Post successivo: <%= @nextPost.title %>
+						<% end %>
+					</div>					
 				<% end %>
 
 				<% if @prevPost != nil %>				
-					<div class="post-prev"><a href="/posts/<%= @prevPost.id %>">Post precedente: <%= @prevPost.title %>&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a></div>
+					<div class="post-prev">
+						<%= link_to controller: "posts", action: "show", id: @prevPost.id, data: { turbolinks: false } do %>
+					    	Post precedente: <%= @prevPost.title %>&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
+						<% end %>
+					</div>
 				<% end %>	
 				
 				<div class="clear"></div>
