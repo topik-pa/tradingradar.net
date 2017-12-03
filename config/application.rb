@@ -26,12 +26,13 @@ module AgendaTrading
     config.action_mailer.default :charset => "utf-8"
     
     config.action_mailer.smtp_settings = {
-      address: "authsmtp.securemail.pro",
-      port: 465,
-      user_name: "marco@tradingradar.net",
-      password: "IsMPsd80",
-      authentication: "plain",
-      enable_starttls_auto: true
+      address:          "smtp.mail.yahoo.com",
+      port:             587,
+      domain:           "yahoo.com",
+      authentication:   "plain",
+      user_name:        "agendatrading@yahoo.com",
+      password:         "IsMPsd80",
+      enable_starttls_auto:   true
     }
     
     config.action_mailer.default_url_options = {
