@@ -29,7 +29,7 @@ module AgendaTrading
       port:             587,
       domain:           "www.tradingradar.net",
       authentication:   "plain",
-      user_name:        "agendatrading@yahoo.com",
+      user_name:        "agendatrading",
       password:         "IsMPsd80",
       enable_starttls_auto:   true
     }
