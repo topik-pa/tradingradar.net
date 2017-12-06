@@ -12,8 +12,13 @@
 					<br/>
 					Se preferisci inviarci una e-mail, &egrave; possibile utilizzare questo indirizzo: <%= mail_to "info@tradingradar.net", "info@tradingradar.net" %>
 					<br/><br/>
-					La nostra promessa &egrave; di risponderti appena possibile.					
+					La nostra promessa &egrave; di risponderti appena possibile.	<br/><br/>				
 				</div>
+				<% if flash[:notice] %>
+					<div class="alert alert-success">
+						<%= flash[:notice] %>
+					</div>	
+				<% end %>			
             	<div class="form form-style-8">
                     <h1>Contatti</h1>
                     <%= form_for @message, url: contact_path do |message_form| %>

@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
     
     if @message.valid?
       MessageMailer.new_message(@message).deliver_now
-      redirect_to contact_path, notice: "Il messaggio è stato spedito."
+      redirect_to contact_path, notice: "Grazie! Il tuo messaggio è stato spedito regolarmente."
     else
       flash[:alert] = "Si è verificato un errore : il messaggio non è stato spedito. Riprova più tardi"
       render :new
