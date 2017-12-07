@@ -78,3 +78,8 @@ gem 'ckeditor', '~> 4.2'
 
 #Others turbolinks
 gem 'jquery-turbolinks'
+
+#For truncate_html
+gem "htmlentities"
+gem "truncate_html"
+

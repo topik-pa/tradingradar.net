@@ -24,7 +24,7 @@
 			
 			<div class="content">		
 				<div class="body">
-					<%= truncate(@lastPost.body, :length =>550, :omission => "..." , :escape => false) %>
+					<%= truncate_html @lastPost.body, :length => 450, :omission => "..." %>
 				</div>
 				<div class="more">
 					<%= link_to controller: "posts", action: "show", id: @lastPost.id, data: { turbolinks: false } do %>

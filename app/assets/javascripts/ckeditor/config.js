@@ -26,6 +26,9 @@ CKEDITOR.editorConfig = function(config) {
     }, {
       name: 'insert',
       items: ['Image', 'Table', 'HorizontalRule', 'PageBreak']
+    }, '/',{
+    	name: 'document',
+    	items: [ 'Source', '-', 'NewPage', 'Preview', '-', 'Templates' ]
     }
   ];
   config.toolbar = 'Pure';
