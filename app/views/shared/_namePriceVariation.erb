@@ -1,6 +1,15 @@
 <header class="page-header">
     <h1 class="entry-title">
-    	<%= @stock.name %>
+    	
+    	
+		<% if File.file?("#{Rails.public_path}/images/logos/" + @stock.cod + ".png") and @stock.cod %>
+		  <%= image_tag("/images/logos/" + @stock.cod + ".png", class: "stock-logo") %>
+		<% else %>
+			<%= @stock.name %>
+		<% end %>
+			
+		
+    	
         <small>
         	<%= @stock.last_price %>&euro;&nbsp;/&nbsp;<span class="<%= colorClass(@stock.variation)%>"><%=@stock.variation %>%</span>
     	</small>

@@ -32,6 +32,20 @@
 	            	
 	                <%= render("shared/namePriceVariation") %>
 					
+					<% if @lastRelatedPost %>
+						<div class="related-post">
+							<h2>Per il titolo:  <%= @stock.name %>, esiste anche una analisi tecnica nella sezione <%= link_to 'analisi titoli', posts_path, title: 'Analisi tecnica titoli' %></h2>
+							<h3><%= @lastRelatedPost.title %></h3>
+							<br/>
+							<%= truncate_html @lastRelatedPost.body, :length => 450, :omission => "..." %>
+							<div class="more">
+								<%= link_to controller: "posts", action: "show", id: @lastRelatedPost.id do %>
+								    Continua la lettura della analisu tecnica su: <%= @stock.name %>&nbsp;<i class="fa fa-chevron-right"></i>
+								<% end %>
+							</div>
+						</div>
+					<% end %>
+					
 				    <div class="sub-header">
 				        <h2>Rassegna stampa con analisi e notizie sul titolo: <%= @stock.name %> - <%= @stock.cod %>.MI</h2>
 						<p><strong>Rassegna stampa in tempo reale</strong> con dati provenienti dai principali media online del settore trading. Lo scopo di questa sezione è fornire <strong>notizie aggiornate</strong> sul titolo in esame, date e valore dei <strong>dividendi</strong> distribuiti, informazioni sui <strong>rating</strong> o sui <strong>target price</strong> e ottenere una idea di massima per formulare una corretta <strong>strategia</strong> di trading.</p>

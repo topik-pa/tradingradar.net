@@ -10,7 +10,10 @@ class AnalisiTecnicaTitoloController < ApplicationController
         
       if @isin    
         @stock = Stock.find_by isin: @isin  
-        @urls = Url.find_by isin: @isin      
+        @urls = Url.find_by isin: @isin   
+        @cod = @stock.cod
+        
+        @lastRelatedPost = Post.find_by stock: @cod + ".MI"
         
         @analisis = Analysis.find_by isin: @isin   
         @studiesSize = @stock.studies.size 
