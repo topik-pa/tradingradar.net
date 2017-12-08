@@ -1,3 +1,4 @@
+<section itemscope itemtype="http://schema.org/BlogPosting">
 <p><a href="/posts/7"><img alt="Logo di Netweek - NTW.MI" src="/images/logos/NTW.png" style="height:100px; width:176px" /></a></p>
 
 <p>Dopo l&#39;<strong>aumento di capitale</strong>, tutto il 2017 &egrave; stata una <strong>discesa continua ed inesorabile</strong>. Sporadici acquisti hanno visto i prezzi subire <strong>brusche accelerazioni</strong> verso l&#39;alto, ma si sono rivelati vani fuochi di paglia che hanno indotto molti investitori in errore con acquisti troppo prematuri, figuriamo poi la notizia dell&#39;arresto dell&#39;AD Farina. Ma ora.... ma ora....&nbsp;<br />
@@ -125,10 +126,12 @@ Forse s&igrave;, forse no, ma in ogni caso la ritengo troppo poco evidente come 
 
 <div class="fb-like" data-href="http://www.tradingradar.net/posts/7" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
 
-<section id="fb-comments-wrapper">
+<div id="fb-comments-wrapper">
 
 
 <div class="fb-comments" data-href="http://www.tradingradar.net/posts/7" data-numposts="15"></div>
 
-</section>
+</div>
+
+<section>
 

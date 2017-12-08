@@ -28,8 +28,28 @@
 		
 			<% if @isin %>
         	
-	            <section id="primary" class="col-sm-12">
-	            	
+	            <section id="primary" class="col-sm-12" itemscope itemtype="http://schema.org/Article">
+	            	<meta itemprop="description" content="Rassegna stampa in tempo reale sul titolo <%= @stock.name %>. I dati provengono dai principali media online del settore tradingn e contengono notizie aggiornate sul titolo <%= @stock.name %> con date e valore dei dividendi, rating e target price per formulare una corretta strategia di trading."/>
+	            	<meta itemprop="about" content="<%= @stock.name %> - <%= @stock.name %>.<%= @stock.cod %>.MI: rassegna stampa"/>
+					<meta itemprop="isFamilyFriendly" content="true"/>
+					<meta itemprop="datePublished" content="<%= Time.now.strftime("%Y-%m-%d") %>"/>
+					<meta itemprop="dateModified" content="<%= $lastUpdate.strftime("%Y-%m-%dT%H:%M") %>"/>
+					<meta itemscope itemprop="author" itemtype="https://schema.org/Person" itemref="person-name" />
+					<meta id="person-name" itemprop="name" content="Marco Pavan"/>
+					
+					
+					<meta itemprop="image" content="http://www.tradingradar.net/images/trading-radar-logo-small-alpha.png"/>
+					
+					<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+					    <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+					      <meta itemprop="url" content="http://www.tradingradar.net/images/trading-radar-logo-small-alpha.png">
+					      <meta itemprop="width" content="70">
+					      <meta itemprop="height" content="66">
+					    </div>
+					    <meta itemprop="name" content="Trading Radar">
+					    <meta itemprop="url" content="http://www.tradingradar.net">
+				  	</div>
+					
 	                <%= render("shared/namePriceVariation") %>
 					
 					<% if @lastRelatedPost %>
@@ -47,7 +67,7 @@
 					<% end %>
 					
 				    <div class="sub-header">
-				        <h2>Rassegna stampa con analisi e notizie sul titolo: <%= @stock.name %> - <%= @stock.cod %>.MI</h2>
+				        <h2 itemprop="name headline">Rassegna stampa con analisi e notizie sul titolo: <%= @stock.name %> - <%= @stock.cod %>.MI</h2>
 						<p><strong>Rassegna stampa in tempo reale</strong> con dati provenienti dai principali media online del settore trading. Lo scopo di questa sezione è fornire <strong>notizie aggiornate</strong> sul titolo in esame, date e valore dei <strong>dividendi</strong> distribuiti, informazioni sui <strong>rating</strong> o sui <strong>target price</strong> e ottenere una idea di massima per formulare una corretta <strong>strategia</strong> di trading.</p>
 				        <p>I riferimenti alla fonte originaria delle informazioni qui riprodotte permettono di accedere alla pagina originaria e approfondire l'analisi.</p>
 				    </div>
@@ -82,200 +102,202 @@
 						</section>
 	                <% end %>
 					
-	                <section class="ext-source" id="borsa-italiana">
-	                    <h3>Analisi da: <%= image_tag 'borsa-italiana-logo-big.png', class: 'img-logo', alt: 'Logo Borsa Italiana', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Borsa Italiana"' %></h3>
-	                    <div>
-							<% if @urlBorsaItaliana and @urlBorsaItaliana2 %>	                    
-		                        Fonte: <a href="<%= @urlBorsaItaliana %>" title="Vai alla analisi titolo su &quot;Borsa Italiana&quot;">Borsa italiana scheda titolo</a>
-		                        e <a href="<%= @urlBorsaItaliana2 %>" title="Vai alla analisi titolo su &quot;Borsa Italiana&quot;">Borsa italiana analisi tecnica</a>		                   
+					<div itemprop="articleBody">
+		                <section class="ext-source" id="borsa-italiana">
+		                    <h3>Analisi da: <%= image_tag 'borsa-italiana-logo-big.png', class: 'img-logo', alt: 'Logo Borsa Italiana', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Borsa Italiana"' %></h3>
+		                    <div>
+								<% if @urlBorsaItaliana and @urlBorsaItaliana2 %>	                    
+			                        Fonte: <a href="<%= @urlBorsaItaliana %>" title="Vai alla analisi titolo su &quot;Borsa Italiana&quot;">Borsa italiana scheda titolo</a>
+			                        e <a href="<%= @urlBorsaItaliana2 %>" title="Vai alla analisi titolo su &quot;Borsa Italiana&quot;">Borsa italiana analisi tecnica</a>		                   
+								<% end %>
+							</div>
+		                    <% if @analisis %>
+			                    <table class="tablesorter nojs">
+			                        <thead>
+			                            <tr>
+			                                <th class="borsa-italiana">
+			                                    Supporto
+			                                </th>
+			                                <th class="borsa-italiana">
+			                                    Resistenza
+			                                </th>
+			                                <th class="borsa-italiana">
+			                                    FTA Rank
+			                                </th>
+			                            </tr>
+			                        </thead>
+			                        <tbody>
+			                            <tr>
+			                                <td>
+			                                    <%= @analisis.borsa_italiana_support %>
+			                                </td>
+			                                <td>
+			                                    <%= @analisis.borsa_italiana_resistance %>
+			                                </td>
+			                                <td>
+			                                    <%= @analisis.borsa_italiana_fta %>
+			                                </td>
+			                            </tr>
+			                        </tbody>
+			                    </table>
 							<% end %>
-						</div>
-	                    <% if @analisis %>
-		                    <table class="tablesorter nojs">
-		                        <thead>
-		                            <tr>
-		                                <th class="borsa-italiana">
-		                                    Supporto
-		                                </th>
-		                                <th class="borsa-italiana">
-		                                    Resistenza
-		                                </th>
-		                                <th class="borsa-italiana">
-		                                    FTA Rank
-		                                </th>
-		                            </tr>
-		                        </thead>
-		                        <tbody>
-		                            <tr>
-		                                <td>
-		                                    <%= @analisis.borsa_italiana_support %>
-		                                </td>
-		                                <td>
-		                                    <%= @analisis.borsa_italiana_resistance %>
-		                                </td>
-		                                <td>
-		                                    <%= @analisis.borsa_italiana_fta %>
-		                                </td>
-		                            </tr>
-		                        </tbody>
-		                    </table>
-						<% end %>
-	                    <div class="pr-section borsa-italiana">
-	                    </div>
-	                </section>
+		                    <div class="pr-section borsa-italiana">
+		                    </div>
+		                </section>
 					
-	                <section class="ext-source" id="il-sole-24-ore">
-	                    <h3>Analisi da: <%= image_tag 'il-sole-24-ore-logo-big.png', class: 'img-logo', alt: 'Logo Il Sole 24 Ore', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Il Sole 24 Ore"' %></h3>                  
-						<div>
-							<% if @urlSole24Ore %>
-		                        Fonte: <a href="<%= @urlSole24Ore %>" title="Vai alla analisi titolo su &quot;Il Sole 24 Ore&quot;">Il Sole 24 Ore</a>	                    
+		                <section class="ext-source" id="il-sole-24-ore">
+		                    <h3>Analisi da: <%= image_tag 'il-sole-24-ore-logo-big.png', class: 'img-logo', alt: 'Logo Il Sole 24 Ore', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Il Sole 24 Ore"' %></h3>                  
+							<div>
+								<% if @urlSole24Ore %>
+			                        Fonte: <a href="<%= @urlSole24Ore %>" title="Vai alla analisi titolo su &quot;Il Sole 24 Ore&quot;">Il Sole 24 Ore</a>	                    
+								<% end %>
+							</div>
+		                    <% if @analisis %>
+			                    <table class="tablesorter nojs">
+			                        <thead>
+			                            <tr>
+			                                <th class="sole-24-ore">
+			                                    Supporto
+			                                </th>
+			                                <th class="sole-24-ore">
+			                                    Resistenza
+			                                </th>
+			                                <th class="sole-24-ore">
+			                                    Short trend
+			                                </th>
+			                                <th class="sole-24-ore">
+			                                    FTA
+			                                </th>
+			                                <th class="sole-24-ore">
+			                                    RSI
+			                                </th>
+			                                <th class="sole-24-ore">
+			                                    Divergenza RSI
+			                                </th>
+			                            </tr>
+			                        </thead>
+			                        <tbody>
+			                            <tr>
+			                                <td>
+			                                    <%= @analisis.xxivore_support %>
+			                                </td>
+			                                <td>
+			                                    <%= @analisis.xxivore_resistance %>
+			                                </td>
+			                                <td>
+			                                    <%= @analisis.xxivore_shorttrend %>
+			                                </td>
+			                                <td>
+			                                    <%= @analisis.xxivore_ftaindex %>
+			                                </td>
+			                                <td>
+			                                    <%= @analisis.xxivore_rsi %>
+			                                </td>
+			                                <td>
+			                                    <%= @analisis.xxivore_rsidiv %>
+			                                </td>
+			                            </tr>
+			                        </tbody>
+			                    </table>
 							<% end %>
-						</div>
-	                    <% if @analisis %>
-		                    <table class="tablesorter nojs">
-		                        <thead>
-		                            <tr>
-		                                <th class="sole-24-ore">
-		                                    Supporto
-		                                </th>
-		                                <th class="sole-24-ore">
-		                                    Resistenza
-		                                </th>
-		                                <th class="sole-24-ore">
-		                                    Short trend
-		                                </th>
-		                                <th class="sole-24-ore">
-		                                    FTA
-		                                </th>
-		                                <th class="sole-24-ore">
-		                                    RSI
-		                                </th>
-		                                <th class="sole-24-ore">
-		                                    Divergenza RSI
-		                                </th>
-		                            </tr>
-		                        </thead>
-		                        <tbody>
-		                            <tr>
-		                                <td>
-		                                    <%= @analisis.xxivore_support %>
-		                                </td>
-		                                <td>
-		                                    <%= @analisis.xxivore_resistance %>
-		                                </td>
-		                                <td>
-		                                    <%= @analisis.xxivore_shorttrend %>
-		                                </td>
-		                                <td>
-		                                    <%= @analisis.xxivore_ftaindex %>
-		                                </td>
-		                                <td>
-		                                    <%= @analisis.xxivore_rsi %>
-		                                </td>
-		                                <td>
-		                                    <%= @analisis.xxivore_rsidiv %>
-		                                </td>
-		                            </tr>
-		                        </tbody>
-		                    </table>
-						<% end %>
-	                    <div class="pr-section sole-24-ore">
-	                    </div>
-	                </section>
+		                    <div class="pr-section sole-24-ore">
+		                    </div>
+		                </section>
 					
-	                <section class="ext-source" id="la-repubblica">
-	                    <h3>Analisi da: <%= image_tag 'la-repubblica-logo-big.png', class: 'img-logo', alt: 'Logo La Repubblica', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "La Repubblica"' %></h3>
-	                    <div>
-							<% if @urlLaRepubblica and @urlLaRepubblica2 %>	                    
-		                        Fonte: <a href="<%= @urlLaRepubblica %>" title="Vai alla analisi titolo su &quot;La Repubblica&quot;">La Repubblica</a>	                     
+		                <section class="ext-source" id="la-repubblica">
+		                    <h3>Analisi da: <%= image_tag 'la-repubblica-logo-big.png', class: 'img-logo', alt: 'Logo La Repubblica', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "La Repubblica"' %></h3>
+		                    <div>
+								<% if @urlLaRepubblica and @urlLaRepubblica2 %>	                    
+			                        Fonte: <a href="<%= @urlLaRepubblica %>" title="Vai alla analisi titolo su &quot;La Repubblica&quot;">La Repubblica</a>	                     
+								<% end %>
+							</div>
+		                    <% if @analisis %>
+		                    <!--Nessun dato su supporto e resistenza da Repubblica-->
 							<% end %>
-						</div>
-	                    <% if @analisis %>
-	                    <!--Nessun dato su supporto e resistenza da Repubblica-->
-						<% end %>
-	                    <div class="pr-section la-repubblica">
-	                    </div>
-	                </section>
+		                    <div class="pr-section la-repubblica">
+		                    </div>
+		                </section>
 					
-	                <section class="ext-source" id="investing">
-	                    <h3>Analisi da: <%= image_tag 'investing-logo-big.png', class: 'img-logo', alt: 'Logo Investing', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Investing.com"' %></h3>
-	                    <div>
-							<% if @urlInvesting %>                    
-		                        Fonte: <a href="<%= @urlInvesting %>" title="Vai alla analisi titolo su &quot;Investing.com&quot;">Investing.com</a>
+		                <section class="ext-source" id="investing">
+		                    <h3>Analisi da: <%= image_tag 'investing-logo-big.png', class: 'img-logo', alt: 'Logo Investing', title: 'Analisi tecnica del titolo ' + @stock.name + ' da "Investing.com"' %></h3>
+		                    <div>
+								<% if @urlInvesting %>                    
+			                        Fonte: <a href="<%= @urlInvesting %>" title="Vai alla analisi titolo su &quot;Investing.com&quot;">Investing.com</a>
+								<% end %>
+							</div>
+		                    <% if @analisis %>
+			                    <table class="tablesorter nojs">
+			                        <thead>
+			                            <tr>
+			                                <th class="investing">
+			                                    Giudizio
+			                                </th>
+			                            </tr>
+			                        </thead>
+			                        <tbody>
+			                            <tr>
+			                                <td>
+			                                    <% if @analisis.investing_dotcomrating %>
+			                                    <span class="investing-response buy">BUY</span>
+			                                    <% else %>
+			                                    <span class="investing-response wait">WAIT</span>
+			                                    <% end %>
+			                                </td>
+			                            </tr>
+			                        </tbody>
+			                    </table>
 							<% end %>
-						</div>
-	                    <% if @analisis %>
-		                    <table class="tablesorter nojs">
-		                        <thead>
-		                            <tr>
-		                                <th class="investing">
-		                                    Giudizio
-		                                </th>
-		                            </tr>
-		                        </thead>
-		                        <tbody>
-		                            <tr>
-		                                <td>
-		                                    <% if @analisis.investing_dotcomrating %>
-		                                    <span class="investing-response buy">BUY</span>
-		                                    <% else %>
-		                                    <span class="investing-response wait">WAIT</span>
-		                                    <% end %>
-		                                </td>
-		                            </tr>
-		                        </tbody>
-		                    </table>
-						<% end %>
-	                    <div class="pr-section investing">
-	                    </div>
-	                </section>
+		                    <div class="pr-section investing">
+		                    </div>
+		                </section>
 					
-	                <section class="ext-source" id="milano-finanza">
-	                    <h3>Analisi da: <%= image_tag 'milano-finanza-logo-big.png', class: 'img-logo', alt: 'Logo Milano Finanza', title: 'Analisi tecnica del titolo da "Milano Finanza"' %></h3>
-	                    <div>
-							<% if @urlMilanoFinanza and @urlMilanoFinanza2 %>
-		                        Fonte: <a href="<%= @urlMilanoFinanza %>" title="Vai alla analisi titolo su &quot;Milano Finanza&quot;">Milano Finanza</a>
-		                        and <a href="<%= @urlMilanoFinanza2 %>" title="Vai alla analisi titolo su &quot;Milano Finanza&quot;">Milano Finanza</a>                    
+		                <section class="ext-source" id="milano-finanza">
+		                    <h3>Analisi da: <%= image_tag 'milano-finanza-logo-big.png', class: 'img-logo', alt: 'Logo Milano Finanza', title: 'Analisi tecnica del titolo da "Milano Finanza"' %></h3>
+		                    <div>
+								<% if @urlMilanoFinanza and @urlMilanoFinanza2 %>
+			                        Fonte: <a href="<%= @urlMilanoFinanza %>" title="Vai alla analisi titolo su &quot;Milano Finanza&quot;">Milano Finanza</a>
+			                        and <a href="<%= @urlMilanoFinanza2 %>" title="Vai alla analisi titolo su &quot;Milano Finanza&quot;">Milano Finanza</a>                    
+								<% end %>
+							</div>
+		                    <% if @analisis %>
+			                    <table class="tablesorter nojs">
+			                        <thead>
+			                            <tr>
+			                                <th class="milano-finanza">
+			                                    Risk
+			                                </th>
+			                                <th class="milano-finanza">
+			                                    Rating
+			                                </th>
+			                            </tr>
+			                        </thead>
+			                        <tbody>
+			                            <tr>
+			                                <td>
+			                                    <%= @analisis.milano_finanza_risk %>
+			                                </td>
+			                                <td>
+			                                    <%= @analisis.milano_finanza_rating %>
+			                                </td>
+			                            </tr>
+			                        </tbody>
+			                    </table>
 							<% end %>
-						</div>
-	                    <% if @analisis %>
-		                    <table class="tablesorter nojs">
-		                        <thead>
-		                            <tr>
-		                                <th class="milano-finanza">
-		                                    Risk
-		                                </th>
-		                                <th class="milano-finanza">
-		                                    Rating
-		                                </th>
-		                            </tr>
-		                        </thead>
-		                        <tbody>
-		                            <tr>
-		                                <td>
-		                                    <%= @analisis.milano_finanza_risk %>
-		                                </td>
-		                                <td>
-		                                    <%= @analisis.milano_finanza_rating %>
-		                                </td>
-		                            </tr>
-		                        </tbody>
-		                    </table>
-						<% end %>
-	                    <div class="pr-section milano-finanza">
-	                    </div>
-	                </section>
+		                    <div class="pr-section milano-finanza">
+		                    </div>
+		                </section>
 					
-	                <section class="ext-source" id="soldi-on-line">
-	                    <h3>Analisi da: <%= image_tag 'soldi-on-line-logo-big.png', class: 'img-logo', alt: 'Logo Soldi On Line', title: 'Analisi tecnica del titolo da "Soldi On Line"' %></h3>
-	                    <div>
-							<% if @urlSoldiOnLine %>	                    
-		                        Fonte: <a href="<%= @urlSoldiOnLine %>" title="Vai alla analisi titolo su &quot;Soldi On Line&quot;">Soldi On Line</a>	                    
-							<% end %>
-						</div>
-	                    <div class="pr-section soldionline">
-	                    </div>
-	                </section>
+		                <section class="ext-source" id="soldi-on-line">
+		                    <h3>Analisi da: <%= image_tag 'soldi-on-line-logo-big.png', class: 'img-logo', alt: 'Logo Soldi On Line', title: 'Analisi tecnica del titolo da "Soldi On Line"' %></h3>
+		                    <div>
+								<% if @urlSoldiOnLine %>	                    
+			                        Fonte: <a href="<%= @urlSoldiOnLine %>" title="Vai alla analisi titolo su &quot;Soldi On Line&quot;">Soldi On Line</a>	                    
+								<% end %>
+							</div>
+		                    <div class="pr-section soldionline">
+		                    </div>
+		                </section>
+					</div>
 										
 				
 				</section>

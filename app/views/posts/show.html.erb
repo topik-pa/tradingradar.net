@@ -23,9 +23,32 @@
 				    </div>
 		        </div>                
                 
-                <h2 class="text-center"><%= @post.title %></h2>
-                <h5 class="text-center"><%= @post.created_at.strftime('%b %d, %Y') %></h5>
-                <div><%= raw(@post.body) %></div>
+				<div itemscope itemtype="http://schema.org/BlogPosting" >
+	                <h2 itemprop="headline" class="text-center"><%= @post.title %></h2>
+					
+	                <h5 class="text-center">
+	                	<time datetime="<%= @post.created_at.strftime("%Y-%m-%dT%H:%M") %>" itemprop="datePublished" ><%= @post.created_at.strftime('%b %d, %Y') %></time>
+						<meta itemprop="dateModified" content="<%= @post.created_at.strftime("%Y-%m-%dT%H:%M") %>"/>
+					</h5>
+					
+					<div class="text-center italic" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				      <span itemprop="name">Marco Pavan</span>
+				      <meta itemprop="image" content="http://www.marcopavan.org/images/Profile_Image.jpg"/>
+				      <meta itemprop="sameAs" content="https://www.facebook.com/marco.zamolopavan"/>
+				    </div>
+					
+					<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+					    <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+					      <meta itemprop="url" content="http://www.tradingradar.net/images/trading-radar-logo-small-alpha.png">
+					      <meta itemprop="width" content="70">
+					      <meta itemprop="height" content="66">
+					    </div>
+					    <meta itemprop="name" content="Trading Radar">
+					    <meta itemprop="url" content="http://www.tradingradar.net">
+				  	</div>
+					  
+	                <div><%= raw(@post.body) %></div>
+				</div>
 
 
 				<% if @nextPost != nil %>
