@@ -1,4 +1,67 @@
 Rails.application.routes.draw do
+  get 'guida_analisi_tecnica/index'
+
+  get 'guida_analisi_tecnica/leFasiDelMercato'
+
+  get 'guida_analisi_tecnica/ilTrend'
+
+  get 'guida_analisi_tecnica/laTrendline'
+
+  get 'guida_analisi_tecnica/inversioneDiTrend'
+
+  get 'guida_analisi_tecnica/figureGrafiche'
+
+  get 'guida_analisi_tecnica/testaESpalla'
+
+  get 'guida_analisi_tecnica/doppioTriploMinimoMassimo'
+
+  get 'guida_analisi_tecnica/spike'
+
+  get 'guida_analisi_tecnica/triangoliFlagPennantRettangoli'
+
+  get 'guida_analisi_tecnica/candeleGiapponesi'
+
+  get 'guida_analisi_tecnica/standardELong'
+
+  get 'guida_analisi_tecnica/marubozu'
+
+  get 'guida_analisi_tecnica/harami'
+
+  get 'guida_analisi_tecnica/doji'
+
+  get 'guida_analisi_tecnica/configurazioniCandlestick'
+
+  get 'guida_analisi_tecnica/bullishBearishEngulfing'
+
+  get 'guida_analisi_tecnica/morningEveningStar'
+
+  get 'guida_analisi_tecnica/hammerShootingStar'
+
+  get 'guida_analisi_tecnica/hangingMan'
+
+  get 'guida_analisi_tecnica/gap'
+
+  get 'guida_analisi_tecnica/oscillatori'
+
+  get 'guida_analisi_tecnica/rsi'
+
+  get 'guida_analisi_tecnica/macd'
+
+  get 'guida_analisi_tecnica/stocastico'
+
+  get 'guida_analisi_tecnica/bandeDiBollinger'
+  #get 'xyz' => 'guida_analisi_tecnica#bandeDiBollinger'
+
+  get 'guida_analisi_tecnica/indicatori'
+
+  get 'guida_analisi_tecnica/medieMobili'
+
+  get 'guida_analisi_tecnica/volumi'
+
+  get 'guida_analisi_tecnica/ondeDiElliot'
+
+  get 'guida_analisi_tecnica/ritracciamentiDiFibonacci'
+
   mount Ckeditor::Engine => '/ckeditor'
   get 'chi_siamo/index'
   get 'chi_siamo/' => 'chi_siamo#index'
@@ -73,6 +136,68 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   
   Rails.application.routes.draw do
+  get 'guida_analisi_tecnica/index'
+
+  get 'guida_analisi_tecnica/leFasiDelMercato'
+
+  get 'guida_analisi_tecnica/ilTrend'
+
+  get 'guida_analisi_tecnica/laTrendline'
+
+  get 'guida_analisi_tecnica/inversioneDiTrend'
+
+  get 'guida_analisi_tecnica/figureGrafiche'
+
+  get 'guida_analisi_tecnica/testaESpalla'
+
+  get 'guida_analisi_tecnica/doppioTriploMinimoMassimo'
+
+  get 'guida_analisi_tecnica/spike'
+
+  get 'guida_analisi_tecnica/triangoliFlagPennantRettangoli'
+
+  get 'guida_analisi_tecnica/candeleGiapponesi'
+
+  get 'guida_analisi_tecnica/standardELong'
+
+  get 'guida_analisi_tecnica/marubozu'
+
+  get 'guida_analisi_tecnica/harami'
+
+  get 'guida_analisi_tecnica/doji'
+
+  get 'guida_analisi_tecnica/configurazioniCandlestick'
+
+  get 'guida_analisi_tecnica/bullishBearishEngulfing'
+
+  get 'guida_analisi_tecnica/morningEveningStar'
+
+  get 'guida_analisi_tecnica/hammerShootingStar'
+
+  get 'guida_analisi_tecnica/hangingMan'
+
+  get 'guida_analisi_tecnica/gap'
+
+  get 'guida_analisi_tecnica/oscillatori'
+
+  get 'guida_analisi_tecnica/rsi'
+
+  get 'guida_analisi_tecnica/macd'
+
+  get 'guida_analisi_tecnica/stocastico'
+
+  get 'guida_analisi_tecnica/bandeDiBollinger'
+
+  get 'guida_analisi_tecnica/indicatori'
+
+  get 'guida_analisi_tecnica/medieMobili'
+
+  get 'guida_analisi_tecnica/volumi'
+
+  get 'guida_analisi_tecnica/ondeDiElliot'
+
+  get 'guida_analisi_tecnica/ritracciamentiDiFibonacci'
+
     #mount Ckeditor::Engine => '/ckeditor'
     #root to: "posts#index"
   
