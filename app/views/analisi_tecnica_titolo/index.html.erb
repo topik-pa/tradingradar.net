@@ -2,7 +2,7 @@
 	<% title @stock.name + ': notizie, analisi, dividendi, target price' %>
 	<% meta_tag :description, 'Rassegna stampa, notizie, dividenti, rating, target e strategie per il titolo ' +  @stock.name %>
 	<% meta_tag :keywords, @stock.name + ', titolo, analisi, tecnica, trading, dividendo, rating, strategie, Borsa, Milano' %>
-	<% meta_tag :canonical, request.original_url %>
+	<% meta_tag :canonical, request.base_url + '/' + controller_name + '/' + action_name + '/' + '?isin=' + @isin %>
 	
 <% else %>	
 	<% title 'Le migliori azioni della Borsa di Milano' %>
