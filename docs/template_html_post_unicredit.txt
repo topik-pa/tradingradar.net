@@ -1,0 +1,242 @@
+<p class="logo">
+   <a href="/posts/8"><img alt="Logo di Unicredit - UCG.MI" src="/images/logos/UCG.png" style="width:176px" /></a>
+</p>
+
+<p class="intro">
+   Il titolo sta compiendo una lenta risalita che dai valori di luglio 2016 ha portato i prezzi ad un massimo di 18,2 &euro; nell&apos;agosto di quest&apos;anno. Da quel momento un trend ribassista ha abbassato il valore della quotazione fino al minimo di 16,00 &euro; (08/11). <br/>
+   Il nuovo <strong>trend ribassista, rotto dalla candela di venerd&igrave; scorso</strong> (08/12), potrebbe configurarsi come un <strong>rettangolo</strong> (pattern di continuazione rialzista) che prelude ad un nuovo slancio rialzista di ampiezza uguale a quello in precedenza interrotto.
+</p>
+
+<p>&nbsp;</p>
+
+<h2>Trend attuale: <em>trend rialzista</em>&nbsp;<img alt="Trend attuale: rialzista" src="/images/up-arrow.png" style="height:16px; width:16px" /></h2>
+
+<p>
+   Nella figura in fondo, <strong>il trend evidenziato <span class="ref">1</span> &egrave; di tipo secondario (ampiezza 18 mesi) rialzista</strong>.<br/>
+   C&apos;&egrave; <strong>una violazione al ribasso della trendline</strong> <span class="ref">2</span> con creazione di un gap down, ma i prezzi torneranno all&apos;interno del canale nel giro di pochi giorni compiendo un movimento inverso (tipico della false violazioni del trend) che porteranno i prezzi a testarne la resistenza (che questa volta regge egregiamente).<br/>
+   Il movimento dei prezzi nel canale in figura &egrave; contrastato da almeno <strong>due resistenze statiche</strong>:
+   <ul>
+      <li>la resistenza a livello 18 &euro; <span class="ref">3</span> (sui livelli di prezzo attuali)</li>
+      <li>la resistenza a livello 20.7 &euro; <span class="ref">4</span></li>
+   </ul>
+</p>
+
+<h2>Trend minore: <em>ribassista</em>&nbsp;<img alt="Trend minore: ribassista" src="/images/down-arrow.png" style="height:16px; width:16px" /></h2>
+<p>
+   All&apos;interno del trend secondario (descritto nel paragrafo precedente) da agosto di quest&apos;anno si &egrave; delineato un <strong>trend minore ribassista</strong> che dai massimi di 18,3 &euro; ha portato le quotazioni a 16,1 &euro;, incontrando qui il supporto del trend genitore la cui influenza ha permesso al prezzo di intraprendere <strong>un nuovo movimento rialzista</strong> (che segue il profilo del supporto del canale maggiore) <span class="ref">5</span>.  
+</p>
+
+<h2>Rottura della resistenza del trend minore: <em>rottura al rialzo del trend</em>&nbsp;<img alt="Rottura resistenza del trend minore" src="/images/up-arrow.png" style="height:16px; width:16px" /></h2>
+<p>
+   Con l&apos;ultima seduta della settimana appena trascorsa abbiamo assistito ad una <strong>giornata di forti acquisti</strong> che partendo da un <strong>gap up in apertura</strong> di contrattazioni ha portato successivamente il prezzo a <strong>sfondare la resistenza del trend minore</strong> e finire la sua corsa a ridosso della resisteza statica a 18 &euro;.<br/>
+   &Egrave; ancora presto per definire la rottura come valida conclusione del trend minore e prosecuzione del precedente trend rialzista, ma i primi segnali confermerebbero questa ipotesi:
+   <ul>
+      <li>l&apos;8 novembre una <strong>candela hammer</strong> (sull&apos; incrocio dei supporti del canale secondario e minore) <span class="ref">6</span> d&agrave; inizio al movimento rialzista che vediamo negli ultimi giorni;</li>
+      <li>con l&apos; avvicinarsi del cuneo delimitato dal supporto del canale secondario e della resistenza del canale minore <span class="ref">7</span>, assistiamo alla formazione di <strong>due candele long green</strong> e di un <strong>gap up</strong> che testimoniano come <strong>siano i compratori a prevalere</strong> in questo momento;</li>
+      <li>(attenzione): nonostante l&apos;attuale momento di forza, il gap up creatosi venerd&igrave; potrebbe essere unmotivo per una veloce correzzione dei prezzi nei prossimi giorni.</li>
+   </ul>
+</p>
+
+<h2>Volumi: <em>l&apos;ultima giornata positiva vede un aumento dei volumi</em>&nbsp;<img alt="Volumi in aumento nell&apos; ultima gionata" src="/images/up-arrow.png" style="height:16px; width:16px" /></h2>
+<p>
+   I volumi dell&apos; ultima giornata (venerdì scorso) <span class="ref">7</span> vedono i <strong>volumi quasi raddoppiati</strong> rispetto alla media a 20 periodi, ma ci&ograve; che pi&ugrave; risalta &egrave; il <strong>basso livello di scambi avuti durante tutto il delinearsi del trend minore</strong>.<br/>
+   In questo caso, il trend minore descritto in precedenza verrebbe a delinearsi come <strong>rettangolo</strong> (<strong>pattern di continuazione rialzista</strong>) che interrompe brevemente il trend secondario prima di rimprendere il suo precedente corso rialzista.
+</p>
+
+<h2>Medie: <em>una breve inversione ribassista subito corretta</em>&nbsp;<img alt="Medie in linea con il trend rialzista" src="/images/up-arrow.png" style="height:16px; width:16px" /></h2>
+<p>
+   Le medie disegnate nel grafico sono quelle esponenziali a 25 e 50 periodi. Durante il trend secondario la media veloce (rossa) &egrave; rimasta sopra quella pi&ugrave; lenta (blu) confermando il trend rialzista.<br/>
+   Il 27 ottobre <span class="ref">7</span> si &egrave; assistito ad una <strong>inversione della posizione delle due medie</strong> (<strong>segnale di inversione di trend</strong>), ma gli scambi delle successive giornate hanno ristabilito il precedente ordine tra le medie ed espresso un rinnovato segnale rialzista.
+</p>
+
+<p>&nbsp;</p>
+
+
+
+<h2>Grafico Unicredit</h2>
+<p>&nbsp;</p>
+
+<div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+    <img alt="Analisi grafica Unicredit" class="study-image" itemprop="url" src="/images/studies/UCG.png" style="height:484px; width:1024px" />
+    <meta itemprop="width" content="1024"/>
+    <meta itemprop="height" content="484"/>
+</div>
+  
+<p>&nbsp;</p>
+
+
+
+<h2>Rassegna stampa Unicredit</h2>
+<p>&nbsp;</p>
+
+<h3 class="sol24">Il Sole 24 Ore</h3>
+<table border="1" cellpadding="2" cellspacing="2">
+	<thead>
+		<tr>
+			<th>Supporto</th>
+			<th>Resistenza</th>
+			<th>Short trend</th>
+			<th>FTA</th>
+			<th>RSI</th>
+			<th>Divergenza RSI</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>17.088</td>
+			<td>17.382</td>
+			<td>molto rialzista</td>
+			<td>19.0</td>
+			<td>65.0</td>
+			<td>neutrale</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<h4>Sintesi analisi tecnica</h4>
+<table border="1" cellpadding="2" cellspacing="2" style="width:100%">
+	<tbody>
+		<tr>
+			<td colspan="2">Breve termine</td>
+		</tr>
+		<tr>
+			<td>Titolo</td>
+			<td><strong>UNICREDIT</strong></td>
+		</tr>
+		<tr>
+			<td>Segnale di oggi</td>
+			<td><img src="http://www.tradingradar.net/xp/FinanzaMercatiUser/img/si.gif" /><img src="http://www.tradingradar.net/xp/FinanzaMercatiUser/img/si.gif" /><img src="http://www.tradingradar.net/xp/FinanzaMercatiUser/img/bomba_v.gif" /></td>
+		</tr>
+		<tr>
+			<td>Segnale di ieri</td>
+			<td><img src="http://www.tradingradar.net/xp/FinanzaMercatiUser/img/si.gif" /></td>
+		</tr>
+		<tr>
+			<td>Tendenza di breve (3-5 gg.)</td>
+			<td>Forte rialzo</td>
+		</tr>
+		<tr>
+			<td>Strategia portafoglio</td>
+			<td>Incrementare</td>
+		</tr>
+		<tr>
+			<td>Obiettivo per oggi</td>
+			<td>17.822</td>
+		</tr>
+		<tr>
+			<td>Stop loss per oggi</td>
+			<td>16.918</td>
+		</tr>
+		<tr>
+			<td>Risk</td>
+			<td>2.3</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<h3 class="inv">Investing.com</h3>
+<table border="1" cellpadding="3" cellspacing="3">
+       
+   <thead>
+              
+      <tr>
+                     
+         <th>Tipo</th>
+                     
+         <th>5 min</th>
+                     
+         <th>15 min</th>
+                     
+         <th>Ogni ora</th>
+                     
+         <th>Giornaliero</th>
+                     
+         <th>Mensile</th>
+                 
+      </tr>
+          
+   </thead>
+       
+   <tbody>
+              
+      <tr>
+                     
+         <td>Media Mobile</td>
+                     
+         <td>Compra</td>
+                     
+         <td>Compra</td>
+                     
+         <td>Compra</td>
+                     
+         <td>Compra</td>
+                     
+         <td>Neutrale</td>
+                 
+      </tr>
+              
+      <tr>
+                     
+         <td>Indicatori Tecnici</td>
+                     
+         <td>Compra Adesso</td>
+                     
+         <td>Compra Adesso</td>
+                     
+         <td>Compra Adesso</td>
+                     
+         <td>Compra Adesso</td>
+                     
+         <td>Compra</td>
+                 
+      </tr>
+              
+      <tr>
+                     
+         <td>Riassunto</td>
+                     
+         <td>Compra Adesso</td>
+                     
+         <td>Compra Adesso</td>
+                     
+         <td>Compra Adesso</td>
+                     
+         <td>Compra Adesso</td>
+                     
+         <td>Neutrale</td>
+                 
+      </tr>
+          
+   </tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<h3 class="mf">Milano Finanza</h3>
+<p><a href="https://www.milanofinanza.it/news/unicredit-violento-strappo-rialzista-ma-con-gap-201712081423467159">Unicredit: violento strappo rialzista, ma con gap</a></p>
+
+<p>&nbsp;</p>
+
+<h3 class="sol">Soldi on Line</h3>
+<p><a href="http://www.soldionline.it/notizie/azioni-italia/borsa-italiana-commento-giornata-8-dicembre-2017">Piazza Affari, fanno festa le banche</a></p>
+
+<p>&nbsp;</p>
+
+<p>Per tutte le altre info vai alla <a itemprop="mainEntityOfPage" href="http://www.tradingradar.net/analisi_tecnica_titolo/index?Unicredit&isin=IT0005239360">pagina di Unicredit</a>.</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p class="not-my-fault"><em>Operare in Borsa e fare trading costituiscono azioni ad alto rischio: le informazioni qui presentate non costituiscono una sollecitazione all&#39;acquisto o alla vendita di titoli azionari. Il proprietario del presente sito non si dichiara responsabile di un utilizzo improprio delle informazioni qui ottenute.</em></p>
+
+<p>&nbsp;</p>
+
+<div class="fb-like" data-href="http://www.tradingradar.net/posts/8" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+<div id="fb-comments-wrapper">
+   <div class="fb-comments" data-href="http://www.tradingradar.net/posts/8" data-numposts="15"></div>
+</div>
